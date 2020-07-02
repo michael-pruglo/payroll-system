@@ -1,0 +1,1 @@
+-isystem C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googlemock/include -isystem C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googlemock -isystem C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googletest/include -isystem C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googletest 
