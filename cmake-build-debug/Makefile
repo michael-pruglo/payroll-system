@@ -233,6 +233,60 @@ gtest_main/fast:
 	$(MAKE) -f tests\lib\googletest\CMakeFiles\gtest_main.dir\build.make tests/lib/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/Employee.obj: src/Employee.cpp.obj
+
+.PHONY : src/Employee.obj
+
+# target to build an object file
+src/Employee.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee.cpp.obj
+.PHONY : src/Employee.cpp.obj
+
+src/Employee.i: src/Employee.cpp.i
+
+.PHONY : src/Employee.i
+
+# target to preprocess a source file
+src/Employee.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee.cpp.i
+.PHONY : src/Employee.cpp.i
+
+src/Employee.s: src/Employee.cpp.s
+
+.PHONY : src/Employee.s
+
+# target to generate assembly for a file
+src/Employee.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee.cpp.s
+.PHONY : src/Employee.cpp.s
+
+src/PayrollDatabase.obj: src/PayrollDatabase.cpp.obj
+
+.PHONY : src/PayrollDatabase.obj
+
+# target to build an object file
+src/PayrollDatabase.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj
+.PHONY : src/PayrollDatabase.cpp.obj
+
+src/PayrollDatabase.i: src/PayrollDatabase.cpp.i
+
+.PHONY : src/PayrollDatabase.i
+
+# target to preprocess a source file
+src/PayrollDatabase.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.i
+.PHONY : src/PayrollDatabase.cpp.i
+
+src/PayrollDatabase.s: src/PayrollDatabase.cpp.s
+
+.PHONY : src/PayrollDatabase.s
+
+# target to generate assembly for a file
+src/PayrollDatabase.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.s
+.PHONY : src/PayrollDatabase.cpp.s
+
 src/main.obj: src/main.cpp.obj
 
 .PHONY : src/main.obj
@@ -278,6 +332,12 @@ help:
 	@echo ... gmock
 	@echo ... gtest
 	@echo ... gtest_main
+	@echo ... src/Employee.obj
+	@echo ... src/Employee.i
+	@echo ... src/Employee.s
+	@echo ... src/PayrollDatabase.obj
+	@echo ... src/PayrollDatabase.i
+	@echo ... src/PayrollDatabase.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

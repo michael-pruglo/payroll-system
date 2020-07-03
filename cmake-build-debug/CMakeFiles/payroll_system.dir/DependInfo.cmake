@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/mickl/ClionProjects/payroll-system/src/Employee.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/Employee.cpp.obj"
+  "C:/Users/mickl/ClionProjects/payroll-system/src/PayrollDatabase.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/src/main.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -10,3 +10,8 @@ This system consists of a database of employees in the company and their associa
 - Some of the salaried employees are also paid a commission based on their sales. They submit sales receipts that record the date and the amount of the sale. Their commission rate is a field in their employee record. They are paid every other Friday. Employees can select their method of payment. They may have their paychecks mailed to the postal address of their choice; they may have their paychecks help for pickup by the Paymaster; or they can request that their paychecks be directly deposited into the bank account of their choice.
 - Some employees belong to the union. Their employee record has a field for the weekly dues rate. Their dues must be deducted from their pay. Also, the union may assess service charges agains individual union members from time to time. These service charges are submitted by the union on a weekly basis and must be deducted from the appropriate employee's next pay amount.
 - The payroll application will run once each working day and pay the appropriate employees on that day. The system will be told to what date the employees are to be paid, so it will calculate payments from the last time the employee was paid up to the specified date.
+
+## Patterns:
+- `Transaction` is a **Command**
+![](docs/diagrams/TransactionInterface.JPG)
+![](docs/diagrams/Static%20model%20of%20AddEmployee%20transaction.JPG)

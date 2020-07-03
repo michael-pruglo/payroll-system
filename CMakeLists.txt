@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(tests)
 
-add_executable(payroll_system src/main.cpp)
+add_executable(payroll_system src/main.cpp src/Transaction.hpp src/Employee.cpp src/Employee.hpp src/PayrollDatabase.cpp src/PayrollDatabase.hpp)

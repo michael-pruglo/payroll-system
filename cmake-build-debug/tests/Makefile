@@ -170,6 +170,33 @@ google_test/fast:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/build
 .PHONY : google_test/fast
 
+DatabaseTest.obj: DatabaseTest.cpp.obj
+
+.PHONY : DatabaseTest.obj
+
+# target to build an object file
+DatabaseTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj
+.PHONY : DatabaseTest.cpp.obj
+
+DatabaseTest.i: DatabaseTest.cpp.i
+
+.PHONY : DatabaseTest.i
+
+# target to preprocess a source file
+DatabaseTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.i
+.PHONY : DatabaseTest.cpp.i
+
+DatabaseTest.s: DatabaseTest.cpp.s
+
+.PHONY : DatabaseTest.s
+
+# target to generate assembly for a file
+DatabaseTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.s
+.PHONY : DatabaseTest.cpp.s
+
 test.obj: test.cpp.obj
 
 .PHONY : test.obj
@@ -210,6 +237,9 @@ help:
 	@echo ... rebuild_cache
 	@echo ... list_install_components
 	@echo ... install/strip
+	@echo ... DatabaseTest.obj
+	@echo ... DatabaseTest.i
+	@echo ... DatabaseTest.s
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s

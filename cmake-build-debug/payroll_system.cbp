@@ -384,8 +384,26 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/PayrollDatabase.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/PayrollDatabase.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transaction.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/main.cpp">
 			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp">
+			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
