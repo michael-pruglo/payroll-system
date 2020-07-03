@@ -384,6 +384,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/AddEmployeeTransaction.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/AddEmployeeTransaction.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee.cpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -401,6 +407,9 @@
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/main.cpp">
 			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp">
+			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp">
 			<Option target="google_test"/>

@@ -15,3 +15,7 @@ This system consists of a database of employees in the company and their associa
 - `Transaction` is a **Command**
 ![](docs/diagrams/TransactionInterface.JPG)
 ![](docs/diagrams/Static%20model%20of%20AddEmployee%20transaction.JPG)
+
+-`PayrollDatabase` is a **Facade**
+
+-`AddEmployeeTransaction` uses a **Template Method**

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj"
   "CMakeFiles/google_test.dir/DatabaseTest.cpp.obj"
   "CMakeFiles/google_test.dir/test.cpp.obj"
   "google_test.exe"

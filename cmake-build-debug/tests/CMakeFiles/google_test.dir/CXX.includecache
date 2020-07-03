@@ -6,13 +6,19 @@
 
 #IncludeRegexTransform: 
 
+../src/AddEmployeeTransaction.cpp
+AddEmployeeTransaction.hpp
+../src/AddEmployeeTransaction.hpp
+
+../src/AddEmployeeTransaction.hpp
+string
+-
+Transaction.hpp
+../src/Transaction.hpp
+
 ../src/Employee.hpp
 string
 -
-
-../src/PayrollDatabase.cpp
-PayrollDatabase.hpp
-../src/PayrollDatabase.hpp
 
 ../src/PayrollDatabase.hpp
 unordered_map
@@ -23,6 +29,8 @@ functional
 -
 Employee.hpp
 ../src/Employee.hpp
+
+../src/Transaction.hpp
 
 ../tests/lib/googletest/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h
@@ -344,13 +352,15 @@ cxxabi.h
 acxx_demangle.h
 -
 
-C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
 gtest/gtest.h
 -
+src/AddEmployeeTransaction.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.hpp
+src/AddEmployeeTransaction.cpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.cpp
 src/PayrollDatabase.hpp
 C:/Users/mickl/ClionProjects/payroll-system/tests/src/PayrollDatabase.hpp
-src/PayrollDatabase.cpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/src/PayrollDatabase.cpp
 src/Employee.hpp
 C:/Users/mickl/ClionProjects/payroll-system/tests/src/Employee.hpp
 

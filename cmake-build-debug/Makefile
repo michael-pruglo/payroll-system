@@ -233,6 +233,33 @@ gtest_main/fast:
 	$(MAKE) -f tests\lib\googletest\CMakeFiles\gtest_main.dir\build.make tests/lib/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/AddEmployeeTransaction.obj: src/AddEmployeeTransaction.cpp.obj
+
+.PHONY : src/AddEmployeeTransaction.obj
+
+# target to build an object file
+src/AddEmployeeTransaction.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/AddEmployeeTransaction.cpp.obj
+.PHONY : src/AddEmployeeTransaction.cpp.obj
+
+src/AddEmployeeTransaction.i: src/AddEmployeeTransaction.cpp.i
+
+.PHONY : src/AddEmployeeTransaction.i
+
+# target to preprocess a source file
+src/AddEmployeeTransaction.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/AddEmployeeTransaction.cpp.i
+.PHONY : src/AddEmployeeTransaction.cpp.i
+
+src/AddEmployeeTransaction.s: src/AddEmployeeTransaction.cpp.s
+
+.PHONY : src/AddEmployeeTransaction.s
+
+# target to generate assembly for a file
+src/AddEmployeeTransaction.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/AddEmployeeTransaction.cpp.s
+.PHONY : src/AddEmployeeTransaction.cpp.s
+
 src/Employee.obj: src/Employee.cpp.obj
 
 .PHONY : src/Employee.obj
@@ -332,6 +359,9 @@ help:
 	@echo ... gmock
 	@echo ... gtest
 	@echo ... gtest_main
+	@echo ... src/AddEmployeeTransaction.obj
+	@echo ... src/AddEmployeeTransaction.i
+	@echo ... src/AddEmployeeTransaction.s
 	@echo ... src/Employee.obj
 	@echo ... src/Employee.i
 	@echo ... src/Employee.s
