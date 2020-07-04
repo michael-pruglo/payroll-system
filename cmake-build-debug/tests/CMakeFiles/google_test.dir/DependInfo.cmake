@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj"
+  "C:/Users/mickl/ClionProjects/payroll-system/tests/DeleteEmployeeTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/tests/test.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/test.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

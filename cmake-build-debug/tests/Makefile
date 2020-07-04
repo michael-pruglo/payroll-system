@@ -224,6 +224,33 @@ DatabaseTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.s
 .PHONY : DatabaseTest.cpp.s
 
+DeleteEmployeeTest.obj: DeleteEmployeeTest.cpp.obj
+
+.PHONY : DeleteEmployeeTest.obj
+
+# target to build an object file
+DeleteEmployeeTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj
+.PHONY : DeleteEmployeeTest.cpp.obj
+
+DeleteEmployeeTest.i: DeleteEmployeeTest.cpp.i
+
+.PHONY : DeleteEmployeeTest.i
+
+# target to preprocess a source file
+DeleteEmployeeTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.i
+.PHONY : DeleteEmployeeTest.cpp.i
+
+DeleteEmployeeTest.s: DeleteEmployeeTest.cpp.s
+
+.PHONY : DeleteEmployeeTest.s
+
+# target to generate assembly for a file
+DeleteEmployeeTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.s
+.PHONY : DeleteEmployeeTest.cpp.s
+
 test.obj: test.cpp.obj
 
 .PHONY : test.obj
@@ -270,6 +297,9 @@ help:
 	@echo ... DatabaseTest.obj
 	@echo ... DatabaseTest.i
 	@echo ... DatabaseTest.s
+	@echo ... DeleteEmployeeTest.obj
+	@echo ... DeleteEmployeeTest.i
+	@echo ... DeleteEmployeeTest.s
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s

@@ -1,9 +1,6 @@
 #include <gtest/gtest.h>
-#include <src/Employee.hpp>
 #include "src/AddEmployeeTransaction.hpp"
 #include "src/AddEmployeeTransaction.cpp"
-#include "src/PayrollDatabase.hpp"
-#include "src/Employee.hpp"
 
 int         hId = 1,                sId = 2,                cId = 3;
 std::string hName = "Howard",       sName = "Sally",        cName = "Camilla";
@@ -60,7 +57,6 @@ void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testReturnedEmplo
     givenE = database->getEmployee(idToCheck);
     ASSERT_EQ(givenE->getName(), nameToCheck);
 }
-
 template<typename ClassificationT, typename ScheduleT>
 void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testClassificationType() const
 {
@@ -97,7 +93,7 @@ void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testMethodType() 
 
 
 
-TEST_F(AddEmployeeTest, AddHourlyEmployee)
+TEST_F(AddEmployeeTest, HourlyEmployee)
 {
     AddHourlyEmployee ht(hId, hName, hAddress, hRate);
     ASSERT_NO_THROW((AddAndRetrieveEmployeeTester<
@@ -106,7 +102,7 @@ TEST_F(AddEmployeeTest, AddHourlyEmployee)
             >().invoke(&ht, hId, hName)));
 }
 
-TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
+TEST_F(AddEmployeeTest, SalariedEmployee)
 {
     AddSalariedEmployee st(sId, sName, sAddress, sSalary);
     ASSERT_NO_THROW((AddAndRetrieveEmployeeTester<
@@ -115,7 +111,7 @@ TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
             >().invoke(&st, sId, sName)));
 }
 
-TEST_F(AddEmployeeTest, CanAddCommissionedEmployee)
+TEST_F(AddEmployeeTest, CommissionedEmployee)
 {
     AddCommissionedEmployee ct(cId, cName, cAddress, cSalary, cRate);
     ASSERT_NO_THROW((AddAndRetrieveEmployeeTester<

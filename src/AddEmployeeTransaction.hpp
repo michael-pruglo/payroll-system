@@ -1,7 +1,6 @@
 #ifndef PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
 #define PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
 
-#include <string>
 #include <memory>
 #include "Transaction.hpp"
 #include "Employee.hpp"
@@ -9,31 +8,31 @@
 class AddEmployeeTransaction : public Transaction
 {
 public:
-                 AddEmployeeTransaction(int id, std::string name, std::string address);
-    virtual      ~AddEmployeeTransaction() = default;
+                    AddEmployeeTransaction(int id, std::string name, std::string address);
+    virtual         ~AddEmployeeTransaction() = default;
 
-    virtual void execute() override;
-    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const = 0;
-    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const = 0;
+    virtual void    execute() override;
+
+    virtual std::shared_ptr<Employee::PaymentClassification>
+                    getPaymentClassification() const = 0;
+    virtual std::shared_ptr<Employee::PaymentSchedule>
+                    getPaymentSchedule() const = 0;
 
 private:
     int id;
     std::string name, address;
 };
 
+
 class AddHourlyEmployee : public AddEmployeeTransaction
 {
 public:
-    AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
-    virtual ~AddHourlyEmployee() = default;
-    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
-    {
-        return std::make_shared<Employee::HourlyClassification>(hourlyRate);
-    }
-    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const override
-    {
-        return std::make_shared<Employee::WeeklySchedule>();
-    }
+                AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
+    virtual     ~AddHourlyEmployee() = default;
+    virtual std::shared_ptr<Employee::PaymentClassification>
+                getPaymentClassification() const override;
+    virtual std::shared_ptr<Employee::PaymentSchedule>
+                getPaymentSchedule() const override;
 
 private:
     double hourlyRate;
@@ -42,16 +41,12 @@ private:
 class AddSalariedEmployee : public AddEmployeeTransaction
 {
 public:
-    AddSalariedEmployee(int id, std::string name, std::string address, double salary);
-    virtual ~AddSalariedEmployee() = default;
-    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
-    {
-        return std::make_shared<Employee::SalariedClassification>(salary);
-    }
-    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const override
-    {
-        return std::make_shared<Employee::MonthlySchedule>();
-    }
+                AddSalariedEmployee(int id, std::string name, std::string address, double salary);
+    virtual     ~AddSalariedEmployee() = default;
+    virtual std::shared_ptr<Employee::PaymentClassification>
+                getPaymentClassification() const override;
+    virtual std::shared_ptr<Employee::PaymentSchedule>
+                getPaymentSchedule() const override;
 
 private:
     double salary;
@@ -60,16 +55,12 @@ private:
 class AddCommissionedEmployee : public AddEmployeeTransaction
 {
 public:
-    AddCommissionedEmployee(int id, std::string name, std::string address, double salary, double commissionRate);
-    virtual ~AddCommissionedEmployee() = default;
-    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
-    {
-        return std::make_shared<Employee::CommissionedClassification>(salary, comissionRate);
-    }
-    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const override
-    {
-        return std::make_shared<Employee::BiweeklySchedule>();
-    }
+                AddCommissionedEmployee(int id, std::string name, std::string address, double salary, double commissionRate);
+    virtual     ~AddCommissionedEmployee() = default;
+    virtual std::shared_ptr<Employee::PaymentClassification>
+                getPaymentClassification() const override;
+    virtual std::shared_ptr<Employee::PaymentSchedule>
+                getPaymentSchedule() const override;
 
 private:
     double salary;

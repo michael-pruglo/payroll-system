@@ -390,6 +390,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/AddEmployeeTransaction.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/DeleteEmployeeTransaction.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee.cpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -412,6 +415,9 @@
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp">
+			<Option target="google_test"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DeleteEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googlemock/src/gmock-all.cc">
