@@ -1,0 +1,130 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "src/AddEmployeeTransaction.hpp"
+        -:    3:#include "src/AddEmployeeTransaction.cpp"
+        -:    4:#include "src/PayrollDatabase.hpp"
+        -:    5:#include "src/Employee.hpp"
+        -:    6:
+        -:    7:class AddEmployeeTest : public ::testing::Test
+        -:    8:{
+        -:    9:protected:
+        -:   10:
+        3:   11:    void TearDown() override
+        -:   12:    {
+        3:   13:        database->clear();
+        3:   13-block  0
+       3*:   14:        ASSERT_EQ(database->size(), 0);
+        3:   14-block  0
+    %%%%%:   14-block  1
+    %%%%%:   14-block  2
+    %%%%%:   14-block  3
+    %%%%%:   14-block  4
+    $$$$$:   14-block  5
+    $$$$$:   14-block  6
+    $$$$$:   14-block  7
+    $$$$$:   14-block  8
+    $$$$$:   14-block  9
+    $$$$$:   14-block 10
+    $$$$$:   14-block 11
+        -:   15:    }
+        -:   16:
+        -:   17:    int         hId = 1,                sId = 2,                cId = 3;
+        -:   18:    std::string hName = "Howard",       sName = "Sally",        cName = "Camilla";
+        -:   19:    std::string hAddress = "Hour st.",  sAddress = "Sal st.",   cAddress = "Comi st.";
+        -:   20:    double      hRate = 17.7,           sSalary = 1000.33,      cSalary = 2000.88, cRate = 0.05;
+        -:   21:
+        -:   22:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
+        -:   23:};
+        -:   24:
+        4:   25:TEST_F(AddEmployeeTest, CanAddHourlyEmployee)
+        -:   26:{
+        3:   27:    AddHourlyEmployee t(hId, hName, hAddress, hRate);
+        1:   28:    t.execute();
+        1:   29:}
+------------------
+_ZN41AddEmployeeTest_CanAddHourlyEmployee_TestD0Ev:
+        1:   25:TEST_F(AddEmployeeTest, CanAddHourlyEmployee)
+        1:   25-block  0
+------------------
+_ZN41AddEmployeeTest_CanAddHourlyEmployee_TestD1Ev:
+        1:   25:TEST_F(AddEmployeeTest, CanAddHourlyEmployee)
+        1:   25-block  0
+------------------
+_ZN41AddEmployeeTest_CanAddHourlyEmployee_Test8TestBodyEv:
+        1:   25:TEST_F(AddEmployeeTest, CanAddHourlyEmployee)
+        -:   26:{
+        3:   27:    AddHourlyEmployee t(hId, hName, hAddress, hRate);
+        1:   27-block  0
+        1:   27-block  1
+        1:   27-block  2
+    $$$$$:   27-block  3
+        1:   28:    t.execute();
+        1:   29:}
+------------------
+_ZN41AddEmployeeTest_CanAddHourlyEmployee_TestC1Ev:
+        1:   25:TEST_F(AddEmployeeTest, CanAddHourlyEmployee)
+        1:   25-block  0
+------------------
+        -:   30:
+        4:   31:TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
+        -:   32:{
+        3:   33:    AddSalariedEmployee t(sId, sName, sAddress, sSalary);
+        1:   34:    t.execute();
+        1:   35:}
+------------------
+_ZN43AddEmployeeTest_CanAddSalariedEmployee_TestD0Ev:
+        1:   31:TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
+        1:   31-block  0
+------------------
+_ZN43AddEmployeeTest_CanAddSalariedEmployee_TestD1Ev:
+        1:   31:TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
+        1:   31-block  0
+------------------
+_ZN43AddEmployeeTest_CanAddSalariedEmployee_Test8TestBodyEv:
+        1:   31:TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
+        -:   32:{
+        3:   33:    AddSalariedEmployee t(sId, sName, sAddress, sSalary);
+        1:   33-block  0
+        1:   33-block  1
+        1:   33-block  2
+    $$$$$:   33-block  3
+        1:   34:    t.execute();
+        1:   35:}
+------------------
+_ZN43AddEmployeeTest_CanAddSalariedEmployee_TestC1Ev:
+        1:   31:TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
+        1:   31-block  0
+------------------
+        -:   36:
+        4:   37:TEST_F(AddEmployeeTest, CanAddComissionedEmployee)
+        -:   38:{
+        3:   39:    AddComissionedEmployee t(cId, cName, cAddress, cSalary, cRate);
+        1:   40:    t.execute();
+        1:   41:}
+------------------
+_ZN46AddEmployeeTest_CanAddComissionedEmployee_TestD0Ev:
+        1:   37:TEST_F(AddEmployeeTest, CanAddComissionedEmployee)
+        1:   37-block  0
+------------------
+_ZN46AddEmployeeTest_CanAddComissionedEmployee_TestD1Ev:
+        1:   37:TEST_F(AddEmployeeTest, CanAddComissionedEmployee)
+        1:   37-block  0
+------------------
+_ZN46AddEmployeeTest_CanAddComissionedEmployee_Test8TestBodyEv:
+        1:   37:TEST_F(AddEmployeeTest, CanAddComissionedEmployee)
+        -:   38:{
+        3:   39:    AddComissionedEmployee t(cId, cName, cAddress, cSalary, cRate);
+        1:   39-block  0
+        1:   39-block  1
+        1:   39-block  2
+    $$$$$:   39-block  3
+        1:   40:    t.execute();
+        1:   41:}
+------------------
+_ZN46AddEmployeeTest_CanAddComissionedEmployee_TestC1Ev:
+        1:   37:TEST_F(AddEmployeeTest, CanAddComissionedEmployee)
+        1:   37-block  0
+------------------

@@ -9,12 +9,16 @@
 ../src/AddEmployeeTransaction.cpp
 AddEmployeeTransaction.hpp
 ../src/AddEmployeeTransaction.hpp
+PayrollDatabase.hpp
+../src/PayrollDatabase.hpp
 
 ../src/AddEmployeeTransaction.hpp
 string
 -
 Transaction.hpp
 ../src/Transaction.hpp
+Employee.hpp
+../src/Employee.hpp
 
 ../src/Employee.hpp
 string
@@ -25,7 +29,9 @@ unordered_map
 -
 stdexcept
 -
-functional
+memory
+-
+sstream
 -
 Employee.hpp
 ../src/Employee.hpp
@@ -354,6 +360,8 @@ acxx_demangle.h
 
 C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
 gtest/gtest.h
+-
+src/Employee.hpp
 -
 src/AddEmployeeTransaction.hpp
 C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.hpp

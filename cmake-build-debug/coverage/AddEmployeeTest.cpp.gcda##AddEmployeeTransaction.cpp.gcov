@@ -1,0 +1,41 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/AddEmployeeTransaction.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "AddEmployeeTransaction.hpp"
+        -:    2:
+        3:    3:AddEmployeeTransaction::AddEmployeeTransaction(int id, std::string name, std::string address) :
+        -:    4:    id(id),
+        3:    5:    name(std::move(name)),
+        3:    6:    address(std::move(address))
+        3:    6-block  0
+        -:    7:{
+        3:    8:}
+        -:    9:
+        3:   10:void AddEmployeeTransaction::execute()
+        -:   11:{
+        -:   12:
+        3:   13:}
+        -:   14:
+        1:   15:AddHourlyEmployee::AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate) :
+        1:   16:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
+        2:   17:    hourlyRate(hourlyRate)
+        1:   17-block  0
+        -:   18:{
+        1:   19:}
+        -:   20:
+        1:   21:AddSalariedEmployee::AddSalariedEmployee(int id, std::string name, std::string address, double salary) :
+        1:   22:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
+        2:   23:    salary(salary)
+        1:   23-block  0
+        -:   24:{
+        1:   25:}
+        -:   26:
+        1:   27:AddComissionedEmployee::AddComissionedEmployee(int id, std::string name, std::string address,
+        1:   28:                                               double salary, double comissionRate) :
+        1:   29:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
+        -:   30:    salary(salary),
+        2:   31:    comissionRate(comissionRate)
+        1:   31-block  0
+        -:   32:{
+        1:   33:}

@@ -1,0 +1,789 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "src/Payrolldatabase.hpp"
+        -:    3:#include "src/Payrolldatabase.cpp"
+        -:    4:#include "src/Employee.hpp"
+        -:    5:
+        -:    6:class PayrollDatabaseTest : public ::testing::Test
+        -:    7:{
+        -:    8:protected:
+       11:    9:    void SetUp() override
+        -:   10:    {
+      11*:   11:        ASSERT_NO_THROW(addBob());
+       11:   11-block  0
+       11:   11-block  1
+       11:   11-block  2
+       11:   11-block  3
+    %%%%%:   11-block  4
+    %%%%%:   11-block  5
+    %%%%%:   11-block  6
+    %%%%%:   11-block  7
+    %%%%%:   11-block  8
+    $$$$$:   11-block  9
+    $$$$$:   11-block 10
+    $$$$$:   11-block 11
+    $$$$$:   11-block 12
+    $$$$$:   11-block 13
+    $$$$$:   11-block 14
+    $$$$$:   11-block 15
+    $$$$$:   11-block 16
+    $$$$$:   11-block 17
+    $$$$$:   11-block 18
+    $$$$$:   11-block 19
+    $$$$$:   11-block 20
+    $$$$$:   11-block 21
+    $$$$$:   11-block 22
+    $$$$$:   11-block 23
+    $$$$$:   11-block 24
+       11:   12:        initSize = database->size();
+       11:   12-block  0
+      11*:   13:        ASSERT_EQ(initSize, 1);
+       11:   13-block  0
+    %%%%%:   13-block  1
+    %%%%%:   13-block  2
+    %%%%%:   13-block  3
+    %%%%%:   13-block  4
+    $$$$$:   13-block  5
+    $$$$$:   13-block  6
+    $$$$$:   13-block  7
+    $$$$$:   13-block  8
+    $$$$$:   13-block  9
+    $$$$$:   13-block 10
+        -:   14:    }
+       11:   15:    void TearDown() override
+        -:   16:    {
+       11:   17:        database->clear();
+       11:   17-block  0
+      11*:   18:        ASSERT_EQ(database->size(), 0);
+       11:   18-block  0
+    %%%%%:   18-block  1
+    %%%%%:   18-block  2
+    %%%%%:   18-block  3
+    %%%%%:   18-block  4
+    $$$$$:   18-block  5
+    $$$$$:   18-block  6
+    $$$$$:   18-block  7
+    $$$$$:   18-block  8
+    $$$$$:   18-block  9
+    $$$$$:   18-block 10
+    $$$$$:   18-block 11
+        -:   19:    }
+        -:   20:
+        -:   21:    Employee bob;
+        -:   22:    int bobId = 1, inexistentId = -1;
+       21:   23:    inline void addBob() { database->addEmployee(bobId, &bob); }
+       21:   23-block  0
+       34:   24:    void addNBobs(int n) { for (int i=0; i<n; ++i) database->addEmployee(i+bobId+1, &bob); }
+        2:   24-block  0
+       34:   24-block  1
+       32:   24-block  2
+        -:   25:
+        -:   26:
+        -:   27:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
+        -:   28:    int initSize;
+        -:   29:};
+        -:   30:
+        4:   31:TEST_F(PayrollDatabaseTest, AddMultipleTimesThrowsAddDuplicate)
+        -:   32:{
+       11:   33:    for (int i = 0; i < 10; ++i)
+        -:   34:    {
+      10*:   35:        ASSERT_THROW(addBob(), PayrollDatabase::add_duplicate);
+      10*:   36:        ASSERT_EQ(database->size(), initSize);
+        -:   37:    }
+        -:   38:}
+------------------
+_ZN59PayrollDatabaseTest_AddMultipleTimesThrowsAddDuplicate_TestD0Ev:
+        1:   31:TEST_F(PayrollDatabaseTest, AddMultipleTimesThrowsAddDuplicate)
+        1:   31-block  0
+------------------
+_ZN59PayrollDatabaseTest_AddMultipleTimesThrowsAddDuplicate_TestD1Ev:
+        1:   31:TEST_F(PayrollDatabaseTest, AddMultipleTimesThrowsAddDuplicate)
+        1:   31-block  0
+------------------
+_ZN59PayrollDatabaseTest_AddMultipleTimesThrowsAddDuplicate_Test8TestBodyEv:
+        1:   31:TEST_F(PayrollDatabaseTest, AddMultipleTimesThrowsAddDuplicate)
+        -:   32:{
+       11:   33:    for (int i = 0; i < 10; ++i)
+        1:   33-block  0
+       11:   33-block  1
+       10:   33-block  2
+        -:   34:    {
+      10*:   35:        ASSERT_THROW(addBob(), PayrollDatabase::add_duplicate);
+       10:   35-block  0
+       10:   35-block  1
+       10:   35-block  2
+       10:   35-block  3
+       10:   35-block  4
+    %%%%%:   35-block  5
+    %%%%%:   35-block  6
+    %%%%%:   35-block  7
+    %%%%%:   35-block  8
+    %%%%%:   35-block  9
+       10:   35-block 10
+       10:   35-block 11
+    $$$$$:   35-block 12
+    $$$$$:   35-block 13
+    $$$$$:   35-block 14
+    $$$$$:   35-block 15
+    $$$$$:   35-block 16
+      10*:   36:        ASSERT_EQ(database->size(), initSize);
+       10:   36-block  0
+       10:   36-block  1
+    %%%%%:   36-block  2
+    %%%%%:   36-block  3
+    %%%%%:   36-block  4
+    %%%%%:   36-block  5
+    $$$$$:   36-block  6
+    $$$$$:   36-block  7
+    $$$$$:   36-block  8
+    $$$$$:   36-block  9
+    $$$$$:   36-block 10
+    $$$$$:   36-block 11
+        -:   37:    }
+        -:   38:}
+------------------
+_ZN59PayrollDatabaseTest_AddMultipleTimesThrowsAddDuplicate_TestC1Ev:
+        1:   31:TEST_F(PayrollDatabaseTest, AddMultipleTimesThrowsAddDuplicate)
+        1:   31-block  0
+------------------
+        -:   39:
+        4:   40:TEST_F(PayrollDatabaseTest, AddMultipleDifferent)
+        -:   41:{
+        1:   42:    int n = 15;
+       1*:   43:    ASSERT_NO_THROW(addNBobs(n));
+       1*:   44:    ASSERT_EQ(database->size(), 1+n);
+        -:   45:}
+------------------
+_ZN45PayrollDatabaseTest_AddMultipleDifferent_TestD0Ev:
+        1:   40:TEST_F(PayrollDatabaseTest, AddMultipleDifferent)
+        1:   40-block  0
+------------------
+_ZN45PayrollDatabaseTest_AddMultipleDifferent_TestD1Ev:
+        1:   40:TEST_F(PayrollDatabaseTest, AddMultipleDifferent)
+        1:   40-block  0
+------------------
+_ZN45PayrollDatabaseTest_AddMultipleDifferent_Test8TestBodyEv:
+        1:   40:TEST_F(PayrollDatabaseTest, AddMultipleDifferent)
+        -:   41:{
+        1:   42:    int n = 15;
+       1*:   43:    ASSERT_NO_THROW(addNBobs(n));
+        1:   43-block  0
+        1:   43-block  1
+        1:   43-block  2
+        1:   43-block  3
+    %%%%%:   43-block  4
+    %%%%%:   43-block  5
+    %%%%%:   43-block  6
+    %%%%%:   43-block  7
+    %%%%%:   43-block  8
+    $$$$$:   43-block  9
+    $$$$$:   43-block 10
+    $$$$$:   43-block 11
+    $$$$$:   43-block 12
+    $$$$$:   43-block 13
+    $$$$$:   43-block 14
+    $$$$$:   43-block 15
+    $$$$$:   43-block 16
+    $$$$$:   43-block 17
+    $$$$$:   43-block 18
+    $$$$$:   43-block 19
+    $$$$$:   43-block 20
+    $$$$$:   43-block 21
+    $$$$$:   43-block 22
+    $$$$$:   43-block 23
+    $$$$$:   43-block 24
+       1*:   44:    ASSERT_EQ(database->size(), 1+n);
+        1:   44-block  0
+        1:   44-block  1
+    %%%%%:   44-block  2
+    %%%%%:   44-block  3
+    %%%%%:   44-block  4
+    %%%%%:   44-block  5
+    $$$$$:   44-block  6
+    $$$$$:   44-block  7
+    $$$$$:   44-block  8
+    $$$$$:   44-block  9
+    $$$$$:   44-block 10
+    $$$$$:   44-block 11
+    $$$$$:   44-block 12
+        -:   45:}
+------------------
+_ZN45PayrollDatabaseTest_AddMultipleDifferent_TestC1Ev:
+        1:   40:TEST_F(PayrollDatabaseTest, AddMultipleDifferent)
+        1:   40-block  0
+------------------
+        -:   46:
+        4:   47:TEST_F(PayrollDatabaseTest, CanRetreive)
+        -:   48:{
+       2*:   49:    ASSERT_NO_THROW({
+        -:   50:        auto givenE = database->getEmployee(bobId);
+        -:   51:        ASSERT_EQ(&bob, givenE);
+        -:   52:        ASSERT_EQ(database->size(), initSize);
+        -:   53:    });
+        -:   54:}
+------------------
+_ZN36PayrollDatabaseTest_CanRetreive_TestD0Ev:
+        1:   47:TEST_F(PayrollDatabaseTest, CanRetreive)
+        1:   47-block  0
+------------------
+_ZN36PayrollDatabaseTest_CanRetreive_TestD1Ev:
+        1:   47:TEST_F(PayrollDatabaseTest, CanRetreive)
+        1:   47-block  0
+------------------
+_ZN36PayrollDatabaseTest_CanRetreive_Test8TestBodyEv:
+        1:   47:TEST_F(PayrollDatabaseTest, CanRetreive)
+        -:   48:{
+       2*:   49:    ASSERT_NO_THROW({
+        1:   49-block  0
+        1:   49-block  1
+        1:   49-block  2
+        1:   49-block  3
+        1:   49-block  4
+        1:   49-block  5
+    %%%%%:   49-block  6
+    %%%%%:   49-block  7
+    %%%%%:   49-block  8
+    %%%%%:   49-block  9
+        1:   49-block 10
+        1:   49-block 11
+    %%%%%:   49-block 12
+    %%%%%:   49-block 13
+    %%%%%:   49-block 14
+    %%%%%:   49-block 15
+    %%%%%:   49-block 16
+    %%%%%:   49-block 17
+    %%%%%:   49-block 18
+    %%%%%:   49-block 19
+    %%%%%:   49-block 20
+    $$$$$:   49-block 21
+    $$$$$:   49-block 22
+    $$$$$:   49-block 23
+    $$$$$:   49-block 24
+    $$$$$:   49-block 25
+    $$$$$:   49-block 26
+    $$$$$:   49-block 27
+    $$$$$:   49-block 28
+    $$$$$:   49-block 29
+    $$$$$:   49-block 30
+    $$$$$:   49-block 31
+    $$$$$:   49-block 32
+    $$$$$:   49-block 33
+    $$$$$:   49-block 34
+    $$$$$:   49-block 35
+    $$$$$:   49-block 36
+    $$$$$:   49-block 37
+    $$$$$:   49-block 38
+    $$$$$:   49-block 39
+    $$$$$:   49-block 40
+    $$$$$:   49-block 41
+    $$$$$:   49-block 42
+    $$$$$:   49-block 43
+    $$$$$:   49-block 44
+    $$$$$:   49-block 45
+    $$$$$:   49-block 46
+    $$$$$:   49-block 47
+    $$$$$:   49-block 48
+        -:   50:        auto givenE = database->getEmployee(bobId);
+        -:   51:        ASSERT_EQ(&bob, givenE);
+        -:   52:        ASSERT_EQ(database->size(), initSize);
+        -:   53:    });
+        -:   54:}
+------------------
+_ZN36PayrollDatabaseTest_CanRetreive_TestC1Ev:
+        1:   47:TEST_F(PayrollDatabaseTest, CanRetreive)
+        1:   47-block  0
+------------------
+        -:   55:
+        4:   56:TEST_F(PayrollDatabaseTest, CanRetreiveMultipleTimes)
+        -:   57:{
+      21*:   58:    ASSERT_NO_THROW({
+        -:   59:        for (int i = 0; i < 10; ++i)
+        -:   60:        {
+        -:   61:            auto givenE = database->getEmployee(bobId);
+        -:   62:            ASSERT_EQ(&bob, givenE);
+        -:   63:            ASSERT_EQ(database->size(), initSize);
+        -:   64:        }
+        -:   65:    });
+        -:   66:}
+------------------
+_ZN49PayrollDatabaseTest_CanRetreiveMultipleTimes_TestD0Ev:
+        1:   56:TEST_F(PayrollDatabaseTest, CanRetreiveMultipleTimes)
+        1:   56-block  0
+------------------
+_ZN49PayrollDatabaseTest_CanRetreiveMultipleTimes_TestD1Ev:
+        1:   56:TEST_F(PayrollDatabaseTest, CanRetreiveMultipleTimes)
+        1:   56-block  0
+------------------
+_ZN49PayrollDatabaseTest_CanRetreiveMultipleTimes_Test8TestBodyEv:
+        1:   56:TEST_F(PayrollDatabaseTest, CanRetreiveMultipleTimes)
+        -:   57:{
+      21*:   58:    ASSERT_NO_THROW({
+        1:   58-block  0
+        1:   58-block  1
+        1:   58-block  2
+        1:   58-block  3
+       11:   58-block  4
+       10:   58-block  5
+       10:   58-block  6
+       10:   58-block  7
+    %%%%%:   58-block  8
+    %%%%%:   58-block  9
+    %%%%%:   58-block 10
+    %%%%%:   58-block 11
+       10:   58-block 12
+       10:   58-block 13
+    %%%%%:   58-block 14
+    %%%%%:   58-block 15
+    %%%%%:   58-block 16
+    %%%%%:   58-block 17
+       10:   58-block 18
+    %%%%%:   58-block 19
+    %%%%%:   58-block 20
+    %%%%%:   58-block 21
+    %%%%%:   58-block 22
+    %%%%%:   58-block 23
+    $$$$$:   58-block 24
+    $$$$$:   58-block 25
+    $$$$$:   58-block 26
+    $$$$$:   58-block 27
+    $$$$$:   58-block 28
+    $$$$$:   58-block 29
+    $$$$$:   58-block 30
+    $$$$$:   58-block 31
+    $$$$$:   58-block 32
+    $$$$$:   58-block 33
+    $$$$$:   58-block 34
+    $$$$$:   58-block 35
+    $$$$$:   58-block 36
+    $$$$$:   58-block 37
+    $$$$$:   58-block 38
+    $$$$$:   58-block 39
+    $$$$$:   58-block 40
+    $$$$$:   58-block 41
+    $$$$$:   58-block 42
+    $$$$$:   58-block 43
+    $$$$$:   58-block 44
+    $$$$$:   58-block 45
+    $$$$$:   58-block 46
+    $$$$$:   58-block 47
+    $$$$$:   58-block 48
+    $$$$$:   58-block 49
+    $$$$$:   58-block 50
+    $$$$$:   58-block 51
+        -:   59:        for (int i = 0; i < 10; ++i)
+        -:   60:        {
+        -:   61:            auto givenE = database->getEmployee(bobId);
+        -:   62:            ASSERT_EQ(&bob, givenE);
+        -:   63:            ASSERT_EQ(database->size(), initSize);
+        -:   64:        }
+        -:   65:    });
+        -:   66:}
+------------------
+_ZN49PayrollDatabaseTest_CanRetreiveMultipleTimes_TestC1Ev:
+        1:   56:TEST_F(PayrollDatabaseTest, CanRetreiveMultipleTimes)
+        1:   56-block  0
+------------------
+        -:   67:
+        4:   68:TEST_F(PayrollDatabaseTest, RetrieveInexistentThrowsNotFound)
+        -:   69:{
+       1*:   70:    ASSERT_THROW(database->getEmployee(inexistentId), PayrollDatabase::not_found);
+       1*:   71:    ASSERT_EQ(database->size(), initSize);
+        -:   72:}
+------------------
+_ZN57PayrollDatabaseTest_RetrieveInexistentThrowsNotFound_TestD0Ev:
+        1:   68:TEST_F(PayrollDatabaseTest, RetrieveInexistentThrowsNotFound)
+        1:   68-block  0
+------------------
+_ZN57PayrollDatabaseTest_RetrieveInexistentThrowsNotFound_TestD1Ev:
+        1:   68:TEST_F(PayrollDatabaseTest, RetrieveInexistentThrowsNotFound)
+        1:   68-block  0
+------------------
+_ZN57PayrollDatabaseTest_RetrieveInexistentThrowsNotFound_Test8TestBodyEv:
+        1:   68:TEST_F(PayrollDatabaseTest, RetrieveInexistentThrowsNotFound)
+        -:   69:{
+       1*:   70:    ASSERT_THROW(database->getEmployee(inexistentId), PayrollDatabase::not_found);
+        1:   70-block  0
+        1:   70-block  1
+        1:   70-block  2
+        1:   70-block  3
+        1:   70-block  4
+    %%%%%:   70-block  5
+    %%%%%:   70-block  6
+    %%%%%:   70-block  7
+    %%%%%:   70-block  8
+    %%%%%:   70-block  9
+        1:   70-block 10
+        1:   70-block 11
+    $$$$$:   70-block 12
+    $$$$$:   70-block 13
+    $$$$$:   70-block 14
+    $$$$$:   70-block 15
+    $$$$$:   70-block 16
+       1*:   71:    ASSERT_EQ(database->size(), initSize);
+        1:   71-block  0
+        1:   71-block  1
+    %%%%%:   71-block  2
+    %%%%%:   71-block  3
+    %%%%%:   71-block  4
+    %%%%%:   71-block  5
+    $$$$$:   71-block  6
+    $$$$$:   71-block  7
+    $$$$$:   71-block  8
+    $$$$$:   71-block  9
+    $$$$$:   71-block 10
+    $$$$$:   71-block 11
+        -:   72:}
+------------------
+_ZN57PayrollDatabaseTest_RetrieveInexistentThrowsNotFound_TestC1Ev:
+        1:   68:TEST_F(PayrollDatabaseTest, RetrieveInexistentThrowsNotFound)
+        1:   68-block  0
+------------------
+        -:   73:
+        4:   74:TEST_F(PayrollDatabaseTest, Update)
+        -:   75:{
+        -:   76:    Employee frank;
+       1*:   77:    ASSERT_NO_THROW(database->updateEmployee(bobId, &frank));
+        1:   78:    auto givenE = database->getEmployee(bobId);
+       1*:   79:    ASSERT_EQ(&frank, givenE);
+       1*:   80:    ASSERT_EQ(database->size(), initSize);
+        -:   81:}
+------------------
+_ZN31PayrollDatabaseTest_Update_TestD0Ev:
+        1:   74:TEST_F(PayrollDatabaseTest, Update)
+        1:   74-block  0
+------------------
+_ZN31PayrollDatabaseTest_Update_TestD1Ev:
+        1:   74:TEST_F(PayrollDatabaseTest, Update)
+        1:   74-block  0
+------------------
+_ZN31PayrollDatabaseTest_Update_Test8TestBodyEv:
+        1:   74:TEST_F(PayrollDatabaseTest, Update)
+        -:   75:{
+        -:   76:    Employee frank;
+       1*:   77:    ASSERT_NO_THROW(database->updateEmployee(bobId, &frank));
+        1:   77-block  0
+        1:   77-block  1
+        1:   77-block  2
+        1:   77-block  3
+    %%%%%:   77-block  4
+    %%%%%:   77-block  5
+    %%%%%:   77-block  6
+    %%%%%:   77-block  7
+    %%%%%:   77-block  8
+    $$$$$:   77-block  9
+    $$$$$:   77-block 10
+    $$$$$:   77-block 11
+    $$$$$:   77-block 12
+    $$$$$:   77-block 13
+    $$$$$:   77-block 14
+    $$$$$:   77-block 15
+    $$$$$:   77-block 16
+    $$$$$:   77-block 17
+    $$$$$:   77-block 18
+    $$$$$:   77-block 19
+    $$$$$:   77-block 20
+    $$$$$:   77-block 21
+    $$$$$:   77-block 22
+    $$$$$:   77-block 23
+    $$$$$:   77-block 24
+        1:   78:    auto givenE = database->getEmployee(bobId);
+        1:   78-block  0
+       1*:   79:    ASSERT_EQ(&frank, givenE);
+        1:   79-block  0
+        1:   79-block  1
+    %%%%%:   79-block  2
+    %%%%%:   79-block  3
+    %%%%%:   79-block  4
+    %%%%%:   79-block  5
+    $$$$$:   79-block  6
+    $$$$$:   79-block  7
+    $$$$$:   79-block  8
+    $$$$$:   79-block  9
+    $$$$$:   79-block 10
+    $$$$$:   79-block 11
+       1*:   80:    ASSERT_EQ(database->size(), initSize);
+        1:   80-block  0
+        1:   80-block  1
+    %%%%%:   80-block  2
+    %%%%%:   80-block  3
+    %%%%%:   80-block  4
+    %%%%%:   80-block  5
+    $$$$$:   80-block  6
+    $$$$$:   80-block  7
+    $$$$$:   80-block  8
+    $$$$$:   80-block  9
+    $$$$$:   80-block 10
+    $$$$$:   80-block 11
+        -:   81:}
+------------------
+_ZN31PayrollDatabaseTest_Update_TestC1Ev:
+        1:   74:TEST_F(PayrollDatabaseTest, Update)
+        1:   74-block  0
+------------------
+        -:   82:
+        4:   83:TEST_F(PayrollDatabaseTest, UpdateInexistentThrowsNotFound)
+        -:   84:{
+       1*:   85:    ASSERT_THROW(database->updateEmployee(inexistentId, nullptr), PayrollDatabase::not_found);
+       1*:   86:    ASSERT_EQ(database->size(), initSize);
+        -:   87:}
+------------------
+_ZN55PayrollDatabaseTest_UpdateInexistentThrowsNotFound_TestD0Ev:
+        1:   83:TEST_F(PayrollDatabaseTest, UpdateInexistentThrowsNotFound)
+        1:   83-block  0
+------------------
+_ZN55PayrollDatabaseTest_UpdateInexistentThrowsNotFound_TestD1Ev:
+        1:   83:TEST_F(PayrollDatabaseTest, UpdateInexistentThrowsNotFound)
+        1:   83-block  0
+------------------
+_ZN55PayrollDatabaseTest_UpdateInexistentThrowsNotFound_Test8TestBodyEv:
+        1:   83:TEST_F(PayrollDatabaseTest, UpdateInexistentThrowsNotFound)
+        -:   84:{
+       1*:   85:    ASSERT_THROW(database->updateEmployee(inexistentId, nullptr), PayrollDatabase::not_found);
+        1:   85-block  0
+        1:   85-block  1
+        1:   85-block  2
+        1:   85-block  3
+        1:   85-block  4
+    %%%%%:   85-block  5
+    %%%%%:   85-block  6
+    %%%%%:   85-block  7
+    %%%%%:   85-block  8
+    %%%%%:   85-block  9
+        1:   85-block 10
+        1:   85-block 11
+    $$$$$:   85-block 12
+    $$$$$:   85-block 13
+    $$$$$:   85-block 14
+    $$$$$:   85-block 15
+    $$$$$:   85-block 16
+       1*:   86:    ASSERT_EQ(database->size(), initSize);
+        1:   86-block  0
+        1:   86-block  1
+    %%%%%:   86-block  2
+    %%%%%:   86-block  3
+    %%%%%:   86-block  4
+    %%%%%:   86-block  5
+    $$$$$:   86-block  6
+    $$$$$:   86-block  7
+    $$$$$:   86-block  8
+    $$$$$:   86-block  9
+    $$$$$:   86-block 10
+    $$$$$:   86-block 11
+        -:   87:}
+------------------
+_ZN55PayrollDatabaseTest_UpdateInexistentThrowsNotFound_TestC1Ev:
+        1:   83:TEST_F(PayrollDatabaseTest, UpdateInexistentThrowsNotFound)
+        1:   83-block  0
+------------------
+        -:   88:
+        4:   89:TEST_F(PayrollDatabaseTest, Delete)
+        -:   90:{
+       1*:   91:    ASSERT_NO_THROW(database->deleteEmployee(bobId));
+       1*:   92:    ASSERT_EQ(database->size(), initSize-1);
+        -:   93:}
+------------------
+_ZN31PayrollDatabaseTest_Delete_TestD0Ev:
+        1:   89:TEST_F(PayrollDatabaseTest, Delete)
+        1:   89-block  0
+------------------
+_ZN31PayrollDatabaseTest_Delete_TestD1Ev:
+        1:   89:TEST_F(PayrollDatabaseTest, Delete)
+        1:   89-block  0
+------------------
+_ZN31PayrollDatabaseTest_Delete_Test8TestBodyEv:
+        1:   89:TEST_F(PayrollDatabaseTest, Delete)
+        -:   90:{
+       1*:   91:    ASSERT_NO_THROW(database->deleteEmployee(bobId));
+        1:   91-block  0
+        1:   91-block  1
+        1:   91-block  2
+        1:   91-block  3
+    %%%%%:   91-block  4
+    %%%%%:   91-block  5
+    %%%%%:   91-block  6
+    %%%%%:   91-block  7
+    %%%%%:   91-block  8
+    $$$$$:   91-block  9
+    $$$$$:   91-block 10
+    $$$$$:   91-block 11
+    $$$$$:   91-block 12
+    $$$$$:   91-block 13
+    $$$$$:   91-block 14
+    $$$$$:   91-block 15
+    $$$$$:   91-block 16
+    $$$$$:   91-block 17
+    $$$$$:   91-block 18
+    $$$$$:   91-block 19
+    $$$$$:   91-block 20
+    $$$$$:   91-block 21
+    $$$$$:   91-block 22
+    $$$$$:   91-block 23
+    $$$$$:   91-block 24
+       1*:   92:    ASSERT_EQ(database->size(), initSize-1);
+        1:   92-block  0
+        1:   92-block  1
+    %%%%%:   92-block  2
+    %%%%%:   92-block  3
+    %%%%%:   92-block  4
+    %%%%%:   92-block  5
+    $$$$$:   92-block  6
+    $$$$$:   92-block  7
+    $$$$$:   92-block  8
+    $$$$$:   92-block  9
+    $$$$$:   92-block 10
+    $$$$$:   92-block 11
+    $$$$$:   92-block 12
+        -:   93:}
+------------------
+_ZN31PayrollDatabaseTest_Delete_TestC1Ev:
+        1:   89:TEST_F(PayrollDatabaseTest, Delete)
+        1:   89-block  0
+------------------
+        -:   94:
+        4:   95:TEST_F(PayrollDatabaseTest, DeleteTwice)
+        -:   96:{
+       1*:   97:    ASSERT_NO_THROW(database->deleteEmployee(bobId));
+       1*:   98:    ASSERT_THROW(database->deleteEmployee(bobId), PayrollDatabase::not_found);
+       1*:   99:    ASSERT_EQ(database->size(), initSize-1);
+        -:  100:}
+------------------
+_ZN36PayrollDatabaseTest_DeleteTwice_TestD0Ev:
+        1:   95:TEST_F(PayrollDatabaseTest, DeleteTwice)
+        1:   95-block  0
+------------------
+_ZN36PayrollDatabaseTest_DeleteTwice_TestD1Ev:
+        1:   95:TEST_F(PayrollDatabaseTest, DeleteTwice)
+        1:   95-block  0
+------------------
+_ZN36PayrollDatabaseTest_DeleteTwice_Test8TestBodyEv:
+        1:   95:TEST_F(PayrollDatabaseTest, DeleteTwice)
+        -:   96:{
+       1*:   97:    ASSERT_NO_THROW(database->deleteEmployee(bobId));
+        1:   97-block  0
+        1:   97-block  1
+        1:   97-block  2
+        1:   97-block  3
+    %%%%%:   97-block  4
+    %%%%%:   97-block  5
+    %%%%%:   97-block  6
+    %%%%%:   97-block  7
+    %%%%%:   97-block  8
+    $$$$$:   97-block  9
+    $$$$$:   97-block 10
+    $$$$$:   97-block 11
+    $$$$$:   97-block 12
+    $$$$$:   97-block 13
+    $$$$$:   97-block 14
+    $$$$$:   97-block 15
+    $$$$$:   97-block 16
+    $$$$$:   97-block 17
+    $$$$$:   97-block 18
+    $$$$$:   97-block 19
+    $$$$$:   97-block 20
+    $$$$$:   97-block 21
+    $$$$$:   97-block 22
+    $$$$$:   97-block 23
+    $$$$$:   97-block 24
+       1*:   98:    ASSERT_THROW(database->deleteEmployee(bobId), PayrollDatabase::not_found);
+        1:   98-block  0
+        1:   98-block  1
+        1:   98-block  2
+        1:   98-block  3
+        1:   98-block  4
+    %%%%%:   98-block  5
+    %%%%%:   98-block  6
+    %%%%%:   98-block  7
+    %%%%%:   98-block  8
+    %%%%%:   98-block  9
+        1:   98-block 10
+        1:   98-block 11
+    $$$$$:   98-block 12
+    $$$$$:   98-block 13
+    $$$$$:   98-block 14
+    $$$$$:   98-block 15
+    $$$$$:   98-block 16
+       1*:   99:    ASSERT_EQ(database->size(), initSize-1);
+        1:   99-block  0
+        1:   99-block  1
+    %%%%%:   99-block  2
+    %%%%%:   99-block  3
+    %%%%%:   99-block  4
+    %%%%%:   99-block  5
+    $$$$$:   99-block  6
+    $$$$$:   99-block  7
+    $$$$$:   99-block  8
+    $$$$$:   99-block  9
+    $$$$$:   99-block 10
+    $$$$$:   99-block 11
+    $$$$$:   99-block 12
+        -:  100:}
+------------------
+_ZN36PayrollDatabaseTest_DeleteTwice_TestC1Ev:
+        1:   95:TEST_F(PayrollDatabaseTest, DeleteTwice)
+        1:   95-block  0
+------------------
+        -:  101:
+        4:  102:TEST_F(PayrollDatabaseTest, DeleteInexistentThrowsNotFound)
+        -:  103:{
+       1*:  104:    ASSERT_THROW(database->deleteEmployee(inexistentId), PayrollDatabase::not_found);
+       1*:  105:    ASSERT_EQ(database->size(), initSize);
+        -:  106:}
+------------------
+_ZN55PayrollDatabaseTest_DeleteInexistentThrowsNotFound_TestD0Ev:
+        1:  102:TEST_F(PayrollDatabaseTest, DeleteInexistentThrowsNotFound)
+        1:  102-block  0
+------------------
+_ZN55PayrollDatabaseTest_DeleteInexistentThrowsNotFound_TestD1Ev:
+        1:  102:TEST_F(PayrollDatabaseTest, DeleteInexistentThrowsNotFound)
+        1:  102-block  0
+------------------
+_ZN55PayrollDatabaseTest_DeleteInexistentThrowsNotFound_Test8TestBodyEv:
+        1:  102:TEST_F(PayrollDatabaseTest, DeleteInexistentThrowsNotFound)
+        -:  103:{
+       1*:  104:    ASSERT_THROW(database->deleteEmployee(inexistentId), PayrollDatabase::not_found);
+        1:  104-block  0
+        1:  104-block  1
+        1:  104-block  2
+        1:  104-block  3
+        1:  104-block  4
+    %%%%%:  104-block  5
+    %%%%%:  104-block  6
+    %%%%%:  104-block  7
+    %%%%%:  104-block  8
+    %%%%%:  104-block  9
+        1:  104-block 10
+        1:  104-block 11
+    $$$$$:  104-block 12
+    $$$$$:  104-block 13
+    $$$$$:  104-block 14
+    $$$$$:  104-block 15
+    $$$$$:  104-block 16
+       1*:  105:    ASSERT_EQ(database->size(), initSize);
+        1:  105-block  0
+        1:  105-block  1
+    %%%%%:  105-block  2
+    %%%%%:  105-block  3
+    %%%%%:  105-block  4
+    %%%%%:  105-block  5
+    $$$$$:  105-block  6
+    $$$$$:  105-block  7
+    $$$$$:  105-block  8
+    $$$$$:  105-block  9
+    $$$$$:  105-block 10
+    $$$$$:  105-block 11
+        -:  106:}
+------------------
+_ZN55PayrollDatabaseTest_DeleteInexistentThrowsNotFound_TestC1Ev:
+        1:  102:TEST_F(PayrollDatabaseTest, DeleteInexistentThrowsNotFound)
+        1:  102-block  0
+------------------
+        -:  107:
+        4:  108:TEST_F(PayrollDatabaseTest, Clear)
+        -:  109:{
+       1*:  110:    ASSERT_NO_THROW(addNBobs(17));
+        1:  111:    database->clear();
+       1*:  112:    ASSERT_EQ(database->size(), 0);
+        -:  113:}

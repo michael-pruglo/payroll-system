@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Transaction.hpp"
+#include "Employee.hpp"
 
 class AddEmployeeTransaction : public Transaction
 {
@@ -11,7 +12,7 @@ public:
     virtual      ~AddEmployeeTransaction() = default;
 
     virtual void execute() override;
-
+    virtual Employee::PaymentClassification* getPaymentClassification() const = 0;
 
 private:
     int id;
@@ -21,8 +22,12 @@ private:
 class AddHourlyEmployee : public AddEmployeeTransaction
 {
 public:
-    AddHourlyEmployee(int id, std::string name, std::string address, double salary);
+    AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
     virtual ~AddHourlyEmployee() = default;
+    virtual Employee::PaymentClassification* getPaymentClassification() const override
+    {
+        return new Employee::HourlyClassification(); //leaks
+    }
 
 private:
     double hourlyRate;
@@ -33,16 +38,24 @@ class AddSalariedEmployee : public AddEmployeeTransaction
 public:
     AddSalariedEmployee(int id, std::string name, std::string address, double salary);
     virtual ~AddSalariedEmployee() = default;
+    virtual Employee::PaymentClassification* getPaymentClassification() const override
+    {
+        return new Employee::SalariedClassification(); //leaks
+    }
 
 private:
     double salary;
 };
 
-class AddComissionedEmployee : public AddEmployeeTransaction
+class AddCommissionedEmployee : public AddEmployeeTransaction
 {
 public:
-    AddComissionedEmployee(int id, std::string name, std::string address, double salary, double comissionRate);
-    virtual ~AddComissionedEmployee() = default;
+    AddCommissionedEmployee(int id, std::string name, std::string address, double salary, double commissionRate);
+    virtual ~AddCommissionedEmployee() = default;
+    virtual Employee::PaymentClassification* getPaymentClassification() const override
+    {
+        return new Employee::CommissionedClassification(); //leaks
+    }
 
 private:
     double salary;

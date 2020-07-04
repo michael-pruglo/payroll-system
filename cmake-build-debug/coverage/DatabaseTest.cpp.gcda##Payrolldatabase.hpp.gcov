@@ -1,0 +1,59 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Payrolldatabase.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_PAYROLLDATABASE_HPP
+        -:    2:#define PAYROLL_SYSTEM_PAYROLLDATABASE_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include <unordered_map>
+        -:    6:#include <stdexcept>
+        -:    7:#include <memory>
+        -:    8:#include "Employee.hpp"
+        -:    9:
+        -:   10:class PayrollDatabase
+        -:   11:{
+        -:   12:public:
+    #####:   13:    virtual     ~PayrollDatabase() = default;
+------------------
+_ZN15PayrollDatabaseD0Ev:
+    #####:   13:    virtual     ~PayrollDatabase() = default;
+    %%%%%:   13-block  0
+------------------
+_ZN15PayrollDatabaseD1Ev:
+    #####:   13:    virtual     ~PayrollDatabase() = default;
+    %%%%%:   13-block  0
+------------------
+        -:   14:
+        -:   15:    void        addEmployee(int id, Employee* employee);
+        -:   16:    Employee*   getEmployee(int id) const;
+        -:   17:    void        updateEmployee(int id, Employee* newEmployee);
+        -:   18:    void        deleteEmployee(int id);
+       54:   19:    auto        size() const { return database.size(); }
+       54:   19-block  0
+       15:   20:    void        clear() { database.clear(); }
+       15:   20-block  0
+        -:   21:
+        -:   22:public:
+        -:   23:    class not_found : public std::exception {};
+        -:   24:    class add_duplicate : public std::exception {};
+        -:   25:
+        -:   26:
+        -:   27:
+        -:   28:private:
+        -:   29:    std::unordered_map<int, Employee*> database;
+        -:   30:
+        -:   31:    //Singleton
+        -:   32:private:
+        1:   33:    PayrollDatabase() = default;
+        1:   33-block  0
+        -:   34:    static std::shared_ptr<PayrollDatabase> _instance;
+        -:   35:public:
+        -:   36:    PayrollDatabase(PayrollDatabase& other) = delete;
+        -:   37:    void operator=(const PayrollDatabase& other) = delete;
+        -:   38:    static std::shared_ptr<PayrollDatabase> getInstance();
+        -:   39:
+        -:   40:};
+        -:   41:
+        -:   42:
+        -:   43:#endif //PAYROLL_SYSTEM_PAYROLLDATABASE_HPP

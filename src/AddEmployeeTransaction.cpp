@@ -1,4 +1,5 @@
 #include "AddEmployeeTransaction.hpp"
+#include "PayrollDatabase.hpp"
 
 AddEmployeeTransaction::AddEmployeeTransaction(int id, std::string name, std::string address) :
     id(id),
@@ -9,8 +10,14 @@ AddEmployeeTransaction::AddEmployeeTransaction(int id, std::string name, std::st
 
 void AddEmployeeTransaction::execute()
 {
-
+    auto db = PayrollDatabase::getInstance();
+    std::shared_ptr<Employee> e { new Employee(id, name, address) };
+    e->setPaymentClassification(getPaymentClassification());
+    db->addEmployee(id, e);
 }
+
+
+
 
 AddHourlyEmployee::AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate) :
     AddEmployeeTransaction(id, std::move(name), std::move(address)),
@@ -24,10 +31,10 @@ AddSalariedEmployee::AddSalariedEmployee(int id, std::string name, std::string a
 {
 }
 
-AddComissionedEmployee::AddComissionedEmployee(int id, std::string name, std::string address,
-                                               double salary, double comissionRate) :
+AddCommissionedEmployee::AddCommissionedEmployee(int id, std::string name, std::string address,
+                                                 double salary, double commissionRate) :
     AddEmployeeTransaction(id, std::move(name), std::move(address)),
     salary(salary),
-    comissionRate(comissionRate)
+    comissionRate(commissionRate)
 {
 }

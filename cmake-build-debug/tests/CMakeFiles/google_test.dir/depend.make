@@ -28,9 +28,10 @@ tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: ../tests/lib/googletes
 tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: ../tests/AddEmployeeTest.cpp
 
+tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../src/Employee.cpp
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../src/Employee.hpp
-tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../src/PayrollDatabase.cpp
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../src/PayrollDatabase.hpp
+tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../src/Payrolldatabase.cpp
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-matchers.h
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-message.h

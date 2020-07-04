@@ -4,26 +4,54 @@
 
 #include <unordered_map>
 #include <stdexcept>
-#include <functional>
+#include <memory>
+#include <sstream>
 #include "Employee.hpp"
 
 class PayrollDatabase
 {
 public:
-    virtual     ~PayrollDatabase() = default;
+    virtual ~PayrollDatabase() = default;
 
-    void        addEmployee(int id, Employee* employee);
-    Employee*   getEmployee(int id) const;
-    void        updateEmployee(int id, Employee* newEmployee);
-    void        deleteEmployee(int id);
-    auto        size() const { return database.size(); }
+    void                        addEmployee(int id, std::shared_ptr<Employee> employee);
+    std::shared_ptr<Employee>   getEmployee(int id) const;
+    void                        updateEmployee(int id, std::shared_ptr<Employee> newEmployee);
+    void                        deleteEmployee(int id);
+    auto                        size() const { return database.size(); }
+    void                        clear() { database.clear(); }
 
-public:
-    class not_found : public std::exception {};
-    class add_duplicate : public std::exception {};
+public: //exceptions
+    class not_found;
+    class add_duplicate;
+
 
 private:
-    std::unordered_map<int, Employee*> database;
+    std::unordered_map<int, std::shared_ptr<Employee>> database;
+
+    //Singleton
+private:
+    PayrollDatabase() = default;
+    static std::shared_ptr<PayrollDatabase> _instance;
+public:
+    PayrollDatabase(PayrollDatabase& other) = delete;
+    void operator=(const PayrollDatabase& other) = delete;
+    static std::shared_ptr<PayrollDatabase> getInstance();
+
+};
+
+class PayrollDatabase::not_found : public std::runtime_error
+{
+public:
+    explicit not_found(int id) :
+        std::runtime_error("Payroll Database: not_found id = "+std::to_string(id))
+    {}
+};
+class PayrollDatabase::add_duplicate : public std::runtime_error
+{
+public:
+    explicit add_duplicate(int id) :
+        std::runtime_error("Payroll Database: add_duplicate id = "+std::to_string(id))
+    {}
 };
 
 

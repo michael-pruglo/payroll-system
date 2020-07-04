@@ -29,9 +29,10 @@ tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj
  ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
  C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj
+ ../src/Employee.cpp
  ../src/Employee.hpp
- ../src/PayrollDatabase.cpp
  ../src/PayrollDatabase.hpp
+ ../src/Payrolldatabase.cpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
