@@ -2,6 +2,7 @@
 #define PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
 
 #include <string>
+#include <memory>
 #include "Transaction.hpp"
 #include "Employee.hpp"
 
@@ -12,7 +13,7 @@ public:
     virtual      ~AddEmployeeTransaction() = default;
 
     virtual void execute() override;
-    virtual Employee::PaymentClassification* getPaymentClassification() const = 0;
+    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const = 0;
 
 private:
     int id;
@@ -24,9 +25,9 @@ class AddHourlyEmployee : public AddEmployeeTransaction
 public:
     AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
     virtual ~AddHourlyEmployee() = default;
-    virtual Employee::PaymentClassification* getPaymentClassification() const override
+    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
     {
-        return new Employee::HourlyClassification(); //leaks
+        return std::make_shared<Employee::HourlyClassification>(hourlyRate);
     }
 
 private:
@@ -38,9 +39,9 @@ class AddSalariedEmployee : public AddEmployeeTransaction
 public:
     AddSalariedEmployee(int id, std::string name, std::string address, double salary);
     virtual ~AddSalariedEmployee() = default;
-    virtual Employee::PaymentClassification* getPaymentClassification() const override
+    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
     {
-        return new Employee::SalariedClassification(); //leaks
+        return std::make_shared<Employee::SalariedClassification>(salary);
     }
 
 private:
@@ -52,9 +53,9 @@ class AddCommissionedEmployee : public AddEmployeeTransaction
 public:
     AddCommissionedEmployee(int id, std::string name, std::string address, double salary, double commissionRate);
     virtual ~AddCommissionedEmployee() = default;
-    virtual Employee::PaymentClassification* getPaymentClassification() const override
+    virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
     {
-        return new Employee::CommissionedClassification(); //leaks
+        return std::make_shared<Employee::CommissionedClassification>(salary, comissionRate);
     }
 
 private:

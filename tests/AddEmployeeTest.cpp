@@ -30,30 +30,41 @@ template<typename ClassificationT>
 void AddEmployeeTest::addAndRetrieveTest(AddEmployeeTransaction* transaction,
         int idToCheck, std::string nameToCheck)
 {
-    ASSERT_NO_THROW(transaction->execute());
-    ASSERT_NO_THROW({
-        auto givenE = database->getEmployee(idToCheck);
-        ASSERT_EQ(givenE->getName(), nameToCheck);
-        Employee::PaymentClassification* pc = givenE->getPaymentClassification();
-        ClassificationT* sc = dynamic_cast<ClassificationT*> (pc);
-        ASSERT_TRUE(sc != nullptr);
-    });
+    transaction->execute();
+    auto givenE = database->getEmployee(idToCheck);
+    ASSERT_EQ(givenE->getName(), nameToCheck);
+
+    auto pc = givenE->getPaymentClassification();
+    auto classification = std::dynamic_pointer_cast<ClassificationT>(pc);
+    ASSERT_NE(classification, decltype(classification)());
+
+    if      constexpr (std::is_same_v<ClassificationT, Employee::HourlyClassification>)
+        ASSERT_DOUBLE_EQ(classification->getHourlyRate(), hRate);
+    else if constexpr (std::is_same_v<ClassificationT, Employee::SalariedClassification>)
+        ASSERT_DOUBLE_EQ(classification->getSalary(), sSalary);
+    else if constexpr (std::is_same_v<ClassificationT, Employee::CommissionedClassification>)
+    {
+        ASSERT_DOUBLE_EQ(classification->getSalary(), cSalary);
+        ASSERT_DOUBLE_EQ(classification->getCommissionRate(), cRate);
+    }
+    else
+        FAIL()<<"Unknown Payment Classification subclass";
 }
 
 TEST_F(AddEmployeeTest, AddHourlyEmployee)
 {
     AddHourlyEmployee ht(hId, hName, hAddress, hRate);
-    addAndRetrieveTest<Employee::HourlyClassification>(&ht, hId, hName);
+    ASSERT_NO_THROW(addAndRetrieveTest<Employee::HourlyClassification>(&ht, hId, hName));
 }
 
 TEST_F(AddEmployeeTest, CanAddSalariedEmployee)
 {
     AddSalariedEmployee st(sId, sName, sAddress, sSalary);
-    addAndRetrieveTest<Employee::SalariedClassification>(&st, sId, sName);
+    ASSERT_NO_THROW(addAndRetrieveTest<Employee::SalariedClassification>(&st, sId, sName));
 }
 
 TEST_F(AddEmployeeTest, CanAddCommissionedEmployee)
 {
     AddCommissionedEmployee ct(cId, cName, cAddress, cSalary, cRate);
-    addAndRetrieveTest<Employee::CommissionedClassification>(&ct, cId, cName);
+    ASSERT_NO_THROW(addAndRetrieveTest<Employee::CommissionedClassification>(&ct, cId, cName));
 }
