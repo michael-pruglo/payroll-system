@@ -13,6 +13,8 @@ void AddEmployeeTransaction::execute()
     auto db = PayrollDatabase::getInstance();
     std::shared_ptr<Employee> e { new Employee(id, name, address) };
     e->setPaymentClassification(getPaymentClassification());
+    e->setPaymentSchedule(getPaymentSchedule());
+    e->setPaymentMethod(std::make_shared<Employee::HoldMethod>());
     db->addEmployee(id, e);
 }
 

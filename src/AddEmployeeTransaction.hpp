@@ -14,6 +14,7 @@ public:
 
     virtual void execute() override;
     virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const = 0;
+    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const = 0;
 
 private:
     int id;
@@ -29,6 +30,10 @@ public:
     {
         return std::make_shared<Employee::HourlyClassification>(hourlyRate);
     }
+    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const override
+    {
+        return std::make_shared<Employee::WeeklySchedule>();
+    }
 
 private:
     double hourlyRate;
@@ -43,6 +48,10 @@ public:
     {
         return std::make_shared<Employee::SalariedClassification>(salary);
     }
+    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const override
+    {
+        return std::make_shared<Employee::MonthlySchedule>();
+    }
 
 private:
     double salary;
@@ -56,6 +65,10 @@ public:
     virtual std::shared_ptr<Employee::PaymentClassification> getPaymentClassification() const override
     {
         return std::make_shared<Employee::CommissionedClassification>(salary, comissionRate);
+    }
+    virtual std::shared_ptr<Employee::PaymentSchedule> getPaymentSchedule() const override
+    {
+        return std::make_shared<Employee::BiweeklySchedule>();
     }
 
 private:
