@@ -56,24 +56,10 @@ include tests/CMakeFiles/google_test.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/CMakeFiles/google_test.dir/flags.make
 
-tests/CMakeFiles/google_test.dir/test.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
-tests/CMakeFiles/google_test.dir/test.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
-tests/CMakeFiles/google_test.dir/test.cpp.obj: ../tests/test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/google_test.dir/test.cpp.obj"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\test.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\test.cpp
-
-tests/CMakeFiles/google_test.dir/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/test.cpp.i"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\test.cpp > CMakeFiles\google_test.dir\test.cpp.i
-
-tests/CMakeFiles/google_test.dir/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/test.cpp.s"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\test.cpp -o CMakeFiles\google_test.dir\test.cpp.s
-
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../tests/DatabaseTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj"
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\DatabaseTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\DatabaseTest.cpp
 
 tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.i: cmake_force
@@ -87,7 +73,7 @@ tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.s: cmake_force
 tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
 tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
 tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: ../tests/AddEmployeeTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj"
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\AddEmployeeTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\AddEmployeeTest.cpp
 
 tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.i: cmake_force
@@ -101,7 +87,7 @@ tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.s: cmake_force
 tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
 tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
 tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj: ../tests/DeleteEmployeeTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj"
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\DeleteEmployeeTest.cpp
 
 tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.i: cmake_force
@@ -114,7 +100,6 @@ tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.s: cmake_force
 
 # Object files for target google_test
 google_test_OBJECTS = \
-"CMakeFiles/google_test.dir/test.cpp.obj" \
 "CMakeFiles/google_test.dir/DatabaseTest.cpp.obj" \
 "CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj" \
 "CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj"
@@ -122,7 +107,6 @@ google_test_OBJECTS = \
 # External object files for target google_test
 google_test_EXTERNAL_OBJECTS =
 
-tests/google_test.exe: tests/CMakeFiles/google_test.dir/test.cpp.obj
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj
@@ -133,7 +117,7 @@ tests/google_test.exe: lib/libgtestd.a
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/linklibs.rsp
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/objects1.rsp
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable google_test.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable google_test.exe"
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\google_test.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

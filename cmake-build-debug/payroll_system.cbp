@@ -432,9 +432,6 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/test.cpp">
-			<Option target="google_test"/>
-		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -29,41 +29,56 @@ public:
     void invoke(AddEmployeeTransaction* transaction, int idToCheck, std::string nameToCheck);
 
 private:
-    void testReturnedEmployee(int idToCheck, std::string nameToCheck);
-    void testClassificationType() const;
-    void testScheduleType() const;
-    void testMethodType() const;
+    void testDatabaseContains(int id);
+    void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
+    void testName(std::shared_ptr<Employee> givenE, std::string nameToCheck) const;
+    void testClassification(std::shared_ptr<Employee> givenE) const;
+    template<typename ExpectedT, typename ActualT>
+    void testIsCorrectDerivedType(ActualT ptrToBase) const;
 
 private:
     std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
-    std::shared_ptr<Employee> givenE;
 };
 
 template<typename ClassificationT, typename ScheduleT>
 void
-AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::invoke(AddEmployeeTransaction* transaction, int idToCheck,
-                                                                 std::string nameToCheck)
+AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::invoke(AddEmployeeTransaction* transaction,
+        int idToCheck, std::string nameToCheck)
 {
     transaction->execute();
-    testReturnedEmployee(idToCheck, nameToCheck);
-    testClassificationType();
-    testScheduleType();
-    testMethodType();
+
+    testDatabaseContains(idToCheck);
+    testEmployee(database->getEmployee(idToCheck), nameToCheck);
 }
 
 template<typename ClassificationT, typename ScheduleT>
-void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testReturnedEmployee(int idToCheck, std::string nameToCheck)
+void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testDatabaseContains(int id)
 {
-    givenE = database->getEmployee(idToCheck);
+    ASSERT_NO_THROW(database->getEmployee(id));
+}
+
+template<typename ClassificationT, typename ScheduleT>
+void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testEmployee(
+        std::shared_ptr<Employee> givenE, std::string nameToCheck)
+{
+    testName(givenE, nameToCheck);
+    testClassification(givenE);
+    testIsCorrectDerivedType<ScheduleT>(givenE->getPaymentSchedule());
+    testIsCorrectDerivedType<Employee::HoldMethod>(givenE->getPaymentMethod());
+}
+
+template<typename ClassificationT, typename ScheduleT>
+void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testName(std::shared_ptr<Employee> givenE, std::string nameToCheck) const
+{
     ASSERT_EQ(givenE->getName(), nameToCheck);
 }
 template<typename ClassificationT, typename ScheduleT>
-void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testClassificationType() const
+void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testClassification(std::shared_ptr<Employee> givenE) const
 {
     auto pc = givenE->getPaymentClassification();
-    auto classification = std::dynamic_pointer_cast<ClassificationT>(pc);
-    ASSERT_NE(classification, decltype(classification)());
+    testIsCorrectDerivedType<ClassificationT>(pc);
 
+    auto classification = std::dynamic_pointer_cast<ClassificationT>(pc);
     if      constexpr (std::is_same_v<ClassificationT, Employee::HourlyClassification>)
         ASSERT_DOUBLE_EQ(classification->getHourlyRate(), hRate);
     else if constexpr (std::is_same_v<ClassificationT, Employee::SalariedClassification>)
@@ -76,46 +91,39 @@ void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testClassificatio
     else
         FAIL()<<"Unknown Payment Classification subclass";
 }
-template<typename ClassificationT, typename ScheduleT>
-void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testScheduleType() const
-{
-    auto ps = givenE->getPaymentSchedule();
-    auto schedule = std::dynamic_pointer_cast<ScheduleT>(ps);
-    ASSERT_NE(schedule, decltype(schedule)());
-}
-template<typename ClassificationT, typename ScheduleT>
-void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testMethodType() const
-{
-    auto pm = givenE->getPaymentMethod();
-    auto method = std::dynamic_pointer_cast<Employee::HoldMethod>(pm);
-    ASSERT_NE(method, decltype(method)());
-}
 
+template<typename ClassificationT, typename ScheduleT>
+template<typename ExpectedT, typename ActualT>
+void AddAndRetrieveEmployeeTester<ClassificationT, ScheduleT>::testIsCorrectDerivedType(ActualT ptrToBase) const
+{
+    auto ptrToDerived = std::dynamic_pointer_cast<ExpectedT>(ptrToBase);
+    ASSERT_NE(ptrToDerived, decltype(ptrToDerived)());
+}
 
 
 TEST_F(AddEmployeeTest, HourlyEmployee)
 {
     AddHourlyEmployee ht(hId, hName, hAddress, hRate);
-    ASSERT_NO_THROW((AddAndRetrieveEmployeeTester<
+    AddAndRetrieveEmployeeTester<
             Employee::HourlyClassification,
             Employee::WeeklySchedule
-            >().invoke(&ht, hId, hName)));
+            >().invoke(&ht, hId, hName);
 }
 
 TEST_F(AddEmployeeTest, SalariedEmployee)
 {
     AddSalariedEmployee st(sId, sName, sAddress, sSalary);
-    ASSERT_NO_THROW((AddAndRetrieveEmployeeTester<
+    AddAndRetrieveEmployeeTester<
             Employee::SalariedClassification,
             Employee::MonthlySchedule
-            >().invoke(&st, sId, sName)));
+            >().invoke(&st, sId, sName);
 }
 
 TEST_F(AddEmployeeTest, CommissionedEmployee)
 {
     AddCommissionedEmployee ct(cId, cName, cAddress, cSalary, cRate);
-    ASSERT_NO_THROW((AddAndRetrieveEmployeeTester<
+    AddAndRetrieveEmployeeTester<
             Employee::CommissionedClassification,
             Employee::BiweeklySchedule
-            >().invoke(&ct, cId, cName)));
+            >().invoke(&ct, cId, cName);
 }

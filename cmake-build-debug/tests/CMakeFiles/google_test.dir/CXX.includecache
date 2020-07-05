@@ -6,11 +6,19 @@
 
 #IncludeRegexTransform: 
 
-../src/DeleteEmployeeTransaction.hpp
-Transaction.hpp
-../src/Transaction.hpp
+../src/AddEmployeeTransaction.cpp
+AddEmployeeTransaction.hpp
+../src/AddEmployeeTransaction.hpp
 PayrollDatabase.hpp
 ../src/PayrollDatabase.hpp
+
+../src/AddEmployeeTransaction.hpp
+memory
+-
+Transaction.hpp
+../src/Transaction.hpp
+Employee.hpp
+../src/Employee.hpp
 
 ../src/Employee.hpp
 string
@@ -352,9 +360,11 @@ cxxabi.h
 acxx_demangle.h
 -
 
-C:/Users/mickl/ClionProjects/payroll-system/tests/DeleteEmployeeTest.cpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
 gtest/gtest.h
 -
-src/DeleteEmployeeTransaction.hpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/src/DeleteEmployeeTransaction.hpp
+src/AddEmployeeTransaction.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.hpp
+src/AddEmployeeTransaction.cpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.cpp
 
