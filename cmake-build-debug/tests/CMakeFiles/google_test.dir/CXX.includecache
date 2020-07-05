@@ -6,25 +6,21 @@
 
 #IncludeRegexTransform: 
 
-../src/AddEmployeeTransaction.cpp
-AddEmployeeTransaction.hpp
-../src/AddEmployeeTransaction.hpp
-PayrollDatabase.hpp
-../src/PayrollDatabase.hpp
-
-../src/AddEmployeeTransaction.hpp
+../src/Employee/Employee.hpp
 memory
 -
-Transaction.hpp
-../src/Transaction.hpp
-Employee.hpp
-../src/Employee.hpp
+PaymentClassification.hpp
+../src/Employee/PaymentClassification.hpp
+PaymentSchedule.hpp
+../src/Employee/PaymentSchedule.hpp
+PaymentMethod.hpp
+../src/Employee/PaymentMethod.hpp
 
-../src/Employee.hpp
-string
--
-memory
--
+../src/Employee/PaymentClassification.hpp
+
+../src/Employee/PaymentMethod.hpp
+
+../src/Employee/PaymentSchedule.hpp
 
 ../src/PayrollDatabase.hpp
 unordered_map
@@ -35,10 +31,24 @@ memory
 -
 sstream
 -
-Employee.hpp
-../src/Employee.hpp
+src/Employee/Employee.hpp
+../src/src/Employee/Employee.hpp
 
-../src/Transaction.hpp
+../src/Transactions/AddEmployeeTransaction.cpp
+AddEmployeeTransaction.hpp
+../src/Transactions/AddEmployeeTransaction.hpp
+../PayrollDatabase.hpp
+../src/PayrollDatabase.hpp
+
+../src/Transactions/AddEmployeeTransaction.hpp
+memory
+-
+Transaction.hpp
+../src/Transactions/Transaction.hpp
+src/Employee/Employee.hpp
+../src/Transactions/src/Employee/Employee.hpp
+
+../src/Transactions/Transaction.hpp
 
 ../tests/lib/googletest/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h
@@ -360,11 +370,21 @@ cxxabi.h
 acxx_demangle.h
 -
 
+C:/Users/mickl/ClionProjects/payroll-system/tests/AddAndRetrieveEmployeeTester.hpp
+gtest/gtest.h
+-
+src/Transactions/AddEmployeeTransaction.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/Transactions/AddEmployeeTransaction.hpp
+src/PayrollDatabase.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/PayrollDatabase.hpp
+
 C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
 gtest/gtest.h
 -
-src/AddEmployeeTransaction.hpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.hpp
-src/AddEmployeeTransaction.cpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/src/AddEmployeeTransaction.cpp
+src/Transactions/AddEmployeeTransaction.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/Transactions/AddEmployeeTransaction.hpp
+src/Transactions/AddEmployeeTransaction.cpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/src/Transactions/AddEmployeeTransaction.cpp
+AddAndRetrieveEmployeeTester.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/AddAndRetrieveEmployeeTester.hpp
 

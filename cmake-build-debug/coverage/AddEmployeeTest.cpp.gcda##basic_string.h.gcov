@@ -371,11 +371,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  317:      }
         -:  318:
         -:  319:      void
-        -:  320:      _M_check_length(size_type __n1, size_type __n2, const char* __s) const
+    #####:  320:      _M_check_length(size_type __n1, size_type __n2, const char* __s) const
         -:  321:      {
-        -:  322:	if (this->max_size() - (this->size() - __n1) < __n2)
-        -:  323:	  __throw_length_error(__N(__s));
-        -:  324:      }
+    #####:  322:	if (this->max_size() - (this->size() - __n1) < __n2)
+    %%%%%:  322-block  0
+    #####:  323:	  __throw_length_error(__N(__s));
+    %%%%%:  323-block  0
+    #####:  324:      }
         -:  325:
         -:  326:
         -:  327:      // NB: _M_limit doesn't check for a bad __pos value.
@@ -388,10 +390,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  334:
         -:  335:      // True if _Rep and source do not overlap.
         -:  336:      bool
-        -:  337:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
+    #####:  337:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
         -:  338:      {
-        -:  339:	return (less<const _CharT*>()(__s, _M_data())
-        -:  340:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+    #####:  339:	return (less<const _CharT*>()(__s, _M_data())
+    %%%%%:  339-block  0
+    #####:  340:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
+    %%%%%:  340-block  0
+    %%%%%:  340-block  1
+    %%%%%:  340-block  2
+    %%%%%:  340-block  3
         -:  341:      }
         -:  342:
         -:  343:      // When __n = 1 way faster than the general multichar
@@ -409,13 +416,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
     #####:  352:      }
         -:  353:
         -:  354:      static void
-        -:  355:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
+    #####:  355:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
         -:  356:      {
-        -:  357:	if (__n == 1)
-        -:  358:	  traits_type::assign(*__d, *__s);
+    #####:  357:	if (__n == 1)
+    %%%%%:  357-block  0
+    #####:  358:	  traits_type::assign(*__d, *__s);
+    %%%%%:  358-block  0
         -:  359:	else
-        -:  360:	  traits_type::move(__d, __s, __n);
-        -:  361:      }
+    #####:  360:	  traits_type::move(__d, __s, __n);
+    %%%%%:  360-block  0
+    #####:  361:      }
         -:  362:
         -:  363:      static void
         -:  364:      _S_assign(_CharT* __d, size_type __n, _CharT __c)
@@ -487,18 +497,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  428:      /**
         -:  429:       *  @brief  Default constructor creates an empty string.
         -:  430:       */
-        -:  431:      basic_string()
+    #####:  431:      basic_string()
         -:  432:      _GLIBCXX_NOEXCEPT_IF(is_nothrow_default_constructible<_Alloc>::value)
-        -:  433:      : _M_dataplus(_M_local_data())
-        -:  434:      { _M_set_length(0); }
+    #####:  433:      : _M_dataplus(_M_local_data())
+    %%%%%:  433-block  0
+    #####:  434:      { _M_set_length(0); }
         -:  435:
         -:  436:      /**
         -:  437:       *  @brief  Construct an empty string using allocator @a a.
         -:  438:       */
         -:  439:      explicit
-        -:  440:      basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
-        -:  441:      : _M_dataplus(_M_local_data(), __a)
-        -:  442:      { _M_set_length(0); }
+    #####:  440:      basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+    #####:  441:      : _M_dataplus(_M_local_data(), __a)
+    %%%%%:  441-block  0
+    #####:  442:      { _M_set_length(0); }
         -:  443:
         -:  444:      /**
         -:  445:       *  @brief  Construct string with copy of value of @a __str.
@@ -618,31 +630,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  549:       *  The newly-created string contains the exact contents of @a __str.
         -:  550:       *  @a __str is a valid, but unspecified string.
         -:  551:       **/
-       83:  552:      basic_string(basic_string&& __str) noexcept
-       83:  553:      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
-       83:  553-block  0
+    #####:  552:      basic_string(basic_string&& __str) noexcept
+    #####:  553:      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
+    %%%%%:  553-block  0
         -:  554:      {
-       83:  555:	if (__str._M_is_local())
+    #####:  555:	if (__str._M_is_local())
         -:  556:	  {
-       41:  557:	    traits_type::copy(_M_local_buf, __str._M_local_buf,
-       41:  557-block  0
+    #####:  557:	    traits_type::copy(_M_local_buf, __str._M_local_buf,
+    %%%%%:  557-block  0
         -:  558:			      _S_local_capacity + 1);
         -:  559:	  }
         -:  560:	else
         -:  561:	  {
-       42:  562:	    _M_data(__str._M_data());
-       42:  562-block  0
-       42:  563:	    _M_capacity(__str._M_allocated_capacity);
+    #####:  562:	    _M_data(__str._M_data());
+    %%%%%:  562-block  0
+    #####:  563:	    _M_capacity(__str._M_allocated_capacity);
         -:  564:	  }
         -:  565:
         -:  566:	// Must use _M_length() here not _M_set_length() because
         -:  567:	// basic_stringbuf relies on writing into unallocated capacity so
         -:  568:	// we mess up the contents if we put a '\0' in the string.
-       83:  569:	_M_length(__str.length());
-       83:  569-block  0
-       83:  570:	__str._M_data(__str._M_local_data());
-       83:  571:	__str._M_set_length(0);
-       83:  572:      }
+    #####:  569:	_M_length(__str.length());
+    %%%%%:  569-block  0
+    #####:  570:	__str._M_data(__str._M_local_data());
+    #####:  571:	__str._M_set_length(0);
+    #####:  572:      }
         -:  573:
         -:  574:      /**
         -:  575:       *  @brief  Construct string from an initializer %list.
@@ -746,8 +758,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  672:       *  @param  __s  Source null-terminated string.
         -:  673:       */
         -:  674:      basic_string&
-        -:  675:      operator=(const _CharT* __s)
-        -:  676:      { return this->assign(__s); }
+    #####:  675:      operator=(const _CharT* __s)
+    #####:  676:      { return this->assign(__s); }
+    %%%%%:  676-block  0
         -:  677:
         -:  678:      /**
         -:  679:       *  @brief  Set value to string of length 1.
@@ -972,8 +985,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  898:      ///  Returns the number of characters in the string, not including any
         -:  899:      ///  null-termination.
         -:  900:      size_type
-        -:  901:      size() const _GLIBCXX_NOEXCEPT
-        -:  902:      { return _M_string_length; }
+    #####:  901:      size() const _GLIBCXX_NOEXCEPT
+    #####:  902:      { return _M_string_length; }
+    %%%%%:  902-block  0
         -:  903:
         -:  904:      ///  Returns the number of characters in the string, not including any
         -:  905:      ///  null-termination.
@@ -1037,10 +1051,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  961:       *  before needing to allocate more memory.
         -:  962:       */
         -:  963:      size_type
-        -:  964:      capacity() const _GLIBCXX_NOEXCEPT
+    #####:  964:      capacity() const _GLIBCXX_NOEXCEPT
         -:  965:      {
-        -:  966:	return _M_is_local() ? size_type(_S_local_capacity)
-        -:  967:	                     : _M_allocated_capacity;
+    #####:  966:	return _M_is_local() ? size_type(_S_local_capacity)
+    %%%%%:  966-block  0
+    %%%%%:  966-block  1
+    %%%%%:  966-block  2
+    #####:  967:	                     : _M_allocated_capacity;
+    %%%%%:  967-block  0
         -:  968:      }
         -:  969:
         -:  970:      /**
@@ -1221,8 +1239,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 1145:       *  @return  Reference to this string.
         -: 1146:       */
         -: 1147:      basic_string&
-        -: 1148:      operator+=(const _CharT* __s)
-        -: 1149:      { return this->append(__s); }
+    #####: 1148:      operator+=(const _CharT* __s)
+    #####: 1149:      { return this->append(__s); }
+    %%%%%: 1149-block  0
         -: 1150:
         -: 1151:      /**
         -: 1152:       *  @brief  Append a character.
@@ -1265,8 +1284,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 1189:       *  @return  Reference to this string.
         -: 1190:       */
         -: 1191:      basic_string&
-        -: 1192:      append(const basic_string& __str)
-        -: 1193:      { return _M_append(__str._M_data(), __str.size()); }
+    #####: 1192:      append(const basic_string& __str)
+    #####: 1193:      { return _M_append(__str._M_data(), __str.size()); }
+    %%%%%: 1193-block  0
         -: 1194:
         -: 1195:      /**
         -: 1196:       *  @brief  Append a substring.
@@ -1294,11 +1314,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 1218:       *  @return  Reference to this string.
         -: 1219:       */
         -: 1220:      basic_string&
-        -: 1221:      append(const _CharT* __s, size_type __n)
+    #####: 1221:      append(const _CharT* __s, size_type __n)
         -: 1222:      {
         -: 1223:	__glibcxx_requires_string_len(__s, __n);
-        -: 1224:	_M_check_length(size_type(0), __n, "basic_string::append");
-        -: 1225:	return _M_append(__s, __n);
+    #####: 1224:	_M_check_length(size_type(0), __n, "basic_string::append");
+    %%%%%: 1224-block  0
+    #####: 1225:	return _M_append(__s, __n);
         -: 1226:      }
         -: 1227:
         -: 1228:      /**
@@ -1307,12 +1328,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 1231:       *  @return  Reference to this string.
         -: 1232:       */
         -: 1233:      basic_string&
-        -: 1234:      append(const _CharT* __s)
+    #####: 1234:      append(const _CharT* __s)
         -: 1235:      {
         -: 1236:	__glibcxx_requires_string(__s);
-        -: 1237:	const size_type __n = traits_type::length(__s);
-        -: 1238:	_M_check_length(size_type(0), __n, "basic_string::append");
-        -: 1239:	return _M_append(__s, __n);
+    #####: 1237:	const size_type __n = traits_type::length(__s);
+    %%%%%: 1237-block  0
+    #####: 1238:	_M_check_length(size_type(0), __n, "basic_string::append");
+    #####: 1239:	return _M_append(__s, __n);
         -: 1240:      }
         -: 1241:
         -: 1242:      /**
@@ -1508,11 +1530,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 1432:       *  function returns.
         -: 1433:       */
         -: 1434:      basic_string&
-        -: 1435:      assign(const _CharT* __s)
+    #####: 1435:      assign(const _CharT* __s)
         -: 1436:      {
         -: 1437:	__glibcxx_requires_string(__s);
-        -: 1438:	return _M_replace(size_type(0), this->size(), __s,
-        -: 1439:			  traits_type::length(__s));
+    #####: 1438:	return _M_replace(size_type(0), this->size(), __s,
+    %%%%%: 1438-block  0
+    #####: 1439:			  traits_type::length(__s));
         -: 1440:      }
         -: 1441:
         -: 1442:      /**
@@ -2385,8 +2408,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 2308:       *  (or in C++17 the non-const @c str.data() overload).
         -: 2309:      */
         -: 2310:      const _CharT*
-        -: 2311:      data() const _GLIBCXX_NOEXCEPT
-        -: 2312:      { return _M_data(); }
+        6: 2311:      data() const _GLIBCXX_NOEXCEPT
+        6: 2312:      { return _M_data(); }
+        6: 2312-block  0
         -: 2313:
         -: 2314:#if __cplusplus >= 201703L
         -: 2315:      /**
@@ -2404,8 +2428,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 2327:       *  @brief  Return copy of allocator used to construct this string.
         -: 2328:      */
         -: 2329:      allocator_type
-        -: 2330:      get_allocator() const _GLIBCXX_NOEXCEPT
-        -: 2331:      { return _M_get_allocator(); }
+    #####: 2330:      get_allocator() const _GLIBCXX_NOEXCEPT
+    #####: 2331:      { return _M_get_allocator(); }
+    %%%%%: 2331-block  0
         -: 2332:
         -: 2333:      /**
         -: 2334:       *  @brief  Find position of a C substring.
@@ -6235,11 +6260,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 6158:  template<typename _CharT>
         -: 6159:    inline
         -: 6160:    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value, bool>::__type
-        -: 6161:    operator==(const basic_string<_CharT>& __lhs,
+        3: 6161:    operator==(const basic_string<_CharT>& __lhs,
         -: 6162:	       const basic_string<_CharT>& __rhs) _GLIBCXX_NOEXCEPT
-        -: 6163:    { return (__lhs.size() == __rhs.size()
-        -: 6164:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
-        -: 6165:						    __lhs.size())); }
+        3: 6163:    { return (__lhs.size() == __rhs.size()
+        3: 6163-block  0
+       3*: 6164:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
+        3: 6164-block  0
+        3: 6164-block  1
+    %%%%%: 6164-block  2
+        3: 6165:						    __lhs.size())); }
+        3: 6165-block  0
         -: 6166:
         -: 6167:  /**
         -: 6168:   *  @brief  Test equivalence of string and C string.

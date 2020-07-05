@@ -1,0 +1,30 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/DeleteEmployeeTransaction.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_DELETEEMPLOYEETRANSACTION_HPP
+        -:    2:#define PAYROLL_SYSTEM_DELETEEMPLOYEETRANSACTION_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include "Transaction.hpp"
+        -:    6:#include "src/PayrollDatabase.hpp"
+        -:    7:
+        -:    8:class DeleteEmployeeTransaction : public Transaction
+        -:    9:{
+        -:   10:public:
+        2:   11:    DeleteEmployeeTransaction(int id) : id(id) {}
+        2:   11-block  0
+        3:   12:    virtual void execute() override
+        -:   13:    {
+        3:   14:        PayrollDatabase::getInstance()->deleteEmployee(id);
+        3:   14-block  0
+        2:   14-block  1
+        1:   14-block  2
+        2:   15:    }
+        -:   16:
+        -:   17:private:
+        -:   18:    int id;
+        -:   19:};
+        -:   20:
+        -:   21:
+        -:   22:#endif //PAYROLL_SYSTEM_DELETEEMPLOYEETRANSACTION_HPP

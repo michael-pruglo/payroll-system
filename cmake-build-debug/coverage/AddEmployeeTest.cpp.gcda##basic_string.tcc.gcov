@@ -371,57 +371,75 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  277:
         -:  278:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  279:    void
-        -:  280:    basic_string<_CharT, _Traits, _Alloc>::
+    #####:  280:    basic_string<_CharT, _Traits, _Alloc>::
         -:  281:    reserve(size_type __res)
         -:  282:    {
         -:  283:      // Make sure we don't shrink below the current size.
-        -:  284:      if (__res < length())
-        -:  285:	__res = length();
+    #####:  284:      if (__res < length())
+    %%%%%:  284-block  0
+    #####:  285:	__res = length();
+    %%%%%:  285-block  0
         -:  286:
-        -:  287:      const size_type __capacity = capacity();
-        -:  288:      if (__res != __capacity)
+    #####:  287:      const size_type __capacity = capacity();
+    %%%%%:  287-block  0
+    #####:  288:      if (__res != __capacity)
         -:  289:	{
-        -:  290:	  if (__res > __capacity
-        -:  291:	      || __res > size_type(_S_local_capacity))
+    #####:  290:	  if (__res > __capacity
+    %%%%%:  290-block  0
+    #####:  291:	      || __res > size_type(_S_local_capacity))
+    %%%%%:  291-block  0
         -:  292:	    {
-        -:  293:	      pointer __tmp = _M_create(__res, __capacity);
-        -:  294:	      this->_S_copy(__tmp, _M_data(), length() + 1);
-        -:  295:	      _M_dispose();
-        -:  296:	      _M_data(__tmp);
-        -:  297:	      _M_capacity(__res);
+    #####:  293:	      pointer __tmp = _M_create(__res, __capacity);
+    %%%%%:  293-block  0
+    #####:  294:	      this->_S_copy(__tmp, _M_data(), length() + 1);
+    #####:  295:	      _M_dispose();
+    #####:  296:	      _M_data(__tmp);
+    #####:  297:	      _M_capacity(__res);
         -:  298:	    }
-        -:  299:	  else if (!_M_is_local())
+    #####:  299:	  else if (!_M_is_local())
+    %%%%%:  299-block  0
         -:  300:	    {
-        -:  301:	      this->_S_copy(_M_local_data(), _M_data(), length() + 1);
-        -:  302:	      _M_destroy(__capacity);
-        -:  303:	      _M_data(_M_local_data());
+    #####:  301:	      this->_S_copy(_M_local_data(), _M_data(), length() + 1);
+    %%%%%:  301-block  0
+    #####:  302:	      _M_destroy(__capacity);
+    #####:  303:	      _M_data(_M_local_data());
         -:  304:	    }
         -:  305:	}
-        -:  306:    }
+    #####:  306:    }
         -:  307:
         -:  308:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  309:    void
-        -:  310:    basic_string<_CharT, _Traits, _Alloc>::
+    #####:  310:    basic_string<_CharT, _Traits, _Alloc>::
         -:  311:    _M_mutate(size_type __pos, size_type __len1, const _CharT* __s,
         -:  312:	      size_type __len2)
         -:  313:    {
-        -:  314:      const size_type __how_much = length() - __pos - __len1;
+    #####:  314:      const size_type __how_much = length() - __pos - __len1;
+    %%%%%:  314-block  0
         -:  315:
-        -:  316:      size_type __new_capacity = length() + __len2 - __len1;
-        -:  317:      pointer __r = _M_create(__new_capacity, capacity());
+    #####:  316:      size_type __new_capacity = length() + __len2 - __len1;
+    #####:  317:      pointer __r = _M_create(__new_capacity, capacity());
         -:  318:
-        -:  319:      if (__pos)
-        -:  320:	this->_S_copy(__r, _M_data(), __pos);
-        -:  321:      if (__s && __len2)
-        -:  322:	this->_S_copy(__r + __pos, __s, __len2);
-        -:  323:      if (__how_much)
-        -:  324:	this->_S_copy(__r + __pos + __len2,
-        -:  325:		      _M_data() + __pos + __len1, __how_much);
+    #####:  319:      if (__pos)
+    %%%%%:  319-block  0
+    #####:  320:	this->_S_copy(__r, _M_data(), __pos);
+    %%%%%:  320-block  0
+    #####:  321:      if (__s && __len2)
+    %%%%%:  321-block  0
+    %%%%%:  321-block  1
+    #####:  322:	this->_S_copy(__r + __pos, __s, __len2);
+    %%%%%:  322-block  0
+    #####:  323:      if (__how_much)
+    %%%%%:  323-block  0
+    #####:  324:	this->_S_copy(__r + __pos + __len2,
+    #####:  325:		      _M_data() + __pos + __len1, __how_much);
+    %%%%%:  325-block  0
         -:  326:
-        -:  327:      _M_dispose();
-        -:  328:      _M_data(__r);
-        -:  329:      _M_capacity(__new_capacity);
-        -:  330:    }
+    #####:  327:      _M_dispose();
+    %%%%%:  327-block  0
+    #####:  328:      _M_data(__r);
+    %%%%%:  328-block  0
+    #####:  329:      _M_capacity(__new_capacity);
+    #####:  330:    }
         -:  331:
         -:  332:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  333:    void
@@ -450,21 +468,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  356:
         -:  357:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  358:    basic_string<_CharT, _Traits, _Alloc>&
-        -:  359:    basic_string<_CharT, _Traits, _Alloc>::
+    #####:  359:    basic_string<_CharT, _Traits, _Alloc>::
         -:  360:    _M_append(const _CharT* __s, size_type __n)
         -:  361:    {
-        -:  362:      const size_type __len = __n + this->size();
+    #####:  362:      const size_type __len = __n + this->size();
+    %%%%%:  362-block  0
         -:  363:
-        -:  364:      if (__len <= this->capacity())
+    #####:  364:      if (__len <= this->capacity())
         -:  365:	{
-        -:  366:	  if (__n)
-        -:  367:	    this->_S_copy(this->_M_data() + this->size(), __s, __n);
+    #####:  366:	  if (__n)
+    %%%%%:  366-block  0
+    #####:  367:	    this->_S_copy(this->_M_data() + this->size(), __s, __n);
+    %%%%%:  367-block  0
         -:  368:	}
         -:  369:      else
-        -:  370:	this->_M_mutate(this->size(), size_type(0), __s, __n);
+    #####:  370:	this->_M_mutate(this->size(), size_type(0), __s, __n);
+    %%%%%:  370-block  0
         -:  371:
-        -:  372:      this->_M_set_length(__len);
-        -:  373:      return *this;
+    #####:  372:      this->_M_set_length(__len);
+    %%%%%:  372-block  0
+    #####:  373:      return *this;
         -:  374:    }
         -:  375:
         -:  376:  template<typename _CharT, typename _Traits, typename _Alloc>
@@ -514,55 +537,76 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  420:
         -:  421:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  422:    basic_string<_CharT, _Traits, _Alloc>&
-        -:  423:    basic_string<_CharT, _Traits, _Alloc>::
+    #####:  423:    basic_string<_CharT, _Traits, _Alloc>::
         -:  424:    _M_replace(size_type __pos, size_type __len1, const _CharT* __s,
         -:  425:	       const size_type __len2)
         -:  426:    {
-        -:  427:      _M_check_length(__len1, __len2, "basic_string::_M_replace");
+    #####:  427:      _M_check_length(__len1, __len2, "basic_string::_M_replace");
+    %%%%%:  427-block  0
         -:  428:
-        -:  429:      const size_type __old_size = this->size();
-        -:  430:      const size_type __new_size = __old_size + __len2 - __len1;
+    #####:  429:      const size_type __old_size = this->size();
+    #####:  430:      const size_type __new_size = __old_size + __len2 - __len1;
         -:  431:
-        -:  432:      if (__new_size <= this->capacity())
+    #####:  432:      if (__new_size <= this->capacity())
         -:  433:	{
-        -:  434:	  pointer __p = this->_M_data() + __pos;
+    #####:  434:	  pointer __p = this->_M_data() + __pos;
+    %%%%%:  434-block  0
         -:  435:
-        -:  436:	  const size_type __how_much = __old_size - __pos - __len1;
-        -:  437:	  if (_M_disjunct(__s))
+    #####:  436:	  const size_type __how_much = __old_size - __pos - __len1;
+    #####:  437:	  if (_M_disjunct(__s))
         -:  438:	    {
-        -:  439:	      if (__how_much && __len1 != __len2)
-        -:  440:		this->_S_move(__p + __len2, __p + __len1, __how_much);
-        -:  441:	      if (__len2)
-        -:  442:		this->_S_copy(__p, __s, __len2);
+    #####:  439:	      if (__how_much && __len1 != __len2)
+    %%%%%:  439-block  0
+    %%%%%:  439-block  1
+    #####:  440:		this->_S_move(__p + __len2, __p + __len1, __how_much);
+    %%%%%:  440-block  0
+    #####:  441:	      if (__len2)
+    %%%%%:  441-block  0
+    #####:  442:		this->_S_copy(__p, __s, __len2);
+    %%%%%:  442-block  0
         -:  443:	    }
         -:  444:	  else
         -:  445:	    {
         -:  446:	      // Work in-place.
-        -:  447:	      if (__len2 && __len2 <= __len1)
-        -:  448:		this->_S_move(__p, __s, __len2);
-        -:  449:	      if (__how_much && __len1 != __len2)
-        -:  450:		this->_S_move(__p + __len2, __p + __len1, __how_much);
-        -:  451:	      if (__len2 > __len1)
+    #####:  447:	      if (__len2 && __len2 <= __len1)
+    %%%%%:  447-block  0
+    %%%%%:  447-block  1
+    #####:  448:		this->_S_move(__p, __s, __len2);
+    %%%%%:  448-block  0
+    #####:  449:	      if (__how_much && __len1 != __len2)
+    %%%%%:  449-block  0
+    %%%%%:  449-block  1
+    #####:  450:		this->_S_move(__p + __len2, __p + __len1, __how_much);
+    %%%%%:  450-block  0
+    #####:  451:	      if (__len2 > __len1)
+    %%%%%:  451-block  0
         -:  452:		{
-        -:  453:		  if (__s + __len2 <= __p + __len1)
-        -:  454:		    this->_S_move(__p, __s, __len2);
-        -:  455:		  else if (__s >= __p + __len1)
-        -:  456:		    this->_S_copy(__p, __s + __len2 - __len1, __len2);
+    #####:  453:		  if (__s + __len2 <= __p + __len1)
+    %%%%%:  453-block  0
+    #####:  454:		    this->_S_move(__p, __s, __len2);
+    %%%%%:  454-block  0
+    #####:  455:		  else if (__s >= __p + __len1)
+    %%%%%:  455-block  0
+    #####:  456:		    this->_S_copy(__p, __s + __len2 - __len1, __len2);
+    %%%%%:  456-block  0
         -:  457:		  else
         -:  458:		    {
-        -:  459:		      const size_type __nleft = (__p + __len1) - __s;
-        -:  460:		      this->_S_move(__p, __s, __nleft);
-        -:  461:		      this->_S_copy(__p + __nleft, __p + __len2,
+    #####:  459:		      const size_type __nleft = (__p + __len1) - __s;
+    #####:  460:		      this->_S_move(__p, __s, __nleft);
+    %%%%%:  460-block  0
+    #####:  461:		      this->_S_copy(__p + __nleft, __p + __len2,
         -:  462:				    __len2 - __nleft);
         -:  463:		    }
         -:  464:		}
         -:  465:	    }
         -:  466:	}
         -:  467:      else
-        -:  468:	this->_M_mutate(__pos, __len1, __s, __len2);
+    #####:  468:	this->_M_mutate(__pos, __len1, __s, __len2);
+    %%%%%:  468-block  0
         -:  469:
-        -:  470:      this->_M_set_length(__new_size);
-        -:  471:      return *this;
+    #####:  470:      this->_M_set_length(__new_size);
+    %%%%%:  470-block  0
+    #####:  471:      return *this;
         -:  472:    }
         -:  473:
         -:  474:  template<typename _CharT, typename _Traits, typename _Alloc>
@@ -1251,7 +1295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -: 1157:   
         -: 1158:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 1159:    basic_string<_CharT, _Traits, _Alloc>
-        -: 1160:    operator+(const _CharT* __lhs,
+    #####: 1160:    operator+(const _CharT* __lhs,
         -: 1161:	      const basic_string<_CharT, _Traits, _Alloc>& __rhs)
         -: 1162:    {
         -: 1163:      __glibcxx_requires_string(__lhs);
@@ -1260,13 +1304,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -: 1166:      typedef typename __gnu_cxx::__alloc_traits<_Alloc>::template
         -: 1167:	rebind<_CharT>::other _Char_alloc_type;
         -: 1168:      typedef __gnu_cxx::__alloc_traits<_Char_alloc_type> _Alloc_traits;
-        -: 1169:      const __size_type __len = _Traits::length(__lhs);
-        -: 1170:      __string_type __str(_Alloc_traits::_S_select_on_copy(
-        -: 1171:          __rhs.get_allocator()));
-        -: 1172:      __str.reserve(__len + __rhs.size());
-        -: 1173:      __str.append(__lhs, __len);
-        -: 1174:      __str.append(__rhs);
-        -: 1175:      return __str;
+    #####: 1169:      const __size_type __len = _Traits::length(__lhs);
+    %%%%%: 1169-block  0
+    #####: 1170:      __string_type __str(_Alloc_traits::_S_select_on_copy(
+    %%%%%: 1170-block  0
+    #####: 1171:          __rhs.get_allocator()));
+    $$$$$: 1171-block  0
+    #####: 1172:      __str.reserve(__len + __rhs.size());
+    #####: 1173:      __str.append(__lhs, __len);
+    %%%%%: 1173-block  0
+    #####: 1174:      __str.append(__rhs);
+    %%%%%: 1174-block  0
+    #####: 1175:      return __str;
+    %%%%%: 1175-block  0
+    %%%%%: 1175-block  1
         -: 1176:    }
         -: 1177:
         -: 1178:  template<typename _CharT, typename _Traits, typename _Alloc>

@@ -278,6 +278,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/AddAndRetrieveEmployeeTester.hpp">
+			<Option target="google_test"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
@@ -285,6 +288,9 @@
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DeleteEmployeeTest.cpp">
+			<Option target="google_test"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/TimeCardTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googlemock/src/gmock-all.cc">

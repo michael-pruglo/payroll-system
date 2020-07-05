@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <memory>
 #include <sstream>
-#include "Employee.hpp"
+#include "src/Employee/Employee.hpp"
 
 class PayrollDatabase
 {

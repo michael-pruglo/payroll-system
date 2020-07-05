@@ -147,13 +147,13 @@
         -:  143:       *  @return @c addressof(__r)
         -:  144:      */
         -:  145:      static _GLIBCXX20_CONSTEXPR pointer
-     2685:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
-     2685:  147:      { return std::addressof(__r); }
+     3420:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
+     3420:  147:      { return std::addressof(__r); }
 ------------------
-_ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKiP8EmployeeELb0EEEE10pointer_toERS7_:
-       43:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
-       43:  147:      { return std::addressof(__r); }
-       43:  147-block  0
+_ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEE10pointer_toERS8_:
+       49:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
+       49:  147:      { return std::addressof(__r); }
+       49:  147-block  0
 ------------------
 _ZNSt14pointer_traitsIPPNSt8__detail15_Hash_node_baseEE10pointer_toERS2_:
         1:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
@@ -161,14 +161,14 @@ _ZNSt14pointer_traitsIPPNSt8__detail15_Hash_node_baseEE10pointer_toERS2_:
         1:  147-block  0
 ------------------
 _ZNSt14pointer_traitsIPKcE10pointer_toERS0_:
-     2029:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
-     2029:  147:      { return std::addressof(__r); }
-     2029:  147-block  0
+     2461:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
+     2461:  147:      { return std::addressof(__r); }
+     2461:  147-block  0
 ------------------
 _ZNSt14pointer_traitsIPcE10pointer_toERc:
-      612:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
-      612:  147:      { return std::addressof(__r); }
-      612:  147-block  0
+      909:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
+      909:  147:      { return std::addressof(__r); }
+      909:  147-block  0
 ------------------
         -:  148:    };
         -:  149:
@@ -178,10 +178,10 @@ _ZNSt14pointer_traitsIPcE10pointer_toERc:
         -:  153:
         -:  154:  template<typename _Tp>
         -:  155:    constexpr _Tp*
-       45:  156:    __to_address(_Tp* __ptr) noexcept
+       51:  156:    __to_address(_Tp* __ptr) noexcept
         -:  157:    {
         -:  158:      static_assert(!std::is_function<_Tp>::value, "not a function pointer");
-       45:  159:      return __ptr;
+       51:  159:      return __ptr;
         -:  160:    }
         -:  161:
         -:  162:#if __cplusplus <= 201703L

@@ -148,10 +148,35 @@
         -:  144:       *  @brief  Construct an empty %shared_ptr.
         -:  145:       *  @post   use_count()==0 && get()==0
         -:  146:       */
-        -:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+       55:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+------------------
+_ZNSt10shared_ptrI8EmployeeEC1Ev:
+        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+        1:  147-block  0
+------------------
+_ZNSt10shared_ptrIN8Employee13PaymentMethodEEC1Ev:
+       18:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+       18:  147-block  0
+------------------
+_ZNSt10shared_ptrIN8Employee15PaymentScheduleEEC1Ev:
+       18:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+       18:  147-block  0
+------------------
+_ZNSt10shared_ptrIN8Employee21PaymentClassificationEEC1Ev:
+       18:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+       18:  147-block  0
+------------------
         -:  148:
-       14:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-       14:  149-block  0
+      156:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+------------------
+_ZNSt10shared_ptrI15PayrollDatabaseEC1ERKS1_:
+       26:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+       26:  149-block  0
+------------------
+_ZNSt10shared_ptrI8EmployeeEC1ERKS1_:
+      130:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+      130:  149-block  0
+------------------
         -:  150:
         -:  151:      /**
         -:  152:       *  @brief  Construct a %shared_ptr that owns the pointer @a __p.
@@ -161,8 +186,16 @@
         -:  156:       */
         -:  157:      template<typename _Yp, typename = _Constructible<_Yp*>>
         -:  158:	explicit
+       16:  159:	shared_ptr(_Yp* __p) : __shared_ptr<_Tp>(__p) { }
+------------------
+_ZNSt10shared_ptrI8EmployeeEC1IS0_vEEPT_:
+       15:  159:	shared_ptr(_Yp* __p) : __shared_ptr<_Tp>(__p) { }
+       15:  159-block  0
+------------------
+_ZNSt10shared_ptrI15PayrollDatabaseEC1IS0_vEEPT_:
         1:  159:	shared_ptr(_Yp* __p) : __shared_ptr<_Tp>(__p) { }
         1:  159-block  0
+------------------
         -:  160:
         -:  161:      /**
         -:  162:       *  @brief  Construct a %shared_ptr that owns the pointer @a __p
@@ -306,8 +339,9 @@
         -:  300:       *  @param  __r  A %shared_ptr rvalue.
         -:  301:       *  @post   *this contains the old value of @a __r, @a __r is empty.
         -:  302:       */
-        -:  303:      shared_ptr(shared_ptr&& __r) noexcept
-        -:  304:      : __shared_ptr<_Tp>(std::move(__r)) { }
+       49:  303:      shared_ptr(shared_ptr&& __r) noexcept
+       49:  304:      : __shared_ptr<_Tp>(std::move(__r)) { }
+       49:  304-block  0
         -:  305:
         -:  306:      /**
         -:  307:       *  @brief  Move-constructs a %shared_ptr instance from @a __r.
@@ -359,9 +393,11 @@
         -:  353:       *  @brief  Construct an empty %shared_ptr.
         -:  354:       *  @post   use_count() == 0 && get() == nullptr
         -:  355:       */
-        -:  356:      constexpr shared_ptr(nullptr_t) noexcept : shared_ptr() { }
+        1:  356:      constexpr shared_ptr(nullptr_t) noexcept : shared_ptr() { }
+        1:  356-block  0
         -:  357:
-        -:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+        1:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+        1:  358-block  0
         -:  359:
         -:  360:      template<typename _Yp>
         -:  361:	_Assignable<const shared_ptr<_Yp>&>
@@ -440,15 +476,16 @@
         -:  433:  /// Equality operator for shared_ptr objects, compares the stored pointers
         -:  434:  template<typename _Tp, typename _Up>
         -:  435:    _GLIBCXX_NODISCARD inline bool
-        -:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        -:  437:    { return __a.get() == __b.get(); }
+       12:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+       12:  437:    { return __a.get() == __b.get(); }
+       12:  437-block  0
         -:  438:
         -:  439:  /// shared_ptr comparison with nullptr
         -:  440:  template<typename _Tp>
         -:  441:    _GLIBCXX_NODISCARD inline bool
-       14:  442:    operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
-       14:  443:    { return !__a; }
-       14:  443-block  0
+       26:  442:    operator==(const shared_ptr<_Tp>& __a, nullptr_t) noexcept
+       26:  443:    { return !__a; }
+       26:  443-block  0
         -:  444:
         -:  445:#ifdef __cpp_lib_three_way_comparison
         -:  446:  template<typename _Tp, typename _Up>

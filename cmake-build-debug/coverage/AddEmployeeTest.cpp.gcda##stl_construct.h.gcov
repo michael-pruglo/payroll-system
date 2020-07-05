@@ -81,6 +81,109 @@
         -:   77:#if __cplusplus >= 201703L
         -:   78:  template <typename _Tp>
         -:   79:    _GLIBCXX20_CONSTEXPR inline void
+       9*:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+       9*:   88:	__location->~_Tp();
+       9*:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee10HoldMethodEEvPT_:
+        3:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        3:   88:	__location->~_Tp();
+        3:   88-block  0
+        3:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee20HourlyClassificationEEvPT_:
+        1:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        1:   88:	__location->~_Tp();
+        1:   88-block  0
+        1:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee14WeeklyScheduleEEvPT_:
+        1:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        1:   88:	__location->~_Tp();
+        1:   88-block  0
+        1:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee22SalariedClassificationEEvPT_:
+        1:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        1:   88:	__location->~_Tp();
+        1:   88-block  0
+        1:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee15MonthlyScheduleEEvPT_:
+        1:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        1:   88:	__location->~_Tp();
+        1:   88-block  0
+        1:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee26CommissionedClassificationEEvPT_:
+        1:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        1:   88:	__location->~_Tp();
+        1:   88-block  0
+        1:   89:    }
+------------------
+_ZSt10destroy_atIN8Employee16BiweeklyScheduleEEvPT_:
+        1:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+        1:   88:	__location->~_Tp();
+        1:   88-block  0
+        1:   89:    }
+------------------
+_ZSt10destroy_atISt4pairIKiSt10shared_ptrI8EmployeeEEEvPT_:
     #####:   80:    destroy_at(_Tp* __location)
         -:   81:    {
         -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
@@ -90,15 +193,67 @@
         -:   86:	}
         -:   87:      else
     #####:   88:	__location->~_Tp();
+    %%%%%:   88-block  0
     #####:   89:    }
+------------------
         -:   90:
         -:   91:#if __cplusplus > 201703L
         -:   92:  template<typename _Tp, typename... _Args>
         -:   93:    constexpr auto
-        -:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        9:   94:    construct_at(_Tp* __location, _Args&&... __args)
         -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
         -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
-        -:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+       15:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+------------------
+_ZSt12construct_atIN8Employee16BiweeklyScheduleEJEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS3_DpOS4_:
+        1:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        2:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        1:   97-block  0
+------------------
+_ZSt12construct_atIN8Employee26CommissionedClassificationEJRKdS3_EEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS5_DpOS6_:
+        1:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        1:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        1:   97-block  0
+------------------
+_ZSt12construct_atIN8Employee15MonthlyScheduleEJEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS3_DpOS4_:
+        1:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        2:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        1:   97-block  0
+------------------
+_ZSt12construct_atIN8Employee22SalariedClassificationEJRKdEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS5_DpOS6_:
+        1:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        1:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        1:   97-block  0
+------------------
+_ZSt12construct_atIN8Employee14WeeklyScheduleEJEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS3_DpOS4_:
+        1:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        2:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        1:   97-block  0
+------------------
+_ZSt12construct_atIN8Employee20HourlyClassificationEJRKdEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS5_DpOS6_:
+        1:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        1:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        1:   97-block  0
+------------------
+_ZSt12construct_atIN8Employee10HoldMethodEJEEDTgsnwcvPvLi0E_T_pispcl7declvalIT0_EEEEPS3_DpOS4_:
+        3:   94:    construct_at(_Tp* __location, _Args&&... __args)
+        -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
+        -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
+        6:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+        3:   97-block  0
+------------------
         -:   98:#endif // C++20
         -:   99:#endif// C++17
         -:  100:

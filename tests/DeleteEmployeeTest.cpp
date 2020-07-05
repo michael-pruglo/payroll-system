@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "src/DeleteEmployeeTransaction.hpp"
+#include "src/Transactions/DeleteEmployeeTransaction.hpp"
 
 class DeleteEmployeeTest : public ::testing::Test
 {

@@ -325,8 +325,8 @@
         -:  321:  }
         -:  322:
         -:  323:  // Returns true if and only if the assertion succeeded.
-       66:  324:  operator bool() const { return success_; }  // NOLINT
-       66:  324-block  0
+       90:  324:  operator bool() const { return success_; }  // NOLINT
+       90:  324-block  0
         -:  325:
         -:  326:  // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.
         -:  327:  AssertionResult operator!() const;
@@ -1539,7 +1539,7 @@
     #####: 1528:                   false);
         -: 1529:}
 ------------------
-_ZN7testing8internal18CmpHelperEQFailureIP8EmployeeS3_EENS_15AssertionResultEPKcS6_RKT_RKT0_:
+_ZN7testing8internal18CmpHelperEQFailureISt10shared_ptrI8EmployeeES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
     #####: 1521:AssertionResult CmpHelperEQFailure(const char* lhs_expression,
         -: 1522:                                   const char* rhs_expression,
         -: 1523:                                   const T1& lhs, const T2& rhs) {
@@ -1603,18 +1603,18 @@ _ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0
         -: 1537:
         -: 1538:// The helper function for {ASSERT|EXPECT}_EQ.
         -: 1539:template <typename T1, typename T2>
-       66: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
+       74: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
         -: 1543:                            const T2& rhs) {
-       66: 1544:  if (lhs == rhs) {
-       66: 1545:    return AssertionSuccess();
+       74: 1544:  if (lhs == rhs) {
+       74: 1545:    return AssertionSuccess();
         -: 1546:  }
         -: 1547:
     #####: 1548:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
         -: 1549:}
 ------------------
-_ZN7testing8internal11CmpHelperEQIP8EmployeeS3_EENS_15AssertionResultEPKcS6_RKT_RKT0_:
+_ZN7testing8internal11CmpHelperEQISt10shared_ptrI8EmployeeES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
        12: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
@@ -1630,14 +1630,14 @@ _ZN7testing8internal11CmpHelperEQIP8EmployeeS3_EENS_15AssertionResultEPKcS6_RKT_
         -: 1549:}
 ------------------
 _ZN7testing8internal11CmpHelperEQIyiEENS_15AssertionResultEPKcS4_RKT_RKT0_:
-       43: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
+       48: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
         -: 1543:                            const T2& rhs) {
-       43: 1544:  if (lhs == rhs) {
-       43: 1544-block  0
-       43: 1545:    return AssertionSuccess();
-       43: 1545-block  0
+       48: 1544:  if (lhs == rhs) {
+       48: 1544-block  0
+       48: 1545:    return AssertionSuccess();
+       48: 1545-block  0
         -: 1546:  }
         -: 1547:
     #####: 1548:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
@@ -1645,14 +1645,14 @@ _ZN7testing8internal11CmpHelperEQIyiEENS_15AssertionResultEPKcS4_RKT_RKT0_:
         -: 1549:}
 ------------------
 _ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_:
-       11: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
+       14: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
         -: 1543:                            const T2& rhs) {
-       11: 1544:  if (lhs == rhs) {
-       11: 1544-block  0
-       11: 1545:    return AssertionSuccess();
-       11: 1545-block  0
+       14: 1544:  if (lhs == rhs) {
+       14: 1544-block  0
+       14: 1545:    return AssertionSuccess();
+       14: 1545-block  0
         -: 1546:  }
         -: 1547:
     #####: 1548:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
@@ -1677,10 +1677,10 @@ _ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_:
         -: 1565:      // and the other is the null pointer constant.
         -: 1566:      typename std::enable_if<!std::is_integral<T1>::value ||
         -: 1567:                              !std::is_pointer<T2>::value>::type* = nullptr>
-       66: 1568:  static AssertionResult Compare(const char* lhs_expression,
+       74: 1568:  static AssertionResult Compare(const char* lhs_expression,
         -: 1569:                                 const char* rhs_expression, const T1& lhs,
         -: 1570:                                 const T2& rhs) {
-       66: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+       74: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
         -: 1572:  }
         -: 1573:
         -: 1574:  // With this overloaded version, we allow anonymous enums to be used

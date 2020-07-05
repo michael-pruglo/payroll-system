@@ -921,12 +921,14 @@ _ZSt12__niter_baseIPKcET_S2_:
         -:  877:  template<typename _Tp>
         -:  878:    inline typename
         -:  879:    __gnu_cxx::__enable_if<__is_byte<_Tp>::__value, void>::__type
-        -:  880:    __fill_a1(_Tp* __first, _Tp* __last, const _Tp& __c)
+    #####:  880:    __fill_a1(_Tp* __first, _Tp* __last, const _Tp& __c)
         -:  881:    {
-        -:  882:      const _Tp __tmp = __c;
-        -:  883:      if (const size_t __len = __last - __first)
-        -:  884:	__builtin_memset(__first, static_cast<unsigned char>(__tmp), __len);
-        -:  885:    }
+    #####:  882:      const _Tp __tmp = __c;
+    #####:  883:      if (const size_t __len = __last - __first)
+    %%%%%:  883-block  0
+    #####:  884:	__builtin_memset(__first, static_cast<unsigned char>(__tmp), __len);
+    %%%%%:  884-block  0
+    #####:  885:    }
         -:  886:
         -:  887:  template<typename _Ite, typename _Cont, typename _Tp>
         -:  888:    _GLIBCXX20_CONSTEXPR
@@ -945,8 +947,9 @@ _ZSt12__niter_baseIPKcET_S2_:
         -:  901:  template<typename _FIte, typename _Tp>
         -:  902:    _GLIBCXX20_CONSTEXPR
         -:  903:    inline void
-        -:  904:    __fill_a(_FIte __first, _FIte __last, const _Tp& __value)
-        -:  905:    { std::__fill_a1(__first, __last, __value); }
+    #####:  904:    __fill_a(_FIte __first, _FIte __last, const _Tp& __value)
+    #####:  905:    { std::__fill_a1(__first, __last, __value); }
+    %%%%%:  905-block  0
         -:  906:
         -:  907:  template<typename _Ite, typename _Seq, typename _Cat, typename _Tp>
         -:  908:    void
@@ -991,7 +994,8 @@ _ZSt12__niter_baseIPKcET_S2_:
         -:  947:  inline _GLIBCXX_CONSTEXPR long long
         -:  948:  __size_to_integer(long long __n) { return __n; }
         -:  949:  inline _GLIBCXX_CONSTEXPR unsigned long long
-        -:  950:  __size_to_integer(unsigned long long __n) { return __n; }
+    #####:  950:  __size_to_integer(unsigned long long __n) { return __n; }
+    %%%%%:  950-block  0
         -:  951:
         -:  952:#if defined(__GLIBCXX_TYPE_INT_N_0)
         -:  953:  inline _GLIBCXX_CONSTEXPR __GLIBCXX_TYPE_INT_N_0
@@ -1086,19 +1090,22 @@ _ZSt12__niter_baseIPKcET_S2_:
         -: 1042:  template<typename _OutputIterator, typename _Size, typename _Tp>
         -: 1043:    _GLIBCXX20_CONSTEXPR
         -: 1044:    inline _OutputIterator
-        -: 1045:    __fill_n_a(_OutputIterator __first, _Size __n, const _Tp& __value,
+    #####: 1045:    __fill_n_a(_OutputIterator __first, _Size __n, const _Tp& __value,
         -: 1046:	       std::random_access_iterator_tag)
         -: 1047:    {
         -: 1048:#if __cplusplus >= 201103L
         -: 1049:      static_assert(is_integral<_Size>{}, "fill_n must pass integral size");
         -: 1050:#endif
-        -: 1051:      if (__n <= 0)
-        -: 1052:	return __first;
+    #####: 1051:      if (__n <= 0)
+    %%%%%: 1051-block  0
+    #####: 1052:	return __first;
+    %%%%%: 1052-block  0
         -: 1053:
         -: 1054:      __glibcxx_requires_can_increment(__first, __n);
         -: 1055:
-        -: 1056:      std::__fill_a(__first, __first + __n, __value);
-        -: 1057:      return __first + __n;
+    #####: 1056:      std::__fill_a(__first, __first + __n, __value);
+    %%%%%: 1056-block  0
+    #####: 1057:      return __first + __n;
         -: 1058:    }
         -: 1059:
         -: 1060:  /**
@@ -1121,13 +1128,14 @@ _ZSt12__niter_baseIPKcET_S2_:
         -: 1077:  template<typename _OI, typename _Size, typename _Tp>
         -: 1078:    _GLIBCXX20_CONSTEXPR
         -: 1079:    inline _OI
-        -: 1080:    fill_n(_OI __first, _Size __n, const _Tp& __value)
+    #####: 1080:    fill_n(_OI __first, _Size __n, const _Tp& __value)
         -: 1081:    {
         -: 1082:      // concept requirements
         -: 1083:      __glibcxx_function_requires(_OutputIteratorConcept<_OI, _Tp>)
         -: 1084:
-        -: 1085:      return std::__fill_n_a(__first, std::__size_to_integer(__n), __value,
-        -: 1086:			       std::__iterator_category(__first));
+    #####: 1085:      return std::__fill_n_a(__first, std::__size_to_integer(__n), __value,
+    #####: 1086:			       std::__iterator_category(__first));
+    %%%%%: 1086-block  0
         -: 1087:    }
         -: 1088:
         -: 1089:  template<bool _BoolType>

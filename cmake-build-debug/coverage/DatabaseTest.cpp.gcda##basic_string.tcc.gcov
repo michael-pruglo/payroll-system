@@ -133,35 +133,35 @@
         -:  129:
         -:  130:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  131:    typename basic_string<_CharT, _Traits, _Alloc>::pointer
-      238:  132:    basic_string<_CharT, _Traits, _Alloc>::
+      286:  132:    basic_string<_CharT, _Traits, _Alloc>::
         -:  133:    _M_create(size_type& __capacity, size_type __old_capacity)
         -:  134:    {
         -:  135:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  136:      // 83.  String::npos vs. string::max_size()
-      238:  137:      if (__capacity > max_size())
-      238:  137-block  0
+      286:  137:      if (__capacity > max_size())
+      286:  137-block  0
     #####:  138:	std::__throw_length_error(__N("basic_string::_M_create"));
     %%%%%:  138-block  0
         -:  139:
         -:  140:      // The below implements an exponential growth policy, necessary to
         -:  141:      // meet amortized linear time requirements of the library: see
         -:  142:      // http://gcc.gnu.org/ml/libstdc++/2001-07/msg00085.html.
-      238:  143:      if (__capacity > __old_capacity && __capacity < 2 * __old_capacity)
-      238:  143-block  0
-      238:  143-block  1
+      286:  143:      if (__capacity > __old_capacity && __capacity < 2 * __old_capacity)
+      286:  143-block  0
+      286:  143-block  1
         -:  144:	{
-       39:  145:	  __capacity = 2 * __old_capacity;
+       42:  145:	  __capacity = 2 * __old_capacity;
         -:  146:	  // Never allocate a string bigger than max_size.
-       39:  147:	  if (__capacity > max_size())
-       39:  147-block  0
+       42:  147:	  if (__capacity > max_size())
+       42:  147-block  0
     #####:  148:	    __capacity = max_size();
     %%%%%:  148-block  0
         -:  149:	}
         -:  150:
         -:  151:      // NB: Need an array of char_type[__capacity], plus a terminating
         -:  152:      // null char_type() element.
-      238:  153:      return _Alloc_traits::allocate(_M_get_allocator(), __capacity + 1);
-      238:  153-block  0
+      286:  153:      return _Alloc_traits::allocate(_M_get_allocator(), __capacity + 1);
+      286:  153-block  0
         -:  154:    }
         -:  155:
         -:  156:  // NB: This is the special case for Input Iterators, used in
@@ -214,134 +214,139 @@
         -:  203:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  204:    template<typename _InIterator>
         -:  205:      void
-      245:  206:      basic_string<_CharT, _Traits, _Alloc>::
+      347:  206:      basic_string<_CharT, _Traits, _Alloc>::
         -:  207:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  208:		   std::forward_iterator_tag)
         -:  209:      {
         -:  210:	// NB: Not required, but considered best practice.
-     245*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
+     347*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
     #####:  212:	  std::__throw_logic_error(__N("basic_string::"
         -:  213:				       "_M_construct null not valid"));
         -:  214:
-      245:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+      347:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
         -:  216:
-      245:  217:	if (__dnew > size_type(_S_local_capacity))
+      347:  217:	if (__dnew > size_type(_S_local_capacity))
         -:  218:	  {
-      167:  219:	    _M_data(_M_create(__dnew, size_type(0)));
-      167:  220:	    _M_capacity(__dnew);
+      196:  219:	    _M_data(_M_create(__dnew, size_type(0)));
+      196:  220:	    _M_capacity(__dnew);
         -:  221:	  }
         -:  222:
         -:  223:	// Check for out_of_range and length_error exceptions.
         -:  224:	__try
-      245:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
+      347:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
         -:  226:	__catch(...)
         -:  227:	  {
         -:  228:	    _M_dispose();
         -:  229:	    __throw_exception_again;
         -:  230:	  }
         -:  231:
-      245:  232:	_M_set_length(__dnew);
-      245:  233:      }
+      347:  232:	_M_set_length(__dnew);
+      347:  233:      }
 ------------------
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag:
-      135:  206:      basic_string<_CharT, _Traits, _Alloc>::
+      186:  206:      basic_string<_CharT, _Traits, _Alloc>::
         -:  207:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  208:		   std::forward_iterator_tag)
         -:  209:      {
         -:  210:	// NB: Not required, but considered best practice.
-     135*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
-      135:  211-block  0
+     186*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
+      186:  211-block  0
     %%%%%:  211-block  1
     %%%%%:  211-block  2
-      135:  211-block  3
-      135:  211-block  4
+      186:  211-block  3
+      186:  211-block  4
     #####:  212:	  std::__throw_logic_error(__N("basic_string::"
     %%%%%:  212-block  0
         -:  213:				       "_M_construct null not valid"));
         -:  214:
-      135:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-      135:  215-block  0
+      186:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+      186:  215-block  0
         -:  216:
-      135:  217:	if (__dnew > size_type(_S_local_capacity))
-      135:  217-block  0
+      186:  217:	if (__dnew > size_type(_S_local_capacity))
+      186:  217-block  0
         -:  218:	  {
-      109:  219:	    _M_data(_M_create(__dnew, size_type(0)));
-      109:  219-block  0
-      109:  219-block  1
-      109:  220:	    _M_capacity(__dnew);
+      128:  219:	    _M_data(_M_create(__dnew, size_type(0)));
+      128:  219-block  0
+      128:  219-block  1
+      128:  220:	    _M_capacity(__dnew);
         -:  221:	  }
         -:  222:
         -:  223:	// Check for out_of_range and length_error exceptions.
         -:  224:	__try
-      135:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
-      135:  225-block  0
+      186:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
+      186:  225-block  0
         -:  226:	__catch(...)
         -:  227:	  {
         -:  228:	    _M_dispose();
         -:  229:	    __throw_exception_again;
         -:  230:	  }
         -:  231:
-      135:  232:	_M_set_length(__dnew);
-      135:  233:      }
+      186:  232:	_M_set_length(__dnew);
+      186:  233:      }
 ------------------
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag:
-      110:  206:      basic_string<_CharT, _Traits, _Alloc>::
+      161:  206:      basic_string<_CharT, _Traits, _Alloc>::
         -:  207:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  208:		   std::forward_iterator_tag)
         -:  209:      {
         -:  210:	// NB: Not required, but considered best practice.
-     110*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
-      110:  211-block  0
+     161*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
+      161:  211-block  0
     %%%%%:  211-block  1
     %%%%%:  211-block  2
-      110:  211-block  3
-      110:  211-block  4
+      161:  211-block  3
+      161:  211-block  4
     #####:  212:	  std::__throw_logic_error(__N("basic_string::"
     %%%%%:  212-block  0
         -:  213:				       "_M_construct null not valid"));
         -:  214:
-      110:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-      110:  215-block  0
+      161:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+      161:  215-block  0
         -:  216:
-      110:  217:	if (__dnew > size_type(_S_local_capacity))
-      110:  217-block  0
+      161:  217:	if (__dnew > size_type(_S_local_capacity))
+      161:  217-block  0
         -:  218:	  {
-       58:  219:	    _M_data(_M_create(__dnew, size_type(0)));
-       58:  219-block  0
-       58:  219-block  1
-       58:  220:	    _M_capacity(__dnew);
+       68:  219:	    _M_data(_M_create(__dnew, size_type(0)));
+       68:  219-block  0
+       68:  219-block  1
+       68:  220:	    _M_capacity(__dnew);
         -:  221:	  }
         -:  222:
         -:  223:	// Check for out_of_range and length_error exceptions.
         -:  224:	__try
-      110:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
-      110:  225-block  0
+      161:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
+      161:  225-block  0
         -:  226:	__catch(...)
         -:  227:	  {
         -:  228:	    _M_dispose();
         -:  229:	    __throw_exception_again;
         -:  230:	  }
         -:  231:
-      110:  232:	_M_set_length(__dnew);
-      110:  233:      }
+      161:  232:	_M_set_length(__dnew);
+      161:  233:      }
 ------------------
         -:  234:
         -:  235:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  236:    void
-        -:  237:    basic_string<_CharT, _Traits, _Alloc>::
+       16:  237:    basic_string<_CharT, _Traits, _Alloc>::
         -:  238:    _M_construct(size_type __n, _CharT __c)
         -:  239:    {
-        -:  240:      if (__n > size_type(_S_local_capacity))
+       16:  240:      if (__n > size_type(_S_local_capacity))
+       16:  240-block  0
         -:  241:	{
-        -:  242:	  _M_data(_M_create(__n, size_type(0)));
-        -:  243:	  _M_capacity(__n);
+    #####:  242:	  _M_data(_M_create(__n, size_type(0)));
+    %%%%%:  242-block  0
+    #####:  243:	  _M_capacity(__n);
         -:  244:	}
         -:  245:
-        -:  246:      if (__n)
-        -:  247:	this->_S_assign(_M_data(), __n, __c);
+       16:  246:      if (__n)
+       16:  246-block  0
+       16:  247:	this->_S_assign(_M_data(), __n, __c);
+       16:  247-block  0
         -:  248:
-        -:  249:      _M_set_length(__n);
-        -:  250:    }
+       16:  249:      _M_set_length(__n);
+       16:  249-block  0
+       16:  250:    }
         -:  251:
         -:  252:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  253:    void
@@ -371,23 +376,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  277:
         -:  278:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  279:    void
-       70:  280:    basic_string<_CharT, _Traits, _Alloc>::
+       79:  280:    basic_string<_CharT, _Traits, _Alloc>::
         -:  281:    reserve(size_type __res)
         -:  282:    {
         -:  283:      // Make sure we don't shrink below the current size.
-       70:  284:      if (__res < length())
-       70:  284-block  0
+       79:  284:      if (__res < length())
+       79:  284-block  0
     #####:  285:	__res = length();
     %%%%%:  285-block  0
         -:  286:
-       70:  287:      const size_type __capacity = capacity();
-       70:  287-block  0
-       70:  288:      if (__res != __capacity)
+       79:  287:      const size_type __capacity = capacity();
+       79:  287-block  0
+       79:  288:      if (__res != __capacity)
         -:  289:	{
-       70:  290:	  if (__res > __capacity
-       70:  290-block  0
-       26:  291:	      || __res > size_type(_S_local_capacity))
-       26:  291-block  0
+       79:  290:	  if (__res > __capacity
+       79:  290-block  0
+       35:  291:	      || __res > size_type(_S_local_capacity))
+       35:  291-block  0
         -:  292:	    {
        44:  293:	      pointer __tmp = _M_create(__res, __capacity);
        44:  293-block  0
@@ -396,8 +401,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
        44:  296:	      _M_data(__tmp);
        44:  297:	      _M_capacity(__res);
         -:  298:	    }
-       26:  299:	  else if (!_M_is_local())
-       26:  299-block  0
+       35:  299:	  else if (!_M_is_local())
+       35:  299-block  0
         -:  300:	    {
     #####:  301:	      this->_S_copy(_M_local_data(), _M_data(), length() + 1);
     %%%%%:  301-block  0
@@ -405,41 +410,41 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
     #####:  303:	      _M_data(_M_local_data());
         -:  304:	    }
         -:  305:	}
-       70:  306:    }
+       79:  306:    }
         -:  307:
         -:  308:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  309:    void
-       26:  310:    basic_string<_CharT, _Traits, _Alloc>::
+       45:  310:    basic_string<_CharT, _Traits, _Alloc>::
         -:  311:    _M_mutate(size_type __pos, size_type __len1, const _CharT* __s,
         -:  312:	      size_type __len2)
         -:  313:    {
-       26:  314:      const size_type __how_much = length() - __pos - __len1;
-       26:  314-block  0
+       45:  314:      const size_type __how_much = length() - __pos - __len1;
+       45:  314-block  0
         -:  315:
-       26:  316:      size_type __new_capacity = length() + __len2 - __len1;
-       26:  317:      pointer __r = _M_create(__new_capacity, capacity());
+       45:  316:      size_type __new_capacity = length() + __len2 - __len1;
+       45:  317:      pointer __r = _M_create(__new_capacity, capacity());
         -:  318:
-       26:  319:      if (__pos)
-       26:  319-block  0
-       26:  320:	this->_S_copy(__r, _M_data(), __pos);
-       26:  320-block  0
-       26:  321:      if (__s && __len2)
-       26:  321-block  0
-       26:  321-block  1
-       26:  322:	this->_S_copy(__r + __pos, __s, __len2);
-       26:  322-block  0
-       26:  323:      if (__how_much)
-       26:  323-block  0
-    #####:  324:	this->_S_copy(__r + __pos + __len2,
-    #####:  325:		      _M_data() + __pos + __len1, __how_much);
-    %%%%%:  325-block  0
+       45:  319:      if (__pos)
+       45:  319-block  0
+       29:  320:	this->_S_copy(__r, _M_data(), __pos);
+       29:  320-block  0
+       45:  321:      if (__s && __len2)
+       45:  321-block  0
+       45:  321-block  1
+       45:  322:	this->_S_copy(__r + __pos, __s, __len2);
+       45:  322-block  0
+       45:  323:      if (__how_much)
+       45:  323-block  0
+       16:  324:	this->_S_copy(__r + __pos + __len2,
+       16:  325:		      _M_data() + __pos + __len1, __how_much);
+       16:  325-block  0
         -:  326:
-       26:  327:      _M_dispose();
-       26:  327-block  0
-       26:  328:      _M_data(__r);
-       26:  328-block  0
-       26:  329:      _M_capacity(__new_capacity);
-       26:  330:    }
+       45:  327:      _M_dispose();
+       45:  327-block  0
+       45:  328:      _M_data(__r);
+       45:  328-block  0
+       45:  329:      _M_capacity(__new_capacity);
+       45:  330:    }
         -:  331:
         -:  332:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  333:    void
@@ -468,26 +473,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  356:
         -:  357:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  358:    basic_string<_CharT, _Traits, _Alloc>&
-       54:  359:    basic_string<_CharT, _Traits, _Alloc>::
+       68:  359:    basic_string<_CharT, _Traits, _Alloc>::
         -:  360:    _M_append(const _CharT* __s, size_type __n)
         -:  361:    {
-       54:  362:      const size_type __len = __n + this->size();
-       54:  362-block  0
+       68:  362:      const size_type __len = __n + this->size();
+       68:  362-block  0
         -:  363:
-       54:  364:      if (__len <= this->capacity())
+       68:  364:      if (__len <= this->capacity())
         -:  365:	{
-       28:  366:	  if (__n)
-       28:  366-block  0
-       28:  367:	    this->_S_copy(this->_M_data() + this->size(), __s, __n);
-       28:  367-block  0
+       39:  366:	  if (__n)
+       39:  366-block  0
+       39:  367:	    this->_S_copy(this->_M_data() + this->size(), __s, __n);
+       39:  367-block  0
         -:  368:	}
         -:  369:      else
-       26:  370:	this->_M_mutate(this->size(), size_type(0), __s, __n);
-       26:  370-block  0
+       29:  370:	this->_M_mutate(this->size(), size_type(0), __s, __n);
+       29:  370-block  0
         -:  371:
-       54:  372:      this->_M_set_length(__len);
-       54:  372-block  0
-       54:  373:      return *this;
+       68:  372:      this->_M_set_length(__len);
+       68:  372-block  0
+       68:  373:      return *this;
         -:  374:    }
         -:  375:
         -:  376:  template<typename _CharT, typename _Traits, typename _Alloc>
@@ -537,33 +542,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  420:
         -:  421:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  422:    basic_string<_CharT, _Traits, _Alloc>&
-       29:  423:    basic_string<_CharT, _Traits, _Alloc>::
+       51:  423:    basic_string<_CharT, _Traits, _Alloc>::
         -:  424:    _M_replace(size_type __pos, size_type __len1, const _CharT* __s,
         -:  425:	       const size_type __len2)
         -:  426:    {
-       29:  427:      _M_check_length(__len1, __len2, "basic_string::_M_replace");
-       29:  427-block  0
+       51:  427:      _M_check_length(__len1, __len2, "basic_string::_M_replace");
+       51:  427-block  0
         -:  428:
-       29:  429:      const size_type __old_size = this->size();
-       29:  430:      const size_type __new_size = __old_size + __len2 - __len1;
+       51:  429:      const size_type __old_size = this->size();
+       51:  430:      const size_type __new_size = __old_size + __len2 - __len1;
         -:  431:
-       29:  432:      if (__new_size <= this->capacity())
+       51:  432:      if (__new_size <= this->capacity())
         -:  433:	{
-       29:  434:	  pointer __p = this->_M_data() + __pos;
-       29:  434-block  0
+       35:  434:	  pointer __p = this->_M_data() + __pos;
+       35:  434-block  0
         -:  435:
-       29:  436:	  const size_type __how_much = __old_size - __pos - __len1;
-       29:  437:	  if (_M_disjunct(__s))
+       35:  436:	  const size_type __how_much = __old_size - __pos - __len1;
+       35:  437:	  if (_M_disjunct(__s))
         -:  438:	    {
-      29*:  439:	      if (__how_much && __len1 != __len2)
-       29:  439-block  0
+      35*:  439:	      if (__how_much && __len1 != __len2)
+       35:  439-block  0
     %%%%%:  439-block  1
     #####:  440:		this->_S_move(__p + __len2, __p + __len1, __how_much);
     %%%%%:  440-block  0
-       29:  441:	      if (__len2)
-       29:  441-block  0
-       15:  442:		this->_S_copy(__p, __s, __len2);
-       15:  442-block  0
+       35:  441:	      if (__len2)
+       35:  441-block  0
+       18:  442:		this->_S_copy(__p, __s, __len2);
+       18:  442-block  0
         -:  443:	    }
         -:  444:	  else
         -:  445:	    {
@@ -601,12 +606,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
         -:  465:	    }
         -:  466:	}
         -:  467:      else
-    #####:  468:	this->_M_mutate(__pos, __len1, __s, __len2);
-    %%%%%:  468-block  0
+       16:  468:	this->_M_mutate(__pos, __len1, __s, __len2);
+       16:  468-block  0
         -:  469:
-       29:  470:      this->_M_set_length(__new_size);
-       29:  470-block  0
-       29:  471:      return *this;
+       51:  470:      this->_M_set_length(__new_size);
+       51:  470-block  0
+       51:  471:      return *this;
         -:  472:    }
         -:  473:
         -:  474:  template<typename _CharT, typename _Traits, typename _Alloc>

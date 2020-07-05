@@ -251,6 +251,33 @@ DeleteEmployeeTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.s
 .PHONY : DeleteEmployeeTest.cpp.s
 
+TimeCardTest.obj: TimeCardTest.cpp.obj
+
+.PHONY : TimeCardTest.obj
+
+# target to build an object file
+TimeCardTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj
+.PHONY : TimeCardTest.cpp.obj
+
+TimeCardTest.i: TimeCardTest.cpp.i
+
+.PHONY : TimeCardTest.i
+
+# target to preprocess a source file
+TimeCardTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.i
+.PHONY : TimeCardTest.cpp.i
+
+TimeCardTest.s: TimeCardTest.cpp.s
+
+.PHONY : TimeCardTest.s
+
+# target to generate assembly for a file
+TimeCardTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.s
+.PHONY : TimeCardTest.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -273,6 +300,9 @@ help:
 	@echo ... DeleteEmployeeTest.obj
 	@echo ... DeleteEmployeeTest.i
 	@echo ... DeleteEmployeeTest.s
+	@echo ... TimeCardTest.obj
+	@echo ... TimeCardTest.i
+	@echo ... TimeCardTest.s
 .PHONY : help
 
 

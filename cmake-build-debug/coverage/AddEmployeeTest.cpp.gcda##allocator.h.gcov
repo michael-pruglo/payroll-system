@@ -145,11 +145,111 @@
         -:  141:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  142:      // 3035. std::allocator's constructors should be constexpr
         -:  143:      _GLIBCXX20_CONSTEXPR
-        -:  144:      allocator() _GLIBCXX_NOTHROW { }
+        9:  144:      allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee16BiweeklyScheduleEEC1Ev:
+        1:  144:      allocator() _GLIBCXX_NOTHROW { }
+        1:  144-block  0
+------------------
+_ZNSaIN8Employee26CommissionedClassificationEEC1Ev:
+        1:  144:      allocator() _GLIBCXX_NOTHROW { }
+        1:  144-block  0
+------------------
+_ZNSaIN8Employee15MonthlyScheduleEEC1Ev:
+        1:  144:      allocator() _GLIBCXX_NOTHROW { }
+        1:  144-block  0
+------------------
+_ZNSaIN8Employee22SalariedClassificationEEC1Ev:
+        1:  144:      allocator() _GLIBCXX_NOTHROW { }
+        1:  144-block  0
+------------------
+_ZNSaIN8Employee14WeeklyScheduleEEC1Ev:
+        1:  144:      allocator() _GLIBCXX_NOTHROW { }
+        1:  144-block  0
+------------------
+_ZNSaIN8Employee20HourlyClassificationEEC1Ev:
+        1:  144:      allocator() _GLIBCXX_NOTHROW { }
+        1:  144-block  0
+------------------
+_ZNSaIN8Employee10HoldMethodEEC1Ev:
+        3:  144:      allocator() _GLIBCXX_NOTHROW { }
+        3:  144-block  0
+------------------
         -:  145:
         -:  146:      _GLIBCXX20_CONSTEXPR
-        -:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-        -:  148:      : __allocator_base<_Tp>(__a) { }
+       27:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+       27:  148:      : __allocator_base<_Tp>(__a) { }
+------------------
+_ZNSaIN8Employee16BiweeklyScheduleEEC1ERKS1_:
+        2:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        2:  148:      : __allocator_base<_Tp>(__a) { }
+        2:  148-block  0
+------------------
+_ZNSaIN8Employee16BiweeklyScheduleEEC2ERKS1_:
+        1:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        1:  148:      : __allocator_base<_Tp>(__a) { }
+        1:  148-block  0
+------------------
+_ZNSaIN8Employee26CommissionedClassificationEEC1ERKS1_:
+        2:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        2:  148:      : __allocator_base<_Tp>(__a) { }
+        2:  148-block  0
+------------------
+_ZNSaIN8Employee26CommissionedClassificationEEC2ERKS1_:
+        1:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        1:  148:      : __allocator_base<_Tp>(__a) { }
+        1:  148-block  0
+------------------
+_ZNSaIN8Employee15MonthlyScheduleEEC1ERKS1_:
+        2:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        2:  148:      : __allocator_base<_Tp>(__a) { }
+        2:  148-block  0
+------------------
+_ZNSaIN8Employee15MonthlyScheduleEEC2ERKS1_:
+        1:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        1:  148:      : __allocator_base<_Tp>(__a) { }
+        1:  148-block  0
+------------------
+_ZNSaIN8Employee22SalariedClassificationEEC1ERKS1_:
+        2:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        2:  148:      : __allocator_base<_Tp>(__a) { }
+        2:  148-block  0
+------------------
+_ZNSaIN8Employee22SalariedClassificationEEC2ERKS1_:
+        1:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        1:  148:      : __allocator_base<_Tp>(__a) { }
+        1:  148-block  0
+------------------
+_ZNSaIN8Employee14WeeklyScheduleEEC1ERKS1_:
+        2:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        2:  148:      : __allocator_base<_Tp>(__a) { }
+        2:  148-block  0
+------------------
+_ZNSaIN8Employee14WeeklyScheduleEEC2ERKS1_:
+        1:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        1:  148:      : __allocator_base<_Tp>(__a) { }
+        1:  148-block  0
+------------------
+_ZNSaIN8Employee20HourlyClassificationEEC1ERKS1_:
+        2:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        2:  148:      : __allocator_base<_Tp>(__a) { }
+        2:  148-block  0
+------------------
+_ZNSaIN8Employee20HourlyClassificationEEC2ERKS1_:
+        1:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        1:  148:      : __allocator_base<_Tp>(__a) { }
+        1:  148-block  0
+------------------
+_ZNSaIN8Employee10HoldMethodEEC1ERKS1_:
+        6:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        6:  148:      : __allocator_base<_Tp>(__a) { }
+        6:  148-block  0
+------------------
+_ZNSaIN8Employee10HoldMethodEEC2ERKS1_:
+        3:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+        3:  148:      : __allocator_base<_Tp>(__a) { }
+        3:  148-block  0
+------------------
         -:  149:
         -:  150:#if __cplusplus >= 201103L
         -:  151:      // Avoid implicit deprecation.
@@ -158,12 +258,105 @@
         -:  154:
         -:  155:      template<typename _Tp1>
         -:  156:	_GLIBCXX20_CONSTEXPR
-        -:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+       18:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee16BiweeklyScheduleESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        2:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        2:  157-block  0
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee26CommissionedClassificationESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        2:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        2:  157-block  0
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee15MonthlyScheduleESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        2:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        2:  157-block  0
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee22SalariedClassificationESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        2:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        2:  157-block  0
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee14WeeklyScheduleESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        2:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        2:  157-block  0
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee20HourlyClassificationESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        2:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        2:  157-block  0
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee10HoldMethodESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEC1IS1_EERKSaIT_E:
+        6:  157:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        6:  157-block  0
+------------------
         -:  158:
         -:  159:#if __cpp_constexpr_dynamic_alloc
         -:  160:      constexpr
         -:  161:#endif
-        -:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+       54:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee26CommissionedClassificationEED2Ev:
+        1:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee10HoldMethodEED2Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee10HoldMethodEED1Ev:
+        9:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee20HourlyClassificationEED2Ev:
+        1:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee20HourlyClassificationEED1Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee14WeeklyScheduleEED2Ev:
+        1:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee14WeeklyScheduleEED1Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee22SalariedClassificationEED2Ev:
+        1:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee22SalariedClassificationEED1Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee15MonthlyScheduleEED2Ev:
+        1:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee15MonthlyScheduleEED1Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee16BiweeklyScheduleESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        2:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee26CommissionedClassificationEED1Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee16BiweeklyScheduleEED2Ev:
+        1:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaIN8Employee16BiweeklyScheduleEED1Ev:
+        3:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee10HoldMethodESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        6:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee20HourlyClassificationESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        2:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee14WeeklyScheduleESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        2:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee22SalariedClassificationESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        2:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee15MonthlyScheduleESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        2:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
+_ZNSaISt23_Sp_counted_ptr_inplaceIN8Employee26CommissionedClassificationESaIS1_ELN9__gnu_cxx12_Lock_policyE2EEED1Ev:
+        2:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+------------------
         -:  163:
         -:  164:#if __cplusplus > 201703L
         -:  165:      [[nodiscard,__gnu__::__always_inline__]]
@@ -171,13 +364,34 @@
         -:  167:      allocate(size_t __n)
         -:  168:      {
         -:  169:#ifdef __cpp_lib_is_constant_evaluated
-    #####:  170:	if (std::is_constant_evaluated())
-    %%%%%:  170-block  0
+       9*:  170:	if (std::is_constant_evaluated())
+        1:  170-block  0
+        1:  170-block  1
+        1:  170-block  2
+        1:  170-block  3
+        1:  170-block  4
+        1:  170-block  5
+        3:  170-block  6
+    %%%%%:  170-block  7
     #####:  171:	  return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
     %%%%%:  171-block  0
+    %%%%%:  171-block  1
+    %%%%%:  171-block  2
+    %%%%%:  171-block  3
+    %%%%%:  171-block  4
+    %%%%%:  171-block  5
+    %%%%%:  171-block  6
+    %%%%%:  171-block  7
         -:  172:#endif
-    #####:  173:	return __allocator_base<_Tp>::allocate(__n, 0);
-    %%%%%:  173-block  0
+       9*:  173:	return __allocator_base<_Tp>::allocate(__n, 0);
+        1:  173-block  0
+        1:  173-block  1
+        1:  173-block  2
+        1:  173-block  3
+        1:  173-block  4
+        1:  173-block  5
+        3:  173-block  6
+    %%%%%:  173-block  7
         -:  174:      }
         -:  175:
         -:  176:      [[__gnu__::__always_inline__]]
@@ -185,19 +399,40 @@
         -:  178:      deallocate(_Tp* __p, size_t __n)
         -:  179:      {
         -:  180:#ifdef __cpp_lib_is_constant_evaluated
-    #####:  181:	if (std::is_constant_evaluated())
-    %%%%%:  181-block  0
-    %%%%%:  181-block  1
+       9*:  181:	if (std::is_constant_evaluated())
+        1:  181-block  0
+        1:  181-block  1
+        1:  181-block  2
+        1:  181-block  3
+        1:  181-block  4
+        1:  181-block  5
+        3:  181-block  6
+    %%%%%:  181-block  7
+    %%%%%:  181-block  8
         -:  182:	  {
     #####:  183:	    ::operator delete(__p);
     %%%%%:  183-block  0
     %%%%%:  183-block  1
+    %%%%%:  183-block  2
+    %%%%%:  183-block  3
+    %%%%%:  183-block  4
+    %%%%%:  183-block  5
+    %%%%%:  183-block  6
+    %%%%%:  183-block  7
+    %%%%%:  183-block  8
     #####:  184:	    return;
         -:  185:	  }
         -:  186:#endif
-    #####:  187:	  __allocator_base<_Tp>::deallocate(__p, __n);
-    %%%%%:  187-block  0
-    %%%%%:  187-block  1
+       9*:  187:	  __allocator_base<_Tp>::deallocate(__p, __n);
+        1:  187-block  0
+        1:  187-block  1
+        1:  187-block  2
+        1:  187-block  3
+        1:  187-block  4
+        1:  187-block  5
+        3:  187-block  6
+    %%%%%:  187-block  7
+    %%%%%:  187-block  8
         -:  188:      }
         -:  189:#endif // C++20
         -:  190:

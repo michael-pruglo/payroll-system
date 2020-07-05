@@ -103,11 +103,67 @@
         -:   99:      __aligned_buffer(std::nullptr_t) { }
         -:  100:
         -:  101:      void*
+      27*:  102:      _M_addr() noexcept
+        -:  103:      {
+      27*:  104:        return static_cast<void*>(&_M_storage);
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee16BiweeklyScheduleEE7_M_addrEv:
+        3:  102:      _M_addr() noexcept
+        -:  103:      {
+        3:  104:        return static_cast<void*>(&_M_storage);
+        3:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee26CommissionedClassificationEE7_M_addrEv:
+        3:  102:      _M_addr() noexcept
+        -:  103:      {
+        3:  104:        return static_cast<void*>(&_M_storage);
+        3:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee15MonthlyScheduleEE7_M_addrEv:
+        3:  102:      _M_addr() noexcept
+        -:  103:      {
+        3:  104:        return static_cast<void*>(&_M_storage);
+        3:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee22SalariedClassificationEE7_M_addrEv:
+        3:  102:      _M_addr() noexcept
+        -:  103:      {
+        3:  104:        return static_cast<void*>(&_M_storage);
+        3:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee14WeeklyScheduleEE7_M_addrEv:
+        3:  102:      _M_addr() noexcept
+        -:  103:      {
+        3:  104:        return static_cast<void*>(&_M_storage);
+        3:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee20HourlyClassificationEE7_M_addrEv:
+        3:  102:      _M_addr() noexcept
+        -:  103:      {
+        3:  104:        return static_cast<void*>(&_M_storage);
+        3:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee10HoldMethodEE7_M_addrEv:
+        9:  102:      _M_addr() noexcept
+        -:  103:      {
+        9:  104:        return static_cast<void*>(&_M_storage);
+        9:  104-block  0
+        -:  105:      }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiSt10shared_ptrI8EmployeeEEE7_M_addrEv:
     #####:  102:      _M_addr() noexcept
         -:  103:      {
     #####:  104:        return static_cast<void*>(&_M_storage);
     %%%%%:  104-block  0
         -:  105:      }
+------------------
         -:  106:
         -:  107:      const void*
         -:  108:      _M_addr() const noexcept
@@ -116,9 +172,49 @@
         -:  111:      }
         -:  112:
         -:  113:      _Tp*
+      27*:  114:      _M_ptr() noexcept
+      27*:  115:      { return static_cast<_Tp*>(_M_addr()); }
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee16BiweeklyScheduleEE6_M_ptrEv:
+        3:  114:      _M_ptr() noexcept
+        3:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        3:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee26CommissionedClassificationEE6_M_ptrEv:
+        3:  114:      _M_ptr() noexcept
+        3:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        3:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee15MonthlyScheduleEE6_M_ptrEv:
+        3:  114:      _M_ptr() noexcept
+        3:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        3:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee22SalariedClassificationEE6_M_ptrEv:
+        3:  114:      _M_ptr() noexcept
+        3:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        3:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee14WeeklyScheduleEE6_M_ptrEv:
+        3:  114:      _M_ptr() noexcept
+        3:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        3:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee20HourlyClassificationEE6_M_ptrEv:
+        3:  114:      _M_ptr() noexcept
+        3:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        3:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferIN8Employee10HoldMethodEE6_M_ptrEv:
+        9:  114:      _M_ptr() noexcept
+        9:  115:      { return static_cast<_Tp*>(_M_addr()); }
+        9:  115-block  0
+------------------
+_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiSt10shared_ptrI8EmployeeEEE6_M_ptrEv:
     #####:  114:      _M_ptr() noexcept
     #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
     %%%%%:  115-block  0
+------------------
         -:  116:
         -:  117:      const _Tp*
         -:  118:      _M_ptr() const noexcept

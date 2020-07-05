@@ -356,9 +356,9 @@
         -:  352:    {
         -:  353:      _GLIBCXX14_CONSTEXPR
         -:  354:      bool
-       27:  355:      operator()(const _Tp& __x, const _Tp& __y) const
-       27:  356:      { return __x == __y; }
-       27:  356-block  0
+       35:  355:      operator()(const _Tp& __x, const _Tp& __y) const
+       35:  356:      { return __x == __y; }
+       35:  356-block  0
         -:  357:    };
         -:  358:
         -:  359:  /// One of the @link comparison_functors comparison functors@endlink.
@@ -435,8 +435,8 @@
         -:  430:    struct less<_Tp*> : public binary_function<_Tp*, _Tp*, bool>
         -:  431:    {
         -:  432:      _GLIBCXX14_CONSTEXPR bool
-       30:  433:      operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW
-       30:  433-block  0
+       36:  433:      operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW
+       36:  433-block  0
         -:  434:      {
         -:  435:#if __cplusplus >= 201402L
         -:  436:#ifdef _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED
@@ -446,8 +446,8 @@
         -:  440:#endif
         -:  441:	  return __x < __y;
         -:  442:#endif
-       30:  443:	return (__UINTPTR_TYPE__)__x < (__UINTPTR_TYPE__)__y;
-       30:  443-block  0
+       36:  443:	return (__UINTPTR_TYPE__)__x < (__UINTPTR_TYPE__)__y;
+       36:  443-block  0
         -:  444:      }
         -:  445:    };
         -:  446:

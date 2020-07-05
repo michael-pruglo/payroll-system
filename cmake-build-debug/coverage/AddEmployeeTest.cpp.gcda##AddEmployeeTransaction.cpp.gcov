@@ -1,41 +1,104 @@
-        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/AddEmployeeTransaction.cpp
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.cpp
         -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
         -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:#include "AddEmployeeTransaction.hpp"
-        -:    2:
-        3:    3:AddEmployeeTransaction::AddEmployeeTransaction(int id, std::string name, std::string address) :
-        -:    4:    id(id),
-        3:    5:    name(std::move(name)),
-        3:    6:    address(std::move(address))
-        3:    6-block  0
-        -:    7:{
-        3:    8:}
-        -:    9:
-        3:   10:void AddEmployeeTransaction::execute()
-        -:   11:{
-        -:   12:
-        3:   13:}
-        -:   14:
-        1:   15:AddHourlyEmployee::AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate) :
-        1:   16:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
-        2:   17:    hourlyRate(hourlyRate)
-        1:   17-block  0
-        -:   18:{
-        1:   19:}
+        -:    2:#include "../PayrollDatabase.hpp"
+        -:    3:
+        3:    4:AddEmployeeTransaction::AddEmployeeTransaction(int id, std::string name, std::string address) :
+        -:    5:    id(id),
+        3:    6:    name(std::move(name)),
+        3:    7:    address(std::move(address))
+        3:    7-block  0
+        -:    8:{
+        3:    9:}
+        -:   10:
+        3:   11:void AddEmployeeTransaction::execute()
+        -:   12:{
+        6:   13:    std::shared_ptr<Employee> e { new Employee(id, name, address) };
+        3:   13-block  0
+        3:   13-block  1
+        3:   13-block  2
+        3:   13-block  3
+        3:   13-block  4
+    $$$$$:   13-block  5
+    $$$$$:   13-block  6
+    $$$$$:   13-block  7
+    $$$$$:   13-block  8
+        3:   14:    e->setPaymentClassification(getPaymentClassification());
+        3:   14-block  0
+        3:   15:    e->setPaymentSchedule(getPaymentSchedule());
+        3:   15-block  0
+        3:   16:    e->setPaymentMethod(std::make_shared<Employee::HoldMethod>());
+        3:   16-block  0
+        -:   17:
+        3:   18:    PayrollDatabase::getInstance()->addEmployee(id, e);
+        3:   18-block  0
+        3:   18-block  1
+    $$$$$:   18-block  2
+    $$$$$:   18-block  3
+    $$$$$:   18-block  4
+    $$$$$:   18-block  5
+        3:   19:}
         -:   20:
-        1:   21:AddSalariedEmployee::AddSalariedEmployee(int id, std::string name, std::string address, double salary) :
-        1:   22:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
-        2:   23:    salary(salary)
-        1:   23-block  0
-        -:   24:{
-        1:   25:}
-        -:   26:
-        1:   27:AddComissionedEmployee::AddComissionedEmployee(int id, std::string name, std::string address,
-        1:   28:                                               double salary, double comissionRate) :
-        1:   29:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
-        -:   30:    salary(salary),
-        2:   31:    comissionRate(comissionRate)
-        1:   31-block  0
-        -:   32:{
-        1:   33:}
+        -:   21:
+        -:   22:
+        -:   23:
+        1:   24:AddHourlyEmployee::AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate) :
+        1:   25:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
+        2:   26:    hourlyRate(hourlyRate)
+        1:   26-block  0
+        -:   27:{
+        1:   28:}
+        -:   29:
+        1:   30:std::shared_ptr<Employee::PaymentClassification> AddHourlyEmployee::getPaymentClassification() const
+        -:   31:{
+        1:   32:    return std::make_shared<Employee::HourlyClassification>(hourlyRate);
+        1:   32-block  0
+        -:   33:}
+        -:   34:
+        1:   35:std::shared_ptr<Employee::PaymentSchedule> AddHourlyEmployee::getPaymentSchedule() const
+        -:   36:{
+        1:   37:    return std::make_shared<Employee::WeeklySchedule>();
+        1:   37-block  0
+        -:   38:}
+        -:   39:
+        1:   40:AddSalariedEmployee::AddSalariedEmployee(int id, std::string name, std::string address, double salary) :
+        1:   41:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
+        2:   42:    salary(salary)
+        1:   42-block  0
+        -:   43:{
+        1:   44:}
+        -:   45:
+        1:   46:std::shared_ptr<Employee::PaymentClassification> AddSalariedEmployee::getPaymentClassification() const
+        -:   47:{
+        1:   48:    return std::make_shared<Employee::SalariedClassification>(salary);
+        1:   48-block  0
+        -:   49:}
+        -:   50:
+        1:   51:std::shared_ptr<Employee::PaymentSchedule> AddSalariedEmployee::getPaymentSchedule() const
+        -:   52:{
+        1:   53:    return std::make_shared<Employee::MonthlySchedule>();
+        1:   53-block  0
+        -:   54:}
+        -:   55:
+        1:   56:AddCommissionedEmployee::AddCommissionedEmployee(int id, std::string name, std::string address,
+        1:   57:                                                 double salary, double commissionRate) :
+        1:   58:    AddEmployeeTransaction(id, std::move(name), std::move(address)),
+        -:   59:    salary(salary),
+        2:   60:    comissionRate(commissionRate)
+        1:   60-block  0
+        -:   61:{
+        1:   62:}
+        -:   63:
+        1:   64:std::shared_ptr<Employee::PaymentClassification> AddCommissionedEmployee::getPaymentClassification() const
+        -:   65:{
+        1:   66:    return std::make_shared<Employee::CommissionedClassification>(salary, comissionRate);
+        1:   66-block  0
+        -:   67:}
+        -:   68:
+        1:   69:std::shared_ptr<Employee::PaymentSchedule> AddCommissionedEmployee::getPaymentSchedule() const
+        -:   70:{
+        1:   71:    return std::make_shared<Employee::BiweeklySchedule>();
+        1:   71-block  0
+        -:   72:}

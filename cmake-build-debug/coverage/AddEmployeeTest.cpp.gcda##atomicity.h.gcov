@@ -58,7 +58,8 @@
         -:   52:  inline void
         -:   53:  __attribute__((__always_inline__))
         -:   54:  __atomic_add(volatile _Atomic_word* __mem, int __val)
-        -:   55:  { __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+    #####:   55:  { __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+    %%%%%:   55-block  0
         -:   56:#else
         -:   57:  _Atomic_word
         -:   58:  __exchange_and_add(volatile _Atomic_word*, int) _GLIBCXX_NOTHROW;
@@ -81,7 +82,8 @@
         -:   73:  inline void
         -:   74:  __attribute__((__always_inline__))
         -:   75:  __atomic_add_single(_Atomic_word* __mem, int __val)
-        -:   76:  { *__mem += __val; }
+    #####:   76:  { *__mem += __val; }
+    %%%%%:   76-block  0
         -:   77:
         -:   78:  inline _Atomic_word
         -:   79:  __attribute__ ((__always_inline__))
@@ -104,10 +106,12 @@
         -:   91:  __atomic_add_dispatch(_Atomic_word* __mem, int __val)
         -:   92:  {
         -:   93:#ifdef __GTHREADS
-        -:   94:    if (__gthread_active_p())
+    #####:   94:    if (__gthread_active_p())
+    %%%%%:   94-block  0
         -:   95:      {
         -:   96:	__atomic_add(__mem, __val);
-        -:   97:	return;
+    #####:   97:	return;
+    %%%%%:   97-block  0
         -:   98:      }
         -:   99:#endif
         -:  100:    __atomic_add_single(__mem, __val);

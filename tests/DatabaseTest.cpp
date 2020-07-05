@@ -1,8 +1,7 @@
 #include <gtest/gtest.h>
 #include "src/Payrolldatabase.hpp"
 #include "src/Payrolldatabase.cpp"
-#include "src/Employee.hpp"
-#include "src/Employee.cpp"
+#include "src/Employee/Employee.hpp"
 
 class PayrollDatabaseTest : public ::testing::Test
 {

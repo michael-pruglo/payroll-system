@@ -233,60 +233,6 @@ gtest_main/fast:
 	$(MAKE) -f tests\lib\googletest\CMakeFiles\gtest_main.dir\build.make tests/lib/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-src/AddEmployeeTransaction.obj: src/AddEmployeeTransaction.cpp.obj
-
-.PHONY : src/AddEmployeeTransaction.obj
-
-# target to build an object file
-src/AddEmployeeTransaction.cpp.obj:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/AddEmployeeTransaction.cpp.obj
-.PHONY : src/AddEmployeeTransaction.cpp.obj
-
-src/AddEmployeeTransaction.i: src/AddEmployeeTransaction.cpp.i
-
-.PHONY : src/AddEmployeeTransaction.i
-
-# target to preprocess a source file
-src/AddEmployeeTransaction.cpp.i:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/AddEmployeeTransaction.cpp.i
-.PHONY : src/AddEmployeeTransaction.cpp.i
-
-src/AddEmployeeTransaction.s: src/AddEmployeeTransaction.cpp.s
-
-.PHONY : src/AddEmployeeTransaction.s
-
-# target to generate assembly for a file
-src/AddEmployeeTransaction.cpp.s:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/AddEmployeeTransaction.cpp.s
-.PHONY : src/AddEmployeeTransaction.cpp.s
-
-src/Employee.obj: src/Employee.cpp.obj
-
-.PHONY : src/Employee.obj
-
-# target to build an object file
-src/Employee.cpp.obj:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee.cpp.obj
-.PHONY : src/Employee.cpp.obj
-
-src/Employee.i: src/Employee.cpp.i
-
-.PHONY : src/Employee.i
-
-# target to preprocess a source file
-src/Employee.cpp.i:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee.cpp.i
-.PHONY : src/Employee.cpp.i
-
-src/Employee.s: src/Employee.cpp.s
-
-.PHONY : src/Employee.s
-
-# target to generate assembly for a file
-src/Employee.cpp.s:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee.cpp.s
-.PHONY : src/Employee.cpp.s
-
 src/PayrollDatabase.obj: src/PayrollDatabase.cpp.obj
 
 .PHONY : src/PayrollDatabase.obj
@@ -313,6 +259,60 @@ src/PayrollDatabase.s: src/PayrollDatabase.cpp.s
 src/PayrollDatabase.cpp.s:
 	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.s
 .PHONY : src/PayrollDatabase.cpp.s
+
+src/Transactions/AddEmployeeTransaction.obj: src/Transactions/AddEmployeeTransaction.cpp.obj
+
+.PHONY : src/Transactions/AddEmployeeTransaction.obj
+
+# target to build an object file
+src/Transactions/AddEmployeeTransaction.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.obj
+.PHONY : src/Transactions/AddEmployeeTransaction.cpp.obj
+
+src/Transactions/AddEmployeeTransaction.i: src/Transactions/AddEmployeeTransaction.cpp.i
+
+.PHONY : src/Transactions/AddEmployeeTransaction.i
+
+# target to preprocess a source file
+src/Transactions/AddEmployeeTransaction.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.i
+.PHONY : src/Transactions/AddEmployeeTransaction.cpp.i
+
+src/Transactions/AddEmployeeTransaction.s: src/Transactions/AddEmployeeTransaction.cpp.s
+
+.PHONY : src/Transactions/AddEmployeeTransaction.s
+
+# target to generate assembly for a file
+src/Transactions/AddEmployeeTransaction.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.s
+.PHONY : src/Transactions/AddEmployeeTransaction.cpp.s
+
+src/Transactions/TimeCardTransaction.obj: src/Transactions/TimeCardTransaction.cpp.obj
+
+.PHONY : src/Transactions/TimeCardTransaction.obj
+
+# target to build an object file
+src/Transactions/TimeCardTransaction.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.obj
+.PHONY : src/Transactions/TimeCardTransaction.cpp.obj
+
+src/Transactions/TimeCardTransaction.i: src/Transactions/TimeCardTransaction.cpp.i
+
+.PHONY : src/Transactions/TimeCardTransaction.i
+
+# target to preprocess a source file
+src/Transactions/TimeCardTransaction.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.i
+.PHONY : src/Transactions/TimeCardTransaction.cpp.i
+
+src/Transactions/TimeCardTransaction.s: src/Transactions/TimeCardTransaction.cpp.s
+
+.PHONY : src/Transactions/TimeCardTransaction.s
+
+# target to generate assembly for a file
+src/Transactions/TimeCardTransaction.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.s
+.PHONY : src/Transactions/TimeCardTransaction.cpp.s
 
 src/main.obj: src/main.cpp.obj
 
@@ -359,15 +359,15 @@ help:
 	@echo ... gmock
 	@echo ... gtest
 	@echo ... gtest_main
-	@echo ... src/AddEmployeeTransaction.obj
-	@echo ... src/AddEmployeeTransaction.i
-	@echo ... src/AddEmployeeTransaction.s
-	@echo ... src/Employee.obj
-	@echo ... src/Employee.i
-	@echo ... src/Employee.s
 	@echo ... src/PayrollDatabase.obj
 	@echo ... src/PayrollDatabase.i
 	@echo ... src/PayrollDatabase.s
+	@echo ... src/Transactions/AddEmployeeTransaction.obj
+	@echo ... src/Transactions/AddEmployeeTransaction.i
+	@echo ... src/Transactions/AddEmployeeTransaction.s
+	@echo ... src/Transactions/TimeCardTransaction.obj
+	@echo ... src/Transactions/TimeCardTransaction.i
+	@echo ... src/Transactions/TimeCardTransaction.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

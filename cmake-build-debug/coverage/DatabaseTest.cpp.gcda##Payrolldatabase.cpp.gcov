@@ -10,47 +10,56 @@
         -:    6:        IF_DOESNT_CONTAIN; \
         -:    7:    else \
         -:    8:        IF_CONTAINS;
-        -:    9:#define IF_CONTAINS_EXECUTE_ELSE_THROW( FOO ) EXECUTE_OPTION( FOO, throw not_found() )
+        -:    9:#define IF_CONTAINS_EXECUTE_ELSE_THROW( FOO ) EXECUTE_OPTION( FOO, throw not_found(id) )
         -:   10:
-       53:   11:void PayrollDatabase::addEmployee(int id, Employee *employee)
+       59:   11:void PayrollDatabase::addEmployee(int id, std::shared_ptr<Employee> employee)
         -:   12:{
-       53:   13:    EXECUTE_OPTION(throw add_duplicate(), database.insert({id, employee}));
-       53:   13-block  0
-       53:   13-block  1
-       43:   13-block  2
-       10:   13-block  3
-    $$$$$:   13-block  4
-       43:   14:}
-       43:   14-block  0
+       59:   13:    EXECUTE_OPTION(throw add_duplicate(id), database.insert({id, employee}));
+       59:   13-block  0
+       59:   13-block  1
+       49:   13-block  2
+       49:   13-block  3
+       10:   13-block  4
+       10:   13-block  5
+    $$$$$:   13-block  6
+    $$$$$:   13-block  7
+    $$$$$:   13-block  8
+       49:   14:}
         -:   15:
-       13:   16:Employee *PayrollDatabase::getEmployee(int id) const
+       20:   16:std::shared_ptr<Employee> PayrollDatabase::getEmployee(int id) const
         -:   17:{
-       13:   18:    IF_CONTAINS_EXECUTE_ELSE_THROW(return it->second);
-       13:   18-block  0
-       13:   18-block  1
-        1:   18-block  2
-       12:   18-block  3
-       12:   18-block  4
+       38:   18:    IF_CONTAINS_EXECUTE_ELSE_THROW(return it->second);
+       20:   18-block  0
+       20:   18-block  1
+        2:   18-block  2
+        2:   18-block  3
+       18:   18-block  4
+       18:   18-block  5
+    $$$$$:   18-block  6
         -:   19:}
         -:   20:
-        2:   21:void PayrollDatabase::updateEmployee(int id, Employee *newEmployee)
+        2:   21:void PayrollDatabase::updateEmployee(int id, std::shared_ptr<Employee> newEmployee)
         -:   22:{
         2:   23:    IF_CONTAINS_EXECUTE_ELSE_THROW(it->second = newEmployee);
         2:   23-block  0
         2:   23-block  1
         1:   23-block  2
         1:   23-block  3
+        1:   23-block  4
+    $$$$$:   23-block  5
         1:   24:}
         -:   25:
-        4:   26:void PayrollDatabase::deleteEmployee(int id)
+        7:   26:void PayrollDatabase::deleteEmployee(int id)
         -:   27:{
-        4:   28:    IF_CONTAINS_EXECUTE_ELSE_THROW(database.erase(it));
-        4:   28-block  0
-        4:   28-block  1
-        2:   28-block  2
-        2:   28-block  3
-        2:   29:}
-        2:   29-block  0
+        7:   28:    IF_CONTAINS_EXECUTE_ELSE_THROW(database.erase(it));
+        7:   28-block  0
+        7:   28-block  1
+        3:   28-block  2
+        3:   28-block  3
+        4:   28-block  4
+    $$$$$:   28-block  5
+        4:   29:}
+        4:   29-block  0
         -:   30:
         -:   31:#undef EXECUTE_OPTION
         -:   32:#undef IF_CONTAINS_EXECUTE_ELSE_THROW
@@ -58,12 +67,12 @@
         -:   34:
         -:   35:std::shared_ptr<PayrollDatabase> PayrollDatabase::_instance = nullptr;
         -:   36:
-       14:   37:std::shared_ptr<PayrollDatabase> PayrollDatabase::getInstance()
+       26:   37:std::shared_ptr<PayrollDatabase> PayrollDatabase::getInstance()
         -:   38:{
-       14:   39:    if (_instance == nullptr)
-       14:   39-block  0
+       26:   39:    if (_instance == nullptr)
+       26:   39-block  0
         1:   40:        _instance = std::shared_ptr<PayrollDatabase> {new PayrollDatabase()};
         1:   40-block  0
-       14:   41:    return _instance;
-       14:   41-block  0
+       26:   41:    return _instance;
+       26:   41-block  0
         -:   42:}

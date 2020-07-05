@@ -150,7 +150,7 @@
     #####:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
     #####:  147:      { return std::addressof(__r); }
 ------------------
-_ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKiP8EmployeeELb0EEEE10pointer_toERS7_:
+_ZNSt14pointer_traitsIPNSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEE10pointer_toERS8_:
     #####:  146:      pointer_to(__make_not_void<element_type>& __r) noexcept
     #####:  147:      { return std::addressof(__r); }
     %%%%%:  147-block  0
@@ -173,10 +173,10 @@ _ZNSt14pointer_traitsIPcE10pointer_toERc:
         -:  153:
         -:  154:  template<typename _Tp>
         -:  155:    constexpr _Tp*
-        -:  156:    __to_address(_Tp* __ptr) noexcept
+        9:  156:    __to_address(_Tp* __ptr) noexcept
         -:  157:    {
         -:  158:      static_assert(!std::is_function<_Tp>::value, "not a function pointer");
-        -:  159:      return __ptr;
+        9:  159:      return __ptr;
         -:  160:    }
         -:  161:
         -:  162:#if __cplusplus <= 201703L

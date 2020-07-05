@@ -184,19 +184,16 @@
         -:  180:
         -:  181:struct PointerPrinter {
         -:  182:  template <typename T>
-    #####:  183:  static void PrintValue(T* p, ::std::ostream* os) {
-    #####:  184:    if (p == nullptr) {
-    %%%%%:  184-block  0
-    #####:  185:      *os << "NULL";
-    %%%%%:  185-block  0
+        -:  183:  static void PrintValue(T* p, ::std::ostream* os) {
+        -:  184:    if (p == nullptr) {
+        -:  185:      *os << "NULL";
         -:  186:    } else {
         -:  187:      // T is not a function type.  We just call << to print p,
         -:  188:      // relying on ADL to pick up user-defined << for their pointer
         -:  189:      // types, if any.
-    #####:  190:      *os << p;
-    %%%%%:  190-block  0
+        -:  190:      *os << p;
         -:  191:    }
-    #####:  192:  }
+        -:  192:  }
         -:  193:};
         -:  194:
         -:  195:namespace internal_stream {
@@ -295,12 +292,13 @@ _ZN7testing8internal13StreamPrinter10PrintValueIivEEvRKT_PSo:
         -:  275:                                     ::std::ostream* os);
         -:  276:struct FallbackPrinter {
         -:  277:  template <typename T>
-        -:  278:  static void PrintValue(const T& value, ::std::ostream* os) {
-        -:  279:    PrintBytesInObjectTo(
+    #####:  278:  static void PrintValue(const T& value, ::std::ostream* os) {
+    #####:  279:    PrintBytesInObjectTo(
         -:  280:        static_cast<const unsigned char*>(
-        -:  281:            reinterpret_cast<const void*>(std::addressof(value))),
+    #####:  281:            reinterpret_cast<const void*>(std::addressof(value))),
+    %%%%%:  281-block  0
         -:  282:        sizeof(value), os);
-        -:  283:  }
+    #####:  283:  }
         -:  284:};
         -:  285:
         -:  286:// Try every printer in order and return the first one that works.
@@ -332,7 +330,7 @@ _ZN7testing8internal13StreamPrinter10PrintValueIivEEvRKT_PSo:
     #####:  312:  Printer::PrintValue(value, os);
     #####:  313:}
 ------------------
-_ZN7testing8internal17PrintWithFallbackIP8EmployeeEEvRKT_PSo:
+_ZN7testing8internal17PrintWithFallbackISt10shared_ptrI8EmployeeEEEvRKT_PSo:
     #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
         -:  308:  using Printer = typename FindFirstPrinter<
         -:  309:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
@@ -385,7 +383,7 @@ _ZN7testing8internal17PrintWithFallbackIiEEvRKT_PSo:
     #####:  334:    return ::testing::PrintToString(value);
         -:  335:  }
 ------------------
-_ZN7testing8internal19FormatForComparisonIP8EmployeeS3_E6FormatB5cxx11ERKS3_:
+_ZN7testing8internal19FormatForComparisonISt10shared_ptrI8EmployeeES4_E6FormatB5cxx11ERKS4_:
     #####:  333:  static ::std::string Format(const ToPrint& value) {
     #####:  334:    return ::testing::PrintToString(value);
     %%%%%:  334-block  0
@@ -491,7 +489,7 @@ _ZN7testing8internal19FormatForComparisonIiiE6FormatB5cxx11ERKi:
     #####:  415:  return FormatForComparison<T1, T2>::Format(value);
         -:  416:}
 ------------------
-_ZN7testing8internal33FormatForComparisonFailureMessageIP8EmployeeS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
+_ZN7testing8internal33FormatForComparisonFailureMessageISt10shared_ptrI8EmployeeES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
     #####:  413:std::string FormatForComparisonFailureMessage(
         -:  414:    const T1& value, const T2& /* other_operand */) {
     #####:  415:  return FormatForComparison<T1, T2>::Format(value);
@@ -546,7 +544,7 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_s
     #####:  441:  internal::PrintWithFallback(value, os);
     #####:  442:}
 ------------------
-_ZN7testing8internal7PrintToIP8EmployeeEEvRKT_PSo:
+_ZN7testing8internal7PrintToISt10shared_ptrI8EmployeeEEEvRKT_PSo:
     #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
     #####:  441:  internal::PrintWithFallback(value, os);
     %%%%%:  441-block  0
@@ -761,7 +759,7 @@ _ZN7testing8internal7PrintToIiEEvRKT_PSo:
     #####:  637:    PrintTo(value, os);
     #####:  638:  }
 ------------------
-_ZN7testing8internal16UniversalPrinterIP8EmployeeE5PrintERKS3_PSo:
+_ZN7testing8internal16UniversalPrinterISt10shared_ptrI8EmployeeEE5PrintERKS4_PSo:
     #####:  628:  static void Print(const T& value, ::std::ostream* os) {
         -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
         -:  630:    // the value.
@@ -960,7 +958,7 @@ _ZN7testing8internal16UniversalPrinterIiE5PrintERKiPSo:
     #####:  793:    UniversalPrint(value, os);
     #####:  794:  }
 ------------------
-_ZN7testing8internal21UniversalTersePrinterIP8EmployeeE5PrintERKS3_PSo:
+_ZN7testing8internal21UniversalTersePrinterISt10shared_ptrI8EmployeeEE5PrintERKS4_PSo:
     #####:  792:  static void Print(const T& value, ::std::ostream* os) {
     #####:  793:    UniversalPrint(value, os);
     %%%%%:  793-block  0
@@ -1051,7 +1049,7 @@ _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo:
     #####:  865:  UniversalPrinter<T1>::Print(value, os);
     #####:  866:}
 ------------------
-_ZN7testing8internal14UniversalPrintIP8EmployeeEEvRKT_PSo:
+_ZN7testing8internal14UniversalPrintISt10shared_ptrI8EmployeeEEEvRKT_PSo:
     #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
         -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
         -:  863:  // UniversalPrinter with T directly.

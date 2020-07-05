@@ -239,12 +239,13 @@
         -:  220:  template<typename _CharT>
         -:  221:    _GLIBCXX20_CONSTEXPR
         -:  222:    typename char_traits<_CharT>::char_type*
-        -:  223:    char_traits<_CharT>::
+    #####:  223:    char_traits<_CharT>::
         -:  224:    assign(char_type* __s, std::size_t __n, char_type __a)
         -:  225:    {
         -:  226:      // NB: Inline std::fill_n so no recursive dependencies.
-        -:  227:      std::fill_n(__s, __n, __a);
-        -:  228:      return __s;
+    #####:  227:      std::fill_n(__s, __n, __a);
+    %%%%%:  227-block  0
+    #####:  228:      return __s;
         -:  229:    }
         -:  230:
         -:  231:_GLIBCXX_END_NAMESPACE_VERSION
@@ -271,7 +272,7 @@
         -:  252:#ifdef _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED
         -:  253:      (void) __s;
         -:  254:      // In constexpr contexts all strings should be constant.
-      197:  255:      return __builtin_is_constant_evaluated();
+      284:  255:      return __builtin_is_constant_evaluated();
         -:  256:#else
         -:  257:      while (__builtin_constant_p(*__s) && *__s)
         -:  258:	__s++;
@@ -337,8 +338,8 @@
         -:  318:#endif
         -:  319:
         -:  320:      static _GLIBCXX17_CONSTEXPR void
-     2806:  321:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
-     2806:  322:      { __c1 = __c2; }
+     3166:  321:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+     3166:  322:      { __c1 = __c2; }
         -:  323:
         -:  324:      static _GLIBCXX_CONSTEXPR bool
         -:  325:      eq(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
@@ -367,17 +368,17 @@
         -:  348:      }
         -:  349:
         -:  350:      static _GLIBCXX17_CONSTEXPR size_t
-      197:  351:      length(const char_type* __s)
-      197:  351-block  0
+      284:  351:      length(const char_type* __s)
+      284:  351-block  0
         -:  352:      {
         -:  353:#if __cplusplus >= 201703L
-      197:  354:	if (__constant_string_p(__s))
-      197:  354-block  0
+      284:  354:	if (__constant_string_p(__s))
+      284:  354-block  0
     #####:  355:	  return __gnu_cxx::char_traits<char_type>::length(__s);
     %%%%%:  355-block  0
         -:  356:#endif
-      197:  357:	return __builtin_strlen(__s);
-      197:  357-block  0
+      284:  357:	return __builtin_strlen(__s);
+      284:  357-block  0
         -:  358:      }
         -:  359:
         -:  360:      static _GLIBCXX17_CONSTEXPR const char_type*
@@ -412,32 +413,37 @@
         -:  384:      }
         -:  385:
         -:  386:      static _GLIBCXX20_CONSTEXPR char_type*
-      401:  387:      copy(char_type* __s1, const char_type* __s2, size_t __n)
+      590:  387:      copy(char_type* __s1, const char_type* __s2, size_t __n)
         -:  388:      {
-      401:  389:	if (__n == 0)
-      401:  389-block  0
+      590:  389:	if (__n == 0)
+      590:  389-block  0
         8:  390:	  return __s1;
         8:  390-block  0
         -:  391:#ifdef __cpp_lib_is_constant_evaluated
-      393:  392:	if (std::is_constant_evaluated())
-      393:  392-block  0
+      582:  392:	if (std::is_constant_evaluated())
+      582:  392-block  0
     #####:  393:	  return __gnu_cxx::char_traits<char_type>::copy(__s1, __s2, __n);
     %%%%%:  393-block  0
         -:  394:#endif
-      393:  395:	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-      393:  395-block  0
+      582:  395:	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
+      582:  395-block  0
         -:  396:      }
         -:  397:
         -:  398:      static _GLIBCXX20_CONSTEXPR char_type*
-        -:  399:      assign(char_type* __s, size_t __n, char_type __a)
+        3:  399:      assign(char_type* __s, size_t __n, char_type __a)
         -:  400:      {
-        -:  401:	if (__n == 0)
-        -:  402:	  return __s;
+        3:  401:	if (__n == 0)
+        3:  401-block  0
+    #####:  402:	  return __s;
+    %%%%%:  402-block  0
         -:  403:#ifdef __cpp_lib_is_constant_evaluated
-        -:  404:	if (std::is_constant_evaluated())
-        -:  405:	  return __gnu_cxx::char_traits<char_type>::assign(__s, __n, __a);
+        3:  404:	if (std::is_constant_evaluated())
+        3:  404-block  0
+    #####:  405:	  return __gnu_cxx::char_traits<char_type>::assign(__s, __n, __a);
+    %%%%%:  405-block  0
         -:  406:#endif
-        -:  407:	return static_cast<char_type*>(__builtin_memset(__s, __a, __n));
+        3:  407:	return static_cast<char_type*>(__builtin_memset(__s, __a, __n));
+        3:  407-block  0
         -:  408:      }
         -:  409:
         -:  410:      static _GLIBCXX_CONSTEXPR char_type

@@ -81,7 +81,7 @@
         -:   77:#if __cplusplus >= 201703L
         -:   78:  template <typename _Tp>
         -:   79:    _GLIBCXX20_CONSTEXPR inline void
-       43:   80:    destroy_at(_Tp* __location)
+       49:   80:    destroy_at(_Tp* __location)
         -:   81:    {
         -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
         -:   83:	{
@@ -89,17 +89,18 @@
         -:   85:	    std::destroy_at(std::__addressof(__x));
         -:   86:	}
         -:   87:      else
-       43:   88:	__location->~_Tp();
-       43:   89:    }
+       49:   88:	__location->~_Tp();
+       49:   88-block  0
+       49:   89:    }
         -:   90:
         -:   91:#if __cplusplus > 201703L
         -:   92:  template<typename _Tp, typename... _Args>
         -:   93:    constexpr auto
-       43:   94:    construct_at(_Tp* __location, _Args&&... __args)
+       49:   94:    construct_at(_Tp* __location, _Args&&... __args)
         -:   95:    noexcept(noexcept(::new((void*)0) _Tp(std::declval<_Args>()...)))
         -:   96:    -> decltype(::new((void*)0) _Tp(std::declval<_Args>()...))
-       43:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
-       43:   97-block  0
+       49:   97:    { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+       49:   97-block  0
         -:   98:#endif // C++20
         -:   99:#endif// C++17
         -:  100:
