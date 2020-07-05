@@ -170,113 +170,113 @@ google_test/fast:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/build
 .PHONY : google_test/fast
 
-AddEmployeeTest.obj: AddEmployeeTest.cpp.obj
+Database/DatabaseTest.obj: Database/DatabaseTest.cpp.obj
 
-.PHONY : AddEmployeeTest.obj
-
-# target to build an object file
-AddEmployeeTest.cpp.obj:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj
-.PHONY : AddEmployeeTest.cpp.obj
-
-AddEmployeeTest.i: AddEmployeeTest.cpp.i
-
-.PHONY : AddEmployeeTest.i
-
-# target to preprocess a source file
-AddEmployeeTest.cpp.i:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.i
-.PHONY : AddEmployeeTest.cpp.i
-
-AddEmployeeTest.s: AddEmployeeTest.cpp.s
-
-.PHONY : AddEmployeeTest.s
-
-# target to generate assembly for a file
-AddEmployeeTest.cpp.s:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.s
-.PHONY : AddEmployeeTest.cpp.s
-
-DatabaseTest.obj: DatabaseTest.cpp.obj
-
-.PHONY : DatabaseTest.obj
+.PHONY : Database/DatabaseTest.obj
 
 # target to build an object file
-DatabaseTest.cpp.obj:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj
-.PHONY : DatabaseTest.cpp.obj
+Database/DatabaseTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj
+.PHONY : Database/DatabaseTest.cpp.obj
 
-DatabaseTest.i: DatabaseTest.cpp.i
+Database/DatabaseTest.i: Database/DatabaseTest.cpp.i
 
-.PHONY : DatabaseTest.i
+.PHONY : Database/DatabaseTest.i
 
 # target to preprocess a source file
-DatabaseTest.cpp.i:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.i
-.PHONY : DatabaseTest.cpp.i
+Database/DatabaseTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.i
+.PHONY : Database/DatabaseTest.cpp.i
 
-DatabaseTest.s: DatabaseTest.cpp.s
+Database/DatabaseTest.s: Database/DatabaseTest.cpp.s
 
-.PHONY : DatabaseTest.s
+.PHONY : Database/DatabaseTest.s
 
 # target to generate assembly for a file
-DatabaseTest.cpp.s:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.s
-.PHONY : DatabaseTest.cpp.s
+Database/DatabaseTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.s
+.PHONY : Database/DatabaseTest.cpp.s
 
-DeleteEmployeeTest.obj: DeleteEmployeeTest.cpp.obj
+Transactions/AddEmployeeTest.obj: Transactions/AddEmployeeTest.cpp.obj
 
-.PHONY : DeleteEmployeeTest.obj
+.PHONY : Transactions/AddEmployeeTest.obj
 
 # target to build an object file
-DeleteEmployeeTest.cpp.obj:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj
-.PHONY : DeleteEmployeeTest.cpp.obj
+Transactions/AddEmployeeTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj
+.PHONY : Transactions/AddEmployeeTest.cpp.obj
 
-DeleteEmployeeTest.i: DeleteEmployeeTest.cpp.i
+Transactions/AddEmployeeTest.i: Transactions/AddEmployeeTest.cpp.i
 
-.PHONY : DeleteEmployeeTest.i
+.PHONY : Transactions/AddEmployeeTest.i
 
 # target to preprocess a source file
-DeleteEmployeeTest.cpp.i:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.i
-.PHONY : DeleteEmployeeTest.cpp.i
+Transactions/AddEmployeeTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.i
+.PHONY : Transactions/AddEmployeeTest.cpp.i
 
-DeleteEmployeeTest.s: DeleteEmployeeTest.cpp.s
+Transactions/AddEmployeeTest.s: Transactions/AddEmployeeTest.cpp.s
 
-.PHONY : DeleteEmployeeTest.s
+.PHONY : Transactions/AddEmployeeTest.s
 
 # target to generate assembly for a file
-DeleteEmployeeTest.cpp.s:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.s
-.PHONY : DeleteEmployeeTest.cpp.s
+Transactions/AddEmployeeTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.s
+.PHONY : Transactions/AddEmployeeTest.cpp.s
 
-TimeCardTest.obj: TimeCardTest.cpp.obj
+Transactions/DeleteEmployeeTest.obj: Transactions/DeleteEmployeeTest.cpp.obj
 
-.PHONY : TimeCardTest.obj
+.PHONY : Transactions/DeleteEmployeeTest.obj
 
 # target to build an object file
-TimeCardTest.cpp.obj:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj
-.PHONY : TimeCardTest.cpp.obj
+Transactions/DeleteEmployeeTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj
+.PHONY : Transactions/DeleteEmployeeTest.cpp.obj
 
-TimeCardTest.i: TimeCardTest.cpp.i
+Transactions/DeleteEmployeeTest.i: Transactions/DeleteEmployeeTest.cpp.i
 
-.PHONY : TimeCardTest.i
+.PHONY : Transactions/DeleteEmployeeTest.i
 
 # target to preprocess a source file
-TimeCardTest.cpp.i:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.i
-.PHONY : TimeCardTest.cpp.i
+Transactions/DeleteEmployeeTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.i
+.PHONY : Transactions/DeleteEmployeeTest.cpp.i
 
-TimeCardTest.s: TimeCardTest.cpp.s
+Transactions/DeleteEmployeeTest.s: Transactions/DeleteEmployeeTest.cpp.s
 
-.PHONY : TimeCardTest.s
+.PHONY : Transactions/DeleteEmployeeTest.s
 
 # target to generate assembly for a file
-TimeCardTest.cpp.s:
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.s
-.PHONY : TimeCardTest.cpp.s
+Transactions/DeleteEmployeeTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.s
+.PHONY : Transactions/DeleteEmployeeTest.cpp.s
+
+Transactions/TimeCardTest.obj: Transactions/TimeCardTest.cpp.obj
+
+.PHONY : Transactions/TimeCardTest.obj
+
+# target to build an object file
+Transactions/TimeCardTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj
+.PHONY : Transactions/TimeCardTest.cpp.obj
+
+Transactions/TimeCardTest.i: Transactions/TimeCardTest.cpp.i
+
+.PHONY : Transactions/TimeCardTest.i
+
+# target to preprocess a source file
+Transactions/TimeCardTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.i
+.PHONY : Transactions/TimeCardTest.cpp.i
+
+Transactions/TimeCardTest.s: Transactions/TimeCardTest.cpp.s
+
+.PHONY : Transactions/TimeCardTest.s
+
+# target to generate assembly for a file
+Transactions/TimeCardTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.s
+.PHONY : Transactions/TimeCardTest.cpp.s
 
 # Help Target
 help:
@@ -291,18 +291,18 @@ help:
 	@echo ... rebuild_cache
 	@echo ... list_install_components
 	@echo ... install/strip
-	@echo ... AddEmployeeTest.obj
-	@echo ... AddEmployeeTest.i
-	@echo ... AddEmployeeTest.s
-	@echo ... DatabaseTest.obj
-	@echo ... DatabaseTest.i
-	@echo ... DatabaseTest.s
-	@echo ... DeleteEmployeeTest.obj
-	@echo ... DeleteEmployeeTest.i
-	@echo ... DeleteEmployeeTest.s
-	@echo ... TimeCardTest.obj
-	@echo ... TimeCardTest.i
-	@echo ... TimeCardTest.s
+	@echo ... Database/DatabaseTest.obj
+	@echo ... Database/DatabaseTest.i
+	@echo ... Database/DatabaseTest.s
+	@echo ... Transactions/AddEmployeeTest.obj
+	@echo ... Transactions/AddEmployeeTest.i
+	@echo ... Transactions/AddEmployeeTest.s
+	@echo ... Transactions/DeleteEmployeeTest.obj
+	@echo ... Transactions/DeleteEmployeeTest.i
+	@echo ... Transactions/DeleteEmployeeTest.s
+	@echo ... Transactions/TimeCardTest.obj
+	@echo ... Transactions/TimeCardTest.i
+	@echo ... Transactions/TimeCardTest.s
 .PHONY : help
 
 

@@ -69,18 +69,18 @@ CMakeFiles/payroll_system.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/payroll_system.dir/src/main.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\src\main.cpp -o CMakeFiles\payroll_system.dir\src\main.cpp.s
 
-CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj: CMakeFiles/payroll_system.dir/flags.make
-CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj: ../src/PayrollDatabase.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\payroll_system.dir\src\PayrollDatabase.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\src\PayrollDatabase.cpp
+CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj: CMakeFiles/payroll_system.dir/flags.make
+CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj: ../src/Database/PayrollDatabase.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\payroll_system.dir\src\Database\PayrollDatabase.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\src\Database\PayrollDatabase.cpp
 
-CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\src\PayrollDatabase.cpp > CMakeFiles\payroll_system.dir\src\PayrollDatabase.cpp.i
+CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\src\Database\PayrollDatabase.cpp > CMakeFiles\payroll_system.dir\src\Database\PayrollDatabase.cpp.i
 
-CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\src\PayrollDatabase.cpp -o CMakeFiles\payroll_system.dir\src\PayrollDatabase.cpp.s
+CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\src\Database\PayrollDatabase.cpp -o CMakeFiles\payroll_system.dir\src\Database\PayrollDatabase.cpp.s
 
 CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.obj: CMakeFiles/payroll_system.dir/flags.make
 CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.obj: ../src/Transactions/AddEmployeeTransaction.cpp
@@ -111,7 +111,7 @@ CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.s: cmake_
 # Object files for target payroll_system
 payroll_system_OBJECTS = \
 "CMakeFiles/payroll_system.dir/src/main.cpp.obj" \
-"CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj" \
+"CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj" \
 "CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.obj" \
 "CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.obj"
 
@@ -119,7 +119,7 @@ payroll_system_OBJECTS = \
 payroll_system_EXTERNAL_OBJECTS =
 
 payroll_system.exe: CMakeFiles/payroll_system.dir/src/main.cpp.obj
-payroll_system.exe: CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj
+payroll_system.exe: CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj
 payroll_system.exe: CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.obj
 payroll_system.exe: CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.obj
 payroll_system.exe: CMakeFiles/payroll_system.dir/build.make

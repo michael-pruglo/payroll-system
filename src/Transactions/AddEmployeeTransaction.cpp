@@ -1,5 +1,5 @@
 #include "AddEmployeeTransaction.hpp"
-#include "../PayrollDatabase.hpp"
+#include "../Database/PayrollDatabase.hpp"
 
 AddEmployeeTransaction::AddEmployeeTransaction(int id, std::string name, std::string address) :
     id(id),

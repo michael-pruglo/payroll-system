@@ -233,32 +233,32 @@ gtest_main/fast:
 	$(MAKE) -f tests\lib\googletest\CMakeFiles\gtest_main.dir\build.make tests/lib/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-src/PayrollDatabase.obj: src/PayrollDatabase.cpp.obj
+src/Database/PayrollDatabase.obj: src/Database/PayrollDatabase.cpp.obj
 
-.PHONY : src/PayrollDatabase.obj
+.PHONY : src/Database/PayrollDatabase.obj
 
 # target to build an object file
-src/PayrollDatabase.cpp.obj:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.obj
-.PHONY : src/PayrollDatabase.cpp.obj
+src/Database/PayrollDatabase.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj
+.PHONY : src/Database/PayrollDatabase.cpp.obj
 
-src/PayrollDatabase.i: src/PayrollDatabase.cpp.i
+src/Database/PayrollDatabase.i: src/Database/PayrollDatabase.cpp.i
 
-.PHONY : src/PayrollDatabase.i
+.PHONY : src/Database/PayrollDatabase.i
 
 # target to preprocess a source file
-src/PayrollDatabase.cpp.i:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.i
-.PHONY : src/PayrollDatabase.cpp.i
+src/Database/PayrollDatabase.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.i
+.PHONY : src/Database/PayrollDatabase.cpp.i
 
-src/PayrollDatabase.s: src/PayrollDatabase.cpp.s
+src/Database/PayrollDatabase.s: src/Database/PayrollDatabase.cpp.s
 
-.PHONY : src/PayrollDatabase.s
+.PHONY : src/Database/PayrollDatabase.s
 
 # target to generate assembly for a file
-src/PayrollDatabase.cpp.s:
-	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/PayrollDatabase.cpp.s
-.PHONY : src/PayrollDatabase.cpp.s
+src/Database/PayrollDatabase.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.s
+.PHONY : src/Database/PayrollDatabase.cpp.s
 
 src/Transactions/AddEmployeeTransaction.obj: src/Transactions/AddEmployeeTransaction.cpp.obj
 
@@ -359,9 +359,9 @@ help:
 	@echo ... gmock
 	@echo ... gtest
 	@echo ... gtest_main
-	@echo ... src/PayrollDatabase.obj
-	@echo ... src/PayrollDatabase.i
-	@echo ... src/PayrollDatabase.s
+	@echo ... src/Database/PayrollDatabase.obj
+	@echo ... src/Database/PayrollDatabase.i
+	@echo ... src/Database/PayrollDatabase.s
 	@echo ... src/Transactions/AddEmployeeTransaction.obj
 	@echo ... src/Transactions/AddEmployeeTransaction.i
 	@echo ... src/Transactions/AddEmployeeTransaction.s

@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj"
-  "CMakeFiles/google_test.dir/DatabaseTest.cpp.obj"
-  "CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj"
-  "CMakeFiles/google_test.dir/TimeCardTest.cpp.obj"
+  "CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj"
+  "CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj"
+  "CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj"
+  "CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj"
   "google_test.exe"
   "google_test.exe.manifest"
   "google_test.pdb"

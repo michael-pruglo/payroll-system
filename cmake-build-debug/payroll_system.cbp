@@ -384,6 +384,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Database/PayrollDatabase.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Database/PayrollDatabase.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -394,12 +400,6 @@
 			<Option target="payroll_system"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentSchedule.hpp">
-			<Option target="payroll_system"/>
-		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/PayrollDatabase.cpp">
-			<Option target="payroll_system"/>
-		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/PayrollDatabase.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.cpp">
@@ -423,19 +423,22 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/main.cpp">
 			<Option target="payroll_system"/>
 		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/AddAndRetrieveEmployeeTester.hpp">
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/utility/Date.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Database/DatabaseTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp">
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DatabaseTest.cpp">
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DeleteEmployeeTest.cpp">
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/EmployeeCorrectnessTester.hpp">
 			<Option target="google_test"/>
 		</Unit>
-		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/TimeCardTest.cpp">
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TimeCardTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googlemock/src/gmock-all.cc">

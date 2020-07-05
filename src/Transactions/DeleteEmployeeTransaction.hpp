@@ -3,7 +3,7 @@
 
 
 #include "Transaction.hpp"
-#include "src/PayrollDatabase.hpp"
+#include "src/Database/PayrollDatabase.hpp"
 
 class DeleteEmployeeTransaction : public Transaction
 {

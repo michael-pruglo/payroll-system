@@ -56,76 +56,76 @@ include tests/CMakeFiles/google_test.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/CMakeFiles/google_test.dir/flags.make
 
-tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
-tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
-tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj: ../tests/DatabaseTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\DatabaseTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\DatabaseTest.cpp
+tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
+tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
+tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj: ../tests/Database/DatabaseTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\Database\DatabaseTest.cpp
 
-tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/DatabaseTest.cpp.i"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\DatabaseTest.cpp > CMakeFiles\google_test.dir\DatabaseTest.cpp.i
+tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.i"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\Database\DatabaseTest.cpp > CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.i
 
-tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/DatabaseTest.cpp.s"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\DatabaseTest.cpp -o CMakeFiles\google_test.dir\DatabaseTest.cpp.s
+tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.s"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\Database\DatabaseTest.cpp -o CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.s
 
-tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
-tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
-tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj: ../tests/AddEmployeeTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\AddEmployeeTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\AddEmployeeTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/AddEmployeeTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\AddEmployeeTest.cpp
 
-tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/AddEmployeeTest.cpp.i"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\AddEmployeeTest.cpp > CMakeFiles\google_test.dir\AddEmployeeTest.cpp.i
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.i"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\AddEmployeeTest.cpp > CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.i
 
-tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/AddEmployeeTest.cpp.s"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\AddEmployeeTest.cpp -o CMakeFiles\google_test.dir\AddEmployeeTest.cpp.s
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.s"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\AddEmployeeTest.cpp -o CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.s
 
-tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
-tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
-tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj: ../tests/DeleteEmployeeTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\DeleteEmployeeTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/DeleteEmployeeTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\DeleteEmployeeTest.cpp
 
-tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.i"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\DeleteEmployeeTest.cpp > CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.i
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.i"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\DeleteEmployeeTest.cpp > CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.i
 
-tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.s"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\DeleteEmployeeTest.cpp -o CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.s
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.s"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\DeleteEmployeeTest.cpp -o CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.s
 
-tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
-tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
-tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj: ../tests/TimeCardTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\TimeCardTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\TimeCardTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: tests/CMakeFiles/google_test.dir/flags.make
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: tests/CMakeFiles/google_test.dir/includes_CXX.rsp
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/TimeCardTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.obj -c C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\TimeCardTest.cpp
 
-tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/TimeCardTest.cpp.i"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\TimeCardTest.cpp > CMakeFiles\google_test.dir\TimeCardTest.cpp.i
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.i"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\TimeCardTest.cpp > CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.i
 
-tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/TimeCardTest.cpp.s"
-	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\TimeCardTest.cpp -o CMakeFiles\google_test.dir\TimeCardTest.cpp.s
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.s"
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\mickl\ClionProjects\payroll-system\tests\Transactions\TimeCardTest.cpp -o CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.s
 
 # Object files for target google_test
 google_test_OBJECTS = \
-"CMakeFiles/google_test.dir/DatabaseTest.cpp.obj" \
-"CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj" \
-"CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj" \
-"CMakeFiles/google_test.dir/TimeCardTest.cpp.obj"
+"CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj" \
+"CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj" \
+"CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj" \
+"CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj"
 
 # External object files for target google_test
 google_test_EXTERNAL_OBJECTS =
 
-tests/google_test.exe: tests/CMakeFiles/google_test.dir/DatabaseTest.cpp.obj
-tests/google_test.exe: tests/CMakeFiles/google_test.dir/AddEmployeeTest.cpp.obj
-tests/google_test.exe: tests/CMakeFiles/google_test.dir/DeleteEmployeeTest.cpp.obj
-tests/google_test.exe: tests/CMakeFiles/google_test.dir/TimeCardTest.cpp.obj
+tests/google_test.exe: tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj
+tests/google_test.exe: tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj
+tests/google_test.exe: tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj
+tests/google_test.exe: tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj
 tests/google_test.exe: tests/CMakeFiles/google_test.dir/build.make
 tests/google_test.exe: lib/libgtestd.a
 tests/google_test.exe: lib/libgtest_maind.a
