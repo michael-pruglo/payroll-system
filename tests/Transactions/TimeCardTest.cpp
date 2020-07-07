@@ -2,8 +2,8 @@
 #include "src/utility/Date.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/TimeCardTransaction.hpp"
-#include "tests/Transactions/utility/EmployeeCorrectnessTester.hpp"
-#include "tests/Transactions/utility/TestUsingDatabase.hpp"
+#include "utility/EmployeeCorrectnessTester.hpp"
+#include "utility/TestUsingDatabase.hpp"
 
 
 class TimeCardTest : public TestUsingDatabase

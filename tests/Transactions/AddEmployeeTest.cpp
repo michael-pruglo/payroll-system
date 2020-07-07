@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/AddEmployeeTransaction.cpp"
-#include "tests/Transactions/utility/EmployeeCorrectnessTester.hpp"
-#include "tests/Transactions/utility/TestUsingDatabase.hpp"
+#include "utility/EmployeeCorrectnessTester.hpp"
+#include "utility/TestUsingDatabase.hpp"
 
 class AddEmployeeTest : public TestUsingDatabase
 {

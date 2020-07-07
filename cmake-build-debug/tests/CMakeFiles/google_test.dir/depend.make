@@ -37,8 +37,6 @@ tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Em
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Transactions/AddEmployeeTransaction.cpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Transactions/AddEmployeeTransaction.hpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Transactions/Transaction.hpp
-tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/utility/EmployeeCorrectnessTester.hpp
-tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-matchers.h
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -60,6 +58,8 @@ tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-string.h
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/AddEmployeeTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/utility/EmployeeCorrectnessTester.hpp
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
 
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Employee/Employee.hpp
@@ -68,7 +68,6 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Employee/PaymentSchedule.hpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Transactions/DeleteEmployeeTransaction.hpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Transactions/Transaction.hpp
-tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-matchers.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -90,6 +89,7 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tes
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-string.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/DeleteEmployeeTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
 
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Employee/Employee.hpp
@@ -100,8 +100,6 @@ tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Trans
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Transactions/TimeCardTransaction.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Transactions/Transaction.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/utility/Date.hpp
-tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/utility/EmployeeCorrectnessTester.hpp
-tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-matchers.h
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -123,6 +121,8 @@ tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-string.h
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/TimeCardTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/utility/EmployeeCorrectnessTester.hpp
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
 
 tests/CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.obj: ../src/Employee/Employee.hpp
