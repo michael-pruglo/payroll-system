@@ -278,6 +278,33 @@ Transactions/TimeCardTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.s
 .PHONY : Transactions/TimeCardTest.cpp.s
 
+Transactions/utility/EmployeeCorrectnessTester.obj: Transactions/utility/EmployeeCorrectnessTester.cpp.obj
+
+.PHONY : Transactions/utility/EmployeeCorrectnessTester.obj
+
+# target to build an object file
+Transactions/utility/EmployeeCorrectnessTester.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.obj
+.PHONY : Transactions/utility/EmployeeCorrectnessTester.cpp.obj
+
+Transactions/utility/EmployeeCorrectnessTester.i: Transactions/utility/EmployeeCorrectnessTester.cpp.i
+
+.PHONY : Transactions/utility/EmployeeCorrectnessTester.i
+
+# target to preprocess a source file
+Transactions/utility/EmployeeCorrectnessTester.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.i
+.PHONY : Transactions/utility/EmployeeCorrectnessTester.cpp.i
+
+Transactions/utility/EmployeeCorrectnessTester.s: Transactions/utility/EmployeeCorrectnessTester.cpp.s
+
+.PHONY : Transactions/utility/EmployeeCorrectnessTester.s
+
+# target to generate assembly for a file
+Transactions/utility/EmployeeCorrectnessTester.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.s
+.PHONY : Transactions/utility/EmployeeCorrectnessTester.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -303,6 +330,9 @@ help:
 	@echo ... Transactions/TimeCardTest.obj
 	@echo ... Transactions/TimeCardTest.i
 	@echo ... Transactions/TimeCardTest.s
+	@echo ... Transactions/utility/EmployeeCorrectnessTester.obj
+	@echo ... Transactions/utility/EmployeeCorrectnessTester.i
+	@echo ... Transactions/utility/EmployeeCorrectnessTester.s
 .PHONY : help
 
 

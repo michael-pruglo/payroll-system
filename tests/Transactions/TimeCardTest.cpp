@@ -1,11 +1,9 @@
-#include <chrono>
 #include <gtest/gtest.h>
 #include "src/utility/Date.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/TimeCardTransaction.hpp"
-#include "src/Database/PayrollDatabase.hpp"
-#include "EmployeeCorrectnessTester.hpp"
-#include "TestUsingDatabase.hpp"
+#include "tests/Transactions/utility/EmployeeCorrectnessTester.hpp"
+#include "tests/Transactions/utility/TestUsingDatabase.hpp"
 
 
 class TimeCardTest : public TestUsingDatabase
@@ -35,10 +33,5 @@ TEST_F(TimeCardTest, TimeCardUpdates)
     TimeCardTransaction tct(date, hours, id);
     ASSERT_NO_THROW(tct.execute());
 
-    EmployeeCorrectnessTester<
-            HourlyClassification,
-            WeeklySchedule
-            >(hRate, 0, 0, 0)
-            .invoke(id, name);
-    //TODO: add check for timecard itself - 8 hours
+    HourlyEmployeeCorrectnessTester(hRate).invoke(id, name);
 }

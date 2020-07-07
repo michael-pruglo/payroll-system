@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "src/Transactions/DeleteEmployeeTransaction.hpp"
-#include "TestUsingDatabase.hpp"
+#include "tests/Transactions/utility/TestUsingDatabase.hpp"
 
 class DeleteEmployeeTest : public TestUsingDatabase
 {

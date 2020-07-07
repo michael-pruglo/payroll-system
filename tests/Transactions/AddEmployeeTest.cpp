@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/AddEmployeeTransaction.cpp"
-#include "EmployeeCorrectnessTester.hpp"
-#include "TestUsingDatabase.hpp"
+#include "tests/Transactions/utility/EmployeeCorrectnessTester.hpp"
+#include "tests/Transactions/utility/TestUsingDatabase.hpp"
 
 class AddEmployeeTest : public TestUsingDatabase
 {
@@ -19,11 +19,7 @@ TEST_F(AddEmployeeTest, HourlyEmployee)
     AddHourlyEmployee at(hId, hName, hAddress, hRate);
     ASSERT_NO_THROW(at.execute());
     ASSERT_EQ(database->size(), 1);
-    EmployeeCorrectnessTester<
-            HourlyClassification,
-            WeeklySchedule
-            >(hRate, sSalary, cSalary, cRate)
-            .invoke(hId, hName);
+    HourlyEmployeeCorrectnessTester(hRate).invoke(hId, hName);
 }
 
 TEST_F(AddEmployeeTest, SalariedEmployee)
@@ -31,11 +27,7 @@ TEST_F(AddEmployeeTest, SalariedEmployee)
     AddSalariedEmployee at(sId, sName, sAddress, sSalary);
     ASSERT_NO_THROW(at.execute());
     ASSERT_EQ(database->size(), 1);
-    EmployeeCorrectnessTester<
-            SalariedClassification,
-            MonthlySchedule
-            >(hRate, sSalary, cSalary, cRate)
-            .invoke(sId, sName);
+    SalariedEmployeeCorrectnessTester(sSalary).invoke(sId, sName);
 }
 
 TEST_F(AddEmployeeTest, CommissionedEmployee)
@@ -43,9 +35,5 @@ TEST_F(AddEmployeeTest, CommissionedEmployee)
     AddCommissionedEmployee at(cId, cName, cAddress, cSalary, cRate);
     ASSERT_NO_THROW(at.execute());
     ASSERT_EQ(database->size(), 1);
-    EmployeeCorrectnessTester<
-            CommissionedClassification,
-            BiweeklySchedule
-            >(hRate, sSalary, cSalary, cRate)
-            .invoke(cId, cName);
+    CommissionedEmployeeCorrectnessTester(cSalary, cRate).invoke(cId, cName);
 }

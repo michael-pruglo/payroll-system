@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj"
   "CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj"
   "CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj"
+  "CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.obj"
   "google_test.exe"
   "google_test.exe.manifest"
   "google_test.pdb"
