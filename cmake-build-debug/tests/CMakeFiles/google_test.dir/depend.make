@@ -59,6 +59,7 @@ tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/AddEmployeeTest.cpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/EmployeeCorrectnessTester.hpp
+tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../tests/Transactions/TestUsingDatabase.hpp
 
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../src/Employee/Employee.hpp
@@ -88,6 +89,7 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tes
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-string.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/DeleteEmployeeTest.cpp
+tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/TestUsingDatabase.hpp
 
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../src/Employee/Employee.hpp
@@ -119,5 +121,6 @@ tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-string.h
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/EmployeeCorrectnessTester.hpp
+tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj: ../tests/Transactions/TimeCardTest.cpp
 

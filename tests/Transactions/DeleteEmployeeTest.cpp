@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
 #include "src/Transactions/DeleteEmployeeTransaction.hpp"
+#include "TestUsingDatabase.hpp"
 
-class DeleteEmployeeTest : public ::testing::Test
+class DeleteEmployeeTest : public TestUsingDatabase
 {
 protected:
 
@@ -14,16 +15,8 @@ protected:
         EXPECT_EQ(initSize, 1);
     }
 
-    void TearDown() override
-    {
-        database->clear();
-        ASSERT_EQ(database->size(), 0);
-    }
-
     int id = 9;
     std::string name = "Fin", address = "Finland";
-    int initSize;
-    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
 };
 
 TEST_F(DeleteEmployeeTest, DeleteEmployee)

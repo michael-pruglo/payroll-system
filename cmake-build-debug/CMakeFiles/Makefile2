@@ -179,8 +179,8 @@ CMakeFiles/payroll_system.dir/clean:
 # Target rules for target tests/CMakeFiles/google_test.dir
 
 # All Build rule for target.
-tests/CMakeFiles/google_test.dir/all: tests/lib/googletest/CMakeFiles/gtest.dir/all
 tests/CMakeFiles/google_test.dir/all: tests/lib/googletest/CMakeFiles/gtest_main.dir/all
+tests/CMakeFiles/google_test.dir/all: tests/lib/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/depend
 	$(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=5,6,7,8,9 "Built target google_test"
@@ -207,8 +207,8 @@ tests/CMakeFiles/google_test.dir/clean:
 # Target rules for target tests/lib/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-tests/lib/googlemock/CMakeFiles/gmock_main.dir/all: tests/lib/googlemock/CMakeFiles/gmock.dir/all
 tests/lib/googlemock/CMakeFiles/gmock_main.dir/all: tests/lib/googletest/CMakeFiles/gtest.dir/all
+tests/lib/googlemock/CMakeFiles/gmock_main.dir/all: tests/lib/googlemock/CMakeFiles/gmock.dir/all
 	$(MAKE) -f tests\lib\googlemock\CMakeFiles\gmock_main.dir\build.make tests/lib/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f tests\lib\googlemock\CMakeFiles\gmock_main.dir\build.make tests/lib/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target gmock_main"

@@ -60,6 +60,7 @@ tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj
  ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/EmployeeCorrectnessTester.hpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj
  ../src/Database/PayrollDatabase.hpp
  ../src/Employee/Employee.hpp
@@ -89,6 +90,7 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj
  ../tests/lib/googletest/include/gtest/internal/gtest-string.h
  ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj
  ../src/Database/PayrollDatabase.hpp
  ../src/Employee/Employee.hpp
@@ -120,4 +122,5 @@ tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj
  ../tests/lib/googletest/include/gtest/internal/gtest-string.h
  ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/EmployeeCorrectnessTester.hpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TestUsingDatabase.hpp
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TimeCardTest.cpp
