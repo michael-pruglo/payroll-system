@@ -3,6 +3,7 @@
 
 
 #include <gtest/gtest.h>
+#include "src/Employee/SalesReceipt.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Database/PayrollDatabase.hpp"
 
@@ -29,9 +30,8 @@ class HourlyEmployeeCorrectnessTester : public EmployeeCorrectnessTester
 public:
     HourlyEmployeeCorrectnessTester(double hRate) : hRate(hRate) {}
     HourlyEmployeeCorrectnessTester(double hRate, TimeCard tc) :
-        hRate(hRate),
-        timeCard(std::make_optional<TimeCard>(tc))
-    {}
+        HourlyEmployeeCorrectnessTester(hRate)
+    { timeCard = std::make_optional<TimeCard>(tc); }
 private:
     void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
     void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
@@ -57,10 +57,14 @@ public:
         cSalary(cSalary),
         cRate(cRate)
     {}
+    CommissionedEmployeeCorrectnessTester(double cSalary, double cRate, SalesReceipt sr) :
+        CommissionedEmployeeCorrectnessTester(cSalary, cRate)
+    { salesReceipt = std::make_optional<SalesReceipt>(sr); }
 private:
     void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
     void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
     double cSalary, cRate;
+    std::optional<SalesReceipt> salesReceipt;
 };
 
 #endif //PAYROLL_SYSTEM_EMPLOYEECORRECTNESSTESTER_HPP

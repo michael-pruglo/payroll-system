@@ -1,7 +1,7 @@
 #ifndef PAYROLL_SYSTEM_TIMECARDTRANSACTION_HPP
 #define PAYROLL_SYSTEM_TIMECARDTRANSACTION_HPP
 
-#include <src/Database/PayrollDatabase.hpp>
+#include "src/Database/PayrollDatabase.hpp"
 #include "Transaction.hpp"
 
 class TimeCardTransaction : public Transaction

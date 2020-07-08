@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/mickl/ClionProjects/payroll-system/src/Database/PayrollDatabase.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.obj"
-  "C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/TimeCardTransaction.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/Transactions/TimeCardTransaction.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/src/main.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/CMakeFiles/payroll_system.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

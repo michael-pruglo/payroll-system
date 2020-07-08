@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../src/Database/PayrollDatabase.cpp
-PayrollDatabase.hpp
-../src/Database/PayrollDatabase.hpp
-
 ../src/Database/PayrollDatabase.hpp
 unordered_map
 -
@@ -35,10 +31,16 @@ PaymentMethod.hpp
 ../src/Employee/PaymentClassification.hpp
 TimeCard.hpp
 ../src/Employee/TimeCard.hpp
+SalesReceipt.hpp
+../src/Employee/SalesReceipt.hpp
 
 ../src/Employee/PaymentMethod.hpp
 
 ../src/Employee/PaymentSchedule.hpp
+
+../src/Employee/SalesReceipt.hpp
+src/utility/Date.hpp
+-
 
 ../src/Employee/TimeCard.hpp
 src/utility/Date.hpp
@@ -58,15 +60,17 @@ Transaction.hpp
 src/Employee/Employee.hpp
 ../src/Transactions/src/Employee/Employee.hpp
 
-../src/Transactions/DeleteEmployeeTransaction.hpp
-Transaction.hpp
-../src/Transactions/Transaction.hpp
+../src/Transactions/SalesReceiptTransaction.hpp
+src/Employee/SalesReceipt.hpp
+../src/Transactions/src/Employee/SalesReceipt.hpp
 src/Database/PayrollDatabase.hpp
 ../src/Transactions/src/Database/PayrollDatabase.hpp
+Transaction.hpp
+../src/Transactions/Transaction.hpp
 
 ../src/Transactions/TimeCardTransaction.hpp
 src/Database/PayrollDatabase.hpp
--
+../src/Transactions/src/Database/PayrollDatabase.hpp
 Transaction.hpp
 ../src/Transactions/Transaction.hpp
 
@@ -394,16 +398,6 @@ cxxabi.h
 acxx_demangle.h
 -
 
-C:/Users/mickl/ClionProjects/payroll-system/tests/Database/DatabaseTest.cpp
-gtest/gtest.h
--
-src/Database/PayrollDatabase.hpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/Database/src/Database/PayrollDatabase.hpp
-src/Database/PayrollDatabase.cpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/Database/src/Database/PayrollDatabase.cpp
-src/Employee/Employee.hpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/Database/src/Employee/Employee.hpp
-
 C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp
 gtest/gtest.h
 -
@@ -416,11 +410,17 @@ C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/EmployeeC
 utility/TestUsingDatabase.hpp
 C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/TestUsingDatabase.hpp
 
-C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/SalesReceipt.cpp
 gtest/gtest.h
 -
-src/Transactions/DeleteEmployeeTransaction.hpp
-C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/src/Transactions/DeleteEmployeeTransaction.hpp
+src/utility/Date.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/src/utility/Date.hpp
+src/Transactions/AddEmployeeTransaction.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/src/Transactions/AddEmployeeTransaction.hpp
+src/Transactions/SalesReceiptTransaction.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/src/Transactions/SalesReceiptTransaction.hpp
+utility/EmployeeCorrectnessTester.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/EmployeeCorrectnessTester.hpp
 utility/TestUsingDatabase.hpp
 C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/TestUsingDatabase.hpp
 
@@ -445,6 +445,8 @@ C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/EmployeeC
 C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/EmployeeCorrectnessTester.hpp
 gtest/gtest.h
 -
+src/Employee/SalesReceipt.hpp
+C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/src/Employee/SalesReceipt.hpp
 src/Transactions/AddEmployeeTransaction.hpp
 C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/src/Transactions/AddEmployeeTransaction.hpp
 src/Database/PayrollDatabase.hpp

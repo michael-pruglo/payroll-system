@@ -3,6 +3,7 @@
 
 
 #include "TimeCard.hpp"
+#include "SalesReceipt.hpp"
 
 class PaymentClassification { public: virtual ~PaymentClassification() = default; };
 class HourlyClassification : public PaymentClassification
@@ -39,8 +40,18 @@ public:
 
     double getSalary() const { return salary; }
     double getCommissionRate() const { return commissionRate; }
+    void addSalesReceipt(SalesReceipt sr) { salesReceipts.insert({sr.getDate(), sr}); }
+    SalesReceipt getSalesReceipt(Date date) const
+    {
+        auto it = salesReceipts.find(date);
+        if (it != salesReceipts.end())
+            return it->second;
+        else
+            throw std::runtime_error("CommissionedClassification::getSalesReceipt() - doesn't have such a receipt");
+    }
 private:
     double salary, commissionRate;
+    std::map<Date, SalesReceipt> salesReceipts;
 };
 
 
