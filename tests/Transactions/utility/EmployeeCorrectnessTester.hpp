@@ -28,11 +28,16 @@ class HourlyEmployeeCorrectnessTester : public EmployeeCorrectnessTester
 {
 public:
     HourlyEmployeeCorrectnessTester(double hRate) : hRate(hRate) {}
+    HourlyEmployeeCorrectnessTester(double hRate, TimeCard tc) :
+        hRate(hRate),
+        timeCard(std::make_optional<TimeCard>(tc))
+    {}
 private:
     void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
     void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
 
     double hRate;
+    std::optional<TimeCard> timeCard;
 };
 
 class SalariedEmployeeCorrectnessTester : public EmployeeCorrectnessTester

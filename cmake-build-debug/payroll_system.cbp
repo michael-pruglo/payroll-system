@@ -402,6 +402,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentSchedule.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/TimeCard.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.cpp">
 			<Option target="payroll_system"/>
 		</Unit>

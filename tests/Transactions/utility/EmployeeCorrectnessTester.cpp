@@ -37,7 +37,11 @@ void HourlyEmployeeCorrectnessTester::testClassification(std::shared_ptr<Payment
     testIsCorrectDerivedType<HourlyClassification>(pc);
     auto classification = std::dynamic_pointer_cast<HourlyClassification>(pc);
     ASSERT_DOUBLE_EQ(classification->getHourlyRate(), hRate);
-    //TODO: auto tc = classification->getTimeCard();
+    if (timeCard)
+    {
+        auto tc = classification->getTimeCard(timeCard->getDate());
+        ASSERT_EQ(tc.getHours(), timeCard->getHours());
+    }
 }
 
 void SalariedEmployeeCorrectnessTester::testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck)

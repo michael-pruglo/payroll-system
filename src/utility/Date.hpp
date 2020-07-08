@@ -9,5 +9,10 @@ struct Date
     int year, month, day;
 };
 
+inline bool operator<(Date d1, Date d2)
+{
+    return d1.year<d2.year || d1.month<d2.month || d1.day<d2.day;
+}
+
 
 #endif //PAYROLL_SYSTEM_DATE_HPP
