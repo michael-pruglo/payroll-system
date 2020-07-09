@@ -1,6 +1,6 @@
-        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/PayrollDatabase.hpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Database/PayrollDatabase.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:#ifndef PAYROLL_SYSTEM_PAYROLLDATABASE_HPP
         -:    2:#define PAYROLL_SYSTEM_PAYROLLDATABASE_HPP
@@ -10,7 +10,7 @@
         -:    6:#include <stdexcept>
         -:    7:#include <memory>
         -:    8:#include <sstream>
-        -:    9:#include "Employee.hpp"
+        -:    9:#include "../Employee/Employee.hpp"
         -:   10:
         -:   11:class PayrollDatabase
         -:   12:{

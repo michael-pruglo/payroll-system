@@ -1,0 +1,109 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/SalesReceipt.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "src/utility/Date.hpp"
+        -:    2:#include "src/Transactions/AddEmployeeTransaction.hpp"
+        -:    3:#include "src/Transactions/SalesReceiptTransaction.hpp"
+        -:    4:#include "utility/EmployeeCorrectnessTester.hpp"
+        -:    5:#include "utility/TestUsingDatabase.hpp"
+        -:    6:
+        -:    7:
+        -:    8:class SalesReceiptTest : public TestUsingDatabase
+        -:    9:{
+        -:   10:protected:
+        -:   11:
+        1:   12:    void SetUp() override
+        -:   13:    {
+        2:   14:        AddCommissionedEmployee at(id, name, address, cSalary, cRate);
+        1:   14-block  0
+        1:   14-block  1
+        1:   14-block  2
+    $$$$$:   14-block  3
+    $$$$$:   14-block  4
+    $$$$$:   14-block  5
+       1*:   15:        ASSERT_NO_THROW(at.execute());
+        1:   15-block  0
+        1:   15-block  1
+        1:   15-block  2
+    %%%%%:   15-block  3
+    %%%%%:   15-block  4
+    %%%%%:   15-block  5
+    %%%%%:   15-block  6
+    %%%%%:   15-block  7
+    $$$$$:   15-block  8
+    $$$$$:   15-block  9
+    $$$$$:   15-block 10
+    $$$$$:   15-block 11
+    $$$$$:   15-block 12
+    $$$$$:   15-block 13
+    $$$$$:   15-block 14
+    $$$$$:   15-block 15
+    $$$$$:   15-block 16
+    $$$$$:   15-block 17
+    $$$$$:   15-block 18
+    $$$$$:   15-block 19
+    $$$$$:   15-block 20
+    $$$$$:   15-block 21
+    $$$$$:   15-block 22
+    $$$$$:   15-block 23
+        1:   16:        initSize = database->size();
+        1:   16-block  0
+       1*:   17:        EXPECT_EQ(initSize, 1);
+        1:   17-block  0
+    %%%%%:   17-block  1
+    %%%%%:   17-block  2
+    %%%%%:   17-block  3
+    %%%%%:   17-block  4
+        1:   17-block  5
+    $$$$$:   17-block  6
+    $$$$$:   17-block  7
+    $$$$$:   17-block  8
+    $$$$$:   17-block  9
+    $$$$$:   17-block 10
+    $$$$$:   17-block 11
+        -:   18:    }
+        -:   19:
+       1*:   20:    void assertDatabaseContains(int id) { ASSERT_NO_THROW(database->getEmployee(id)); }
+        1:   20-block  0
+        1:   20-block  1
+        1:   20-block  2
+        1:   20-block  3
+        1:   20-block  4
+    %%%%%:   20-block  5
+    %%%%%:   20-block  6
+    %%%%%:   20-block  7
+    %%%%%:   20-block  8
+    %%%%%:   20-block  9
+    $$$$$:   20-block 10
+    $$$$$:   20-block 11
+    $$$$$:   20-block 12
+    $$$$$:   20-block 13
+    $$$$$:   20-block 14
+    $$$$$:   20-block 15
+    $$$$$:   20-block 16
+    $$$$$:   20-block 17
+    $$$$$:   20-block 18
+    $$$$$:   20-block 19
+    $$$$$:   20-block 20
+    $$$$$:   20-block 21
+    $$$$$:   20-block 22
+    $$$$$:   20-block 23
+    $$$$$:   20-block 24
+    $$$$$:   20-block 25
+        -:   21:
+        -:   22:    int id = 11;
+        -:   23:    std::string name = "Nick", address = "Nicaragua";
+        -:   24:    Date date = Date(2020, 7, 7);
+        -:   25:    double amount = 17.0, cSalary = 600.0, cRate = 33.0;
+        -:   26:};
+        -:   27:
+        4:   28:TEST_F(SalesReceiptTest, SalesReceiptUpdates)
+        -:   29:{
+        1:   30:    assertDatabaseContains(id);
+        -:   31:
+        1:   32:    SalesReceiptTransaction srt(date, amount, id);
+       1*:   33:    ASSERT_NO_THROW(srt.execute());
+        -:   34:
+        1:   35:    CommissionedEmployeeCorrectnessTester(cSalary, cRate, SalesReceipt(date, amount)).invoke(id, name);
+        -:   36:}

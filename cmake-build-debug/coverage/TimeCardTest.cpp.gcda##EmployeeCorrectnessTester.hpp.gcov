@@ -1,0 +1,79 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/EmployeeCorrectnessTester.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_EMPLOYEECORRECTNESSTESTER_HPP
+        -:    2:#define PAYROLL_SYSTEM_EMPLOYEECORRECTNESSTESTER_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include <gtest/gtest.h>
+        -:    6:#include "src/Employee/SalesReceipt.hpp"
+        -:    7:#include "src/Transactions/AddEmployeeTransaction.hpp"
+        -:    8:#include "src/Database/PayrollDatabase.hpp"
+        -:    9:
+        -:   10:class EmployeeCorrectnessTester
+        -:   11:{
+        -:   12:public:
+    #####:   13:    virtual ~EmployeeCorrectnessTester() = default;
+    %%%%%:   13-block  0
+        -:   14:    void invoke(int idToCheck, std::string nameToCheck);
+        -:   15:
+        -:   16:protected:
+        -:   17:    void testDatabaseContains(int id);
+        -:   18:    virtual void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck) = 0;
+        -:   19:    void testName(std::shared_ptr<Employee> givenE, std::string nameToCheck) const;
+        -:   20:    virtual void testClassification(std::shared_ptr<PaymentClassification> pc) const = 0;
+        -:   21:    template<typename ExpectedT, typename ActualT>
+        -:   22:    void testIsCorrectDerivedType(ActualT ptrToBase) const;
+        -:   23:
+        -:   24:private:
+        -:   25:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
+        -:   26:};
+        -:   27:
+        -:   28:class HourlyEmployeeCorrectnessTester : public EmployeeCorrectnessTester
+        -:   29:{
+        -:   30:public:
+    #####:   31:    HourlyEmployeeCorrectnessTester(double hRate) : hRate(hRate) {}
+    %%%%%:   31-block  0
+        1:   32:    HourlyEmployeeCorrectnessTester(double hRate, TimeCard tc) :
+        1:   33:        HourlyEmployeeCorrectnessTester(hRate)
+        1:   33-block  0
+    $$$$$:   33-block  1
+        1:   34:    { timeCard = std::make_optional<TimeCard>(tc); }
+        1:   34-block  0
+        -:   35:private:
+        -:   36:    void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
+        -:   37:    void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
+        -:   38:
+        -:   39:    double hRate;
+        -:   40:    std::optional<TimeCard> timeCard;
+        -:   41:};
+        -:   42:
+        -:   43:class SalariedEmployeeCorrectnessTester : public EmployeeCorrectnessTester
+        -:   44:{
+        -:   45:public:
+        -:   46:    SalariedEmployeeCorrectnessTester(double sSalary) : sSalary(sSalary) {}
+        -:   47:private:
+        -:   48:    void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
+        -:   49:    void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
+        -:   50:    double sSalary;
+        -:   51:};
+        -:   52:
+        -:   53:class CommissionedEmployeeCorrectnessTester : public EmployeeCorrectnessTester
+        -:   54:{
+        -:   55:public:
+        -:   56:    CommissionedEmployeeCorrectnessTester(double cSalary, double cRate) :
+        -:   57:        cSalary(cSalary),
+        -:   58:        cRate(cRate)
+        -:   59:    {}
+        -:   60:    CommissionedEmployeeCorrectnessTester(double cSalary, double cRate, SalesReceipt sr) :
+        -:   61:        CommissionedEmployeeCorrectnessTester(cSalary, cRate)
+        -:   62:    { salesReceipt = std::make_optional<SalesReceipt>(sr); }
+        -:   63:private:
+        -:   64:    void testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck);
+        -:   65:    void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
+        -:   66:    double cSalary, cRate;
+        -:   67:    std::optional<SalesReceipt> salesReceipt;
+        -:   68:};
+        -:   69:
+        -:   70:#endif //PAYROLL_SYSTEM_EMPLOYEECORRECTNESSTESTER_HPP

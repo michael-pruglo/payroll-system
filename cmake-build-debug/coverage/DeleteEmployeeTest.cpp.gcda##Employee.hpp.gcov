@@ -1,0 +1,39 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_EMPLOYEE_HPP
+        -:    2:#define PAYROLL_SYSTEM_EMPLOYEE_HPP
+        -:    3:
+        -:    4:#include <memory>
+        -:    5:#include "PaymentClassification.hpp"
+        -:    6:#include "PaymentSchedule.hpp"
+        -:    7:#include "PaymentMethod.hpp"
+        -:    8:
+        -:    9:
+        -:   10:class Employee
+        -:   11:{
+        -:   12:public:
+    #####:   13:    Employee(int id, std::string name, std::string address) :
+        -:   14:            id(id),
+    #####:   15:            name(std::move(name)),
+    #####:   16:            address(std::move(address))
+    %%%%%:   16-block  0
+    #####:   17:    {}
+        -:   18:
+        -:   19:    std::string                             getName() const { return name; }
+        -:   20:    std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
+        -:   21:    void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
+        -:   22:    std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }
+        -:   23:    void                                    setPaymentSchedule(std::shared_ptr<PaymentSchedule> pc) { paymentSchedule = pc; }
+        -:   24:    std::shared_ptr<PaymentMethod>          getPaymentMethod() const { return paymentMethod; }
+        -:   25:    void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
+        -:   26:private:
+        -:   27:    int id;
+        -:   28:    std::string name, address;
+        -:   29:    std::shared_ptr<PaymentClassification> paymentClassification;
+        -:   30:    std::shared_ptr<PaymentSchedule> paymentSchedule;
+        -:   31:    std::shared_ptr<PaymentMethod> paymentMethod;
+        -:   32:};
+        -:   33:
+        -:   34:#endif //PAYROLL_SYSTEM_EMPLOYEE_HPP

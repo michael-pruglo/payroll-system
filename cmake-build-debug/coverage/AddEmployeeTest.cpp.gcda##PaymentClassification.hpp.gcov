@@ -1,0 +1,76 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentClassification.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_PAYMENTCLASSIFICATION_HPP
+        -:    2:#define PAYROLL_SYSTEM_PAYMENTCLASSIFICATION_HPP
+        -:    3:
+        -:    4:#include <map>
+        -:    5:#include "TimeCard.hpp"
+        -:    6:#include "SalesReceipt.hpp"
+        -:    7:
+       5*:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+------------------
+_ZN21PaymentClassificationD0Ev:
+    #####:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+    %%%%%:    8-block  0
+------------------
+_ZN21PaymentClassificationD1Ev:
+    #####:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+------------------
+_ZN21PaymentClassificationD2Ev:
+        5:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+------------------
+        -:    9:class HourlyClassification : public PaymentClassification
+        -:   10:{
+        -:   11:public:
+        2:   12:    explicit HourlyClassification(double hourlyRate) : hourlyRate(hourlyRate) {}
+        2:   12-block  0
+        -:   13:    double getHourlyRate() const { return hourlyRate; }
+        -:   14:    void addTimeCard(TimeCard tc) { timeCards.insert({tc.getDate(), tc}); }
+        -:   15:    TimeCard getTimeCard(Date date) const
+        -:   16:    {
+        -:   17:        auto it = timeCards.find(date);
+        -:   18:        if (it != timeCards.end())
+        -:   19:            return it->second;
+        -:   20:        else
+        -:   21:            throw std::runtime_error("HourlyClassification::getTimeCard() - doesn't have such a timecard");
+        -:   22:    }
+        -:   23:private:
+        -:   24:    double hourlyRate;
+        -:   25:    std::map<Date, TimeCard> timeCards;
+        -:   26:};
+        -:   27:class SalariedClassification : public PaymentClassification
+        -:   28:{
+        -:   29:public:
+        1:   30:    SalariedClassification(double salary) : salary(salary) {}
+        1:   30-block  0
+        -:   31:    double getSalary() const { return salary; }
+        -:   32:private:
+        -:   33:    double salary;
+        -:   34:};
+        -:   35:class CommissionedClassification : public PaymentClassification
+        -:   36:{
+        -:   37:public:
+        2:   38:    CommissionedClassification(double salary, double commissionRate) :
+        2:   39:            salary(salary), commissionRate(commissionRate) {}
+        2:   39-block  0
+        -:   40:
+        -:   41:    double getSalary() const { return salary; }
+        -:   42:    double getCommissionRate() const { return commissionRate; }
+        -:   43:    void addSalesReceipt(SalesReceipt sr) { salesReceipts.insert({sr.getDate(), sr}); }
+        -:   44:    SalesReceipt getSalesReceipt(Date date) const
+        -:   45:    {
+        -:   46:        auto it = salesReceipts.find(date);
+        -:   47:        if (it != salesReceipts.end())
+        -:   48:            return it->second;
+        -:   49:        else
+        -:   50:            throw std::runtime_error("CommissionedClassification::getSalesReceipt() - doesn't have such a receipt");
+        -:   51:    }
+        -:   52:private:
+        -:   53:    double salary, commissionRate;
+        -:   54:    std::map<Date, SalesReceipt> salesReceipts;
+        -:   55:};
+        -:   56:
+        -:   57:
+        -:   58:#endif //PAYROLL_SYSTEM_PAYMENTCLASSIFICATION_HPP

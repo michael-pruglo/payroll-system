@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/move.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Move, forward and identity for C++11 + swap -*- C++ -*-
         -:    2:
@@ -50,15 +50,45 @@
         -:   46:   */
         -:   47:  template<typename _Tp>
         -:   48:    inline _GLIBCXX_CONSTEXPR _Tp*
-      18*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-      18*:   50:    { return __builtin_addressof(__r); }
+      30*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+      30*:   50:    { return __builtin_addressof(__r); }
 ------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee26CommissionedClassificationESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
+        4:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        4:   50:    { return __builtin_addressof(__r); }
+        4:   50-block  0
+------------------
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
+        4:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        4:   50:    { return __builtin_addressof(__r); }
+        4:   50-block  0
+------------------
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
         2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
         2:   50:    { return __builtin_addressof(__r); }
         2:   50-block  0
 ------------------
-_ZSt11__addressofIcEPT_RS0_:
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
+        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        2:   50:    { return __builtin_addressof(__r); }
+        2:   50-block  0
+------------------
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
+        4:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        4:   50:    { return __builtin_addressof(__r); }
+        4:   50-block  0
+------------------
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
+        4:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        4:   50:    { return __builtin_addressof(__r); }
+        4:   50-block  0
+------------------
+_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
+       10:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+       10:   50:    { return __builtin_addressof(__r); }
+       10:   50-block  0
+------------------
+_ZSt11__addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
@@ -68,72 +98,7 @@ _ZSt11__addressofIKcEPT_RS1_:
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
 ------------------
-_ZSt11__addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee10HoldMethodESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
-        6:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        6:   50:    { return __builtin_addressof(__r); }
-        6:   50-block  0
-------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee20HourlyClassificationESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
-        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        2:   50:    { return __builtin_addressof(__r); }
-        2:   50-block  0
-------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee14WeeklyScheduleESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
-        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        2:   50:    { return __builtin_addressof(__r); }
-        2:   50-block  0
-------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee22SalariedClassificationESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
-        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        2:   50:    { return __builtin_addressof(__r); }
-        2:   50-block  0
-------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee15MonthlyScheduleESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
-        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        2:   50:    { return __builtin_addressof(__r); }
-        2:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee26CommissionedClassificationEEEPT_RS5_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceIN8Employee16BiweeklyScheduleESaIS2_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS8_:
-        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        2:   50:    { return __builtin_addressof(__r); }
-        2:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee14WeeklyScheduleEEEPT_RS5_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee10HoldMethodEEEPT_RS5_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee15MonthlyScheduleEEEPT_RS5_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee16BiweeklyScheduleEEEPT_RS5_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee20HourlyClassificationEEEPT_RS5_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
-_ZSt11__addressofIKSt10shared_ptrIN8Employee22SalariedClassificationEEEPT_RS5_:
+_ZSt11__addressofIcEPT_RS0_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
@@ -163,9 +128,9 @@ _ZSt11__addressofIKSt10shared_ptrIN8Employee22SalariedClassificationEEEPT_RS5_:
         -:   73:   */
         -:   74:  template<typename _Tp>
         -:   75:    constexpr _Tp&&
-       32:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       32:   77:    { return static_cast<_Tp&&>(__t); }
-       32:   77-block  0
+       56:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       56:   77:    { return static_cast<_Tp&&>(__t); }
+       56:   77-block  0
         -:   78:
         -:   79:  /**
         -:   80:   *  @brief  Forward an rvalue.
@@ -189,43 +154,8 @@ _ZSt11__addressofIKSt10shared_ptrIN8Employee22SalariedClassificationEEEPT_RS5_:
         -:   98:  */
         -:   99:  template<typename _Tp>
         -:  100:    constexpr typename std::remove_reference<_Tp>::type&&
-       9*:  101:    move(_Tp&& __t) noexcept
-       9*:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee16BiweeklyScheduleEEEONSt16remove_referenceIT_E4typeEOS6_:
-        1:  101:    move(_Tp&& __t) noexcept
-        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        1:  102-block  0
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee26CommissionedClassificationEEEONSt16remove_referenceIT_E4typeEOS6_:
-        1:  101:    move(_Tp&& __t) noexcept
-        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        1:  102-block  0
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee15MonthlyScheduleEEEONSt16remove_referenceIT_E4typeEOS6_:
-        1:  101:    move(_Tp&& __t) noexcept
-        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        1:  102-block  0
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee22SalariedClassificationEEEONSt16remove_referenceIT_E4typeEOS6_:
-        1:  101:    move(_Tp&& __t) noexcept
-        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        1:  102-block  0
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee14WeeklyScheduleEEEONSt16remove_referenceIT_E4typeEOS6_:
-        1:  101:    move(_Tp&& __t) noexcept
-        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        1:  102-block  0
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee20HourlyClassificationEEEONSt16remove_referenceIT_E4typeEOS6_:
-        1:  101:    move(_Tp&& __t) noexcept
-        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        1:  102-block  0
-------------------
-_ZSt4moveIRSt10shared_ptrIN8Employee10HoldMethodEEEONSt16remove_referenceIT_E4typeEOS6_:
-        3:  101:    move(_Tp&& __t) noexcept
-        3:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-        3:  102-block  0
+      15*:  101:    move(_Tp&& __t) noexcept
+      15*:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
 ------------------
 _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
     #####:  101:    move(_Tp&& __t) noexcept
@@ -236,6 +166,41 @@ _ZSt4moveIRPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEONSt16rem
     #####:  101:    move(_Tp&& __t) noexcept
     #####:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
     %%%%%:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI16BiweeklyScheduleEEONSt16remove_referenceIT_E4typeEOS5_:
+        2:  101:    move(_Tp&& __t) noexcept
+        2:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        2:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI26CommissionedClassificationEEONSt16remove_referenceIT_E4typeEOS5_:
+        2:  101:    move(_Tp&& __t) noexcept
+        2:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        2:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI15MonthlyScheduleEEONSt16remove_referenceIT_E4typeEOS5_:
+        1:  101:    move(_Tp&& __t) noexcept
+        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        1:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI22SalariedClassificationEEONSt16remove_referenceIT_E4typeEOS5_:
+        1:  101:    move(_Tp&& __t) noexcept
+        1:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        1:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI14WeeklyScheduleEEONSt16remove_referenceIT_E4typeEOS5_:
+        2:  101:    move(_Tp&& __t) noexcept
+        2:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        2:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI20HourlyClassificationEEONSt16remove_referenceIT_E4typeEOS5_:
+        2:  101:    move(_Tp&& __t) noexcept
+        2:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        2:  102-block  0
+------------------
+_ZSt4moveIRSt10shared_ptrI10HoldMethodEEONSt16remove_referenceIT_E4typeEOS5_:
+        5:  101:    move(_Tp&& __t) noexcept
+        5:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        5:  102-block  0
 ------------------
 _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_:
     #####:  101:    move(_Tp&& __t) noexcept
@@ -286,41 +251,6 @@ _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_ref
         -:  139:    inline _GLIBCXX17_CONSTEXPR _Tp*
     #####:  140:    addressof(_Tp& __r) noexcept
     #####:  141:    { return std::__addressof(__r); }
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee26CommissionedClassificationEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee22SalariedClassificationEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee20HourlyClassificationEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee16BiweeklyScheduleEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee15MonthlyScheduleEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee10HoldMethodEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
-_ZSt9addressofIKSt10shared_ptrIN8Employee14WeeklyScheduleEEEPT_RS5_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
 ------------------
 _ZSt9addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
     #####:  140:    addressof(_Tp& __r) noexcept

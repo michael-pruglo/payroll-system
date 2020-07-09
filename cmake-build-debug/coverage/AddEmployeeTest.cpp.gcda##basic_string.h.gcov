@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/basic_string.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
         -:    2:
@@ -2408,9 +2408,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 2308:       *  (or in C++17 the non-const @c str.data() overload).
         -: 2309:      */
         -: 2310:      const _CharT*
-        6: 2311:      data() const _GLIBCXX_NOEXCEPT
-        6: 2312:      { return _M_data(); }
-        6: 2312-block  0
+        -: 2311:      data() const _GLIBCXX_NOEXCEPT
+        -: 2312:      { return _M_data(); }
         -: 2313:
         -: 2314:#if __cplusplus >= 201703L
         -: 2315:      /**
@@ -6260,16 +6259,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 6158:  template<typename _CharT>
         -: 6159:    inline
         -: 6160:    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value, bool>::__type
-        3: 6161:    operator==(const basic_string<_CharT>& __lhs,
+        -: 6161:    operator==(const basic_string<_CharT>& __lhs,
         -: 6162:	       const basic_string<_CharT>& __rhs) _GLIBCXX_NOEXCEPT
-        3: 6163:    { return (__lhs.size() == __rhs.size()
-        3: 6163-block  0
-       3*: 6164:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
-        3: 6164-block  0
-        3: 6164-block  1
-    %%%%%: 6164-block  2
-        3: 6165:						    __lhs.size())); }
-        3: 6165-block  0
+        -: 6163:    { return (__lhs.size() == __rhs.size()
+        -: 6164:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
+        -: 6165:						    __lhs.size())); }
         -: 6166:
         -: 6167:  /**
         -: 6168:   *  @brief  Test equivalence of string and C string.

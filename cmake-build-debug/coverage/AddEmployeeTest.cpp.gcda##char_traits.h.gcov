@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/char_traits.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Character Traits for use by standard string and iostream -*- C++ -*-
         -:    2:
@@ -112,9 +112,8 @@
     %%%%%:  107-block  0
         -:  108:
         -:  109:      static _GLIBCXX_CONSTEXPR bool
-    #####:  110:      lt(const char_type& __c1, const char_type& __c2)
-    #####:  111:      { return __c1 < __c2; }
-    %%%%%:  111-block  0
+        -:  110:      lt(const char_type& __c1, const char_type& __c2)
+        -:  111:      { return __c1 < __c2; }
         -:  112:
         -:  113:      static _GLIBCXX14_CONSTEXPR int
         -:  114:      compare(const char_type* __s1, const char_type* __s2, std::size_t __n);
@@ -157,23 +156,15 @@
         -:  151:
         -:  152:  template<typename _CharT>
         -:  153:    _GLIBCXX14_CONSTEXPR int
-    #####:  154:    char_traits<_CharT>::
+        -:  154:    char_traits<_CharT>::
         -:  155:    compare(const char_type* __s1, const char_type* __s2, std::size_t __n)
         -:  156:    {
-    #####:  157:      for (std::size_t __i = 0; __i < __n; ++__i)
-    %%%%%:  157-block  0
-    %%%%%:  157-block  1
-    %%%%%:  157-block  2
-    #####:  158:	if (lt(__s1[__i], __s2[__i]))
-    %%%%%:  158-block  0
-    #####:  159:	  return -1;
-    %%%%%:  159-block  0
-    #####:  160:	else if (lt(__s2[__i], __s1[__i]))
-    %%%%%:  160-block  0
-    #####:  161:	  return 1;
-    %%%%%:  161-block  0
-    #####:  162:      return 0;
-    %%%%%:  162-block  0
+        -:  157:      for (std::size_t __i = 0; __i < __n; ++__i)
+        -:  158:	if (lt(__s1[__i], __s2[__i]))
+        -:  159:	  return -1;
+        -:  160:	else if (lt(__s2[__i], __s1[__i]))
+        -:  161:	  return 1;
+        -:  162:      return 0;
         -:  163:    }
         -:  164:
         -:  165:  template<typename _CharT>
@@ -362,22 +353,17 @@
         -:  334:      }
         -:  335:
         -:  336:      static _GLIBCXX17_CONSTEXPR int
-        7:  337:      compare(const char_type* __s1, const char_type* __s2, size_t __n)
+        -:  337:      compare(const char_type* __s1, const char_type* __s2, size_t __n)
         -:  338:      {
-        7:  339:	if (__n == 0)
-        7:  339-block  0
-        4:  340:	  return 0;
-        4:  340-block  0
+        -:  339:	if (__n == 0)
+        -:  340:	  return 0;
         -:  341:#if __cplusplus >= 201703L
-        3:  342:	if (__builtin_constant_p(__n)
+        -:  342:	if (__builtin_constant_p(__n)
         -:  343:	    && __constant_char_array_p(__s1, __n)
-        3:  344:	    && __constant_char_array_p(__s2, __n))
-        3:  344-block  0
-    #####:  345:	  return __gnu_cxx::char_traits<char_type>::compare(__s1, __s2, __n);
-    %%%%%:  345-block  0
+        -:  344:	    && __constant_char_array_p(__s2, __n))
+        -:  345:	  return __gnu_cxx::char_traits<char_type>::compare(__s1, __s2, __n);
         -:  346:#endif
-        3:  347:	return __builtin_memcmp(__s1, __s2, __n);
-        3:  347-block  0
+        -:  347:	return __builtin_memcmp(__s1, __s2, __n);
         -:  348:      }
         -:  349:
         -:  350:      static _GLIBCXX17_CONSTEXPR size_t

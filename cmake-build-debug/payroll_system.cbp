@@ -393,6 +393,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentClassification.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentClassification.hpp">
 			<Option target="payroll_system"/>
 		</Unit>

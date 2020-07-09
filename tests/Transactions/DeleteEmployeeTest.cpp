@@ -1,4 +1,3 @@
-#include <gtest/gtest.h>
 #include "src/Transactions/DeleteEmployeeTransaction.hpp"
 #include "utility/TestUsingDatabase.hpp"
 

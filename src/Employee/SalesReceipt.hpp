@@ -2,7 +2,7 @@
 #define PAYROLL_SYSTEM_SALESRECEIPT_HPP
 
 
-#include <src/utility/Date.hpp>
+#include "src/utility/Date.hpp"
 
 class SalesReceipt
 {

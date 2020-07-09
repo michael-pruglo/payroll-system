@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/shared_ptr.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// shared_ptr and weak_ptr implementation -*- C++ -*-
         -:    2:
@@ -148,55 +148,23 @@
         -:  144:       *  @brief  Construct an empty %shared_ptr.
         -:  145:       *  @post   use_count()==0 && get()==0
         -:  146:       */
-        9:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
 ------------------
-_ZNSt10shared_ptrIN8Employee26CommissionedClassificationEEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
+_ZNSt10shared_ptrI13PaymentMethodEC1Ev:
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+    %%%%%:  147-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee22SalariedClassificationEEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
+_ZNSt10shared_ptrI15PaymentScheduleEC1Ev:
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+    %%%%%:  147-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee20HourlyClassificationEEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee16BiweeklyScheduleEEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee15MonthlyScheduleEEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee10HoldMethodEEC1Ev:
-        3:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        3:  147-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee14WeeklyScheduleEEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
+_ZNSt10shared_ptrI21PaymentClassificationEC1Ev:
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+    %%%%%:  147-block  0
 ------------------
         -:  148:
-      12*:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-------------------
-_ZNSt10shared_ptrI8EmployeeEC1ERKS1_:
     #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
     %%%%%:  149-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee13PaymentMethodEEC1ERKS2_:
-        3:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-        3:  149-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee15PaymentScheduleEEC1ERKS2_:
-        3:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-        3:  149-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee21PaymentClassificationEEC1ERKS2_:
-        6:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-        6:  149-block  0
-------------------
         -:  150:
         -:  151:      /**
         -:  152:       *  @brief  Construct a %shared_ptr that owns the pointer @a __p.
@@ -304,44 +272,8 @@ _ZNSt10shared_ptrIN8Employee21PaymentClassificationEEC1ERKS2_:
         -:  253:       * @endcode
         -:  254:       */
         -:  255:      template<typename _Yp>
-       12:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-       12:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-------------------
-_ZNSt10shared_ptrIN8Employee16BiweeklyScheduleEEC1INS0_15PaymentScheduleEEERKS_IT_EPS1_:
-        1:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        1:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        1:  257-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee26CommissionedClassificationEEC1INS0_21PaymentClassificationEEERKS_IT_EPS1_:
-        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        2:  257-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee15MonthlyScheduleEEC1INS0_15PaymentScheduleEEERKS_IT_EPS1_:
-        1:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        1:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        1:  257-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee22SalariedClassificationEEC1INS0_21PaymentClassificationEEERKS_IT_EPS1_:
-        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        2:  257-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee10HoldMethodEEC1INS0_13PaymentMethodEEERKS_IT_EPS1_:
-        3:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        3:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        3:  257-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee14WeeklyScheduleEEC1INS0_15PaymentScheduleEEERKS_IT_EPS1_:
-        1:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        1:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        1:  257-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee20HourlyClassificationEEC1INS0_21PaymentClassificationEEERKS_IT_EPS1_:
-        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        2:  257-block  0
-------------------
+        -:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+        -:  257:	: __shared_ptr<_Tp>(__r, __p) { }
         -:  258:
         -:  259:#if __cplusplus > 201703L
         -:  260:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -396,43 +328,43 @@ _ZNSt10shared_ptrIN8Employee20HourlyClassificationEEC1INS0_21PaymentClassificati
         -:  309:       *  @post   *this contains the old value of @a __r, @a __r is empty.
         -:  310:       */
         -:  311:      template<typename _Yp, typename = _Constructible<shared_ptr<_Yp>>>
-        9:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
-        9:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
+       15:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
+       15:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
 ------------------
-_ZNSt10shared_ptrIN8Employee15PaymentScheduleEEC1INS0_16BiweeklyScheduleEvEEOS_IT_E:
+_ZNSt10shared_ptrI15PaymentScheduleEC1I16BiweeklySchedulevEEOS_IT_E:
+        2:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
+        2:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
+        2:  313-block  0
+------------------
+_ZNSt10shared_ptrI21PaymentClassificationEC1I26CommissionedClassificationvEEOS_IT_E:
+        2:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
+        2:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
+        2:  313-block  0
+------------------
+_ZNSt10shared_ptrI15PaymentScheduleEC1I15MonthlySchedulevEEOS_IT_E:
         1:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
         1:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
         1:  313-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee21PaymentClassificationEEC1INS0_26CommissionedClassificationEvEEOS_IT_E:
+_ZNSt10shared_ptrI21PaymentClassificationEC1I22SalariedClassificationvEEOS_IT_E:
         1:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
         1:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
         1:  313-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee15PaymentScheduleEEC1INS0_15MonthlyScheduleEvEEOS_IT_E:
-        1:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
-        1:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
-        1:  313-block  0
+_ZNSt10shared_ptrI15PaymentScheduleEC1I14WeeklySchedulevEEOS_IT_E:
+        2:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
+        2:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
+        2:  313-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee21PaymentClassificationEEC1INS0_22SalariedClassificationEvEEOS_IT_E:
-        1:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
-        1:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
-        1:  313-block  0
+_ZNSt10shared_ptrI21PaymentClassificationEC1I20HourlyClassificationvEEOS_IT_E:
+        2:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
+        2:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
+        2:  313-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee15PaymentScheduleEEC1INS0_14WeeklyScheduleEvEEOS_IT_E:
-        1:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
-        1:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
-        1:  313-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee21PaymentClassificationEEC1INS0_20HourlyClassificationEvEEOS_IT_E:
-        1:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
-        1:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
-        1:  313-block  0
-------------------
-_ZNSt10shared_ptrIN8Employee13PaymentMethodEEC1INS0_10HoldMethodEvEEOS_IT_E:
-        3:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
-        3:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
-        3:  313-block  0
+_ZNSt10shared_ptrI13PaymentMethodEC1I10HoldMethodvEEOS_IT_E:
+        5:  312:	shared_ptr(shared_ptr<_Yp>&& __r) noexcept
+        5:  313:	: __shared_ptr<_Tp>(std::move(__r)) { }
+        5:  313-block  0
 ------------------
         -:  314:
         -:  315:      /**
@@ -478,19 +410,19 @@ _ZNSt10shared_ptrIN8Employee13PaymentMethodEEC1INS0_10HoldMethodEvEEOS_IT_E:
         -:  355:       */
         -:  356:      constexpr shared_ptr(nullptr_t) noexcept : shared_ptr() { }
         -:  357:
-        9:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+       15:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
 ------------------
-_ZNSt10shared_ptrIN8Employee13PaymentMethodEEaSERKS2_:
-        3:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
-        3:  358-block  0
+_ZNSt10shared_ptrI13PaymentMethodEaSERKS1_:
+        5:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+        5:  358-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee15PaymentScheduleEEaSERKS2_:
-        3:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
-        3:  358-block  0
+_ZNSt10shared_ptrI15PaymentScheduleEaSERKS1_:
+        5:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+        5:  358-block  0
 ------------------
-_ZNSt10shared_ptrIN8Employee21PaymentClassificationEEaSERKS2_:
-        3:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
-        3:  358-block  0
+_ZNSt10shared_ptrI21PaymentClassificationEaSERKS1_:
+        5:  358:      shared_ptr& operator=(const shared_ptr&) noexcept = default;
+        5:  358-block  0
 ------------------
         -:  359:
         -:  360:      template<typename _Yp>
@@ -540,51 +472,51 @@ _ZNSt10shared_ptrIN8Employee21PaymentClassificationEEaSERKS2_:
         -:  404:    private:
         -:  405:      // This constructor is non-standard, it is used by allocate_shared.
         -:  406:      template<typename _Alloc, typename... _Args>
-        9:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        9:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
-        9:  409:	{ }
+       15:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       15:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
+       15:  409:	{ }
 ------------------
-_ZNSt10shared_ptrIN8Employee16BiweeklyScheduleEEC1ISaIS1_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+_ZNSt10shared_ptrI16BiweeklyScheduleEC1ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+        2:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        2:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
+        2:  408-block  0
+        2:  409:	{ }
+------------------
+_ZNSt10shared_ptrI26CommissionedClassificationEC1ISaIS0_EJRKdS5_EEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+        2:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        2:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
+        2:  408-block  0
+        2:  409:	{ }
+------------------
+_ZNSt10shared_ptrI15MonthlyScheduleEC1ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
         1:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
         1:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
         1:  408-block  0
         1:  409:	{ }
 ------------------
-_ZNSt10shared_ptrIN8Employee26CommissionedClassificationEEC1ISaIS1_EJRKdS6_EEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+_ZNSt10shared_ptrI22SalariedClassificationEC1ISaIS0_EJRKdEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
         1:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
         1:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
         1:  408-block  0
         1:  409:	{ }
 ------------------
-_ZNSt10shared_ptrIN8Employee15MonthlyScheduleEEC1ISaIS1_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        1:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        1:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
-        1:  408-block  0
-        1:  409:	{ }
+_ZNSt10shared_ptrI14WeeklyScheduleEC1ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+        2:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        2:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
+        2:  408-block  0
+        2:  409:	{ }
 ------------------
-_ZNSt10shared_ptrIN8Employee22SalariedClassificationEEC1ISaIS1_EJRKdEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        1:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        1:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
-        1:  408-block  0
-        1:  409:	{ }
+_ZNSt10shared_ptrI20HourlyClassificationEC1ISaIS0_EJRKdEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+        2:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        2:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
+        2:  408-block  0
+        2:  409:	{ }
 ------------------
-_ZNSt10shared_ptrIN8Employee14WeeklyScheduleEEC1ISaIS1_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        1:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        1:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
-        1:  408-block  0
-        1:  409:	{ }
-------------------
-_ZNSt10shared_ptrIN8Employee20HourlyClassificationEEC1ISaIS1_EJRKdEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        1:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        1:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
-        1:  408-block  0
-        1:  409:	{ }
-------------------
-_ZNSt10shared_ptrIN8Employee10HoldMethodEEC1ISaIS1_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        3:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        3:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
-        3:  408-block  0
-        3:  409:	{ }
+_ZNSt10shared_ptrI10HoldMethodEC1ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
+        5:  407:	shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        5:  408:	: __shared_ptr<_Tp>(__tag, std::forward<_Args>(__args)...)
+        5:  408-block  0
+        5:  409:	{ }
 ------------------
         -:  410:
         -:  411:      template<typename _Yp, typename _Alloc, typename... _Args>
@@ -612,44 +544,8 @@ _ZNSt10shared_ptrIN8Employee10HoldMethodEEC1ISaIS1_EJEEESt20_Sp_alloc_shared_tag
         -:  433:  /// Equality operator for shared_ptr objects, compares the stored pointers
         -:  434:  template<typename _Tp, typename _Up>
         -:  435:    _GLIBCXX_NODISCARD inline bool
-        9:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        9:  437:    { return __a.get() == __b.get(); }
-------------------
-_ZSteqIN8Employee26CommissionedClassificationES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
-------------------
-_ZSteqIN8Employee22SalariedClassificationES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
-------------------
-_ZSteqIN8Employee20HourlyClassificationES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
-------------------
-_ZSteqIN8Employee16BiweeklyScheduleES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
-------------------
-_ZSteqIN8Employee15MonthlyScheduleES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
-------------------
-_ZSteqIN8Employee10HoldMethodES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        3:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        3:  437:    { return __a.get() == __b.get(); }
-        3:  437-block  0
-------------------
-_ZSteqIN8Employee14WeeklyScheduleES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
-------------------
+        -:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+        -:  437:    { return __a.get() == __b.get(); }
         -:  438:
         -:  439:  /// shared_ptr comparison with nullptr
         -:  440:  template<typename _Tp>
@@ -811,119 +707,13 @@ _ZSteqIN8Employee14WeeklyScheduleES1_EbRKSt10shared_ptrIT_ERKS2_IT0_E:
         -:  596:  /// Convert type of `shared_ptr`, via `dynamic_cast`
         -:  597:  template<typename _Tp, typename _Up>
         -:  598:    inline shared_ptr<_Tp>
-       12:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
+        -:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
         -:  600:    {
         -:  601:      using _Sp = shared_ptr<_Tp>;
-      12*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-       12:  603:	return _Sp(__r, __p);
-    #####:  604:      return _Sp();
+        -:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
+        -:  603:	return _Sp(__r, __p);
+        -:  604:      return _Sp();
         -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee16BiweeklyScheduleENS0_15PaymentScheduleEESt10shared_ptrIT_ERKS3_IT0_E:
-        1:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       1*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        1:  602-block  0
-        1:  602-block  1
-    %%%%%:  602-block  2
-        1:  602-block  3
-        1:  603:	return _Sp(__r, __p);
-        1:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee26CommissionedClassificationENS0_21PaymentClassificationEESt10shared_ptrIT_ERKS3_IT0_E:
-        2:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       2*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        2:  602-block  0
-        2:  602-block  1
-    %%%%%:  602-block  2
-        2:  602-block  3
-        2:  603:	return _Sp(__r, __p);
-        2:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee15MonthlyScheduleENS0_15PaymentScheduleEESt10shared_ptrIT_ERKS3_IT0_E:
-        1:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       1*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        1:  602-block  0
-        1:  602-block  1
-    %%%%%:  602-block  2
-        1:  602-block  3
-        1:  603:	return _Sp(__r, __p);
-        1:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee22SalariedClassificationENS0_21PaymentClassificationEESt10shared_ptrIT_ERKS3_IT0_E:
-        2:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       2*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        2:  602-block  0
-        2:  602-block  1
-    %%%%%:  602-block  2
-        2:  602-block  3
-        2:  603:	return _Sp(__r, __p);
-        2:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee10HoldMethodENS0_13PaymentMethodEESt10shared_ptrIT_ERKS3_IT0_E:
-        3:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       3*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        3:  602-block  0
-        3:  602-block  1
-    %%%%%:  602-block  2
-        3:  602-block  3
-        3:  603:	return _Sp(__r, __p);
-        3:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee14WeeklyScheduleENS0_15PaymentScheduleEESt10shared_ptrIT_ERKS3_IT0_E:
-        1:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       1*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        1:  602-block  0
-        1:  602-block  1
-    %%%%%:  602-block  2
-        1:  602-block  3
-        1:  603:	return _Sp(__r, __p);
-        1:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
-_ZSt20dynamic_pointer_castIN8Employee20HourlyClassificationENS0_21PaymentClassificationEESt10shared_ptrIT_ERKS3_IT0_E:
-        2:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
-        -:  600:    {
-        -:  601:      using _Sp = shared_ptr<_Tp>;
-       2*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        2:  602-block  0
-        2:  602-block  1
-    %%%%%:  602-block  2
-        2:  602-block  3
-        2:  603:	return _Sp(__r, __p);
-        2:  603-block  0
-    #####:  604:      return _Sp();
-    %%%%%:  604-block  0
-        -:  605:    }
-------------------
         -:  606:
         -:  607:#if __cplusplus >= 201703L
         -:  608:  /// Convert type of `shared_ptr`, via `reinterpret_cast`
@@ -1175,13 +965,29 @@ _ZSt20dynamic_pointer_castIN8Employee20HourlyClassificationENS0_21PaymentClassif
         -:  854:   */
         -:  855:  template<typename _Tp, typename _Alloc, typename... _Args>
         -:  856:    inline shared_ptr<_Tp>
-        9:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
+       15:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
         -:  858:    {
         -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
-        9:  860:			     std::forward<_Args>(__args)...);
+       15:  860:			     std::forward<_Args>(__args)...);
         -:  861:    }
 ------------------
-_ZSt15allocate_sharedIN8Employee16BiweeklyScheduleESaIS1_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
+_ZSt15allocate_sharedI16BiweeklyScheduleSaIS0_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
+        2:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
+        -:  858:    {
+        -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
+        2:  860:			     std::forward<_Args>(__args)...);
+        2:  860-block  0
+        -:  861:    }
+------------------
+_ZSt15allocate_sharedI26CommissionedClassificationSaIS0_EJRKdS3_EESt10shared_ptrIT_ERKT0_DpOT1_:
+        2:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
+        -:  858:    {
+        -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
+        2:  860:			     std::forward<_Args>(__args)...);
+        2:  860-block  0
+        -:  861:    }
+------------------
+_ZSt15allocate_sharedI15MonthlyScheduleSaIS0_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
         1:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
         -:  858:    {
         -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
@@ -1189,7 +995,7 @@ _ZSt15allocate_sharedIN8Employee16BiweeklyScheduleESaIS1_EJEESt10shared_ptrIT_ER
         1:  860-block  0
         -:  861:    }
 ------------------
-_ZSt15allocate_sharedIN8Employee26CommissionedClassificationESaIS1_EJRKdS4_EESt10shared_ptrIT_ERKT0_DpOT1_:
+_ZSt15allocate_sharedI22SalariedClassificationSaIS0_EJRKdEESt10shared_ptrIT_ERKT0_DpOT1_:
         1:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
         -:  858:    {
         -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
@@ -1197,44 +1003,28 @@ _ZSt15allocate_sharedIN8Employee26CommissionedClassificationESaIS1_EJRKdS4_EESt1
         1:  860-block  0
         -:  861:    }
 ------------------
-_ZSt15allocate_sharedIN8Employee15MonthlyScheduleESaIS1_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
-        1:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
+_ZSt15allocate_sharedI14WeeklyScheduleSaIS0_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
+        2:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
         -:  858:    {
         -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
-        1:  860:			     std::forward<_Args>(__args)...);
-        1:  860-block  0
+        2:  860:			     std::forward<_Args>(__args)...);
+        2:  860-block  0
         -:  861:    }
 ------------------
-_ZSt15allocate_sharedIN8Employee22SalariedClassificationESaIS1_EJRKdEESt10shared_ptrIT_ERKT0_DpOT1_:
-        1:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
+_ZSt15allocate_sharedI20HourlyClassificationSaIS0_EJRKdEESt10shared_ptrIT_ERKT0_DpOT1_:
+        2:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
         -:  858:    {
         -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
-        1:  860:			     std::forward<_Args>(__args)...);
-        1:  860-block  0
+        2:  860:			     std::forward<_Args>(__args)...);
+        2:  860-block  0
         -:  861:    }
 ------------------
-_ZSt15allocate_sharedIN8Employee14WeeklyScheduleESaIS1_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
-        1:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
+_ZSt15allocate_sharedI10HoldMethodSaIS0_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
+        5:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
         -:  858:    {
         -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
-        1:  860:			     std::forward<_Args>(__args)...);
-        1:  860-block  0
-        -:  861:    }
-------------------
-_ZSt15allocate_sharedIN8Employee20HourlyClassificationESaIS1_EJRKdEESt10shared_ptrIT_ERKT0_DpOT1_:
-        1:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
-        -:  858:    {
-        -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
-        1:  860:			     std::forward<_Args>(__args)...);
-        1:  860-block  0
-        -:  861:    }
-------------------
-_ZSt15allocate_sharedIN8Employee10HoldMethodESaIS1_EJEESt10shared_ptrIT_ERKT0_DpOT1_:
-        3:  857:    allocate_shared(const _Alloc& __a, _Args&&... __args)
-        -:  858:    {
-        -:  859:      return shared_ptr<_Tp>(_Sp_alloc_shared_tag<_Alloc>{__a},
-        3:  860:			     std::forward<_Args>(__args)...);
-        3:  860-block  0
+        5:  860:			     std::forward<_Args>(__args)...);
+        5:  860-block  0
         -:  861:    }
 ------------------
         -:  862:
@@ -1247,11 +1037,11 @@ _ZSt15allocate_sharedIN8Employee10HoldMethodESaIS1_EJEESt10shared_ptrIT_ERKT0_Dp
         -:  869:   */
         -:  870:  template<typename _Tp, typename... _Args>
         -:  871:    inline shared_ptr<_Tp>
-        9:  872:    make_shared(_Args&&... __args)
+       15:  872:    make_shared(_Args&&... __args)
         -:  873:    {
         -:  874:      typedef typename std::remove_cv<_Tp>::type _Tp_nc;
-       18:  875:      return std::allocate_shared<_Tp>(std::allocator<_Tp_nc>(),
-       21:  876:				       std::forward<_Args>(__args)...);
+       30:  875:      return std::allocate_shared<_Tp>(std::allocator<_Tp_nc>(),
+       35:  876:				       std::forward<_Args>(__args)...);
         -:  877:    }
         -:  878:
         -:  879:  /// std::hash specialization for shared_ptr.

@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/unique_ptr.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// unique_ptr implementation -*- C++ -*-
         -:    2:
@@ -79,14 +79,14 @@
         -:   75:
         -:   76:      /// Calls `delete __ptr`
         -:   77:      void
-      78*:   78:      operator()(_Tp* __ptr) const
+      82*:   78:      operator()(_Tp* __ptr) const
         -:   79:      {
         -:   80:	static_assert(!is_void<_Tp>::value,
         -:   81:		      "can't delete pointer to incomplete type");
         -:   82:	static_assert(sizeof(_Tp)>0,
         -:   83:		      "can't delete pointer to incomplete type");
-      78*:   84:	delete __ptr;
-      78*:   85:      }
+      82*:   84:	delete __ptr;
+      82*:   85:      }
 ------------------
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_:
     #####:   78:      operator()(_Tp* __ptr) const
@@ -101,16 +101,16 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
     #####:   85:      }
 ------------------
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_:
-       78:   78:      operator()(_Tp* __ptr) const
+       82:   78:      operator()(_Tp* __ptr) const
         -:   79:      {
         -:   80:	static_assert(!is_void<_Tp>::value,
         -:   81:		      "can't delete pointer to incomplete type");
         -:   82:	static_assert(sizeof(_Tp)>0,
         -:   83:		      "can't delete pointer to incomplete type");
-       78:   84:	delete __ptr;
-       78:   84-block  0
-       78:   84-block  1
-       78:   85:      }
+       82:   84:	delete __ptr;
+       82:   84-block  0
+       82:   84-block  1
+       82:   85:      }
 ------------------
         -:   86:    };
         -:   87:
@@ -197,27 +197,27 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
         -:  168:	return *this;
         -:  169:      }
         -:  170:
-      246:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+      271:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
 ------------------
 _ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv:
-       90:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
-       90:  171-block  0
+      107:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+      107:  171-block  0
 ------------------
 _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv:
-      156:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
-      156:  171-block  0
+      164:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+      164:  171-block  0
 ------------------
     #####:  172:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
     %%%%%:  172-block  0
-      78*:  173:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
+      82*:  173:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
 ------------------
 _ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv:
     #####:  173:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
     %%%%%:  173-block  0
 ------------------
 _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv:
-       78:  173:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
-       78:  173-block  0
+       82:  173:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
+       82:  173-block  0
 ------------------
         -:  174:      const _Dp& _M_deleter() const { return std::get<1>(_M_t); }
         -:  175:
@@ -399,41 +399,41 @@ _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
         -:  351:#endif
         -:  352:
         -:  353:      /// Destructor, invokes the deleter if the stored pointer is not null.
-      168:  354:      ~unique_ptr() noexcept
+      189:  354:      ~unique_ptr() noexcept
         -:  355:      {
         -:  356:	static_assert(__is_invocable<deleter_type&, pointer>::value,
         -:  357:		      "unique_ptr's deleter must be invocable with a pointer");
-      168:  358:	auto& __ptr = _M_t._M_ptr();
-      168:  359:	if (__ptr != nullptr)
-      78*:  360:	  get_deleter()(std::move(__ptr));
-      168:  361:	__ptr = pointer();
-      168:  362:      }
+      189:  358:	auto& __ptr = _M_t._M_ptr();
+      189:  359:	if (__ptr != nullptr)
+      82*:  360:	  get_deleter()(std::move(__ptr));
+      189:  361:	__ptr = pointer();
+      189:  362:      }
 ------------------
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED1Ev:
-       90:  354:      ~unique_ptr() noexcept
+      107:  354:      ~unique_ptr() noexcept
         -:  355:      {
         -:  356:	static_assert(__is_invocable<deleter_type&, pointer>::value,
         -:  357:		      "unique_ptr's deleter must be invocable with a pointer");
-       90:  358:	auto& __ptr = _M_t._M_ptr();
-       90:  358-block  0
-       90:  359:	if (__ptr != nullptr)
+      107:  358:	auto& __ptr = _M_t._M_ptr();
+      107:  358-block  0
+      107:  359:	if (__ptr != nullptr)
     #####:  360:	  get_deleter()(std::move(__ptr));
     %%%%%:  360-block  0
-       90:  361:	__ptr = pointer();
-       90:  362:      }
+      107:  361:	__ptr = pointer();
+      107:  362:      }
 ------------------
 _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED1Ev:
-       78:  354:      ~unique_ptr() noexcept
+       82:  354:      ~unique_ptr() noexcept
         -:  355:      {
         -:  356:	static_assert(__is_invocable<deleter_type&, pointer>::value,
         -:  357:		      "unique_ptr's deleter must be invocable with a pointer");
-       78:  358:	auto& __ptr = _M_t._M_ptr();
-       78:  358-block  0
-       78:  359:	if (__ptr != nullptr)
-       78:  360:	  get_deleter()(std::move(__ptr));
-       78:  360-block  0
-       78:  361:	__ptr = pointer();
-       78:  362:      }
+       82:  358:	auto& __ptr = _M_t._M_ptr();
+       82:  358-block  0
+       82:  359:	if (__ptr != nullptr)
+       82:  360:	  get_deleter()(std::move(__ptr));
+       82:  360-block  0
+       82:  361:	__ptr = pointer();
+       82:  362:      }
 ------------------
         -:  363:
         -:  364:      // Assignment.
@@ -499,8 +499,8 @@ _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14
         -:  422:
         -:  423:      /// Return a reference to the stored deleter.
         -:  424:      deleter_type&
-      78*:  425:      get_deleter() noexcept
-      78*:  426:      { return _M_t._M_deleter(); }
+      82*:  425:      get_deleter() noexcept
+      82*:  426:      { return _M_t._M_deleter(); }
 ------------------
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv:
     #####:  425:      get_deleter() noexcept
@@ -508,9 +508,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
     %%%%%:  426-block  0
 ------------------
 _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv:
-       78:  425:      get_deleter() noexcept
-       78:  426:      { return _M_t._M_deleter(); }
-       78:  426-block  0
+       82:  425:      get_deleter() noexcept
+       82:  426:      { return _M_t._M_deleter(); }
+       82:  426-block  0
 ------------------
         -:  427:
         -:  428:      /// Return a reference to the stored deleter.

@@ -1,0 +1,24 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/SalesReceipt.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_SALESRECEIPT_HPP
+        -:    2:#define PAYROLL_SYSTEM_SALESRECEIPT_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include <src/utility/Date.hpp>
+        -:    6:
+        -:    7:class SalesReceipt
+        -:    8:{
+        -:    9:public:
+        2:   10:    SalesReceipt(const Date& date, double amount) : date(date), amount(amount) {}
+        1:   11:    Date getDate() const { return date; }
+        1:   11-block  0
+        -:   12:    double getAmount() const { return amount; }
+        -:   13:
+        -:   14:private:
+        -:   15:    Date date;
+        -:   16:    double amount;
+        -:   17:};
+        -:   18:
+        -:   19:#endif //PAYROLL_SYSTEM_SALESRECEIPT_HPP

@@ -1,0 +1,24 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/TimeCard.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_TIMECARD_HPP
+        -:    2:#define PAYROLL_SYSTEM_TIMECARD_HPP
+        -:    3:
+        -:    4:#include <src/utility/Date.hpp>
+        -:    5:
+        -:    6:class TimeCard
+        -:    7:{
+        -:    8:public:
+        2:    9:    TimeCard(const Date& date, double hours) : date(date), hours(hours) {}
+        2:   10:    Date getDate() const { return date; }
+        2:   10-block  0
+        -:   11:    double getHours() const { return hours; }
+        -:   12:
+        -:   13:private:
+        -:   14:    Date date;
+        -:   15:    double hours;
+        -:   16:};
+        -:   17:
+        -:   18:
+        -:   19:#endif //PAYROLL_SYSTEM_TIMECARD_HPP

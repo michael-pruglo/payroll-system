@@ -1,4 +1,5 @@
 #include "EmployeeCorrectnessTester.hpp"
+#include "../../../src/Employee/PaymentClassification.cpp"
 
 
 void EmployeeCorrectnessTester::invoke(int idToCheck, std::string nameToCheck)
@@ -73,4 +74,9 @@ void CommissionedEmployeeCorrectnessTester::testClassification(std::shared_ptr<P
     auto classification = std::dynamic_pointer_cast<CommissionedClassification>(pc);
     ASSERT_DOUBLE_EQ(classification->getSalary(), cSalary);
     ASSERT_DOUBLE_EQ(classification->getCommissionRate(), cRate);
+    if (salesReceipt)
+    {
+        auto sr = classification->getSalesReceipt(salesReceipt->getDate());
+        ASSERT_EQ(sr.getAmount(), salesReceipt->getAmount());
+    }
 }

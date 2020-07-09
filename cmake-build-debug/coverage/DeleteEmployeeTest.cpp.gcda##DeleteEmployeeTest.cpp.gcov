@@ -1,11 +1,11 @@
-        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/DeleteEmployeeTest.cpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcda
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcda
         -:    0:Runs:1
-        -:    1:#include <gtest/gtest.h>
-        -:    2:#include "src/Transactions/DeleteEmployeeTransaction.hpp"
+        -:    1:#include "src/Transactions/DeleteEmployeeTransaction.hpp"
+        -:    2:#include "utility/TestUsingDatabase.hpp"
         -:    3:
-        -:    4:class DeleteEmployeeTest : public ::testing::Test
+        -:    4:class DeleteEmployeeTest : public TestUsingDatabase
         -:    5:{
         -:    6:protected:
         -:    7:
@@ -60,122 +60,101 @@
     $$$$$:   14-block 11
         -:   15:    }
         -:   16:
-        2:   17:    void TearDown() override
-        -:   18:    {
-        2:   19:        database->clear();
-        2:   19-block  0
-       2*:   20:        ASSERT_EQ(database->size(), 0);
-        2:   20-block  0
-    %%%%%:   20-block  1
-    %%%%%:   20-block  2
-    %%%%%:   20-block  3
-    %%%%%:   20-block  4
-    $$$$$:   20-block  5
-    $$$$$:   20-block  6
-    $$$$$:   20-block  7
-    $$$$$:   20-block  8
-    $$$$$:   20-block  9
-    $$$$$:   20-block 10
-    $$$$$:   20-block 11
-        -:   21:    }
-        -:   22:
-        -:   23:    int id = 9;
-        -:   24:    std::string name = "Fin", address = "Finland";
-        -:   25:    int initSize;
-        -:   26:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
-        -:   27:};
-        -:   28:
-        4:   29:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        -:   30:{
-        1:   31:    DeleteEmployeeTransaction dt(id);
-       1*:   32:    ASSERT_NO_THROW(dt.execute());
-       1*:   33:    ASSERT_THROW(database->getEmployee(id), PayrollDatabase::not_found);
-       1*:   34:    ASSERT_EQ(database->size(), initSize-1);
-        -:   35:}
+        -:   17:    int id = 9;
+        -:   18:    std::string name = "Fin", address = "Finland";
+        -:   19:};
+        -:   20:
+        4:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        -:   22:{
+        1:   23:    DeleteEmployeeTransaction dt(id);
+       1*:   24:    ASSERT_NO_THROW(dt.execute());
+       1*:   25:    ASSERT_THROW(database->getEmployee(id), PayrollDatabase::not_found);
+       1*:   26:    ASSERT_EQ(database->size(), initSize-1);
+        -:   27:}
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_TestD0Ev:
-        1:   29:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        1:   29-block  0
+        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        1:   21-block  0
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_TestD1Ev:
-        1:   29:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        1:   29-block  0
+        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        1:   21-block  0
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_Test8TestBodyEv:
-        1:   29:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        -:   30:{
-        1:   31:    DeleteEmployeeTransaction dt(id);
-        1:   31-block  0
-    $$$$$:   31-block  1
-       1*:   32:    ASSERT_NO_THROW(dt.execute());
-        1:   32-block  0
-        1:   32-block  1
-        1:   32-block  2
-    %%%%%:   32-block  3
-    %%%%%:   32-block  4
-    %%%%%:   32-block  5
-    %%%%%:   32-block  6
-    %%%%%:   32-block  7
-    $$$$$:   32-block  8
-    $$$$$:   32-block  9
-    $$$$$:   32-block 10
-    $$$$$:   32-block 11
-    $$$$$:   32-block 12
-    $$$$$:   32-block 13
-    $$$$$:   32-block 14
-    $$$$$:   32-block 15
-    $$$$$:   32-block 16
-    $$$$$:   32-block 17
-    $$$$$:   32-block 18
-    $$$$$:   32-block 19
-    $$$$$:   32-block 20
-    $$$$$:   32-block 21
-    $$$$$:   32-block 22
-    $$$$$:   32-block 23
-       1*:   33:    ASSERT_THROW(database->getEmployee(id), PayrollDatabase::not_found);
-        1:   33-block  0
-        1:   33-block  1
-        1:   33-block  2
-        1:   33-block  3
-    %%%%%:   33-block  4
-        1:   33-block  5
-    %%%%%:   33-block  6
-    %%%%%:   33-block  7
-    %%%%%:   33-block  8
-    %%%%%:   33-block  9
-    %%%%%:   33-block 10
-        1:   33-block 11
-        1:   33-block 12
-    $$$$$:   33-block 13
-    $$$$$:   33-block 14
-    $$$$$:   33-block 15
-    $$$$$:   33-block 16
-    $$$$$:   33-block 17
-       1*:   34:    ASSERT_EQ(database->size(), initSize-1);
-        1:   34-block  0
-        1:   34-block  1
-    %%%%%:   34-block  2
-    %%%%%:   34-block  3
-    %%%%%:   34-block  4
-    %%%%%:   34-block  5
-    $$$$$:   34-block  6
-    $$$$$:   34-block  7
-    $$$$$:   34-block  8
-    $$$$$:   34-block  9
-    $$$$$:   34-block 10
-    $$$$$:   34-block 11
-    $$$$$:   34-block 12
-        -:   35:}
+        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        -:   22:{
+        1:   23:    DeleteEmployeeTransaction dt(id);
+        1:   23-block  0
+    $$$$$:   23-block  1
+       1*:   24:    ASSERT_NO_THROW(dt.execute());
+        1:   24-block  0
+        1:   24-block  1
+        1:   24-block  2
+    %%%%%:   24-block  3
+    %%%%%:   24-block  4
+    %%%%%:   24-block  5
+    %%%%%:   24-block  6
+    %%%%%:   24-block  7
+    $$$$$:   24-block  8
+    $$$$$:   24-block  9
+    $$$$$:   24-block 10
+    $$$$$:   24-block 11
+    $$$$$:   24-block 12
+    $$$$$:   24-block 13
+    $$$$$:   24-block 14
+    $$$$$:   24-block 15
+    $$$$$:   24-block 16
+    $$$$$:   24-block 17
+    $$$$$:   24-block 18
+    $$$$$:   24-block 19
+    $$$$$:   24-block 20
+    $$$$$:   24-block 21
+    $$$$$:   24-block 22
+    $$$$$:   24-block 23
+       1*:   25:    ASSERT_THROW(database->getEmployee(id), PayrollDatabase::not_found);
+        1:   25-block  0
+        1:   25-block  1
+        1:   25-block  2
+        1:   25-block  3
+    %%%%%:   25-block  4
+        1:   25-block  5
+    %%%%%:   25-block  6
+    %%%%%:   25-block  7
+    %%%%%:   25-block  8
+    %%%%%:   25-block  9
+    %%%%%:   25-block 10
+        1:   25-block 11
+        1:   25-block 12
+    $$$$$:   25-block 13
+    $$$$$:   25-block 14
+    $$$$$:   25-block 15
+    $$$$$:   25-block 16
+    $$$$$:   25-block 17
+       1*:   26:    ASSERT_EQ(database->size(), initSize-1);
+        1:   26-block  0
+        1:   26-block  1
+    %%%%%:   26-block  2
+    %%%%%:   26-block  3
+    %%%%%:   26-block  4
+    %%%%%:   26-block  5
+    $$$$$:   26-block  6
+    $$$$$:   26-block  7
+    $$$$$:   26-block  8
+    $$$$$:   26-block  9
+    $$$$$:   26-block 10
+    $$$$$:   26-block 11
+    $$$$$:   26-block 12
+        -:   27:}
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_TestC1Ev:
-        1:   29:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        1:   29-block  0
+        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        1:   21-block  0
 ------------------
-        -:   36:
-        4:   37:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
-        -:   38:{
-        1:   39:    DeleteEmployeeTransaction dt(id);
-       1*:   40:    ASSERT_NO_THROW(dt.execute());
-       1*:   41:    ASSERT_THROW(dt.execute(), PayrollDatabase::not_found);
-       1*:   42:    ASSERT_EQ(database->size(), initSize-1);
-        -:   43:}
+        -:   28:
+        4:   29:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
+        -:   30:{
+        1:   31:    DeleteEmployeeTransaction dt(id);
+       1*:   32:    ASSERT_NO_THROW(dt.execute());
+       1*:   33:    ASSERT_THROW(dt.execute(), PayrollDatabase::not_found);
+       1*:   34:    ASSERT_EQ(database->size(), initSize-1);
+        -:   35:}

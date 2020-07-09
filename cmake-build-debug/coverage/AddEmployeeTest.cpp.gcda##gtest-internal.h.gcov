@@ -1,6 +1,6 @@
         -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googletest/include/gtest/internal/gtest-internal.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2005, Google Inc.
         -:    2:// All rights reserved.
@@ -299,7 +299,7 @@
         -:  295:  // around may change its bits, although the new value is guaranteed
         -:  296:  // to be also a NAN.  Therefore, don't expect this constructor to
         -:  297:  // preserve the bits in x when x is a NAN.
-        8:  298:  explicit FloatingPoint(const RawType& x) { u_.value_ = x; }
+        -:  298:  explicit FloatingPoint(const RawType& x) { u_.value_ = x; }
         -:  299:
         -:  300:  // Static methods
         -:  301:
@@ -326,26 +326,19 @@
         -:  322:  const Bits &bits() const { return u_.bits_; }
         -:  323:
         -:  324:  // Returns the exponent bits of this number.
-        8:  325:  Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
-        8:  325-block  0
+        -:  325:  Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
         -:  326:
         -:  327:  // Returns the fraction bits of this number.
-    #####:  328:  Bits fraction_bits() const { return kFractionBitMask & u_.bits_; }
-    %%%%%:  328-block  0
+        -:  328:  Bits fraction_bits() const { return kFractionBitMask & u_.bits_; }
         -:  329:
         -:  330:  // Returns the sign bit of this number.
         -:  331:  Bits sign_bit() const { return kSignBitMask & u_.bits_; }
         -:  332:
         -:  333:  // Returns true if and only if this is NAN (not a number).
-        8:  334:  bool is_nan() const {
+        -:  334:  bool is_nan() const {
         -:  335:    // It's a NAN if the exponent bits are all ones and the fraction
         -:  336:    // bits are not entirely zeros.
-       8*:  337:    return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
-        8:  337-block  0
-    %%%%%:  337-block  1
-    %%%%%:  337-block  2
-        8:  337-block  3
-        8:  337-block  4
+        -:  337:    return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
         -:  338:  }
         -:  339:
         -:  340:  // Returns true if and only if this number is at most kMaxUlps ULP's away
@@ -354,20 +347,13 @@
         -:  343:  //   - returns false if either number is (or both are) NAN.
         -:  344:  //   - treats really large numbers as almost equal to infinity.
         -:  345:  //   - thinks +0.0 and -0.0 are 0 DLP's apart.
-        4:  346:  bool AlmostEquals(const FloatingPoint& rhs) const {
+        -:  346:  bool AlmostEquals(const FloatingPoint& rhs) const {
         -:  347:    // The IEEE standard says that any comparison operation involving
         -:  348:    // a NAN must return false.
-       4*:  349:    if (is_nan() || rhs.is_nan()) return false;
-        4:  349-block  0
-        4:  349-block  1
-    %%%%%:  349-block  2
-        4:  349-block  3
-        4:  349-block  4
-    %%%%%:  349-block  5
+        -:  349:    if (is_nan() || rhs.is_nan()) return false;
         -:  350:
-        4:  351:    return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
-        4:  351-block  0
-        4:  352:        <= kMaxUlps;
+        -:  351:    return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
+        -:  352:        <= kMaxUlps;
         -:  353:  }
         -:  354:
         -:  355: private:
@@ -392,30 +378,23 @@
         -:  374:  //
         -:  375:  // Read http://en.wikipedia.org/wiki/Signed_number_representations
         -:  376:  // for more details on signed number representations.
-        8:  377:  static Bits SignAndMagnitudeToBiased(const Bits &sam) {
-        8:  378:    if (kSignBitMask & sam) {
-        8:  378-block  0
+        -:  377:  static Bits SignAndMagnitudeToBiased(const Bits &sam) {
+        -:  378:    if (kSignBitMask & sam) {
         -:  379:      // sam represents a negative number.
-    #####:  380:      return ~sam + 1;
-    %%%%%:  380-block  0
+        -:  380:      return ~sam + 1;
         -:  381:    } else {
         -:  382:      // sam represents a positive number.
-        8:  383:      return kSignBitMask | sam;
-        8:  383-block  0
+        -:  383:      return kSignBitMask | sam;
         -:  384:    }
         -:  385:  }
         -:  386:
         -:  387:  // Given two numbers in the sign-and-magnitude representation,
         -:  388:  // returns the distance between them as an unsigned number.
-        4:  389:  static Bits DistanceBetweenSignAndMagnitudeNumbers(const Bits &sam1,
+        -:  389:  static Bits DistanceBetweenSignAndMagnitudeNumbers(const Bits &sam1,
         -:  390:                                                     const Bits &sam2) {
-        4:  391:    const Bits biased1 = SignAndMagnitudeToBiased(sam1);
-        4:  391-block  0
-        4:  392:    const Bits biased2 = SignAndMagnitudeToBiased(sam2);
-       4*:  393:    return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
-        4:  393-block  0
-    %%%%%:  393-block  1
-        4:  393-block  2
+        -:  391:    const Bits biased1 = SignAndMagnitudeToBiased(sam1);
+        -:  392:    const Bits biased2 = SignAndMagnitudeToBiased(sam2);
+        -:  393:    return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
         -:  394:  }
         -:  395:
         -:  396:  FloatingPointUnion u_;

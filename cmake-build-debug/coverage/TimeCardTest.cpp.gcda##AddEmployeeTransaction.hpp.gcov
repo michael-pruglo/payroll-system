@@ -1,0 +1,78 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
+        -:    2:#define PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
+        -:    3:
+        -:    4:#include <memory>
+        -:    5:#include "Transaction.hpp"
+        -:    6:#include "src/Employee/Employee.hpp"
+        -:    7:
+        -:    8:class AddEmployeeTransaction : public Transaction
+        -:    9:{
+        -:   10:public:
+        -:   11:                    AddEmployeeTransaction(int id, std::string name, std::string address);
+    #####:   12:    virtual         ~AddEmployeeTransaction() = default;
+    %%%%%:   12-block  0
+        -:   13:
+        -:   14:    virtual void    execute() override;
+        -:   15:
+        -:   16:    virtual std::shared_ptr<PaymentClassification>
+        -:   17:                    getPaymentClassification() const = 0;
+        -:   18:    virtual std::shared_ptr<PaymentSchedule>
+        -:   19:                    getPaymentSchedule() const = 0;
+        -:   20:
+        -:   21:private:
+        -:   22:    int id;
+        -:   23:    std::string name, address;
+        -:   24:};
+        -:   25:
+        -:   26:
+        -:   27:class AddHourlyEmployee : public AddEmployeeTransaction
+        -:   28:{
+        -:   29:public:
+        -:   30:                AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
+    #####:   31:    virtual     ~AddHourlyEmployee() = default;
+    %%%%%:   31-block  0
+        -:   32:    virtual std::shared_ptr<PaymentClassification>
+        -:   33:                getPaymentClassification() const override;
+        -:   34:    virtual std::shared_ptr<PaymentSchedule>
+        -:   35:                getPaymentSchedule() const override;
+        -:   36:
+        -:   37:private:
+        -:   38:    double hourlyRate;
+        -:   39:};
+        -:   40:
+        -:   41:class AddSalariedEmployee : public AddEmployeeTransaction
+        -:   42:{
+        -:   43:public:
+        -:   44:                AddSalariedEmployee(int id, std::string name, std::string address, double salary);
+        -:   45:    virtual     ~AddSalariedEmployee() = default;
+        -:   46:    virtual std::shared_ptr<PaymentClassification>
+        -:   47:                getPaymentClassification() const override;
+        -:   48:    virtual std::shared_ptr<PaymentSchedule>
+        -:   49:                getPaymentSchedule() const override;
+        -:   50:
+        -:   51:private:
+        -:   52:    double salary;
+        -:   53:};
+        -:   54:
+        -:   55:class AddCommissionedEmployee : public AddEmployeeTransaction
+        -:   56:{
+        -:   57:public:
+        -:   58:                AddCommissionedEmployee(int id, std::string name, std::string address, double salary, double commissionRate);
+        -:   59:    virtual     ~AddCommissionedEmployee() = default;
+        -:   60:    virtual std::shared_ptr<PaymentClassification>
+        -:   61:                getPaymentClassification() const override;
+        -:   62:    virtual std::shared_ptr<PaymentSchedule>
+        -:   63:                getPaymentSchedule() const override;
+        -:   64:
+        -:   65:private:
+        -:   66:    double salary;
+        -:   67:    double comissionRate;
+        -:   68:};
+        -:   69:
+        -:   70:
+        -:   71:
+        -:   72:#endif //PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP

@@ -1,13 +1,13 @@
         -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/DeleteEmployeeTransaction.hpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:#ifndef PAYROLL_SYSTEM_DELETEEMPLOYEETRANSACTION_HPP
         -:    2:#define PAYROLL_SYSTEM_DELETEEMPLOYEETRANSACTION_HPP
         -:    3:
         -:    4:
         -:    5:#include "Transaction.hpp"
-        -:    6:#include "src/PayrollDatabase.hpp"
+        -:    6:#include "src/Database/PayrollDatabase.hpp"
         -:    7:
         -:    8:class DeleteEmployeeTransaction : public Transaction
         -:    9:{

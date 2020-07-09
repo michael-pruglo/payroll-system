@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/new
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\TimeCardTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\TimeCardTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// The -*- C++ -*- dynamic memory management header.
         -:    2:
@@ -182,7 +182,7 @@
         -:  177:{ return __p; }
         -:  178:
         -:  179:// Default placement versions of operator delete.
-    #####:  180:inline void operator delete  (void*, void*) _GLIBCXX_USE_NOEXCEPT { }
+        -:  180:inline void operator delete  (void*, void*) _GLIBCXX_USE_NOEXCEPT { }
         -:  181:inline void operator delete[](void*, void*) _GLIBCXX_USE_NOEXCEPT { }
         -:  182://@}
         -:  183:} // extern "C++"

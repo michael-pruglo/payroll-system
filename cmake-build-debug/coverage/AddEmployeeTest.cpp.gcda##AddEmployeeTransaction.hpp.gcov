@@ -1,26 +1,26 @@
         -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.hpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:#ifndef PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
         -:    2:#define PAYROLL_SYSTEM_ADDEMPLOYEETRANSACTION_HPP
         -:    3:
         -:    4:#include <memory>
         -:    5:#include "Transaction.hpp"
-        -:    6:#include "../Employee.hpp"
+        -:    6:#include "src/Employee/Employee.hpp"
         -:    7:
         -:    8:class AddEmployeeTransaction : public Transaction
         -:    9:{
         -:   10:public:
         -:   11:                    AddEmployeeTransaction(int id, std::string name, std::string address);
-        3:   12:    virtual         ~AddEmployeeTransaction() = default;
-        3:   12-block  0
+        5:   12:    virtual         ~AddEmployeeTransaction() = default;
+        5:   12-block  0
         -:   13:
         -:   14:    virtual void    execute() override;
         -:   15:
-        -:   16:    virtual std::shared_ptr<Employee::PaymentClassification>
+        -:   16:    virtual std::shared_ptr<PaymentClassification>
         -:   17:                    getPaymentClassification() const = 0;
-        -:   18:    virtual std::shared_ptr<Employee::PaymentSchedule>
+        -:   18:    virtual std::shared_ptr<PaymentSchedule>
         -:   19:                    getPaymentSchedule() const = 0;
         -:   20:
         -:   21:private:
@@ -33,19 +33,19 @@
         -:   28:{
         -:   29:public:
         -:   30:                AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
-       1*:   31:    virtual     ~AddHourlyEmployee() = default;
+       2*:   31:    virtual     ~AddHourlyEmployee() = default;
 ------------------
 _ZN17AddHourlyEmployeeD0Ev:
     #####:   31:    virtual     ~AddHourlyEmployee() = default;
     %%%%%:   31-block  0
 ------------------
 _ZN17AddHourlyEmployeeD1Ev:
-        1:   31:    virtual     ~AddHourlyEmployee() = default;
-        1:   31-block  0
+        2:   31:    virtual     ~AddHourlyEmployee() = default;
+        2:   31-block  0
 ------------------
-        -:   32:    virtual std::shared_ptr<Employee::PaymentClassification>
+        -:   32:    virtual std::shared_ptr<PaymentClassification>
         -:   33:                getPaymentClassification() const override;
-        -:   34:    virtual std::shared_ptr<Employee::PaymentSchedule>
+        -:   34:    virtual std::shared_ptr<PaymentSchedule>
         -:   35:                getPaymentSchedule() const override;
         -:   36:
         -:   37:private:
@@ -66,9 +66,9 @@ _ZN19AddSalariedEmployeeD1Ev:
         1:   45:    virtual     ~AddSalariedEmployee() = default;
         1:   45-block  0
 ------------------
-        -:   46:    virtual std::shared_ptr<Employee::PaymentClassification>
+        -:   46:    virtual std::shared_ptr<PaymentClassification>
         -:   47:                getPaymentClassification() const override;
-        -:   48:    virtual std::shared_ptr<Employee::PaymentSchedule>
+        -:   48:    virtual std::shared_ptr<PaymentSchedule>
         -:   49:                getPaymentSchedule() const override;
         -:   50:
         -:   51:private:
@@ -79,19 +79,19 @@ _ZN19AddSalariedEmployeeD1Ev:
         -:   56:{
         -:   57:public:
         -:   58:                AddCommissionedEmployee(int id, std::string name, std::string address, double salary, double commissionRate);
-       1*:   59:    virtual     ~AddCommissionedEmployee() = default;
+       2*:   59:    virtual     ~AddCommissionedEmployee() = default;
 ------------------
 _ZN23AddCommissionedEmployeeD0Ev:
     #####:   59:    virtual     ~AddCommissionedEmployee() = default;
     %%%%%:   59-block  0
 ------------------
 _ZN23AddCommissionedEmployeeD1Ev:
-        1:   59:    virtual     ~AddCommissionedEmployee() = default;
-        1:   59-block  0
+        2:   59:    virtual     ~AddCommissionedEmployee() = default;
+        2:   59-block  0
 ------------------
-        -:   60:    virtual std::shared_ptr<Employee::PaymentClassification>
+        -:   60:    virtual std::shared_ptr<PaymentClassification>
         -:   61:                getPaymentClassification() const override;
-        -:   62:    virtual std::shared_ptr<Employee::PaymentSchedule>
+        -:   62:    virtual std::shared_ptr<PaymentSchedule>
         -:   63:                getPaymentSchedule() const override;
         -:   64:
         -:   65:private:

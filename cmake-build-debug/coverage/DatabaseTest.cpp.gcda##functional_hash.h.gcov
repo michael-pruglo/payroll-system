@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/functional_hash.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// functional_hash.h header -*- C++ -*-
         -:    2:
@@ -154,8 +154,8 @@
         -:  150:  _Cxx_hashtable_define_trivial_hash(short)
         -:  151:
         -:  152:  /// Explicit specialization for int.
-      186:  153:  _Cxx_hashtable_define_trivial_hash(int)
-      186:  153-block  0
+      196:  153:  _Cxx_hashtable_define_trivial_hash(int)
+      196:  153-block  0
         -:  154:
         -:  155:  /// Explicit specialization for long.
         -:  156:  _Cxx_hashtable_define_trivial_hash(long)

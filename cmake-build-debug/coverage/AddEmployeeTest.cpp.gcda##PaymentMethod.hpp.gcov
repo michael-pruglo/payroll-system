@@ -1,0 +1,28 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentMethod.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_PAYMENTMETHOD_HPP
+        -:    2:#define PAYROLL_SYSTEM_PAYMENTMETHOD_HPP
+        -:    3:
+        -:    4:
+        -:    5:class PaymentMethod
+        -:    6:{
+       5*:    7:public: virtual ~PaymentMethod() = default;
+------------------
+_ZN13PaymentMethodD0Ev:
+    #####:    7:public: virtual ~PaymentMethod() = default;
+    %%%%%:    7-block  0
+------------------
+_ZN13PaymentMethodD1Ev:
+    #####:    7:public: virtual ~PaymentMethod() = default;
+------------------
+_ZN13PaymentMethodD2Ev:
+        5:    7:public: virtual ~PaymentMethod() = default;
+------------------
+        -:    8:};
+        -:    9:
+        -:   10:class HoldMethod : public PaymentMethod {};
+        -:   11:
+        -:   12:
+        -:   13:#endif //PAYROLL_SYSTEM_PAYMENTMETHOD_HPP

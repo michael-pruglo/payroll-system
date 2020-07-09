@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/ext/aligned_buffer.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\TimeCardTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\TimeCardTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Aligned memory buffer -*- C++ -*-
         -:    2:
@@ -65,20 +65,24 @@
         -:   61:      __aligned_membuf(std::nullptr_t) { }
         -:   62:
         -:   63:      void*
-        -:   64:      _M_addr() noexcept
-        -:   65:      { return static_cast<void*>(&_M_storage); }
+    #####:   64:      _M_addr() noexcept
+    #####:   65:      { return static_cast<void*>(&_M_storage); }
+    %%%%%:   65-block  0
         -:   66:
         -:   67:      const void*
-        -:   68:      _M_addr() const noexcept
-        -:   69:      { return static_cast<const void*>(&_M_storage); }
+        3:   68:      _M_addr() const noexcept
+        3:   69:      { return static_cast<const void*>(&_M_storage); }
+        3:   69-block  0
         -:   70:
         -:   71:      _Tp*
-        -:   72:      _M_ptr() noexcept
-        -:   73:      { return static_cast<_Tp*>(_M_addr()); }
+    #####:   72:      _M_ptr() noexcept
+    #####:   73:      { return static_cast<_Tp*>(_M_addr()); }
+    %%%%%:   73-block  0
         -:   74:
         -:   75:      const _Tp*
-        -:   76:      _M_ptr() const noexcept
-        -:   77:      { return static_cast<const _Tp*>(_M_addr()); }
+        3:   76:      _M_ptr() const noexcept
+        3:   77:      { return static_cast<const _Tp*>(_M_addr()); }
+        3:   77-block  0
         -:   78:    };
         -:   79:
         -:   80:#if _GLIBCXX_INLINE_VERSION
@@ -106,22 +110,8 @@
     #####:  102:      _M_addr() noexcept
         -:  103:      {
     #####:  104:        return static_cast<void*>(&_M_storage);
-        -:  105:      }
-------------------
-_ZN9__gnu_cxx16__aligned_bufferI8EmployeeE7_M_addrEv:
-    #####:  102:      _M_addr() noexcept
-        -:  103:      {
-    #####:  104:        return static_cast<void*>(&_M_storage);
     %%%%%:  104-block  0
         -:  105:      }
-------------------
-_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiSt10shared_ptrI8EmployeeEEE7_M_addrEv:
-    #####:  102:      _M_addr() noexcept
-        -:  103:      {
-    #####:  104:        return static_cast<void*>(&_M_storage);
-    %%%%%:  104-block  0
-        -:  105:      }
-------------------
         -:  106:
         -:  107:      const void*
         -:  108:      _M_addr() const noexcept
@@ -132,17 +122,7 @@ _ZN9__gnu_cxx16__aligned_bufferISt4pairIKiSt10shared_ptrI8EmployeeEEE7_M_addrEv:
         -:  113:      _Tp*
     #####:  114:      _M_ptr() noexcept
     #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
-------------------
-_ZN9__gnu_cxx16__aligned_bufferI8EmployeeE6_M_ptrEv:
-    #####:  114:      _M_ptr() noexcept
-    #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
     %%%%%:  115-block  0
-------------------
-_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiSt10shared_ptrI8EmployeeEEE6_M_ptrEv:
-    #####:  114:      _M_ptr() noexcept
-    #####:  115:      { return static_cast<_Tp*>(_M_addr()); }
-    %%%%%:  115-block  0
-------------------
         -:  116:
         -:  117:      const _Tp*
         -:  118:      _M_ptr() const noexcept

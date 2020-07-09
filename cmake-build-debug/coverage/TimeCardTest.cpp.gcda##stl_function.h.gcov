@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/stl_function.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\TimeCardTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\TimeCardTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\TimeCardTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Functor implementations -*- C++ -*-
         -:    2:
@@ -386,8 +386,9 @@
         -:  382:    {
         -:  383:      _GLIBCXX14_CONSTEXPR
         -:  384:      bool
-        -:  385:      operator()(const _Tp& __x, const _Tp& __y) const
-        -:  386:      { return __x < __y; }
+        2:  385:      operator()(const _Tp& __x, const _Tp& __y) const
+        2:  386:      { return __x < __y; }
+        2:  386-block  0
         -:  387:    };
         -:  388:
         -:  389:  /// One of the @link comparison_functors comparison functors@endlink.
@@ -1154,12 +1155,14 @@
         -: 1148:    : public unary_function<_Pair, typename _Pair::first_type>
         -: 1149:    {
         -: 1150:      typename _Pair::first_type&
-        -: 1151:      operator()(_Pair& __x) const
-        -: 1152:      { return __x.first; }
+        1: 1151:      operator()(_Pair& __x) const
+        1: 1152:      { return __x.first; }
+        1: 1152-block  0
         -: 1153:
         -: 1154:      const typename _Pair::first_type&
-        -: 1155:      operator()(const _Pair& __x) const
-        -: 1156:      { return __x.first; }
+        2: 1155:      operator()(const _Pair& __x) const
+        2: 1156:      { return __x.first; }
+        2: 1156-block  0
         -: 1157:
         -: 1158:#if __cplusplus >= 201103L
         -: 1159:      template<typename _Pair2>

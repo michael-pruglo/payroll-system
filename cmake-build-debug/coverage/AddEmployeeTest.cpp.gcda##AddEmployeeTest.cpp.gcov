@@ -1,176 +1,186 @@
-        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/AddEmployeeTest.cpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
-        -:    1:#include <gtest/gtest.h>
-        -:    2:#include "src/Transactions/AddEmployeeTransaction.hpp"
-        -:    3:#include "src/Transactions/AddEmployeeTransaction.cpp"
-        -:    4:#include "AddAndRetrieveEmployeeTester.hpp"
+        -:    1:#include "src/Transactions/AddEmployeeTransaction.hpp"
+        -:    2:#include "src/Transactions/AddEmployeeTransaction.cpp"
+        -:    3:#include "utility/EmployeeCorrectnessTester.hpp"
+        -:    4:#include "utility/TestUsingDatabase.hpp"
         -:    5:
-        -:    6:class AddEmployeeTest : public ::testing::Test
+        -:    6:class AddEmployeeTest : public TestUsingDatabase
         -:    7:{
         -:    8:protected:
         -:    9:
-        3:   10:    void TearDown() override
-        -:   11:    {
-        3:   12:        database->clear();
-        3:   12-block  0
-       3*:   13:        ASSERT_EQ(database->size(), 0);
-        3:   13-block  0
-    %%%%%:   13-block  1
-    %%%%%:   13-block  2
-    %%%%%:   13-block  3
-    %%%%%:   13-block  4
-    $$$$$:   13-block  5
-    $$$$$:   13-block  6
-    $$$$$:   13-block  7
-    $$$$$:   13-block  8
-    $$$$$:   13-block  9
-    $$$$$:   13-block 10
-    $$$$$:   13-block 11
-        -:   14:    }
+        -:   10:    int         hId = 1,                sId = 2,                cId = 3;
+        -:   11:    std::string hName = "Howard",       sName = "Sally",        cName = "Camilla";
+        -:   12:    std::string hAddress = "Hour st.",  sAddress = "Sal st.",   cAddress = "Comi st.";
+        -:   13:    double      hRate = 17.7,           sSalary = 1000.33,      cSalary = 2000.88, cRate = 0.05;
+        -:   14:};
         -:   15:
-        -:   16:    int         hId = 1,                sId = 2,                cId = 3;
-        -:   17:    std::string hName = "Howard",       sName = "Sally",        cName = "Camilla";
-        -:   18:    std::string hAddress = "Hour st.",  sAddress = "Sal st.",   cAddress = "Comi st.";
-        -:   19:    double      hRate = 17.7,           sSalary = 1000.33,      cSalary = 2000.88, cRate = 0.05;
-        -:   20:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
-        -:   21:};
-        -:   22:
-        4:   23:TEST_F(AddEmployeeTest, HourlyEmployee)
-        -:   24:{
-        2:   25:    AddHourlyEmployee ht(hId, hName, hAddress, hRate);
-        1:   26:    AddAndRetrieveEmployeeTester<
-        -:   27:            Employee::HourlyClassification,
-        -:   28:            Employee::WeeklySchedule
-        1:   29:            >(hRate, sSalary, cSalary, cRate)
-        1:   30:            .invoke(&ht, hId, hName);
-        1:   31:}
+        4:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
+        -:   17:{
+        2:   18:    AddHourlyEmployee at(hId, hName, hAddress, hRate);
+       1*:   19:    ASSERT_NO_THROW(at.execute());
+       1*:   20:    ASSERT_EQ(database->size(), 1);
+        1:   21:    HourlyEmployeeCorrectnessTester(hRate).invoke(hId, hName);
+        -:   22:}
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_TestD0Ev:
-        1:   23:TEST_F(AddEmployeeTest, HourlyEmployee)
-        1:   23-block  0
+        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
+        1:   16-block  0
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_TestD1Ev:
-        1:   23:TEST_F(AddEmployeeTest, HourlyEmployee)
-        1:   23-block  0
+        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
+        1:   16-block  0
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_Test8TestBodyEv:
-        1:   23:TEST_F(AddEmployeeTest, HourlyEmployee)
-        -:   24:{
-        2:   25:    AddHourlyEmployee ht(hId, hName, hAddress, hRate);
-        1:   25-block  0
-        1:   25-block  1
-        1:   25-block  2
-    $$$$$:   25-block  3
-    $$$$$:   25-block  4
-        1:   26:    AddAndRetrieveEmployeeTester<
-    $$$$$:   26-block  0
-    $$$$$:   26-block  1
-        -:   27:            Employee::HourlyClassification,
-        -:   28:            Employee::WeeklySchedule
-        1:   29:            >(hRate, sSalary, cSalary, cRate)
-        1:   30:            .invoke(&ht, hId, hName);
-        1:   30-block  0
-        1:   30-block  1
-        1:   30-block  2
-    $$$$$:   30-block  3
-    $$$$$:   30-block  4
-        1:   31:}
+        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
+        -:   17:{
+        2:   18:    AddHourlyEmployee at(hId, hName, hAddress, hRate);
+        1:   18-block  0
+        1:   18-block  1
+        1:   18-block  2
+    $$$$$:   18-block  3
+    $$$$$:   18-block  4
+       1*:   19:    ASSERT_NO_THROW(at.execute());
+        1:   19-block  0
+        1:   19-block  1
+        1:   19-block  2
+    %%%%%:   19-block  3
+    %%%%%:   19-block  4
+    %%%%%:   19-block  5
+    %%%%%:   19-block  6
+    %%%%%:   19-block  7
+    $$$$$:   19-block  8
+    $$$$$:   19-block  9
+    $$$$$:   19-block 10
+    $$$$$:   19-block 11
+    $$$$$:   19-block 12
+    $$$$$:   19-block 13
+    $$$$$:   19-block 14
+    $$$$$:   19-block 15
+    $$$$$:   19-block 16
+    $$$$$:   19-block 17
+    $$$$$:   19-block 18
+    $$$$$:   19-block 19
+    $$$$$:   19-block 20
+    $$$$$:   19-block 21
+    $$$$$:   19-block 22
+    $$$$$:   19-block 23
+       1*:   20:    ASSERT_EQ(database->size(), 1);
+        1:   20-block  0
+        1:   20-block  1
+    %%%%%:   20-block  2
+    %%%%%:   20-block  3
+    %%%%%:   20-block  4
+    %%%%%:   20-block  5
+    $$$$$:   20-block  6
+    $$$$$:   20-block  7
+    $$$$$:   20-block  8
+    $$$$$:   20-block  9
+    $$$$$:   20-block 10
+    $$$$$:   20-block 11
+    $$$$$:   20-block 12
+        1:   21:    HourlyEmployeeCorrectnessTester(hRate).invoke(hId, hName);
+        1:   21-block  0
+        1:   21-block  1
+        1:   21-block  2
+        1:   21-block  3
+    $$$$$:   21-block  4
+    $$$$$:   21-block  5
+    $$$$$:   21-block  6
+    $$$$$:   21-block  7
+        -:   22:}
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_TestC1Ev:
-        1:   23:TEST_F(AddEmployeeTest, HourlyEmployee)
-        1:   23-block  0
+        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
+        1:   16-block  0
 ------------------
-        -:   32:
-        4:   33:TEST_F(AddEmployeeTest, SalariedEmployee)
-        -:   34:{
-        2:   35:    AddSalariedEmployee st(sId, sName, sAddress, sSalary);
-        1:   36:    AddAndRetrieveEmployeeTester<
-        -:   37:            Employee::SalariedClassification,
-        -:   38:            Employee::MonthlySchedule
-        1:   39:            >(hRate, sSalary, cSalary, cRate)
-        1:   40:            .invoke(&st, sId, sName);
-        1:   41:}
+        -:   23:
+        4:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
+        -:   25:{
+        2:   26:    AddSalariedEmployee at(sId, sName, sAddress, sSalary);
+       1*:   27:    ASSERT_NO_THROW(at.execute());
+       1*:   28:    ASSERT_EQ(database->size(), 1);
+        1:   29:    SalariedEmployeeCorrectnessTester(sSalary).invoke(sId, sName);
+        -:   30:}
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_TestD0Ev:
-        1:   33:TEST_F(AddEmployeeTest, SalariedEmployee)
-        1:   33-block  0
+        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
+        1:   24-block  0
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_TestD1Ev:
-        1:   33:TEST_F(AddEmployeeTest, SalariedEmployee)
-        1:   33-block  0
+        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
+        1:   24-block  0
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_Test8TestBodyEv:
-        1:   33:TEST_F(AddEmployeeTest, SalariedEmployee)
-        -:   34:{
-        2:   35:    AddSalariedEmployee st(sId, sName, sAddress, sSalary);
-        1:   35-block  0
-        1:   35-block  1
-        1:   35-block  2
-    $$$$$:   35-block  3
-    $$$$$:   35-block  4
-        1:   36:    AddAndRetrieveEmployeeTester<
-    $$$$$:   36-block  0
-    $$$$$:   36-block  1
-        -:   37:            Employee::SalariedClassification,
-        -:   38:            Employee::MonthlySchedule
-        1:   39:            >(hRate, sSalary, cSalary, cRate)
-        1:   40:            .invoke(&st, sId, sName);
-        1:   40-block  0
-        1:   40-block  1
-        1:   40-block  2
-    $$$$$:   40-block  3
-    $$$$$:   40-block  4
-        1:   41:}
+        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
+        -:   25:{
+        2:   26:    AddSalariedEmployee at(sId, sName, sAddress, sSalary);
+        1:   26-block  0
+        1:   26-block  1
+        1:   26-block  2
+    $$$$$:   26-block  3
+    $$$$$:   26-block  4
+       1*:   27:    ASSERT_NO_THROW(at.execute());
+        1:   27-block  0
+        1:   27-block  1
+        1:   27-block  2
+    %%%%%:   27-block  3
+    %%%%%:   27-block  4
+    %%%%%:   27-block  5
+    %%%%%:   27-block  6
+    %%%%%:   27-block  7
+    $$$$$:   27-block  8
+    $$$$$:   27-block  9
+    $$$$$:   27-block 10
+    $$$$$:   27-block 11
+    $$$$$:   27-block 12
+    $$$$$:   27-block 13
+    $$$$$:   27-block 14
+    $$$$$:   27-block 15
+    $$$$$:   27-block 16
+    $$$$$:   27-block 17
+    $$$$$:   27-block 18
+    $$$$$:   27-block 19
+    $$$$$:   27-block 20
+    $$$$$:   27-block 21
+    $$$$$:   27-block 22
+    $$$$$:   27-block 23
+       1*:   28:    ASSERT_EQ(database->size(), 1);
+        1:   28-block  0
+        1:   28-block  1
+    %%%%%:   28-block  2
+    %%%%%:   28-block  3
+    %%%%%:   28-block  4
+    %%%%%:   28-block  5
+    $$$$$:   28-block  6
+    $$$$$:   28-block  7
+    $$$$$:   28-block  8
+    $$$$$:   28-block  9
+    $$$$$:   28-block 10
+    $$$$$:   28-block 11
+    $$$$$:   28-block 12
+        1:   29:    SalariedEmployeeCorrectnessTester(sSalary).invoke(sId, sName);
+        1:   29-block  0
+        1:   29-block  1
+        1:   29-block  2
+        1:   29-block  3
+    $$$$$:   29-block  4
+    $$$$$:   29-block  5
+    $$$$$:   29-block  6
+    $$$$$:   29-block  7
+        -:   30:}
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_TestC1Ev:
-        1:   33:TEST_F(AddEmployeeTest, SalariedEmployee)
-        1:   33-block  0
+        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
+        1:   24-block  0
 ------------------
-        -:   42:
-        4:   43:TEST_F(AddEmployeeTest, CommissionedEmployee)
-        -:   44:{
-        2:   45:    AddCommissionedEmployee ct(cId, cName, cAddress, cSalary, cRate);
-        1:   46:    AddAndRetrieveEmployeeTester<
-        -:   47:            Employee::CommissionedClassification,
-        -:   48:            Employee::BiweeklySchedule
-        1:   49:            >(hRate, sSalary, cSalary, cRate)
-        1:   50:            .invoke(&ct, cId, cName);
-        1:   51:}
-------------------
-_ZN41AddEmployeeTest_CommissionedEmployee_TestD0Ev:
-        1:   43:TEST_F(AddEmployeeTest, CommissionedEmployee)
-        1:   43-block  0
-------------------
-_ZN41AddEmployeeTest_CommissionedEmployee_TestD1Ev:
-        1:   43:TEST_F(AddEmployeeTest, CommissionedEmployee)
-        1:   43-block  0
-------------------
-_ZN41AddEmployeeTest_CommissionedEmployee_Test8TestBodyEv:
-        1:   43:TEST_F(AddEmployeeTest, CommissionedEmployee)
-        -:   44:{
-        2:   45:    AddCommissionedEmployee ct(cId, cName, cAddress, cSalary, cRate);
-        1:   45-block  0
-        1:   45-block  1
-        1:   45-block  2
-    $$$$$:   45-block  3
-    $$$$$:   45-block  4
-        1:   46:    AddAndRetrieveEmployeeTester<
-    $$$$$:   46-block  0
-    $$$$$:   46-block  1
-        -:   47:            Employee::CommissionedClassification,
-        -:   48:            Employee::BiweeklySchedule
-        1:   49:            >(hRate, sSalary, cSalary, cRate)
-        1:   50:            .invoke(&ct, cId, cName);
-        1:   50-block  0
-        1:   50-block  1
-        1:   50-block  2
-    $$$$$:   50-block  3
-    $$$$$:   50-block  4
-        1:   51:}
-------------------
-_ZN41AddEmployeeTest_CommissionedEmployee_TestC1Ev:
-        1:   43:TEST_F(AddEmployeeTest, CommissionedEmployee)
-        1:   43-block  0
-------------------
+        -:   31:
+        4:   32:TEST_F(AddEmployeeTest, CommissionedEmployee)
+        -:   33:{
+        2:   34:    AddCommissionedEmployee at(cId, cName, cAddress, cSalary, cRate);
+       1*:   35:    ASSERT_NO_THROW(at.execute());
+       1*:   36:    ASSERT_EQ(database->size(), 1);
+        1:   37:    CommissionedEmployeeCorrectnessTester(cSalary, cRate).invoke(cId, cName);
+        -:   38:}

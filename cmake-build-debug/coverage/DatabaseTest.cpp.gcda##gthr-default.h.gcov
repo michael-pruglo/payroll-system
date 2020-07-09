@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/x86_64-w64-mingw32/bits/gthr-default.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:/* Threads compatibility routines for libgcc2 and libobjc.  */
         -:    2:/* Compile this one with gcc.  */
@@ -301,10 +301,10 @@
         -:  297:#else /* not hppa-hpux */
         -:  298:
         -:  299:static inline int
-      434:  300:__gthread_active_p (void)
+      534:  300:__gthread_active_p (void)
         -:  301:{
-      434:  302:  return 1;
-      434:  302-block  0
+      534:  302:  return 1;
+      534:  302-block  0
         -:  303:}
         -:  304:
         -:  305:#endif /* hppa-hpux */

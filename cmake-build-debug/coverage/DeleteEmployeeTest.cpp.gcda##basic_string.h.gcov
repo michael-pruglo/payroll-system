@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/basic_string.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DeleteEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\DeleteEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
         -:    2:
@@ -630,27 +630,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -:  549:       *  The newly-created string contains the exact contents of @a __str.
         -:  550:       *  @a __str is a valid, but unspecified string.
         -:  551:       **/
-        -:  552:      basic_string(basic_string&& __str) noexcept
-        -:  553:      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
+    #####:  552:      basic_string(basic_string&& __str) noexcept
+    #####:  553:      : _M_dataplus(_M_local_data(), std::move(__str._M_get_allocator()))
+    %%%%%:  553-block  0
         -:  554:      {
-        -:  555:	if (__str._M_is_local())
+    #####:  555:	if (__str._M_is_local())
         -:  556:	  {
-        -:  557:	    traits_type::copy(_M_local_buf, __str._M_local_buf,
+    #####:  557:	    traits_type::copy(_M_local_buf, __str._M_local_buf,
+    %%%%%:  557-block  0
         -:  558:			      _S_local_capacity + 1);
         -:  559:	  }
         -:  560:	else
         -:  561:	  {
-        -:  562:	    _M_data(__str._M_data());
-        -:  563:	    _M_capacity(__str._M_allocated_capacity);
+    #####:  562:	    _M_data(__str._M_data());
+    %%%%%:  562-block  0
+    #####:  563:	    _M_capacity(__str._M_allocated_capacity);
         -:  564:	  }
         -:  565:
         -:  566:	// Must use _M_length() here not _M_set_length() because
         -:  567:	// basic_stringbuf relies on writing into unallocated capacity so
         -:  568:	// we mess up the contents if we put a '\0' in the string.
-        -:  569:	_M_length(__str.length());
-        -:  570:	__str._M_data(__str._M_local_data());
-        -:  571:	__str._M_set_length(0);
-        -:  572:      }
+    #####:  569:	_M_length(__str.length());
+    %%%%%:  569-block  0
+    #####:  570:	__str._M_data(__str._M_local_data());
+    #####:  571:	__str._M_set_length(0);
+    #####:  572:      }
         -:  573:
         -:  574:      /**
         -:  575:       *  @brief  Construct string from an initializer %list.

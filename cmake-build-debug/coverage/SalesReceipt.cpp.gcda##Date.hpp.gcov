@@ -1,0 +1,28 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/utility/Date.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_DATE_HPP
+        -:    2:#define PAYROLL_SYSTEM_DATE_HPP
+        -:    3:
+        -:    4:
+        -:    5:struct Date
+        -:    6:{
+    #####:    7:    Date(int year, int month, int day) : year(year), month(month), day(day) {}
+        -:    8:
+        -:    9:    int year, month, day;
+        -:   10:};
+        -:   11:
+    #####:   12:inline bool operator<(Date d1, Date d2)
+        -:   13:{
+    #####:   14:    return d1.year<d2.year || d1.month<d2.month || d1.day<d2.day;
+    %%%%%:   14-block  0
+    %%%%%:   14-block  1
+    %%%%%:   14-block  2
+    %%%%%:   14-block  3
+    %%%%%:   14-block  4
+    %%%%%:   14-block  5
+        -:   15:}
+        -:   16:
+        -:   17:
+        -:   18:#endif //PAYROLL_SYSTEM_DATE_HPP

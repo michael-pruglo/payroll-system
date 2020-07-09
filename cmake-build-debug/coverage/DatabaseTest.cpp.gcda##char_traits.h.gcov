@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/char_traits.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Character Traits for use by standard string and iostream -*- C++ -*-
         -:    2:
@@ -272,7 +272,7 @@
         -:  252:#ifdef _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED
         -:  253:      (void) __s;
         -:  254:      // In constexpr contexts all strings should be constant.
-      284:  255:      return __builtin_is_constant_evaluated();
+      302:  255:      return __builtin_is_constant_evaluated();
         -:  256:#else
         -:  257:      while (__builtin_constant_p(*__s) && *__s)
         -:  258:	__s++;
@@ -338,8 +338,8 @@
         -:  318:#endif
         -:  319:
         -:  320:      static _GLIBCXX17_CONSTEXPR void
-     3166:  321:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
-     3166:  322:      { __c1 = __c2; }
+     3272:  321:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
+     3272:  322:      { __c1 = __c2; }
         -:  323:
         -:  324:      static _GLIBCXX_CONSTEXPR bool
         -:  325:      eq(const char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
@@ -368,17 +368,17 @@
         -:  348:      }
         -:  349:
         -:  350:      static _GLIBCXX17_CONSTEXPR size_t
-      284:  351:      length(const char_type* __s)
-      284:  351-block  0
+      302:  351:      length(const char_type* __s)
+      302:  351-block  0
         -:  352:      {
         -:  353:#if __cplusplus >= 201703L
-      284:  354:	if (__constant_string_p(__s))
-      284:  354-block  0
+      302:  354:	if (__constant_string_p(__s))
+      302:  354-block  0
     #####:  355:	  return __gnu_cxx::char_traits<char_type>::length(__s);
     %%%%%:  355-block  0
         -:  356:#endif
-      284:  357:	return __builtin_strlen(__s);
-      284:  357-block  0
+      302:  357:	return __builtin_strlen(__s);
+      302:  357-block  0
         -:  358:      }
         -:  359:
         -:  360:      static _GLIBCXX17_CONSTEXPR const char_type*
@@ -413,20 +413,20 @@
         -:  384:      }
         -:  385:
         -:  386:      static _GLIBCXX20_CONSTEXPR char_type*
-      590:  387:      copy(char_type* __s1, const char_type* __s2, size_t __n)
+      646:  387:      copy(char_type* __s1, const char_type* __s2, size_t __n)
         -:  388:      {
-      590:  389:	if (__n == 0)
-      590:  389-block  0
+      646:  389:	if (__n == 0)
+      646:  389-block  0
         8:  390:	  return __s1;
         8:  390-block  0
         -:  391:#ifdef __cpp_lib_is_constant_evaluated
-      582:  392:	if (std::is_constant_evaluated())
-      582:  392-block  0
+      638:  392:	if (std::is_constant_evaluated())
+      638:  392-block  0
     #####:  393:	  return __gnu_cxx::char_traits<char_type>::copy(__s1, __s2, __n);
     %%%%%:  393-block  0
         -:  394:#endif
-      582:  395:	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
-      582:  395-block  0
+      638:  395:	return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n));
+      638:  395-block  0
         -:  396:      }
         -:  397:
         -:  398:      static _GLIBCXX20_CONSTEXPR char_type*

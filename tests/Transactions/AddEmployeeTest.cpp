@@ -1,4 +1,3 @@
-#include <gtest/gtest.h>
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/AddEmployeeTransaction.cpp"
 #include "utility/EmployeeCorrectnessTester.hpp"

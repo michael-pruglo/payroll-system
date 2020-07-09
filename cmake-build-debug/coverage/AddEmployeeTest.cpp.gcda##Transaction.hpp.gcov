@@ -1,6 +1,6 @@
         -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/Transaction.hpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:#ifndef PAYROLL_SYSTEM_TRANSACTION_HPP
         -:    2:#define PAYROLL_SYSTEM_TRANSACTION_HPP
@@ -9,7 +9,7 @@
         -:    5:class Transaction
         -:    6:{
         -:    7:public:
-        5:    8:    virtual ~Transaction() = default;
+        9:    8:    virtual ~Transaction() = default;
         -:    9:    virtual void execute() = 0;
         -:   10:};
         -:   11:

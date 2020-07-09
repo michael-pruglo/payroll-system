@@ -1,4 +1,3 @@
-#include <gtest/gtest.h>
 #include "src/utility/Date.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/TimeCardTransaction.hpp"

@@ -1,130 +1,42 @@
-        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee.hpp
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\AddEmployeeTest.cpp.gcda
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:#ifndef PAYROLL_SYSTEM_EMPLOYEE_HPP
         -:    2:#define PAYROLL_SYSTEM_EMPLOYEE_HPP
         -:    3:
-        -:    4:
-        -:    5:#include <string>
-        -:    6:#include <memory>
-        -:    7:
+        -:    4:#include <memory>
+        -:    5:#include "PaymentClassification.hpp"
+        -:    6:#include "PaymentSchedule.hpp"
+        -:    7:#include "PaymentMethod.hpp"
         -:    8:
-        -:    9:class Employee
-        -:   10:{
-        -:   11:public:
-        -:   12:    class PaymentClassification;
-        -:   13:    class SalariedClassification;
-        -:   14:    class HourlyClassification;
-        -:   15:    class CommissionedClassification;
-        -:   16:
-        -:   17:    class PaymentSchedule;
-        -:   18:    class WeeklySchedule;
-        -:   19:    class MonthlySchedule;
-        -:   20:    class BiweeklySchedule;
-        -:   21:
-        -:   22:    class PaymentMethod;
-        -:   23:    class HoldMethod;
-        -:   24:
-        -:   25:    Employee(int id, std::string name, std::string address);
-        -:   26:
-        3:   27:    std::string                             getName() const { return name; }
-        3:   27-block  0
-        3:   28:    std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
-        3:   28-block  0
-        3:   29:    void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
-        3:   29-block  0
-        3:   30:    std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }
-        3:   30-block  0
-        3:   31:    void                                    setPaymentSchedule(std::shared_ptr<PaymentSchedule> pc) { paymentSchedule = pc; }
-        3:   31-block  0
-        3:   32:    std::shared_ptr<PaymentMethod>          getPaymentMethod() const { return paymentMethod; }
-        3:   32-block  0
-        3:   33:    void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
-        3:   33-block  0
-        -:   34:private:
-        -:   35:    int id;
-        -:   36:    std::string name, address;
-        -:   37:    std::shared_ptr<PaymentClassification> paymentClassification;
-        -:   38:    std::shared_ptr<PaymentSchedule> paymentSchedule;
-        -:   39:    std::shared_ptr<PaymentMethod> paymentMethod;
-        -:   40:};
-        -:   41:
-       3*:   42:class Employee::PaymentClassification { public: virtual ~PaymentClassification() = default; };
-------------------
-_ZN8Employee21PaymentClassificationD0Ev:
-    #####:   42:class Employee::PaymentClassification { public: virtual ~PaymentClassification() = default; };
-    %%%%%:   42-block  0
-------------------
-_ZN8Employee21PaymentClassificationD1Ev:
-    #####:   42:class Employee::PaymentClassification { public: virtual ~PaymentClassification() = default; };
-------------------
-_ZN8Employee21PaymentClassificationD2Ev:
-        3:   42:class Employee::PaymentClassification { public: virtual ~PaymentClassification() = default; };
-------------------
-        -:   43:class Employee::HourlyClassification : public Employee::PaymentClassification
-        -:   44:{
-        -:   45:public:
-        1:   46:    explicit HourlyClassification(double hourlyRate) : hourlyRate(hourlyRate) {}
-        1:   46-block  0
-        1:   47:    double getHourlyRate() const { return hourlyRate; }
-        1:   47-block  0
-        -:   48:private:
-        -:   49:    double hourlyRate;
-        -:   50:};
-        -:   51:class Employee::SalariedClassification : public Employee::PaymentClassification
-        -:   52:{
-        -:   53:public:
-        1:   54:    SalariedClassification(double salary) : salary(salary) {}
-        1:   54-block  0
-        1:   55:    double getSalary() const { return salary; }
-        1:   55-block  0
-        -:   56:private:
-        -:   57:    double salary;
-        -:   58:};
-        -:   59:class Employee::CommissionedClassification : public Employee::PaymentClassification
-        -:   60:{
-        -:   61:public:
-        1:   62:    CommissionedClassification(double salary, double commissionRate) :
-        1:   63:        salary(salary), commissionRate(commissionRate) {}
-        1:   63-block  0
-        -:   64:
-        1:   65:    double getSalary() const { return salary; }
-        1:   65-block  0
-        1:   66:    double getCommissionRate() const { return commissionRate; }
-        1:   66-block  0
-        -:   67:private:
-        -:   68:    double salary, commissionRate;
-        -:   69:};
-        -:   70:
-       3*:   71:class Employee::PaymentSchedule { public: virtual ~PaymentSchedule() = default; };
-------------------
-_ZN8Employee15PaymentScheduleD0Ev:
-    #####:   71:class Employee::PaymentSchedule { public: virtual ~PaymentSchedule() = default; };
-    %%%%%:   71-block  0
-------------------
-_ZN8Employee15PaymentScheduleD1Ev:
-    #####:   71:class Employee::PaymentSchedule { public: virtual ~PaymentSchedule() = default; };
-------------------
-_ZN8Employee15PaymentScheduleD2Ev:
-        3:   71:class Employee::PaymentSchedule { public: virtual ~PaymentSchedule() = default; };
-------------------
-        -:   72:class Employee::WeeklySchedule : public Employee::PaymentSchedule {};
-        -:   73:class Employee::MonthlySchedule : public Employee::PaymentSchedule {};
-        -:   74:class Employee::BiweeklySchedule : public Employee::PaymentSchedule {};
-        -:   75:
-       3*:   76:class Employee::PaymentMethod { public: virtual ~PaymentMethod() = default; };
-------------------
-_ZN8Employee13PaymentMethodD0Ev:
-    #####:   76:class Employee::PaymentMethod { public: virtual ~PaymentMethod() = default; };
-    %%%%%:   76-block  0
-------------------
-_ZN8Employee13PaymentMethodD1Ev:
-    #####:   76:class Employee::PaymentMethod { public: virtual ~PaymentMethod() = default; };
-------------------
-_ZN8Employee13PaymentMethodD2Ev:
-        3:   76:class Employee::PaymentMethod { public: virtual ~PaymentMethod() = default; };
-------------------
-        -:   77:class Employee::HoldMethod : public Employee::PaymentMethod {};
-        -:   78:
-        -:   79:#endif //PAYROLL_SYSTEM_EMPLOYEE_HPP
+        -:    9:
+        -:   10:class Employee
+        -:   11:{
+        -:   12:public:
+    #####:   13:    Employee(int id, std::string name, std::string address) :
+        -:   14:            id(id),
+    #####:   15:            name(std::move(name)),
+    #####:   16:            address(std::move(address))
+    %%%%%:   16-block  0
+    #####:   17:    {}
+        -:   18:
+        -:   19:    std::string                             getName() const { return name; }
+        -:   20:    std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
+        5:   21:    void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
+        5:   21-block  0
+        -:   22:    std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }
+        5:   23:    void                                    setPaymentSchedule(std::shared_ptr<PaymentSchedule> pc) { paymentSchedule = pc; }
+        5:   23-block  0
+        -:   24:    std::shared_ptr<PaymentMethod>          getPaymentMethod() const { return paymentMethod; }
+        5:   25:    void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
+        5:   25-block  0
+        -:   26:private:
+        -:   27:    int id;
+        -:   28:    std::string name, address;
+        -:   29:    std::shared_ptr<PaymentClassification> paymentClassification;
+        -:   30:    std::shared_ptr<PaymentSchedule> paymentSchedule;
+        -:   31:    std::shared_ptr<PaymentMethod> paymentMethod;
+        -:   32:};
+        -:   33:
+        -:   34:#endif //PAYROLL_SYSTEM_EMPLOYEE_HPP

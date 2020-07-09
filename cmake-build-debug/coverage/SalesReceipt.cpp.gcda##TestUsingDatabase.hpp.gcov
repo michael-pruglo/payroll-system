@@ -1,0 +1,40 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/TestUsingDatabase.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_TESTUSINGDATABASE_HPP
+        -:    2:#define PAYROLL_SYSTEM_TESTUSINGDATABASE_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include <gtest/gtest.h>
+        -:    6:#include "src/Database/PayrollDatabase.hpp"
+        -:    7:
+        -:    8:class TestUsingDatabase : public ::testing::Test
+        -:    9:{
+        -:   10:protected:
+        -:   11:
+    #####:   12:    void TearDown() override
+        -:   13:    {
+    #####:   14:        database->clear();
+    %%%%%:   14-block  0
+    #####:   15:        ASSERT_EQ(database->size(), 0);
+    %%%%%:   15-block  0
+    %%%%%:   15-block  1
+    %%%%%:   15-block  2
+    %%%%%:   15-block  3
+    %%%%%:   15-block  4
+    $$$$$:   15-block  5
+    $$$$$:   15-block  6
+    $$$$$:   15-block  7
+    $$$$$:   15-block  8
+    $$$$$:   15-block  9
+    $$$$$:   15-block 10
+    $$$$$:   15-block 11
+        -:   16:    }
+        -:   17:
+        -:   18:    int initSize = 0;
+        -:   19:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
+        -:   20:};
+        -:   21:
+        -:   22:
+        -:   23:#endif //PAYROLL_SYSTEM_TESTUSINGDATABASE_HPP

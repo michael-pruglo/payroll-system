@@ -1,0 +1,49 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/SalesReceiptTransaction.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_SALESRECEIPTTRANSACTION_HPP
+        -:    2:#define PAYROLL_SYSTEM_SALESRECEIPTTRANSACTION_HPP
+        -:    3:
+        -:    4:#include "src/Employee/SalesReceipt.hpp"
+        -:    5:#include "src/Database/PayrollDatabase.hpp"
+        -:    6:#include "Transaction.hpp"
+        -:    7:
+        -:    8:class SalesReceiptTransaction : public Transaction
+        -:    9:{
+        -:   10:public:
+        1:   11:    SalesReceiptTransaction(const Date& date, double amount, int id) :
+        1:   12:        date(date), amount(amount), id(id) {}
+        1:   12-block  0
+        -:   13:
+        1:   14:    virtual void execute() override
+        -:   15:    {
+        2:   16:        auto employee = PayrollDatabase::getInstance()->getEmployee(id);
+        1:   16-block  0
+        1:   16-block  1
+    $$$$$:   16-block  2
+    $$$$$:   16-block  3
+        2:   17:        auto pc = employee->getPaymentClassification();
+    $$$$$:   17-block  0
+        2:   18:        auto hc = std::dynamic_pointer_cast<CommissionedClassification>(pc);
+        1:   18-block  0
+    $$$$$:   18-block  1
+        1:   19:        if (hc)
+        1:   20:            hc->addSalesReceipt(SalesReceipt(date, amount));
+        1:   20-block  0
+        1:   20-block  1
+    $$$$$:   20-block  2
+        -:   21:        else
+    #####:   22:            throw std::runtime_error("SalesReceiptTransaction not on CommissionedEmployee");
+    %%%%%:   22-block  0
+    %%%%%:   22-block  1
+    $$$$$:   22-block  2
+        1:   23:    }
+        -:   24:
+        -:   25:    Date date;
+        -:   26:    double amount;
+        -:   27:    int id;
+        -:   28:};
+        -:   29:
+        -:   30:
+        -:   31:#endif //PAYROLL_SYSTEM_SALESRECEIPTTRANSACTION_HPP

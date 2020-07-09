@@ -1,6 +1,6 @@
         -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googletest/include/gtest/internal/gtest-internal.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2005, Google Inc.
         -:    2:// All rights reserved.
@@ -463,7 +463,7 @@
         -:  458:  virtual Test* CreateTest() = 0;
         -:  459:
         -:  460: protected:
-       17:  461:  TestFactoryBase() {}
+       18:  461:  TestFactoryBase() {}
         -:  462:
         -:  463: private:
         -:  464:  GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);
@@ -573,9 +573,9 @@ _ZN7testing8internal15TestFactoryImplI30PayrollDatabaseTest_Clear_TestE10CreateT
         -:  490:using TearDownTestSuiteFunc = void (*)();
         -:  491:
         -:  492:struct CodeLocation {
-       17:  493:  CodeLocation(const std::string& a_file, int a_line)
-       17:  494:      : file(a_file), line(a_line) {}
-       17:  494-block  0
+       18:  493:  CodeLocation(const std::string& a_file, int a_line)
+       18:  494:      : file(a_file), line(a_line) {}
+       18:  494-block  0
         -:  495:
         -:  496:  std::string file;
         -:  497:  int line;
@@ -587,13 +587,13 @@ _ZN7testing8internal15TestFactoryImplI30PayrollDatabaseTest_Clear_TestE10CreateT
         -:  503:// Utility functions to help SuiteApiResolver
         -:  504:using SetUpTearDownSuiteFuncType = void (*)();
         -:  505:
-       68:  506:inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
+       72:  506:inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
         -:  507:    SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {
-      68*:  508:  return a == def ? nullptr : a;
-       68:  508-block  0
+      72*:  508:  return a == def ? nullptr : a;
+       72:  508-block  0
     %%%%%:  508-block  1
-       68:  508-block  2
-       68:  508-block  3
+       72:  508-block  2
+       72:  508-block  3
         -:  509:}
         -:  510:
         -:  511:template <typename T>
@@ -970,12 +970,12 @@ _ZN7testing8internal15TestFactoryImplI30PayrollDatabaseTest_Clear_TestE10CreateT
         -:  847:// Helper for declaring std::string within 'if' statement
         -:  848:// in pre C++17 build environment.
         -:  849:struct TrueWithString {
-       26:  850:  TrueWithString() = default;
-       26:  850-block  0
+       36:  850:  TrueWithString() = default;
+       36:  850-block  0
         -:  851:  explicit TrueWithString(const char* str) : value(str) {}
         -:  852:  explicit TrueWithString(const std::string& str) : value(str) {}
-       26:  853:  explicit operator bool() const { return true; }
-       26:  853-block  0
+       36:  853:  explicit operator bool() const { return true; }
+       36:  853-block  0
         -:  854:  std::string value;
         -:  855:};
         -:  856:

@@ -1,0 +1,2177 @@
+        -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/unordered_map.h
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\SalesReceipt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:// unordered_map implementation -*- C++ -*-
+        -:    2:
+        -:    3:// Copyright (C) 2010-2020 Free Software Foundation, Inc.
+        -:    4://
+        -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
+        -:    6:// software; you can redistribute it and/or modify it under the
+        -:    7:// terms of the GNU General Public License as published by the
+        -:    8:// Free Software Foundation; either version 3, or (at your option)
+        -:    9:// any later version.
+        -:   10:
+        -:   11:// This library is distributed in the hope that it will be useful,
+        -:   12:// but WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:   13:// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        -:   14:// GNU General Public License for more details.
+        -:   15:
+        -:   16:// Under Section 7 of GPL version 3, you are granted additional
+        -:   17:// permissions described in the GCC Runtime Library Exception, version
+        -:   18:// 3.1, as published by the Free Software Foundation.
+        -:   19:
+        -:   20:// You should have received a copy of the GNU General Public License and
+        -:   21:// a copy of the GCC Runtime Library Exception along with this program;
+        -:   22:// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+        -:   23:// <http://www.gnu.org/licenses/>.
+        -:   24:
+        -:   25:/** @file bits/unordered_map.h
+        -:   26: *  This is an internal header file, included by other library headers.
+        -:   27: *  Do not attempt to use it directly. @headername{unordered_map}
+        -:   28: */
+        -:   29:
+        -:   30:#ifndef _UNORDERED_MAP_H
+        -:   31:#define _UNORDERED_MAP_H
+        -:   32:
+        -:   33:namespace std _GLIBCXX_VISIBILITY(default)
+        -:   34:{
+        -:   35:_GLIBCXX_BEGIN_NAMESPACE_VERSION
+        -:   36:_GLIBCXX_BEGIN_NAMESPACE_CONTAINER
+        -:   37:
+        -:   38:  /// Base types for unordered_map.
+        -:   39:  template<bool _Cache>
+        -:   40:    using __umap_traits = __detail::_Hashtable_traits<_Cache, false, true>;
+        -:   41:
+        -:   42:  template<typename _Key,
+        -:   43:	   typename _Tp,
+        -:   44:	   typename _Hash = hash<_Key>,
+        -:   45:	   typename _Pred = std::equal_to<_Key>,
+        -:   46:	   typename _Alloc = std::allocator<std::pair<const _Key, _Tp> >,
+        -:   47:	   typename _Tr = __umap_traits<__cache_default<_Key, _Hash>::value>>
+        -:   48:    using __umap_hashtable = _Hashtable<_Key, std::pair<const _Key, _Tp>,
+        -:   49:                                        _Alloc, __detail::_Select1st,
+        -:   50:				        _Pred, _Hash,
+        -:   51:				        __detail::_Mod_range_hashing,
+        -:   52:				        __detail::_Default_ranged_hash,
+        -:   53:				        __detail::_Prime_rehash_policy, _Tr>;
+        -:   54:
+        -:   55:  /// Base types for unordered_multimap.
+        -:   56:  template<bool _Cache>
+        -:   57:    using __ummap_traits = __detail::_Hashtable_traits<_Cache, false, false>;
+        -:   58:
+        -:   59:  template<typename _Key,
+        -:   60:	   typename _Tp,
+        -:   61:	   typename _Hash = hash<_Key>,
+        -:   62:	   typename _Pred = std::equal_to<_Key>,
+        -:   63:	   typename _Alloc = std::allocator<std::pair<const _Key, _Tp> >,
+        -:   64:	   typename _Tr = __ummap_traits<__cache_default<_Key, _Hash>::value>>
+        -:   65:    using __ummap_hashtable = _Hashtable<_Key, std::pair<const _Key, _Tp>,
+        -:   66:					 _Alloc, __detail::_Select1st,
+        -:   67:					 _Pred, _Hash,
+        -:   68:					 __detail::_Mod_range_hashing,
+        -:   69:					 __detail::_Default_ranged_hash,
+        -:   70:					 __detail::_Prime_rehash_policy, _Tr>;
+        -:   71:
+        -:   72:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -:   73:    class unordered_multimap;
+        -:   74:
+        -:   75:  /**
+        -:   76:   *  @brief A standard container composed of unique keys (containing
+        -:   77:   *  at most one of each key value) that associates values of another type
+        -:   78:   *  with the keys.
+        -:   79:   *
+        -:   80:   *  @ingroup unordered_associative_containers
+        -:   81:   *
+        -:   82:   *  @tparam  _Key    Type of key objects.
+        -:   83:   *  @tparam  _Tp     Type of mapped objects.
+        -:   84:   *  @tparam  _Hash   Hashing function object type, defaults to hash<_Value>.
+        -:   85:   *  @tparam  _Pred   Predicate function object type, defaults
+        -:   86:   *                   to equal_to<_Value>.
+        -:   87:   *  @tparam  _Alloc  Allocator type, defaults to 
+        -:   88:   *                   std::allocator<std::pair<const _Key, _Tp>>.
+        -:   89:   *
+        -:   90:   *  Meets the requirements of a <a href="tables.html#65">container</a>, and
+        -:   91:   *  <a href="tables.html#xx">unordered associative container</a>
+        -:   92:   *
+        -:   93:   * The resulting value type of the container is std::pair<const _Key, _Tp>.
+        -:   94:   *
+        -:   95:   *  Base is _Hashtable, dispatched at compile time via template
+        -:   96:   *  alias __umap_hashtable.
+        -:   97:   */
+        -:   98:  template<typename _Key, typename _Tp,
+        -:   99:	   typename _Hash = hash<_Key>,
+        -:  100:	   typename _Pred = equal_to<_Key>,
+        -:  101:	   typename _Alloc = allocator<std::pair<const _Key, _Tp>>>
+        -:  102:    class unordered_map
+        -:  103:    {
+        -:  104:      typedef __umap_hashtable<_Key, _Tp, _Hash, _Pred, _Alloc>  _Hashtable;
+        -:  105:      _Hashtable _M_h;
+        -:  106:
+        -:  107:    public:
+        -:  108:      // typedefs:
+        -:  109:      //@{
+        -:  110:      /// Public typedefs.
+        -:  111:      typedef typename _Hashtable::key_type	key_type;
+        -:  112:      typedef typename _Hashtable::value_type	value_type;
+        -:  113:      typedef typename _Hashtable::mapped_type	mapped_type;
+        -:  114:      typedef typename _Hashtable::hasher	hasher;
+        -:  115:      typedef typename _Hashtable::key_equal	key_equal;
+        -:  116:      typedef typename _Hashtable::allocator_type allocator_type;
+        -:  117:      //@}
+        -:  118:
+        -:  119:      //@{
+        -:  120:      ///  Iterator-related typedefs.
+        -:  121:      typedef typename _Hashtable::pointer		pointer;
+        -:  122:      typedef typename _Hashtable::const_pointer	const_pointer;
+        -:  123:      typedef typename _Hashtable::reference		reference;
+        -:  124:      typedef typename _Hashtable::const_reference	const_reference;
+        -:  125:      typedef typename _Hashtable::iterator		iterator;
+        -:  126:      typedef typename _Hashtable::const_iterator	const_iterator;
+        -:  127:      typedef typename _Hashtable::local_iterator	local_iterator;
+        -:  128:      typedef typename _Hashtable::const_local_iterator	const_local_iterator;
+        -:  129:      typedef typename _Hashtable::size_type		size_type;
+        -:  130:      typedef typename _Hashtable::difference_type	difference_type;
+        -:  131:      //@}
+        -:  132:
+        -:  133:#if __cplusplus > 201402L
+        -:  134:      using node_type = typename _Hashtable::node_type;
+        -:  135:      using insert_return_type = typename _Hashtable::insert_return_type;
+        -:  136:#endif
+        -:  137:
+        -:  138:      //construct/destroy/copy
+        -:  139:
+        -:  140:      /// Default constructor.
+        -:  141:      unordered_map() = default;
+        -:  142:
+        -:  143:      /**
+        -:  144:       *  @brief  Default constructor creates no elements.
+        -:  145:       *  @param __n  Minimal initial number of buckets.
+        -:  146:       *  @param __hf  A hash functor.
+        -:  147:       *  @param __eql  A key equality functor.
+        -:  148:       *  @param __a  An allocator object.
+        -:  149:       */
+        -:  150:      explicit
+        -:  151:      unordered_map(size_type __n,
+        -:  152:		    const hasher& __hf = hasher(),
+        -:  153:		    const key_equal& __eql = key_equal(),
+        -:  154:		    const allocator_type& __a = allocator_type())
+        -:  155:      : _M_h(__n, __hf, __eql, __a)
+        -:  156:      { }
+        -:  157:
+        -:  158:      /**
+        -:  159:       *  @brief  Builds an %unordered_map from a range.
+        -:  160:       *  @param  __first  An input iterator.
+        -:  161:       *  @param  __last  An input iterator.
+        -:  162:       *  @param __n  Minimal initial number of buckets.
+        -:  163:       *  @param __hf  A hash functor.
+        -:  164:       *  @param __eql  A key equality functor.
+        -:  165:       *  @param __a  An allocator object.
+        -:  166:       *
+        -:  167:       *  Create an %unordered_map consisting of copies of the elements from
+        -:  168:       *  [__first,__last).  This is linear in N (where N is
+        -:  169:       *  distance(__first,__last)).
+        -:  170:       */
+        -:  171:      template<typename _InputIterator>
+        -:  172:	unordered_map(_InputIterator __first, _InputIterator __last,
+        -:  173:		      size_type __n = 0,
+        -:  174:		      const hasher& __hf = hasher(),
+        -:  175:		      const key_equal& __eql = key_equal(),
+        -:  176:		      const allocator_type& __a = allocator_type())
+        -:  177:	: _M_h(__first, __last, __n, __hf, __eql, __a)
+        -:  178:	{ }
+        -:  179:
+        -:  180:      /// Copy constructor.
+        -:  181:      unordered_map(const unordered_map&) = default;
+        -:  182:
+        -:  183:      /// Move constructor.
+        -:  184:      unordered_map(unordered_map&&) = default;
+        -:  185:
+        -:  186:      /**
+        -:  187:       *  @brief Creates an %unordered_map with no elements.
+        -:  188:       *  @param __a An allocator object.
+        -:  189:       */
+        -:  190:      explicit
+        -:  191:      unordered_map(const allocator_type& __a)
+        -:  192:	: _M_h(__a)
+        -:  193:      { }
+        -:  194:
+        -:  195:      /*
+        -:  196:       *  @brief Copy constructor with allocator argument.
+        -:  197:       * @param  __uset  Input %unordered_map to copy.
+        -:  198:       * @param  __a  An allocator object.
+        -:  199:       */
+        -:  200:      unordered_map(const unordered_map& __umap,
+        -:  201:		    const allocator_type& __a)
+        -:  202:      : _M_h(__umap._M_h, __a)
+        -:  203:      { }
+        -:  204:
+        -:  205:      /*
+        -:  206:       *  @brief  Move constructor with allocator argument.
+        -:  207:       *  @param  __uset Input %unordered_map to move.
+        -:  208:       *  @param  __a    An allocator object.
+        -:  209:       */
+        -:  210:      unordered_map(unordered_map&& __umap,
+        -:  211:		    const allocator_type& __a)
+        -:  212:      : _M_h(std::move(__umap._M_h), __a)
+        -:  213:      { }
+        -:  214:
+        -:  215:      /**
+        -:  216:       *  @brief  Builds an %unordered_map from an initializer_list.
+        -:  217:       *  @param  __l  An initializer_list.
+        -:  218:       *  @param __n  Minimal initial number of buckets.
+        -:  219:       *  @param __hf  A hash functor.
+        -:  220:       *  @param __eql  A key equality functor.
+        -:  221:       *  @param  __a  An allocator object.
+        -:  222:       *
+        -:  223:       *  Create an %unordered_map consisting of copies of the elements in the
+        -:  224:       *  list. This is linear in N (where N is @a __l.size()).
+        -:  225:       */
+        -:  226:      unordered_map(initializer_list<value_type> __l,
+        -:  227:		    size_type __n = 0,
+        -:  228:		    const hasher& __hf = hasher(),
+        -:  229:		    const key_equal& __eql = key_equal(),
+        -:  230:		    const allocator_type& __a = allocator_type())
+        -:  231:      : _M_h(__l, __n, __hf, __eql, __a)
+        -:  232:      { }
+        -:  233:
+        -:  234:      unordered_map(size_type __n, const allocator_type& __a)
+        -:  235:      : unordered_map(__n, hasher(), key_equal(), __a)
+        -:  236:      { }
+        -:  237:
+        -:  238:      unordered_map(size_type __n, const hasher& __hf,
+        -:  239:		    const allocator_type& __a)
+        -:  240:      : unordered_map(__n, __hf, key_equal(), __a)
+        -:  241:      { }
+        -:  242:
+        -:  243:      template<typename _InputIterator>
+        -:  244:	unordered_map(_InputIterator __first, _InputIterator __last,
+        -:  245:		      size_type __n,
+        -:  246:		      const allocator_type& __a)
+        -:  247:	: unordered_map(__first, __last, __n, hasher(), key_equal(), __a)
+        -:  248:	{ }
+        -:  249:
+        -:  250:      template<typename _InputIterator>
+        -:  251:	unordered_map(_InputIterator __first, _InputIterator __last,
+        -:  252:		      size_type __n, const hasher& __hf,
+        -:  253:		      const allocator_type& __a)
+        -:  254:	  : unordered_map(__first, __last, __n, __hf, key_equal(), __a)
+        -:  255:	{ }
+        -:  256:
+        -:  257:      unordered_map(initializer_list<value_type> __l,
+        -:  258:		    size_type __n,
+        -:  259:		    const allocator_type& __a)
+        -:  260:      : unordered_map(__l, __n, hasher(), key_equal(), __a)
+        -:  261:      { }
+        -:  262:
+        -:  263:      unordered_map(initializer_list<value_type> __l,
+        -:  264:		    size_type __n, const hasher& __hf,
+        -:  265:		    const allocator_type& __a)
+        -:  266:      : unordered_map(__l, __n, __hf, key_equal(), __a)
+        -:  267:      { }
+        -:  268:
+        -:  269:      /// Copy assignment operator.
+        -:  270:      unordered_map&
+        -:  271:      operator=(const unordered_map&) = default;
+        -:  272:
+        -:  273:      /// Move assignment operator.
+        -:  274:      unordered_map&
+        -:  275:      operator=(unordered_map&&) = default;
+        -:  276:
+        -:  277:      /**
+        -:  278:       *  @brief  %Unordered_map list assignment operator.
+        -:  279:       *  @param  __l  An initializer_list.
+        -:  280:       *
+        -:  281:       *  This function fills an %unordered_map with copies of the elements in
+        -:  282:       *  the initializer list @a __l.
+        -:  283:       *
+        -:  284:       *  Note that the assignment completely changes the %unordered_map and
+        -:  285:       *  that the resulting %unordered_map's size is the same as the number
+        -:  286:       *  of elements assigned.
+        -:  287:       */
+        -:  288:      unordered_map&
+        -:  289:      operator=(initializer_list<value_type> __l)
+        -:  290:      {
+        -:  291:	_M_h = __l;
+        -:  292:	return *this;
+        -:  293:      }
+        -:  294:
+        -:  295:      ///  Returns the allocator object used by the %unordered_map.
+        -:  296:      allocator_type
+        -:  297:      get_allocator() const noexcept
+        -:  298:      { return _M_h.get_allocator(); }
+        -:  299:
+        -:  300:      // size and capacity:
+        -:  301:
+        -:  302:      ///  Returns true if the %unordered_map is empty.
+        -:  303:      _GLIBCXX_NODISCARD bool
+        -:  304:      empty() const noexcept
+        -:  305:      { return _M_h.empty(); }
+        -:  306:
+        -:  307:      ///  Returns the size of the %unordered_map.
+        -:  308:      size_type
+    #####:  309:      size() const noexcept
+    #####:  310:      { return _M_h.size(); }
+    %%%%%:  310-block  0
+        -:  311:
+        -:  312:      ///  Returns the maximum size of the %unordered_map.
+        -:  313:      size_type
+        -:  314:      max_size() const noexcept
+        -:  315:      { return _M_h.max_size(); }
+        -:  316:
+        -:  317:      // iterators.
+        -:  318:
+        -:  319:      /**
+        -:  320:       *  Returns a read/write iterator that points to the first element in the
+        -:  321:       *  %unordered_map.
+        -:  322:       */
+        -:  323:      iterator
+        -:  324:      begin() noexcept
+        -:  325:      { return _M_h.begin(); }
+        -:  326:
+        -:  327:      //@{
+        -:  328:      /**
+        -:  329:       *  Returns a read-only (constant) iterator that points to the first
+        -:  330:       *  element in the %unordered_map.
+        -:  331:       */
+        -:  332:      const_iterator
+        -:  333:      begin() const noexcept
+        -:  334:      { return _M_h.begin(); }
+        -:  335:
+        -:  336:      const_iterator
+        -:  337:      cbegin() const noexcept
+        -:  338:      { return _M_h.begin(); }
+        -:  339:      //@}
+        -:  340:
+        -:  341:      /**
+        -:  342:       *  Returns a read/write iterator that points one past the last element in
+        -:  343:       *  the %unordered_map.
+        -:  344:       */
+        -:  345:      iterator
+        -:  346:      end() noexcept
+        -:  347:      { return _M_h.end(); }
+        -:  348:
+        -:  349:      //@{
+        -:  350:      /**
+        -:  351:       *  Returns a read-only (constant) iterator that points one past the last
+        -:  352:       *  element in the %unordered_map.
+        -:  353:       */
+        -:  354:      const_iterator
+        -:  355:      end() const noexcept
+        -:  356:      { return _M_h.end(); }
+        -:  357:
+        -:  358:      const_iterator
+        -:  359:      cend() const noexcept
+        -:  360:      { return _M_h.end(); }
+        -:  361:      //@}
+        -:  362:
+        -:  363:      // modifiers.
+        -:  364:
+        -:  365:      /**
+        -:  366:       *  @brief Attempts to build and insert a std::pair into the
+        -:  367:       *  %unordered_map.
+        -:  368:       *
+        -:  369:       *  @param __args  Arguments used to generate a new pair instance (see
+        -:  370:       *	        std::piecewise_contruct for passing arguments to each
+        -:  371:       *	        part of the pair constructor).
+        -:  372:       *
+        -:  373:       *  @return  A pair, of which the first element is an iterator that points
+        -:  374:       *           to the possibly inserted pair, and the second is a bool that
+        -:  375:       *           is true if the pair was actually inserted.
+        -:  376:       *
+        -:  377:       *  This function attempts to build and insert a (key, value) %pair into
+        -:  378:       *  the %unordered_map.
+        -:  379:       *  An %unordered_map relies on unique keys and thus a %pair is only
+        -:  380:       *  inserted if its first element (the key) is not already present in the
+        -:  381:       *  %unordered_map.
+        -:  382:       *
+        -:  383:       *  Insertion requires amortized constant time.
+        -:  384:       */
+        -:  385:      template<typename... _Args>
+        -:  386:	std::pair<iterator, bool>
+        -:  387:	emplace(_Args&&... __args)
+        -:  388:	{ return _M_h.emplace(std::forward<_Args>(__args)...); }
+        -:  389:
+        -:  390:      /**
+        -:  391:       *  @brief Attempts to build and insert a std::pair into the
+        -:  392:       *  %unordered_map.
+        -:  393:       *
+        -:  394:       *  @param  __pos  An iterator that serves as a hint as to where the pair
+        -:  395:       *                should be inserted.
+        -:  396:       *  @param  __args  Arguments used to generate a new pair instance (see
+        -:  397:       *	         std::piecewise_contruct for passing arguments to each
+        -:  398:       *	         part of the pair constructor).
+        -:  399:       *  @return An iterator that points to the element with key of the
+        -:  400:       *          std::pair built from @a __args (may or may not be that
+        -:  401:       *          std::pair).
+        -:  402:       *
+        -:  403:       *  This function is not concerned about whether the insertion took place,
+        -:  404:       *  and thus does not return a boolean like the single-argument emplace()
+        -:  405:       *  does.
+        -:  406:       *  Note that the first parameter is only a hint and can potentially
+        -:  407:       *  improve the performance of the insertion process. A bad hint would
+        -:  408:       *  cause no gains in efficiency.
+        -:  409:       *
+        -:  410:       *  See
+        -:  411:       *  https://gcc.gnu.org/onlinedocs/libstdc++/manual/associative.html#containers.associative.insert_hints
+        -:  412:       *  for more on @a hinting.
+        -:  413:       *
+        -:  414:       *  Insertion requires amortized constant time.
+        -:  415:       */
+        -:  416:      template<typename... _Args>
+        -:  417:	iterator
+        -:  418:	emplace_hint(const_iterator __pos, _Args&&... __args)
+        -:  419:	{ return _M_h.emplace_hint(__pos, std::forward<_Args>(__args)...); }
+        -:  420:
+        -:  421:#if __cplusplus > 201402L
+        -:  422:      /// Extract a node.
+        -:  423:      node_type
+        -:  424:      extract(const_iterator __pos)
+        -:  425:      {
+        -:  426:	__glibcxx_assert(__pos != end());
+        -:  427:	return _M_h.extract(__pos);
+        -:  428:      }
+        -:  429:
+        -:  430:      /// Extract a node.
+        -:  431:      node_type
+        -:  432:      extract(const key_type& __key)
+        -:  433:      { return _M_h.extract(__key); }
+        -:  434:
+        -:  435:      /// Re-insert an extracted node.
+        -:  436:      insert_return_type
+        -:  437:      insert(node_type&& __nh)
+        -:  438:      { return _M_h._M_reinsert_node(std::move(__nh)); }
+        -:  439:
+        -:  440:      /// Re-insert an extracted node.
+        -:  441:      iterator
+        -:  442:      insert(const_iterator, node_type&& __nh)
+        -:  443:      { return _M_h._M_reinsert_node(std::move(__nh)).position; }
+        -:  444:
+        -:  445:#define __cpp_lib_unordered_map_try_emplace 201411
+        -:  446:      /**
+        -:  447:       *  @brief Attempts to build and insert a std::pair into the
+        -:  448:       *  %unordered_map.
+        -:  449:       *
+        -:  450:       *  @param __k    Key to use for finding a possibly existing pair in
+        -:  451:       *                the unordered_map.
+        -:  452:       *  @param __args  Arguments used to generate the .second for a 
+        -:  453:       *                new pair instance.
+        -:  454:       *
+        -:  455:       *  @return  A pair, of which the first element is an iterator that points
+        -:  456:       *           to the possibly inserted pair, and the second is a bool that
+        -:  457:       *           is true if the pair was actually inserted.
+        -:  458:       *
+        -:  459:       *  This function attempts to build and insert a (key, value) %pair into
+        -:  460:       *  the %unordered_map.
+        -:  461:       *  An %unordered_map relies on unique keys and thus a %pair is only
+        -:  462:       *  inserted if its first element (the key) is not already present in the
+        -:  463:       *  %unordered_map.
+        -:  464:       *  If a %pair is not inserted, this function has no effect.
+        -:  465:       *
+        -:  466:       *  Insertion requires amortized constant time.
+        -:  467:       */
+        -:  468:      template <typename... _Args>
+        -:  469:        pair<iterator, bool>
+        -:  470:        try_emplace(const key_type& __k, _Args&&... __args)
+        -:  471:        {
+        -:  472:          iterator __i = find(__k);
+        -:  473:          if (__i == end())
+        -:  474:            {
+        -:  475:              __i = emplace(std::piecewise_construct,
+        -:  476:                            std::forward_as_tuple(__k),
+        -:  477:                            std::forward_as_tuple(
+        -:  478:                              std::forward<_Args>(__args)...))
+        -:  479:                .first;
+        -:  480:              return {__i, true};
+        -:  481:            }
+        -:  482:          return {__i, false};
+        -:  483:        }
+        -:  484:
+        -:  485:      // move-capable overload
+        -:  486:      template <typename... _Args>
+        -:  487:        pair<iterator, bool>
+        -:  488:        try_emplace(key_type&& __k, _Args&&... __args)
+        -:  489:        {
+        -:  490:          iterator __i = find(__k);
+        -:  491:          if (__i == end())
+        -:  492:            {
+        -:  493:              __i = emplace(std::piecewise_construct,
+        -:  494:                            std::forward_as_tuple(std::move(__k)),
+        -:  495:                            std::forward_as_tuple(
+        -:  496:                              std::forward<_Args>(__args)...))
+        -:  497:                .first;
+        -:  498:              return {__i, true};
+        -:  499:            }
+        -:  500:          return {__i, false};
+        -:  501:        }
+        -:  502:
+        -:  503:      /**
+        -:  504:       *  @brief Attempts to build and insert a std::pair into the
+        -:  505:       *  %unordered_map.
+        -:  506:       *
+        -:  507:       *  @param  __hint  An iterator that serves as a hint as to where the pair
+        -:  508:       *                should be inserted.
+        -:  509:       *  @param __k    Key to use for finding a possibly existing pair in
+        -:  510:       *                the unordered_map.
+        -:  511:       *  @param __args  Arguments used to generate the .second for a 
+        -:  512:       *                new pair instance.
+        -:  513:       *  @return An iterator that points to the element with key of the
+        -:  514:       *          std::pair built from @a __args (may or may not be that
+        -:  515:       *          std::pair).
+        -:  516:       *
+        -:  517:       *  This function is not concerned about whether the insertion took place,
+        -:  518:       *  and thus does not return a boolean like the single-argument emplace()
+        -:  519:       *  does. However, if insertion did not take place,
+        -:  520:       *  this function has no effect.
+        -:  521:       *  Note that the first parameter is only a hint and can potentially
+        -:  522:       *  improve the performance of the insertion process. A bad hint would
+        -:  523:       *  cause no gains in efficiency.
+        -:  524:       *
+        -:  525:       *  See
+        -:  526:       *  https://gcc.gnu.org/onlinedocs/libstdc++/manual/associative.html#containers.associative.insert_hints
+        -:  527:       *  for more on @a hinting.
+        -:  528:       *
+        -:  529:       *  Insertion requires amortized constant time.
+        -:  530:       */
+        -:  531:      template <typename... _Args>
+        -:  532:        iterator
+        -:  533:        try_emplace(const_iterator __hint, const key_type& __k,
+        -:  534:                    _Args&&... __args)
+        -:  535:        {
+        -:  536:          iterator __i = find(__k);
+        -:  537:          if (__i == end())
+        -:  538:            __i = emplace_hint(__hint, std::piecewise_construct,
+        -:  539:                               std::forward_as_tuple(__k),
+        -:  540:                               std::forward_as_tuple(
+        -:  541:                                 std::forward<_Args>(__args)...));
+        -:  542:          return __i;
+        -:  543:        }
+        -:  544:
+        -:  545:      // move-capable overload
+        -:  546:      template <typename... _Args>
+        -:  547:        iterator
+        -:  548:        try_emplace(const_iterator __hint, key_type&& __k, _Args&&... __args)
+        -:  549:        {
+        -:  550:          iterator __i = find(__k);
+        -:  551:          if (__i == end())
+        -:  552:            __i = emplace_hint(__hint, std::piecewise_construct,
+        -:  553:                               std::forward_as_tuple(std::move(__k)),
+        -:  554:                               std::forward_as_tuple(
+        -:  555:                                 std::forward<_Args>(__args)...));
+        -:  556:          return __i;
+        -:  557:        }
+        -:  558:#endif // C++17
+        -:  559:
+        -:  560:      //@{
+        -:  561:      /**
+        -:  562:       *  @brief Attempts to insert a std::pair into the %unordered_map.
+        -:  563:
+        -:  564:       *  @param __x Pair to be inserted (see std::make_pair for easy
+        -:  565:       *	     creation of pairs).
+        -:  566:       *
+        -:  567:       *  @return  A pair, of which the first element is an iterator that 
+        -:  568:       *           points to the possibly inserted pair, and the second is 
+        -:  569:       *           a bool that is true if the pair was actually inserted.
+        -:  570:       *
+        -:  571:       *  This function attempts to insert a (key, value) %pair into the
+        -:  572:       *  %unordered_map. An %unordered_map relies on unique keys and thus a
+        -:  573:       *  %pair is only inserted if its first element (the key) is not already
+        -:  574:       *  present in the %unordered_map.
+        -:  575:       *
+        -:  576:       *  Insertion requires amortized constant time.
+        -:  577:       */
+        -:  578:      std::pair<iterator, bool>
+        -:  579:      insert(const value_type& __x)
+        -:  580:      { return _M_h.insert(__x); }
+        -:  581:
+        -:  582:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
+        -:  583:      // 2354. Unnecessary copying when inserting into maps with braced-init
+        -:  584:      std::pair<iterator, bool>
+        -:  585:      insert(value_type&& __x)
+        -:  586:      { return _M_h.insert(std::move(__x)); }
+        -:  587:
+        -:  588:      template<typename _Pair>
+        -:  589:	__enable_if_t<is_constructible<value_type, _Pair&&>::value,
+        -:  590:		      pair<iterator, bool>>
+        -:  591:	insert(_Pair&& __x)
+        -:  592:        { return _M_h.emplace(std::forward<_Pair>(__x)); }
+        -:  593:      //@}
+        -:  594:
+        -:  595:      //@{
+        -:  596:      /**
+        -:  597:       *  @brief Attempts to insert a std::pair into the %unordered_map.
+        -:  598:       *  @param  __hint  An iterator that serves as a hint as to where the
+        -:  599:       *                 pair should be inserted.
+        -:  600:       *  @param  __x  Pair to be inserted (see std::make_pair for easy creation
+        -:  601:       *               of pairs).
+        -:  602:       *  @return An iterator that points to the element with key of
+        -:  603:       *           @a __x (may or may not be the %pair passed in).
+        -:  604:       *
+        -:  605:       *  This function is not concerned about whether the insertion took place,
+        -:  606:       *  and thus does not return a boolean like the single-argument insert()
+        -:  607:       *  does.  Note that the first parameter is only a hint and can
+        -:  608:       *  potentially improve the performance of the insertion process.  A bad
+        -:  609:       *  hint would cause no gains in efficiency.
+        -:  610:       *
+        -:  611:       *  See
+        -:  612:       *  https://gcc.gnu.org/onlinedocs/libstdc++/manual/associative.html#containers.associative.insert_hints
+        -:  613:       *  for more on @a hinting.
+        -:  614:       *
+        -:  615:       *  Insertion requires amortized constant time.
+        -:  616:       */
+        -:  617:      iterator
+        -:  618:      insert(const_iterator __hint, const value_type& __x)
+        -:  619:      { return _M_h.insert(__hint, __x); }
+        -:  620:
+        -:  621:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
+        -:  622:      // 2354. Unnecessary copying when inserting into maps with braced-init
+        -:  623:      iterator
+        -:  624:      insert(const_iterator __hint, value_type&& __x)
+        -:  625:      { return _M_h.insert(__hint, std::move(__x)); }
+        -:  626:
+        -:  627:      template<typename _Pair>
+        -:  628:	__enable_if_t<is_constructible<value_type, _Pair&&>::value, iterator>
+        -:  629:	insert(const_iterator __hint, _Pair&& __x)
+        -:  630:	{ return _M_h.emplace_hint(__hint, std::forward<_Pair>(__x)); }
+        -:  631:      //@}
+        -:  632:
+        -:  633:      /**
+        -:  634:       *  @brief A template function that attempts to insert a range of
+        -:  635:       *  elements.
+        -:  636:       *  @param  __first  Iterator pointing to the start of the range to be
+        -:  637:       *                   inserted.
+        -:  638:       *  @param  __last  Iterator pointing to the end of the range.
+        -:  639:       *
+        -:  640:       *  Complexity similar to that of the range constructor.
+        -:  641:       */
+        -:  642:      template<typename _InputIterator>
+        -:  643:	void
+        -:  644:	insert(_InputIterator __first, _InputIterator __last)
+        -:  645:	{ _M_h.insert(__first, __last); }
+        -:  646:
+        -:  647:      /**
+        -:  648:       *  @brief Attempts to insert a list of elements into the %unordered_map.
+        -:  649:       *  @param  __l  A std::initializer_list<value_type> of elements
+        -:  650:       *               to be inserted.
+        -:  651:       *
+        -:  652:       *  Complexity similar to that of the range constructor.
+        -:  653:       */
+        -:  654:      void
+        -:  655:      insert(initializer_list<value_type> __l)
+        -:  656:      { _M_h.insert(__l); }
+        -:  657:
+        -:  658:
+        -:  659:#if __cplusplus > 201402L
+        -:  660:      /**
+        -:  661:       *  @brief Attempts to insert a std::pair into the %unordered_map.
+        -:  662:       *  @param __k    Key to use for finding a possibly existing pair in
+        -:  663:       *                the map.
+        -:  664:       *  @param __obj  Argument used to generate the .second for a pair 
+        -:  665:       *                instance.
+        -:  666:       *
+        -:  667:       *  @return  A pair, of which the first element is an iterator that 
+        -:  668:       *           points to the possibly inserted pair, and the second is 
+        -:  669:       *           a bool that is true if the pair was actually inserted.
+        -:  670:       *
+        -:  671:       *  This function attempts to insert a (key, value) %pair into the
+        -:  672:       *  %unordered_map. An %unordered_map relies on unique keys and thus a
+        -:  673:       *  %pair is only inserted if its first element (the key) is not already
+        -:  674:       *  present in the %unordered_map.
+        -:  675:       *  If the %pair was already in the %unordered_map, the .second of 
+        -:  676:       *  the %pair is assigned from __obj.
+        -:  677:       *
+        -:  678:       *  Insertion requires amortized constant time.
+        -:  679:       */
+        -:  680:      template <typename _Obj>
+        -:  681:        pair<iterator, bool>
+        -:  682:        insert_or_assign(const key_type& __k, _Obj&& __obj)
+        -:  683:        {
+        -:  684:          iterator __i = find(__k);
+        -:  685:          if (__i == end())
+        -:  686:            {
+        -:  687:              __i = emplace(std::piecewise_construct,
+        -:  688:                            std::forward_as_tuple(__k),
+        -:  689:                            std::forward_as_tuple(std::forward<_Obj>(__obj)))
+        -:  690:                .first;
+        -:  691:              return {__i, true};
+        -:  692:            }
+        -:  693:          (*__i).second = std::forward<_Obj>(__obj);
+        -:  694:          return {__i, false};
+        -:  695:        }
+        -:  696:
+        -:  697:      // move-capable overload
+        -:  698:      template <typename _Obj>
+        -:  699:        pair<iterator, bool>
+        -:  700:        insert_or_assign(key_type&& __k, _Obj&& __obj)
+        -:  701:        {
+        -:  702:          iterator __i = find(__k);
+        -:  703:          if (__i == end())
+        -:  704:            {
+        -:  705:              __i = emplace(std::piecewise_construct,
+        -:  706:                            std::forward_as_tuple(std::move(__k)),
+        -:  707:                            std::forward_as_tuple(std::forward<_Obj>(__obj)))
+        -:  708:                .first;
+        -:  709:              return {__i, true};
+        -:  710:            }
+        -:  711:          (*__i).second = std::forward<_Obj>(__obj);
+        -:  712:          return {__i, false};
+        -:  713:        }
+        -:  714:
+        -:  715:      /**
+        -:  716:       *  @brief Attempts to insert a std::pair into the %unordered_map.
+        -:  717:       *  @param  __hint  An iterator that serves as a hint as to where the
+        -:  718:       *                  pair should be inserted.
+        -:  719:       *  @param __k    Key to use for finding a possibly existing pair in
+        -:  720:       *                the unordered_map.
+        -:  721:       *  @param __obj  Argument used to generate the .second for a pair 
+        -:  722:       *                instance.
+        -:  723:       *  @return An iterator that points to the element with key of
+        -:  724:       *           @a __x (may or may not be the %pair passed in).
+        -:  725:       *
+        -:  726:       *  This function is not concerned about whether the insertion took place,
+        -:  727:       *  and thus does not return a boolean like the single-argument insert()
+        -:  728:       *  does.         
+        -:  729:       *  If the %pair was already in the %unordered map, the .second of
+        -:  730:       *  the %pair is assigned from __obj.
+        -:  731:       *  Note that the first parameter is only a hint and can
+        -:  732:       *  potentially improve the performance of the insertion process.  A bad
+        -:  733:       *  hint would cause no gains in efficiency.
+        -:  734:       *
+        -:  735:       *  See
+        -:  736:       *  https://gcc.gnu.org/onlinedocs/libstdc++/manual/associative.html#containers.associative.insert_hints
+        -:  737:       *  for more on @a hinting.
+        -:  738:       *
+        -:  739:       *  Insertion requires amortized constant time.
+        -:  740:       */
+        -:  741:      template <typename _Obj>
+        -:  742:        iterator
+        -:  743:        insert_or_assign(const_iterator __hint, const key_type& __k,
+        -:  744:                         _Obj&& __obj)
+        -:  745:        {
+        -:  746:          iterator __i = find(__k);
+        -:  747:          if (__i == end())
+        -:  748:            {
+        -:  749:              return emplace_hint(__hint, std::piecewise_construct,
+        -:  750:                                  std::forward_as_tuple(__k),
+        -:  751:                                  std::forward_as_tuple(
+        -:  752:                                    std::forward<_Obj>(__obj)));
+        -:  753:            }
+        -:  754:          (*__i).second = std::forward<_Obj>(__obj);
+        -:  755:          return __i;
+        -:  756:        }
+        -:  757:
+        -:  758:      // move-capable overload
+        -:  759:      template <typename _Obj>
+        -:  760:        iterator
+        -:  761:        insert_or_assign(const_iterator __hint, key_type&& __k, _Obj&& __obj)
+        -:  762:        {
+        -:  763:          iterator __i = find(__k);
+        -:  764:          if (__i == end())
+        -:  765:            {
+        -:  766:              return emplace_hint(__hint, std::piecewise_construct,
+        -:  767:                                  std::forward_as_tuple(std::move(__k)),
+        -:  768:                                  std::forward_as_tuple(
+        -:  769:                                    std::forward<_Obj>(__obj)));
+        -:  770:            }
+        -:  771:          (*__i).second = std::forward<_Obj>(__obj);
+        -:  772:          return __i;
+        -:  773:        }
+        -:  774:#endif
+        -:  775:
+        -:  776:      //@{
+        -:  777:      /**
+        -:  778:       *  @brief Erases an element from an %unordered_map.
+        -:  779:       *  @param  __position  An iterator pointing to the element to be erased.
+        -:  780:       *  @return An iterator pointing to the element immediately following
+        -:  781:       *          @a __position prior to the element being erased. If no such
+        -:  782:       *          element exists, end() is returned.
+        -:  783:       *
+        -:  784:       *  This function erases an element, pointed to by the given iterator,
+        -:  785:       *  from an %unordered_map.
+        -:  786:       *  Note that this function only erases the element, and that if the
+        -:  787:       *  element is itself a pointer, the pointed-to memory is not touched in
+        -:  788:       *  any way.  Managing the pointer is the user's responsibility.
+        -:  789:       */
+        -:  790:      iterator
+        -:  791:      erase(const_iterator __position)
+        -:  792:      { return _M_h.erase(__position); }
+        -:  793:
+        -:  794:      // LWG 2059.
+        -:  795:      iterator
+        -:  796:      erase(iterator __position)
+        -:  797:      { return _M_h.erase(__position); }
+        -:  798:      //@}
+        -:  799:
+        -:  800:      /**
+        -:  801:       *  @brief Erases elements according to the provided key.
+        -:  802:       *  @param  __x  Key of element to be erased.
+        -:  803:       *  @return  The number of elements erased.
+        -:  804:       *
+        -:  805:       *  This function erases all the elements located by the given key from
+        -:  806:       *  an %unordered_map. For an %unordered_map the result of this function
+        -:  807:       *  can only be 0 (not present) or 1 (present).
+        -:  808:       *  Note that this function only erases the element, and that if the
+        -:  809:       *  element is itself a pointer, the pointed-to memory is not touched in
+        -:  810:       *  any way.  Managing the pointer is the user's responsibility.
+        -:  811:       */
+        -:  812:      size_type
+        -:  813:      erase(const key_type& __x)
+        -:  814:      { return _M_h.erase(__x); }
+        -:  815:
+        -:  816:      /**
+        -:  817:       *  @brief Erases a [__first,__last) range of elements from an
+        -:  818:       *  %unordered_map.
+        -:  819:       *  @param  __first  Iterator pointing to the start of the range to be
+        -:  820:       *                  erased.
+        -:  821:       *  @param __last  Iterator pointing to the end of the range to
+        -:  822:       *                be erased.
+        -:  823:       *  @return The iterator @a __last.
+        -:  824:       *
+        -:  825:       *  This function erases a sequence of elements from an %unordered_map.
+        -:  826:       *  Note that this function only erases the elements, and that if
+        -:  827:       *  the element is itself a pointer, the pointed-to memory is not touched
+        -:  828:       *  in any way.  Managing the pointer is the user's responsibility.
+        -:  829:       */
+        -:  830:      iterator
+        -:  831:      erase(const_iterator __first, const_iterator __last)
+        -:  832:      { return _M_h.erase(__first, __last); }
+        -:  833:
+        -:  834:      /**
+        -:  835:       *  Erases all elements in an %unordered_map.
+        -:  836:       *  Note that this function only erases the elements, and that if the
+        -:  837:       *  elements themselves are pointers, the pointed-to memory is not touched
+        -:  838:       *  in any way.  Managing the pointer is the user's responsibility.
+        -:  839:       */
+        -:  840:      void
+    #####:  841:      clear() noexcept
+    #####:  842:      { _M_h.clear(); }
+    %%%%%:  842-block  0
+        -:  843:
+        -:  844:      /**
+        -:  845:       *  @brief  Swaps data with another %unordered_map.
+        -:  846:       *  @param  __x  An %unordered_map of the same element and allocator
+        -:  847:       *  types.
+        -:  848:       *
+        -:  849:       *  This exchanges the elements between two %unordered_map in constant
+        -:  850:       *  time.
+        -:  851:       *  Note that the global std::swap() function is specialized such that
+        -:  852:       *  std::swap(m1,m2) will feed to this function.
+        -:  853:       */
+        -:  854:      void
+        -:  855:      swap(unordered_map& __x)
+        -:  856:      noexcept( noexcept(_M_h.swap(__x._M_h)) )
+        -:  857:      { _M_h.swap(__x._M_h); }
+        -:  858:
+        -:  859:#if __cplusplus > 201402L
+        -:  860:      template<typename, typename, typename>
+        -:  861:	friend class std::_Hash_merge_helper;
+        -:  862:
+        -:  863:      template<typename _H2, typename _P2>
+        -:  864:	void
+        -:  865:	merge(unordered_map<_Key, _Tp, _H2, _P2, _Alloc>& __source)
+        -:  866:	{
+        -:  867:	  using _Merge_helper = _Hash_merge_helper<unordered_map, _H2, _P2>;
+        -:  868:	  _M_h._M_merge_unique(_Merge_helper::_S_get_table(__source));
+        -:  869:	}
+        -:  870:
+        -:  871:      template<typename _H2, typename _P2>
+        -:  872:	void
+        -:  873:	merge(unordered_map<_Key, _Tp, _H2, _P2, _Alloc>&& __source)
+        -:  874:	{ merge(__source); }
+        -:  875:
+        -:  876:      template<typename _H2, typename _P2>
+        -:  877:	void
+        -:  878:	merge(unordered_multimap<_Key, _Tp, _H2, _P2, _Alloc>& __source)
+        -:  879:	{
+        -:  880:	  using _Merge_helper = _Hash_merge_helper<unordered_map, _H2, _P2>;
+        -:  881:	  _M_h._M_merge_unique(_Merge_helper::_S_get_table(__source));
+        -:  882:	}
+        -:  883:
+        -:  884:      template<typename _H2, typename _P2>
+        -:  885:	void
+        -:  886:	merge(unordered_multimap<_Key, _Tp, _H2, _P2, _Alloc>&& __source)
+        -:  887:	{ merge(__source); }
+        -:  888:#endif // C++17
+        -:  889:
+        -:  890:      // observers.
+        -:  891:
+        -:  892:      ///  Returns the hash functor object with which the %unordered_map was
+        -:  893:      ///  constructed.
+        -:  894:      hasher
+        -:  895:      hash_function() const
+        -:  896:      { return _M_h.hash_function(); }
+        -:  897:
+        -:  898:      ///  Returns the key comparison object with which the %unordered_map was
+        -:  899:      ///  constructed.
+        -:  900:      key_equal
+        -:  901:      key_eq() const
+        -:  902:      { return _M_h.key_eq(); }
+        -:  903:
+        -:  904:      // lookup.
+        -:  905:
+        -:  906:      //@{
+        -:  907:      /**
+        -:  908:       *  @brief Tries to locate an element in an %unordered_map.
+        -:  909:       *  @param  __x  Key to be located.
+        -:  910:       *  @return  Iterator pointing to sought-after element, or end() if not
+        -:  911:       *           found.
+        -:  912:       *
+        -:  913:       *  This function takes a key and tries to locate the element with which
+        -:  914:       *  the key matches.  If successful the function returns an iterator
+        -:  915:       *  pointing to the sought after element.  If unsuccessful it returns the
+        -:  916:       *  past-the-end ( @c end() ) iterator.
+        -:  917:       */
+        -:  918:      iterator
+        -:  919:      find(const key_type& __x)
+        -:  920:      { return _M_h.find(__x); }
+        -:  921:
+        -:  922:      const_iterator
+        -:  923:      find(const key_type& __x) const
+        -:  924:      { return _M_h.find(__x); }
+        -:  925:      //@}
+        -:  926:
+        -:  927:      /**
+        -:  928:       *  @brief  Finds the number of elements.
+        -:  929:       *  @param  __x  Key to count.
+        -:  930:       *  @return  Number of elements with specified key.
+        -:  931:       *
+        -:  932:       *  This function only makes sense for %unordered_multimap; for
+        -:  933:       *  %unordered_map the result will either be 0 (not present) or 1
+        -:  934:       *  (present).
+        -:  935:       */
+        -:  936:      size_type
+        -:  937:      count(const key_type& __x) const
+        -:  938:      { return _M_h.count(__x); }
+        -:  939:
+        -:  940:#if __cplusplus > 201703L
+        -:  941:      /**
+        -:  942:       *  @brief  Finds whether an element with the given key exists.
+        -:  943:       *  @param  __x  Key of elements to be located.
+        -:  944:       *  @return  True if there is any element with the specified key.
+        -:  945:       */
+        -:  946:      bool
+        -:  947:      contains(const key_type& __x) const
+        -:  948:      { return _M_h.find(__x) != _M_h.end(); }
+        -:  949:#endif
+        -:  950:
+        -:  951:      //@{
+        -:  952:      /**
+        -:  953:       *  @brief Finds a subsequence matching given key.
+        -:  954:       *  @param  __x  Key to be located.
+        -:  955:       *  @return  Pair of iterators that possibly points to the subsequence
+        -:  956:       *           matching given key.
+        -:  957:       *
+        -:  958:       *  This function probably only makes sense for %unordered_multimap.
+        -:  959:       */
+        -:  960:      std::pair<iterator, iterator>
+        -:  961:      equal_range(const key_type& __x)
+        -:  962:      { return _M_h.equal_range(__x); }
+        -:  963:
+        -:  964:      std::pair<const_iterator, const_iterator>
+        -:  965:      equal_range(const key_type& __x) const
+        -:  966:      { return _M_h.equal_range(__x); }
+        -:  967:      //@}
+        -:  968:
+        -:  969:      //@{
+        -:  970:      /**
+        -:  971:       *  @brief  Subscript ( @c [] ) access to %unordered_map data.
+        -:  972:       *  @param  __k  The key for which data should be retrieved.
+        -:  973:       *  @return  A reference to the data of the (key,data) %pair.
+        -:  974:       *
+        -:  975:       *  Allows for easy lookup with the subscript ( @c [] )operator.  Returns
+        -:  976:       *  data associated with the key specified in subscript.  If the key does
+        -:  977:       *  not exist, a pair with that key is created using default values, which
+        -:  978:       *  is then returned.
+        -:  979:       *
+        -:  980:       *  Lookup requires constant time.
+        -:  981:       */
+        -:  982:      mapped_type&
+        -:  983:      operator[](const key_type& __k)
+        -:  984:      { return _M_h[__k]; }
+        -:  985:
+        -:  986:      mapped_type&
+        -:  987:      operator[](key_type&& __k)
+        -:  988:      { return _M_h[std::move(__k)]; }
+        -:  989:      //@}
+        -:  990:
+        -:  991:      //@{
+        -:  992:      /**
+        -:  993:       *  @brief  Access to %unordered_map data.
+        -:  994:       *  @param  __k  The key for which data should be retrieved.
+        -:  995:       *  @return  A reference to the data whose key is equal to @a __k, if
+        -:  996:       *           such a data is present in the %unordered_map.
+        -:  997:       *  @throw  std::out_of_range  If no such data is present.
+        -:  998:       */
+        -:  999:      mapped_type&
+        -: 1000:      at(const key_type& __k)
+        -: 1001:      { return _M_h.at(__k); }
+        -: 1002:
+        -: 1003:      const mapped_type&
+        -: 1004:      at(const key_type& __k) const
+        -: 1005:      { return _M_h.at(__k); }
+        -: 1006:      //@}
+        -: 1007:
+        -: 1008:      // bucket interface.
+        -: 1009:
+        -: 1010:      /// Returns the number of buckets of the %unordered_map.
+        -: 1011:      size_type
+        -: 1012:      bucket_count() const noexcept
+        -: 1013:      { return _M_h.bucket_count(); }
+        -: 1014:
+        -: 1015:      /// Returns the maximum number of buckets of the %unordered_map.
+        -: 1016:      size_type
+        -: 1017:      max_bucket_count() const noexcept
+        -: 1018:      { return _M_h.max_bucket_count(); }
+        -: 1019:
+        -: 1020:      /*
+        -: 1021:       * @brief  Returns the number of elements in a given bucket.
+        -: 1022:       * @param  __n  A bucket index.
+        -: 1023:       * @return  The number of elements in the bucket.
+        -: 1024:       */
+        -: 1025:      size_type
+        -: 1026:      bucket_size(size_type __n) const
+        -: 1027:      { return _M_h.bucket_size(__n); }
+        -: 1028:
+        -: 1029:      /*
+        -: 1030:       * @brief  Returns the bucket index of a given element.
+        -: 1031:       * @param  __key  A key instance.
+        -: 1032:       * @return  The key bucket index.
+        -: 1033:       */
+        -: 1034:      size_type
+        -: 1035:      bucket(const key_type& __key) const
+        -: 1036:      { return _M_h.bucket(__key); }
+        -: 1037:      
+        -: 1038:      /**
+        -: 1039:       *  @brief  Returns a read/write iterator pointing to the first bucket
+        -: 1040:       *         element.
+        -: 1041:       *  @param  __n The bucket index.
+        -: 1042:       *  @return  A read/write local iterator.
+        -: 1043:       */
+        -: 1044:      local_iterator
+        -: 1045:      begin(size_type __n)
+        -: 1046:      { return _M_h.begin(__n); }
+        -: 1047:
+        -: 1048:      //@{
+        -: 1049:      /**
+        -: 1050:       *  @brief  Returns a read-only (constant) iterator pointing to the first
+        -: 1051:       *         bucket element.
+        -: 1052:       *  @param  __n The bucket index.
+        -: 1053:       *  @return  A read-only local iterator.
+        -: 1054:       */
+        -: 1055:      const_local_iterator
+        -: 1056:      begin(size_type __n) const
+        -: 1057:      { return _M_h.begin(__n); }
+        -: 1058:
+        -: 1059:      const_local_iterator
+        -: 1060:      cbegin(size_type __n) const
+        -: 1061:      { return _M_h.cbegin(__n); }
+        -: 1062:      //@}
+        -: 1063:
+        -: 1064:      /**
+        -: 1065:       *  @brief  Returns a read/write iterator pointing to one past the last
+        -: 1066:       *         bucket elements.
+        -: 1067:       *  @param  __n The bucket index.
+        -: 1068:       *  @return  A read/write local iterator.
+        -: 1069:       */
+        -: 1070:      local_iterator
+        -: 1071:      end(size_type __n)
+        -: 1072:      { return _M_h.end(__n); }
+        -: 1073:
+        -: 1074:      //@{
+        -: 1075:      /**
+        -: 1076:       *  @brief  Returns a read-only (constant) iterator pointing to one past
+        -: 1077:       *         the last bucket elements.
+        -: 1078:       *  @param  __n The bucket index.
+        -: 1079:       *  @return  A read-only local iterator.
+        -: 1080:       */
+        -: 1081:      const_local_iterator
+        -: 1082:      end(size_type __n) const
+        -: 1083:      { return _M_h.end(__n); }
+        -: 1084:
+        -: 1085:      const_local_iterator
+        -: 1086:      cend(size_type __n) const
+        -: 1087:      { return _M_h.cend(__n); }
+        -: 1088:      //@}
+        -: 1089:
+        -: 1090:      // hash policy.
+        -: 1091:
+        -: 1092:      /// Returns the average number of elements per bucket.
+        -: 1093:      float
+        -: 1094:      load_factor() const noexcept
+        -: 1095:      { return _M_h.load_factor(); }
+        -: 1096:
+        -: 1097:      /// Returns a positive number that the %unordered_map tries to keep the
+        -: 1098:      /// load factor less than or equal to.
+        -: 1099:      float
+        -: 1100:      max_load_factor() const noexcept
+        -: 1101:      { return _M_h.max_load_factor(); }
+        -: 1102:
+        -: 1103:      /**
+        -: 1104:       *  @brief  Change the %unordered_map maximum load factor.
+        -: 1105:       *  @param  __z The new maximum load factor.
+        -: 1106:       */
+        -: 1107:      void
+        -: 1108:      max_load_factor(float __z)
+        -: 1109:      { _M_h.max_load_factor(__z); }
+        -: 1110:
+        -: 1111:      /**
+        -: 1112:       *  @brief  May rehash the %unordered_map.
+        -: 1113:       *  @param  __n The new number of buckets.
+        -: 1114:       *
+        -: 1115:       *  Rehash will occur only if the new number of buckets respect the
+        -: 1116:       *  %unordered_map maximum load factor.
+        -: 1117:       */
+        -: 1118:      void
+        -: 1119:      rehash(size_type __n)
+        -: 1120:      { _M_h.rehash(__n); }
+        -: 1121:
+        -: 1122:      /**
+        -: 1123:       *  @brief  Prepare the %unordered_map for a specified number of
+        -: 1124:       *          elements.
+        -: 1125:       *  @param  __n Number of elements required.
+        -: 1126:       *
+        -: 1127:       *  Same as rehash(ceil(n / max_load_factor())).
+        -: 1128:       */
+        -: 1129:      void
+        -: 1130:      reserve(size_type __n)
+        -: 1131:      { _M_h.reserve(__n); }
+        -: 1132:
+        -: 1133:      template<typename _Key1, typename _Tp1, typename _Hash1, typename _Pred1,
+        -: 1134:	       typename _Alloc1>
+        -: 1135:        friend bool
+        -: 1136:	operator==(const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&,
+        -: 1137:		   const unordered_map<_Key1, _Tp1, _Hash1, _Pred1, _Alloc1>&);
+        -: 1138:    };
+        -: 1139:
+        -: 1140:#if __cpp_deduction_guides >= 201606
+        -: 1141:
+        -: 1142:  template<typename _InputIterator,
+        -: 1143:	   typename _Hash = hash<__iter_key_t<_InputIterator>>,
+        -: 1144:	   typename _Pred = equal_to<__iter_key_t<_InputIterator>>,
+        -: 1145:	   typename _Allocator = allocator<__iter_to_alloc_t<_InputIterator>>,
+        -: 1146:	   typename = _RequireInputIter<_InputIterator>,
+        -: 1147:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 1148:	   typename = _RequireNotAllocator<_Pred>,
+        -: 1149:	   typename = _RequireAllocator<_Allocator>>
+        -: 1150:    unordered_map(_InputIterator, _InputIterator,
+        -: 1151:		  typename unordered_map<int, int>::size_type = {},
+        -: 1152:		  _Hash = _Hash(), _Pred = _Pred(), _Allocator = _Allocator())
+        -: 1153:    -> unordered_map<__iter_key_t<_InputIterator>,
+        -: 1154:		     __iter_val_t<_InputIterator>,
+        -: 1155:		     _Hash, _Pred, _Allocator>;
+        -: 1156:
+        -: 1157:  template<typename _Key, typename _Tp, typename _Hash = hash<_Key>,
+        -: 1158:	   typename _Pred = equal_to<_Key>,
+        -: 1159:	   typename _Allocator = allocator<pair<const _Key, _Tp>>,
+        -: 1160:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 1161:	   typename = _RequireNotAllocator<_Pred>,
+        -: 1162:	   typename = _RequireAllocator<_Allocator>>
+        -: 1163:    unordered_map(initializer_list<pair<_Key, _Tp>>,
+        -: 1164:		  typename unordered_map<int, int>::size_type = {},
+        -: 1165:		  _Hash = _Hash(), _Pred = _Pred(), _Allocator = _Allocator())
+        -: 1166:    -> unordered_map<_Key, _Tp, _Hash, _Pred, _Allocator>;
+        -: 1167:
+        -: 1168:  template<typename _InputIterator, typename _Allocator,
+        -: 1169:	   typename = _RequireInputIter<_InputIterator>,
+        -: 1170:	   typename = _RequireAllocator<_Allocator>>
+        -: 1171:    unordered_map(_InputIterator, _InputIterator,
+        -: 1172:		  typename unordered_map<int, int>::size_type, _Allocator)
+        -: 1173:    -> unordered_map<__iter_key_t<_InputIterator>,
+        -: 1174:		     __iter_val_t<_InputIterator>,
+        -: 1175:		     hash<__iter_key_t<_InputIterator>>,
+        -: 1176:		     equal_to<__iter_key_t<_InputIterator>>,
+        -: 1177:		     _Allocator>;
+        -: 1178:
+        -: 1179:  template<typename _InputIterator, typename _Allocator,
+        -: 1180:	   typename = _RequireInputIter<_InputIterator>,
+        -: 1181:	   typename = _RequireAllocator<_Allocator>>
+        -: 1182:    unordered_map(_InputIterator, _InputIterator, _Allocator)
+        -: 1183:    -> unordered_map<__iter_key_t<_InputIterator>,
+        -: 1184:		     __iter_val_t<_InputIterator>,
+        -: 1185:		     hash<__iter_key_t<_InputIterator>>,
+        -: 1186:		     equal_to<__iter_key_t<_InputIterator>>,
+        -: 1187:		     _Allocator>;
+        -: 1188:
+        -: 1189:  template<typename _InputIterator, typename _Hash, typename _Allocator,
+        -: 1190:	   typename = _RequireInputIter<_InputIterator>,
+        -: 1191:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 1192:	   typename = _RequireAllocator<_Allocator>>
+        -: 1193:    unordered_map(_InputIterator, _InputIterator,
+        -: 1194:		  typename unordered_map<int, int>::size_type,
+        -: 1195:		  _Hash, _Allocator)
+        -: 1196:    -> unordered_map<__iter_key_t<_InputIterator>,
+        -: 1197:		     __iter_val_t<_InputIterator>, _Hash,
+        -: 1198:		     equal_to<__iter_key_t<_InputIterator>>, _Allocator>;
+        -: 1199:
+        -: 1200:  template<typename _Key, typename _Tp, typename _Allocator,
+        -: 1201:	   typename = _RequireAllocator<_Allocator>>
+        -: 1202:    unordered_map(initializer_list<pair<_Key, _Tp>>,
+        -: 1203:		  typename unordered_map<int, int>::size_type,
+        -: 1204:		  _Allocator)
+        -: 1205:    -> unordered_map<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+        -: 1206:
+        -: 1207:  template<typename _Key, typename _Tp, typename _Allocator,
+        -: 1208:	   typename = _RequireAllocator<_Allocator>>
+        -: 1209:    unordered_map(initializer_list<pair<_Key, _Tp>>, _Allocator)
+        -: 1210:    -> unordered_map<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+        -: 1211:
+        -: 1212:  template<typename _Key, typename _Tp, typename _Hash, typename _Allocator,
+        -: 1213:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 1214:	   typename = _RequireAllocator<_Allocator>>
+        -: 1215:    unordered_map(initializer_list<pair<_Key, _Tp>>,
+        -: 1216:		  typename unordered_map<int, int>::size_type,
+        -: 1217:		  _Hash, _Allocator)
+        -: 1218:    -> unordered_map<_Key, _Tp, _Hash, equal_to<_Key>, _Allocator>;
+        -: 1219:
+        -: 1220:#endif
+        -: 1221:
+        -: 1222:  /**
+        -: 1223:   *  @brief A standard container composed of equivalent keys
+        -: 1224:   *  (possibly containing multiple of each key value) that associates
+        -: 1225:   *  values of another type with the keys.
+        -: 1226:   *
+        -: 1227:   *  @ingroup unordered_associative_containers
+        -: 1228:   *
+        -: 1229:   *  @tparam  _Key    Type of key objects.
+        -: 1230:   *  @tparam  _Tp     Type of mapped objects.
+        -: 1231:   *  @tparam  _Hash   Hashing function object type, defaults to hash<_Value>.
+        -: 1232:   *  @tparam  _Pred   Predicate function object type, defaults
+        -: 1233:   *                   to equal_to<_Value>.
+        -: 1234:   *  @tparam  _Alloc  Allocator type, defaults to
+        -: 1235:   *                   std::allocator<std::pair<const _Key, _Tp>>.
+        -: 1236:   *
+        -: 1237:   *  Meets the requirements of a <a href="tables.html#65">container</a>, and
+        -: 1238:   *  <a href="tables.html#xx">unordered associative container</a>
+        -: 1239:   *
+        -: 1240:   * The resulting value type of the container is std::pair<const _Key, _Tp>.
+        -: 1241:   *
+        -: 1242:   *  Base is _Hashtable, dispatched at compile time via template
+        -: 1243:   *  alias __ummap_hashtable.
+        -: 1244:   */
+        -: 1245:  template<typename _Key, typename _Tp,
+        -: 1246:	   typename _Hash = hash<_Key>,
+        -: 1247:	   typename _Pred = equal_to<_Key>,
+        -: 1248:	   typename _Alloc = allocator<std::pair<const _Key, _Tp>>>
+        -: 1249:    class unordered_multimap
+        -: 1250:    {
+        -: 1251:      typedef __ummap_hashtable<_Key, _Tp, _Hash, _Pred, _Alloc>  _Hashtable;
+        -: 1252:      _Hashtable _M_h;
+        -: 1253:
+        -: 1254:    public:
+        -: 1255:      // typedefs:
+        -: 1256:      //@{
+        -: 1257:      /// Public typedefs.
+        -: 1258:      typedef typename _Hashtable::key_type	key_type;
+        -: 1259:      typedef typename _Hashtable::value_type	value_type;
+        -: 1260:      typedef typename _Hashtable::mapped_type	mapped_type;
+        -: 1261:      typedef typename _Hashtable::hasher	hasher;
+        -: 1262:      typedef typename _Hashtable::key_equal	key_equal;
+        -: 1263:      typedef typename _Hashtable::allocator_type allocator_type;
+        -: 1264:      //@}
+        -: 1265:
+        -: 1266:      //@{
+        -: 1267:      ///  Iterator-related typedefs.
+        -: 1268:      typedef typename _Hashtable::pointer		pointer;
+        -: 1269:      typedef typename _Hashtable::const_pointer	const_pointer;
+        -: 1270:      typedef typename _Hashtable::reference		reference;
+        -: 1271:      typedef typename _Hashtable::const_reference	const_reference;
+        -: 1272:      typedef typename _Hashtable::iterator		iterator;
+        -: 1273:      typedef typename _Hashtable::const_iterator	const_iterator;
+        -: 1274:      typedef typename _Hashtable::local_iterator	local_iterator;
+        -: 1275:      typedef typename _Hashtable::const_local_iterator	const_local_iterator;
+        -: 1276:      typedef typename _Hashtable::size_type		size_type;
+        -: 1277:      typedef typename _Hashtable::difference_type	difference_type;
+        -: 1278:      //@}
+        -: 1279:
+        -: 1280:#if __cplusplus > 201402L
+        -: 1281:      using node_type = typename _Hashtable::node_type;
+        -: 1282:#endif
+        -: 1283:
+        -: 1284:      //construct/destroy/copy
+        -: 1285:
+        -: 1286:      /// Default constructor.
+        -: 1287:      unordered_multimap() = default;
+        -: 1288:
+        -: 1289:      /**
+        -: 1290:       *  @brief  Default constructor creates no elements.
+        -: 1291:       *  @param __n  Mnimal initial number of buckets.
+        -: 1292:       *  @param __hf  A hash functor.
+        -: 1293:       *  @param __eql  A key equality functor.
+        -: 1294:       *  @param __a  An allocator object.
+        -: 1295:       */
+        -: 1296:      explicit
+        -: 1297:      unordered_multimap(size_type __n,
+        -: 1298:			 const hasher& __hf = hasher(),
+        -: 1299:			 const key_equal& __eql = key_equal(),
+        -: 1300:			 const allocator_type& __a = allocator_type())
+        -: 1301:      : _M_h(__n, __hf, __eql, __a)
+        -: 1302:      { }
+        -: 1303:
+        -: 1304:      /**
+        -: 1305:       *  @brief  Builds an %unordered_multimap from a range.
+        -: 1306:       *  @param  __first An input iterator.
+        -: 1307:       *  @param  __last  An input iterator.
+        -: 1308:       *  @param __n      Minimal initial number of buckets.
+        -: 1309:       *  @param __hf     A hash functor.
+        -: 1310:       *  @param __eql    A key equality functor.
+        -: 1311:       *  @param __a      An allocator object.
+        -: 1312:       *
+        -: 1313:       *  Create an %unordered_multimap consisting of copies of the elements
+        -: 1314:       *  from [__first,__last).  This is linear in N (where N is
+        -: 1315:       *  distance(__first,__last)).
+        -: 1316:       */
+        -: 1317:      template<typename _InputIterator>
+        -: 1318:	unordered_multimap(_InputIterator __first, _InputIterator __last,
+        -: 1319:			   size_type __n = 0,
+        -: 1320:			   const hasher& __hf = hasher(),
+        -: 1321:			   const key_equal& __eql = key_equal(),
+        -: 1322:			   const allocator_type& __a = allocator_type())
+        -: 1323:	: _M_h(__first, __last, __n, __hf, __eql, __a)
+        -: 1324:	{ }
+        -: 1325:
+        -: 1326:      /// Copy constructor.
+        -: 1327:      unordered_multimap(const unordered_multimap&) = default;
+        -: 1328:
+        -: 1329:      /// Move constructor.
+        -: 1330:      unordered_multimap(unordered_multimap&&) = default;
+        -: 1331:
+        -: 1332:      /**
+        -: 1333:       *  @brief Creates an %unordered_multimap with no elements.
+        -: 1334:       *  @param __a An allocator object.
+        -: 1335:       */
+        -: 1336:      explicit
+        -: 1337:      unordered_multimap(const allocator_type& __a)
+        -: 1338:      : _M_h(__a)
+        -: 1339:      { }
+        -: 1340:
+        -: 1341:      /*
+        -: 1342:       *  @brief Copy constructor with allocator argument.
+        -: 1343:       * @param  __uset  Input %unordered_multimap to copy.
+        -: 1344:       * @param  __a  An allocator object.
+        -: 1345:       */
+        -: 1346:      unordered_multimap(const unordered_multimap& __ummap,
+        -: 1347:			 const allocator_type& __a)
+        -: 1348:      : _M_h(__ummap._M_h, __a)
+        -: 1349:      { }
+        -: 1350:
+        -: 1351:      /*
+        -: 1352:       *  @brief  Move constructor with allocator argument.
+        -: 1353:       *  @param  __uset Input %unordered_multimap to move.
+        -: 1354:       *  @param  __a    An allocator object.
+        -: 1355:       */
+        -: 1356:      unordered_multimap(unordered_multimap&& __ummap,
+        -: 1357:			 const allocator_type& __a)
+        -: 1358:      : _M_h(std::move(__ummap._M_h), __a)
+        -: 1359:      { }
+        -: 1360:
+        -: 1361:      /**
+        -: 1362:       *  @brief  Builds an %unordered_multimap from an initializer_list.
+        -: 1363:       *  @param  __l  An initializer_list.
+        -: 1364:       *  @param __n  Minimal initial number of buckets.
+        -: 1365:       *  @param __hf  A hash functor.
+        -: 1366:       *  @param __eql  A key equality functor.
+        -: 1367:       *  @param  __a  An allocator object.
+        -: 1368:       *
+        -: 1369:       *  Create an %unordered_multimap consisting of copies of the elements in
+        -: 1370:       *  the list. This is linear in N (where N is @a __l.size()).
+        -: 1371:       */
+        -: 1372:      unordered_multimap(initializer_list<value_type> __l,
+        -: 1373:			 size_type __n = 0,
+        -: 1374:			 const hasher& __hf = hasher(),
+        -: 1375:			 const key_equal& __eql = key_equal(),
+        -: 1376:			 const allocator_type& __a = allocator_type())
+        -: 1377:      : _M_h(__l, __n, __hf, __eql, __a)
+        -: 1378:      { }
+        -: 1379:
+        -: 1380:      unordered_multimap(size_type __n, const allocator_type& __a)
+        -: 1381:      : unordered_multimap(__n, hasher(), key_equal(), __a)
+        -: 1382:      { }
+        -: 1383:
+        -: 1384:      unordered_multimap(size_type __n, const hasher& __hf,
+        -: 1385:			 const allocator_type& __a)
+        -: 1386:      : unordered_multimap(__n, __hf, key_equal(), __a)
+        -: 1387:      { }
+        -: 1388:
+        -: 1389:      template<typename _InputIterator>
+        -: 1390:	unordered_multimap(_InputIterator __first, _InputIterator __last,
+        -: 1391:			   size_type __n,
+        -: 1392:			   const allocator_type& __a)
+        -: 1393:	: unordered_multimap(__first, __last, __n, hasher(), key_equal(), __a)
+        -: 1394:	{ }
+        -: 1395:
+        -: 1396:      template<typename _InputIterator>
+        -: 1397:	unordered_multimap(_InputIterator __first, _InputIterator __last,
+        -: 1398:			   size_type __n, const hasher& __hf,
+        -: 1399:			   const allocator_type& __a)
+        -: 1400:	: unordered_multimap(__first, __last, __n, __hf, key_equal(), __a)
+        -: 1401:	{ }
+        -: 1402:
+        -: 1403:      unordered_multimap(initializer_list<value_type> __l,
+        -: 1404:			 size_type __n,
+        -: 1405:			 const allocator_type& __a)
+        -: 1406:      : unordered_multimap(__l, __n, hasher(), key_equal(), __a)
+        -: 1407:      { }
+        -: 1408:
+        -: 1409:      unordered_multimap(initializer_list<value_type> __l,
+        -: 1410:			 size_type __n, const hasher& __hf,
+        -: 1411:			 const allocator_type& __a)
+        -: 1412:      : unordered_multimap(__l, __n, __hf, key_equal(), __a)
+        -: 1413:      { }
+        -: 1414:
+        -: 1415:      /// Copy assignment operator.
+        -: 1416:      unordered_multimap&
+        -: 1417:      operator=(const unordered_multimap&) = default;
+        -: 1418:
+        -: 1419:      /// Move assignment operator.
+        -: 1420:      unordered_multimap&
+        -: 1421:      operator=(unordered_multimap&&) = default;
+        -: 1422:
+        -: 1423:      /**
+        -: 1424:       *  @brief  %Unordered_multimap list assignment operator.
+        -: 1425:       *  @param  __l  An initializer_list.
+        -: 1426:       *
+        -: 1427:       *  This function fills an %unordered_multimap with copies of the
+        -: 1428:       *  elements in the initializer list @a __l.
+        -: 1429:       *
+        -: 1430:       *  Note that the assignment completely changes the %unordered_multimap
+        -: 1431:       *  and that the resulting %unordered_multimap's size is the same as the
+        -: 1432:       *  number of elements assigned.
+        -: 1433:       */
+        -: 1434:      unordered_multimap&
+        -: 1435:      operator=(initializer_list<value_type> __l)
+        -: 1436:      {
+        -: 1437:	_M_h = __l;
+        -: 1438:	return *this;
+        -: 1439:      }
+        -: 1440:
+        -: 1441:      ///  Returns the allocator object used by the %unordered_multimap.
+        -: 1442:      allocator_type
+        -: 1443:      get_allocator() const noexcept
+        -: 1444:      { return _M_h.get_allocator(); }
+        -: 1445:
+        -: 1446:      // size and capacity:
+        -: 1447:
+        -: 1448:      ///  Returns true if the %unordered_multimap is empty.
+        -: 1449:      _GLIBCXX_NODISCARD bool
+        -: 1450:      empty() const noexcept
+        -: 1451:      { return _M_h.empty(); }
+        -: 1452:
+        -: 1453:      ///  Returns the size of the %unordered_multimap.
+        -: 1454:      size_type
+        -: 1455:      size() const noexcept
+        -: 1456:      { return _M_h.size(); }
+        -: 1457:
+        -: 1458:      ///  Returns the maximum size of the %unordered_multimap.
+        -: 1459:      size_type
+        -: 1460:      max_size() const noexcept
+        -: 1461:      { return _M_h.max_size(); }
+        -: 1462:
+        -: 1463:      // iterators.
+        -: 1464:
+        -: 1465:      /**
+        -: 1466:       *  Returns a read/write iterator that points to the first element in the
+        -: 1467:       *  %unordered_multimap.
+        -: 1468:       */
+        -: 1469:      iterator
+        -: 1470:      begin() noexcept
+        -: 1471:      { return _M_h.begin(); }
+        -: 1472:
+        -: 1473:      //@{
+        -: 1474:      /**
+        -: 1475:       *  Returns a read-only (constant) iterator that points to the first
+        -: 1476:       *  element in the %unordered_multimap.
+        -: 1477:       */
+        -: 1478:      const_iterator
+        -: 1479:      begin() const noexcept
+        -: 1480:      { return _M_h.begin(); }
+        -: 1481:
+        -: 1482:      const_iterator
+        -: 1483:      cbegin() const noexcept
+        -: 1484:      { return _M_h.begin(); }
+        -: 1485:      //@}
+        -: 1486:
+        -: 1487:      /**
+        -: 1488:       *  Returns a read/write iterator that points one past the last element in
+        -: 1489:       *  the %unordered_multimap.
+        -: 1490:       */
+        -: 1491:      iterator
+        -: 1492:      end() noexcept
+        -: 1493:      { return _M_h.end(); }
+        -: 1494:
+        -: 1495:      //@{
+        -: 1496:      /**
+        -: 1497:       *  Returns a read-only (constant) iterator that points one past the last
+        -: 1498:       *  element in the %unordered_multimap.
+        -: 1499:       */
+        -: 1500:      const_iterator
+        -: 1501:      end() const noexcept
+        -: 1502:      { return _M_h.end(); }
+        -: 1503:
+        -: 1504:      const_iterator
+        -: 1505:      cend() const noexcept
+        -: 1506:      { return _M_h.end(); }
+        -: 1507:      //@}
+        -: 1508:
+        -: 1509:      // modifiers.
+        -: 1510:
+        -: 1511:      /**
+        -: 1512:       *  @brief Attempts to build and insert a std::pair into the
+        -: 1513:       *  %unordered_multimap.
+        -: 1514:       *
+        -: 1515:       *  @param __args  Arguments used to generate a new pair instance (see
+        -: 1516:       *	        std::piecewise_contruct for passing arguments to each
+        -: 1517:       *	        part of the pair constructor).
+        -: 1518:       *
+        -: 1519:       *  @return  An iterator that points to the inserted pair.
+        -: 1520:       *
+        -: 1521:       *  This function attempts to build and insert a (key, value) %pair into
+        -: 1522:       *  the %unordered_multimap.
+        -: 1523:       *
+        -: 1524:       *  Insertion requires amortized constant time.
+        -: 1525:       */
+        -: 1526:      template<typename... _Args>
+        -: 1527:	iterator
+        -: 1528:	emplace(_Args&&... __args)
+        -: 1529:	{ return _M_h.emplace(std::forward<_Args>(__args)...); }
+        -: 1530:
+        -: 1531:      /**
+        -: 1532:       *  @brief Attempts to build and insert a std::pair into the
+        -: 1533:       *  %unordered_multimap.
+        -: 1534:       *
+        -: 1535:       *  @param  __pos  An iterator that serves as a hint as to where the pair
+        -: 1536:       *                should be inserted.
+        -: 1537:       *  @param  __args  Arguments used to generate a new pair instance (see
+        -: 1538:       *	         std::piecewise_contruct for passing arguments to each
+        -: 1539:       *	         part of the pair constructor).
+        -: 1540:       *  @return An iterator that points to the element with key of the
+        -: 1541:       *          std::pair built from @a __args.
+        -: 1542:       *
+        -: 1543:       *  Note that the first parameter is only a hint and can potentially
+        -: 1544:       *  improve the performance of the insertion process. A bad hint would
+        -: 1545:       *  cause no gains in efficiency.
+        -: 1546:       *
+        -: 1547:       *  See
+        -: 1548:       *  https://gcc.gnu.org/onlinedocs/libstdc++/manual/associative.html#containers.associative.insert_hints
+        -: 1549:       *  for more on @a hinting.
+        -: 1550:       *
+        -: 1551:       *  Insertion requires amortized constant time.
+        -: 1552:       */
+        -: 1553:      template<typename... _Args>
+        -: 1554:	iterator
+        -: 1555:	emplace_hint(const_iterator __pos, _Args&&... __args)
+        -: 1556:	{ return _M_h.emplace_hint(__pos, std::forward<_Args>(__args)...); }
+        -: 1557:
+        -: 1558:      //@{
+        -: 1559:      /**
+        -: 1560:       *  @brief Inserts a std::pair into the %unordered_multimap.
+        -: 1561:       *  @param __x Pair to be inserted (see std::make_pair for easy
+        -: 1562:       *	     creation of pairs).
+        -: 1563:       *
+        -: 1564:       *  @return  An iterator that points to the inserted pair.
+        -: 1565:       *
+        -: 1566:       *  Insertion requires amortized constant time.
+        -: 1567:       */
+        -: 1568:      iterator
+        -: 1569:      insert(const value_type& __x)
+        -: 1570:      { return _M_h.insert(__x); }
+        -: 1571:
+        -: 1572:      iterator
+        -: 1573:      insert(value_type&& __x)
+        -: 1574:      { return _M_h.insert(std::move(__x)); }
+        -: 1575:
+        -: 1576:      template<typename _Pair>
+        -: 1577:	__enable_if_t<is_constructible<value_type, _Pair&&>::value, iterator>
+        -: 1578:	insert(_Pair&& __x)
+        -: 1579:        { return _M_h.emplace(std::forward<_Pair>(__x)); }
+        -: 1580:      //@}
+        -: 1581:
+        -: 1582:      //@{
+        -: 1583:      /**
+        -: 1584:       *  @brief Inserts a std::pair into the %unordered_multimap.
+        -: 1585:       *  @param  __hint  An iterator that serves as a hint as to where the
+        -: 1586:       *                 pair should be inserted.
+        -: 1587:       *  @param  __x  Pair to be inserted (see std::make_pair for easy creation
+        -: 1588:       *               of pairs).
+        -: 1589:       *  @return An iterator that points to the element with key of
+        -: 1590:       *           @a __x (may or may not be the %pair passed in).
+        -: 1591:       *
+        -: 1592:       *  Note that the first parameter is only a hint and can potentially
+        -: 1593:       *  improve the performance of the insertion process.  A bad hint would
+        -: 1594:       *  cause no gains in efficiency.
+        -: 1595:       *
+        -: 1596:       *  See
+        -: 1597:       *  https://gcc.gnu.org/onlinedocs/libstdc++/manual/associative.html#containers.associative.insert_hints
+        -: 1598:       *  for more on @a hinting.
+        -: 1599:       *
+        -: 1600:       *  Insertion requires amortized constant time.
+        -: 1601:       */
+        -: 1602:      iterator
+        -: 1603:      insert(const_iterator __hint, const value_type& __x)
+        -: 1604:      { return _M_h.insert(__hint, __x); }
+        -: 1605:
+        -: 1606:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
+        -: 1607:      // 2354. Unnecessary copying when inserting into maps with braced-init
+        -: 1608:      iterator
+        -: 1609:      insert(const_iterator __hint, value_type&& __x)
+        -: 1610:      { return _M_h.insert(__hint, std::move(__x)); }
+        -: 1611:
+        -: 1612:      template<typename _Pair>
+        -: 1613:	__enable_if_t<is_constructible<value_type, _Pair&&>::value, iterator>
+        -: 1614:	insert(const_iterator __hint, _Pair&& __x)
+        -: 1615:        { return _M_h.emplace_hint(__hint, std::forward<_Pair>(__x)); }
+        -: 1616:      //@}
+        -: 1617:
+        -: 1618:      /**
+        -: 1619:       *  @brief A template function that attempts to insert a range of
+        -: 1620:       *  elements.
+        -: 1621:       *  @param  __first  Iterator pointing to the start of the range to be
+        -: 1622:       *                   inserted.
+        -: 1623:       *  @param  __last  Iterator pointing to the end of the range.
+        -: 1624:       *
+        -: 1625:       *  Complexity similar to that of the range constructor.
+        -: 1626:       */
+        -: 1627:      template<typename _InputIterator>
+        -: 1628:	void
+        -: 1629:	insert(_InputIterator __first, _InputIterator __last)
+        -: 1630:	{ _M_h.insert(__first, __last); }
+        -: 1631:
+        -: 1632:      /**
+        -: 1633:       *  @brief Attempts to insert a list of elements into the
+        -: 1634:       *  %unordered_multimap.
+        -: 1635:       *  @param  __l  A std::initializer_list<value_type> of elements
+        -: 1636:       *               to be inserted.
+        -: 1637:       *
+        -: 1638:       *  Complexity similar to that of the range constructor.
+        -: 1639:       */
+        -: 1640:      void
+        -: 1641:      insert(initializer_list<value_type> __l)
+        -: 1642:      { _M_h.insert(__l); }
+        -: 1643:
+        -: 1644:#if __cplusplus > 201402L
+        -: 1645:      /// Extract a node.
+        -: 1646:      node_type
+        -: 1647:      extract(const_iterator __pos)
+        -: 1648:      {
+        -: 1649:	__glibcxx_assert(__pos != end());
+        -: 1650:	return _M_h.extract(__pos);
+        -: 1651:      }
+        -: 1652:
+        -: 1653:      /// Extract a node.
+        -: 1654:      node_type
+        -: 1655:      extract(const key_type& __key)
+        -: 1656:      { return _M_h.extract(__key); }
+        -: 1657:
+        -: 1658:      /// Re-insert an extracted node.
+        -: 1659:      iterator
+        -: 1660:      insert(node_type&& __nh)
+        -: 1661:      { return _M_h._M_reinsert_node_multi(cend(), std::move(__nh)); }
+        -: 1662:
+        -: 1663:      /// Re-insert an extracted node.
+        -: 1664:      iterator
+        -: 1665:      insert(const_iterator __hint, node_type&& __nh)
+        -: 1666:      { return _M_h._M_reinsert_node_multi(__hint, std::move(__nh)); }
+        -: 1667:#endif // C++17
+        -: 1668:
+        -: 1669:      //@{
+        -: 1670:      /**
+        -: 1671:       *  @brief Erases an element from an %unordered_multimap.
+        -: 1672:       *  @param  __position  An iterator pointing to the element to be erased.
+        -: 1673:       *  @return An iterator pointing to the element immediately following
+        -: 1674:       *          @a __position prior to the element being erased. If no such
+        -: 1675:       *          element exists, end() is returned.
+        -: 1676:       *
+        -: 1677:       *  This function erases an element, pointed to by the given iterator,
+        -: 1678:       *  from an %unordered_multimap.
+        -: 1679:       *  Note that this function only erases the element, and that if the
+        -: 1680:       *  element is itself a pointer, the pointed-to memory is not touched in
+        -: 1681:       *  any way.  Managing the pointer is the user's responsibility.
+        -: 1682:       */
+        -: 1683:      iterator
+        -: 1684:      erase(const_iterator __position)
+        -: 1685:      { return _M_h.erase(__position); }
+        -: 1686:
+        -: 1687:      // LWG 2059.
+        -: 1688:      iterator
+        -: 1689:      erase(iterator __position)
+        -: 1690:      { return _M_h.erase(__position); }
+        -: 1691:      //@}
+        -: 1692:
+        -: 1693:      /**
+        -: 1694:       *  @brief Erases elements according to the provided key.
+        -: 1695:       *  @param  __x  Key of elements to be erased.
+        -: 1696:       *  @return  The number of elements erased.
+        -: 1697:       *
+        -: 1698:       *  This function erases all the elements located by the given key from
+        -: 1699:       *  an %unordered_multimap.
+        -: 1700:       *  Note that this function only erases the element, and that if the
+        -: 1701:       *  element is itself a pointer, the pointed-to memory is not touched in
+        -: 1702:       *  any way.  Managing the pointer is the user's responsibility.
+        -: 1703:       */
+        -: 1704:      size_type
+        -: 1705:      erase(const key_type& __x)
+        -: 1706:      { return _M_h.erase(__x); }
+        -: 1707:
+        -: 1708:      /**
+        -: 1709:       *  @brief Erases a [__first,__last) range of elements from an
+        -: 1710:       *  %unordered_multimap.
+        -: 1711:       *  @param  __first  Iterator pointing to the start of the range to be
+        -: 1712:       *                  erased.
+        -: 1713:       *  @param __last  Iterator pointing to the end of the range to
+        -: 1714:       *                be erased.
+        -: 1715:       *  @return The iterator @a __last.
+        -: 1716:       *
+        -: 1717:       *  This function erases a sequence of elements from an
+        -: 1718:       *  %unordered_multimap.
+        -: 1719:       *  Note that this function only erases the elements, and that if
+        -: 1720:       *  the element is itself a pointer, the pointed-to memory is not touched
+        -: 1721:       *  in any way.  Managing the pointer is the user's responsibility.
+        -: 1722:       */
+        -: 1723:      iterator
+        -: 1724:      erase(const_iterator __first, const_iterator __last)
+        -: 1725:      { return _M_h.erase(__first, __last); }
+        -: 1726:
+        -: 1727:      /**
+        -: 1728:       *  Erases all elements in an %unordered_multimap.
+        -: 1729:       *  Note that this function only erases the elements, and that if the
+        -: 1730:       *  elements themselves are pointers, the pointed-to memory is not touched
+        -: 1731:       *  in any way.  Managing the pointer is the user's responsibility.
+        -: 1732:       */
+        -: 1733:      void
+        -: 1734:      clear() noexcept
+        -: 1735:      { _M_h.clear(); }
+        -: 1736:
+        -: 1737:      /**
+        -: 1738:       *  @brief  Swaps data with another %unordered_multimap.
+        -: 1739:       *  @param  __x  An %unordered_multimap of the same element and allocator
+        -: 1740:       *  types.
+        -: 1741:       *
+        -: 1742:       *  This exchanges the elements between two %unordered_multimap in
+        -: 1743:       *  constant time.
+        -: 1744:       *  Note that the global std::swap() function is specialized such that
+        -: 1745:       *  std::swap(m1,m2) will feed to this function.
+        -: 1746:       */
+        -: 1747:      void
+        -: 1748:      swap(unordered_multimap& __x)
+        -: 1749:      noexcept( noexcept(_M_h.swap(__x._M_h)) )
+        -: 1750:      { _M_h.swap(__x._M_h); }
+        -: 1751:
+        -: 1752:#if __cplusplus > 201402L
+        -: 1753:      template<typename, typename, typename>
+        -: 1754:	friend class std::_Hash_merge_helper;
+        -: 1755:
+        -: 1756:      template<typename _H2, typename _P2>
+        -: 1757:	void
+        -: 1758:	merge(unordered_multimap<_Key, _Tp, _H2, _P2, _Alloc>& __source)
+        -: 1759:	{
+        -: 1760:	  using _Merge_helper
+        -: 1761:	    = _Hash_merge_helper<unordered_multimap, _H2, _P2>;
+        -: 1762:	  _M_h._M_merge_multi(_Merge_helper::_S_get_table(__source));
+        -: 1763:	}
+        -: 1764:
+        -: 1765:      template<typename _H2, typename _P2>
+        -: 1766:	void
+        -: 1767:	merge(unordered_multimap<_Key, _Tp, _H2, _P2, _Alloc>&& __source)
+        -: 1768:	{ merge(__source); }
+        -: 1769:
+        -: 1770:      template<typename _H2, typename _P2>
+        -: 1771:	void
+        -: 1772:	merge(unordered_map<_Key, _Tp, _H2, _P2, _Alloc>& __source)
+        -: 1773:	{
+        -: 1774:	  using _Merge_helper
+        -: 1775:	    = _Hash_merge_helper<unordered_multimap, _H2, _P2>;
+        -: 1776:	  _M_h._M_merge_multi(_Merge_helper::_S_get_table(__source));
+        -: 1777:	}
+        -: 1778:
+        -: 1779:      template<typename _H2, typename _P2>
+        -: 1780:	void
+        -: 1781:	merge(unordered_map<_Key, _Tp, _H2, _P2, _Alloc>&& __source)
+        -: 1782:	{ merge(__source); }
+        -: 1783:#endif // C++17
+        -: 1784:
+        -: 1785:      // observers.
+        -: 1786:
+        -: 1787:      ///  Returns the hash functor object with which the %unordered_multimap
+        -: 1788:      ///  was constructed.
+        -: 1789:      hasher
+        -: 1790:      hash_function() const
+        -: 1791:      { return _M_h.hash_function(); }
+        -: 1792:
+        -: 1793:      ///  Returns the key comparison object with which the %unordered_multimap
+        -: 1794:      ///  was constructed.
+        -: 1795:      key_equal
+        -: 1796:      key_eq() const
+        -: 1797:      { return _M_h.key_eq(); }
+        -: 1798:
+        -: 1799:      // lookup.
+        -: 1800:
+        -: 1801:      //@{
+        -: 1802:      /**
+        -: 1803:       *  @brief Tries to locate an element in an %unordered_multimap.
+        -: 1804:       *  @param  __x  Key to be located.
+        -: 1805:       *  @return  Iterator pointing to sought-after element, or end() if not
+        -: 1806:       *           found.
+        -: 1807:       *
+        -: 1808:       *  This function takes a key and tries to locate the element with which
+        -: 1809:       *  the key matches.  If successful the function returns an iterator
+        -: 1810:       *  pointing to the sought after element.  If unsuccessful it returns the
+        -: 1811:       *  past-the-end ( @c end() ) iterator.
+        -: 1812:       */
+        -: 1813:      iterator
+        -: 1814:      find(const key_type& __x)
+        -: 1815:      { return _M_h.find(__x); }
+        -: 1816:
+        -: 1817:      const_iterator
+        -: 1818:      find(const key_type& __x) const
+        -: 1819:      { return _M_h.find(__x); }
+        -: 1820:      //@}
+        -: 1821:
+        -: 1822:      /**
+        -: 1823:       *  @brief  Finds the number of elements.
+        -: 1824:       *  @param  __x  Key to count.
+        -: 1825:       *  @return  Number of elements with specified key.
+        -: 1826:       */
+        -: 1827:      size_type
+        -: 1828:      count(const key_type& __x) const
+        -: 1829:      { return _M_h.count(__x); }
+        -: 1830:
+        -: 1831:#if __cplusplus > 201703L
+        -: 1832:      /**
+        -: 1833:       *  @brief  Finds whether an element with the given key exists.
+        -: 1834:       *  @param  __x  Key of elements to be located.
+        -: 1835:       *  @return  True if there is any element with the specified key.
+        -: 1836:       */
+        -: 1837:      bool
+        -: 1838:      contains(const key_type& __x) const
+        -: 1839:      { return _M_h.find(__x) != _M_h.end(); }
+        -: 1840:#endif
+        -: 1841:
+        -: 1842:      //@{
+        -: 1843:      /**
+        -: 1844:       *  @brief Finds a subsequence matching given key.
+        -: 1845:       *  @param  __x  Key to be located.
+        -: 1846:       *  @return  Pair of iterators that possibly points to the subsequence
+        -: 1847:       *           matching given key.
+        -: 1848:       */
+        -: 1849:      std::pair<iterator, iterator>
+        -: 1850:      equal_range(const key_type& __x)
+        -: 1851:      { return _M_h.equal_range(__x); }
+        -: 1852:
+        -: 1853:      std::pair<const_iterator, const_iterator>
+        -: 1854:      equal_range(const key_type& __x) const
+        -: 1855:      { return _M_h.equal_range(__x); }
+        -: 1856:      //@}
+        -: 1857:
+        -: 1858:      // bucket interface.
+        -: 1859:
+        -: 1860:      /// Returns the number of buckets of the %unordered_multimap.
+        -: 1861:      size_type
+        -: 1862:      bucket_count() const noexcept
+        -: 1863:      { return _M_h.bucket_count(); }
+        -: 1864:
+        -: 1865:      /// Returns the maximum number of buckets of the %unordered_multimap.
+        -: 1866:      size_type
+        -: 1867:      max_bucket_count() const noexcept
+        -: 1868:      { return _M_h.max_bucket_count(); }
+        -: 1869:
+        -: 1870:      /*
+        -: 1871:       * @brief  Returns the number of elements in a given bucket.
+        -: 1872:       * @param  __n  A bucket index.
+        -: 1873:       * @return  The number of elements in the bucket.
+        -: 1874:       */
+        -: 1875:      size_type
+        -: 1876:      bucket_size(size_type __n) const
+        -: 1877:      { return _M_h.bucket_size(__n); }
+        -: 1878:
+        -: 1879:      /*
+        -: 1880:       * @brief  Returns the bucket index of a given element.
+        -: 1881:       * @param  __key  A key instance.
+        -: 1882:       * @return  The key bucket index.
+        -: 1883:       */
+        -: 1884:      size_type
+        -: 1885:      bucket(const key_type& __key) const
+        -: 1886:      { return _M_h.bucket(__key); }
+        -: 1887:      
+        -: 1888:      /**
+        -: 1889:       *  @brief  Returns a read/write iterator pointing to the first bucket
+        -: 1890:       *         element.
+        -: 1891:       *  @param  __n The bucket index.
+        -: 1892:       *  @return  A read/write local iterator.
+        -: 1893:       */
+        -: 1894:      local_iterator
+        -: 1895:      begin(size_type __n)
+        -: 1896:      { return _M_h.begin(__n); }
+        -: 1897:
+        -: 1898:      //@{
+        -: 1899:      /**
+        -: 1900:       *  @brief  Returns a read-only (constant) iterator pointing to the first
+        -: 1901:       *         bucket element.
+        -: 1902:       *  @param  __n The bucket index.
+        -: 1903:       *  @return  A read-only local iterator.
+        -: 1904:       */
+        -: 1905:      const_local_iterator
+        -: 1906:      begin(size_type __n) const
+        -: 1907:      { return _M_h.begin(__n); }
+        -: 1908:
+        -: 1909:      const_local_iterator
+        -: 1910:      cbegin(size_type __n) const
+        -: 1911:      { return _M_h.cbegin(__n); }
+        -: 1912:      //@}
+        -: 1913:
+        -: 1914:      /**
+        -: 1915:       *  @brief  Returns a read/write iterator pointing to one past the last
+        -: 1916:       *         bucket elements.
+        -: 1917:       *  @param  __n The bucket index.
+        -: 1918:       *  @return  A read/write local iterator.
+        -: 1919:       */
+        -: 1920:      local_iterator
+        -: 1921:      end(size_type __n)
+        -: 1922:      { return _M_h.end(__n); }
+        -: 1923:
+        -: 1924:      //@{
+        -: 1925:      /**
+        -: 1926:       *  @brief  Returns a read-only (constant) iterator pointing to one past
+        -: 1927:       *         the last bucket elements.
+        -: 1928:       *  @param  __n The bucket index.
+        -: 1929:       *  @return  A read-only local iterator.
+        -: 1930:       */
+        -: 1931:      const_local_iterator
+        -: 1932:      end(size_type __n) const
+        -: 1933:      { return _M_h.end(__n); }
+        -: 1934:
+        -: 1935:      const_local_iterator
+        -: 1936:      cend(size_type __n) const
+        -: 1937:      { return _M_h.cend(__n); }
+        -: 1938:      //@}
+        -: 1939:
+        -: 1940:      // hash policy.
+        -: 1941:
+        -: 1942:      /// Returns the average number of elements per bucket.
+        -: 1943:      float
+        -: 1944:      load_factor() const noexcept
+        -: 1945:      { return _M_h.load_factor(); }
+        -: 1946:
+        -: 1947:      /// Returns a positive number that the %unordered_multimap tries to keep
+        -: 1948:      /// the load factor less than or equal to.
+        -: 1949:      float
+        -: 1950:      max_load_factor() const noexcept
+        -: 1951:      { return _M_h.max_load_factor(); }
+        -: 1952:
+        -: 1953:      /**
+        -: 1954:       *  @brief  Change the %unordered_multimap maximum load factor.
+        -: 1955:       *  @param  __z The new maximum load factor.
+        -: 1956:       */
+        -: 1957:      void
+        -: 1958:      max_load_factor(float __z)
+        -: 1959:      { _M_h.max_load_factor(__z); }
+        -: 1960:
+        -: 1961:      /**
+        -: 1962:       *  @brief  May rehash the %unordered_multimap.
+        -: 1963:       *  @param  __n The new number of buckets.
+        -: 1964:       *
+        -: 1965:       *  Rehash will occur only if the new number of buckets respect the
+        -: 1966:       *  %unordered_multimap maximum load factor.
+        -: 1967:       */
+        -: 1968:      void
+        -: 1969:      rehash(size_type __n)
+        -: 1970:      { _M_h.rehash(__n); }
+        -: 1971:
+        -: 1972:      /**
+        -: 1973:       *  @brief  Prepare the %unordered_multimap for a specified number of
+        -: 1974:       *          elements.
+        -: 1975:       *  @param  __n Number of elements required.
+        -: 1976:       *
+        -: 1977:       *  Same as rehash(ceil(n / max_load_factor())).
+        -: 1978:       */
+        -: 1979:      void
+        -: 1980:      reserve(size_type __n)
+        -: 1981:      { _M_h.reserve(__n); }
+        -: 1982:
+        -: 1983:      template<typename _Key1, typename _Tp1, typename _Hash1, typename _Pred1,
+        -: 1984:	       typename _Alloc1>
+        -: 1985:        friend bool
+        -: 1986:	operator==(const unordered_multimap<_Key1, _Tp1,
+        -: 1987:					    _Hash1, _Pred1, _Alloc1>&,
+        -: 1988:		   const unordered_multimap<_Key1, _Tp1,
+        -: 1989:					    _Hash1, _Pred1, _Alloc1>&);
+        -: 1990:    };
+        -: 1991:
+        -: 1992:#if __cpp_deduction_guides >= 201606
+        -: 1993:
+        -: 1994:  template<typename _InputIterator,
+        -: 1995:	   typename _Hash = hash<__iter_key_t<_InputIterator>>,
+        -: 1996:	   typename _Pred = equal_to<__iter_key_t<_InputIterator>>,
+        -: 1997:	   typename _Allocator = allocator<__iter_to_alloc_t<_InputIterator>>,
+        -: 1998:	   typename = _RequireInputIter<_InputIterator>,
+        -: 1999:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 2000:	   typename = _RequireNotAllocator<_Pred>,
+        -: 2001:	   typename = _RequireAllocator<_Allocator>>
+        -: 2002:    unordered_multimap(_InputIterator, _InputIterator,
+        -: 2003:		       unordered_multimap<int, int>::size_type = {},
+        -: 2004:		       _Hash = _Hash(), _Pred = _Pred(),
+        -: 2005:		       _Allocator = _Allocator())
+        -: 2006:    -> unordered_multimap<__iter_key_t<_InputIterator>,
+        -: 2007:			  __iter_val_t<_InputIterator>, _Hash, _Pred,
+        -: 2008:			  _Allocator>;
+        -: 2009:
+        -: 2010:  template<typename _Key, typename _Tp, typename _Hash = hash<_Key>,
+        -: 2011:	   typename _Pred = equal_to<_Key>,
+        -: 2012:	   typename _Allocator = allocator<pair<const _Key, _Tp>>,
+        -: 2013:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 2014:	   typename = _RequireNotAllocator<_Pred>,
+        -: 2015:	   typename = _RequireAllocator<_Allocator>>
+        -: 2016:    unordered_multimap(initializer_list<pair<_Key, _Tp>>,
+        -: 2017:		       unordered_multimap<int, int>::size_type = {},
+        -: 2018:		       _Hash = _Hash(), _Pred = _Pred(),
+        -: 2019:		       _Allocator = _Allocator())
+        -: 2020:    -> unordered_multimap<_Key, _Tp, _Hash, _Pred, _Allocator>;
+        -: 2021:
+        -: 2022:  template<typename _InputIterator, typename _Allocator,
+        -: 2023:	   typename = _RequireInputIter<_InputIterator>,
+        -: 2024:	   typename = _RequireAllocator<_Allocator>>
+        -: 2025:    unordered_multimap(_InputIterator, _InputIterator,
+        -: 2026:		       unordered_multimap<int, int>::size_type, _Allocator)
+        -: 2027:    -> unordered_multimap<__iter_key_t<_InputIterator>,
+        -: 2028:			  __iter_val_t<_InputIterator>,
+        -: 2029:			  hash<__iter_key_t<_InputIterator>>,
+        -: 2030:			  equal_to<__iter_key_t<_InputIterator>>, _Allocator>;
+        -: 2031:
+        -: 2032:  template<typename _InputIterator, typename _Allocator,
+        -: 2033:	   typename = _RequireInputIter<_InputIterator>,
+        -: 2034:	   typename = _RequireAllocator<_Allocator>>
+        -: 2035:    unordered_multimap(_InputIterator, _InputIterator, _Allocator)
+        -: 2036:    -> unordered_multimap<__iter_key_t<_InputIterator>,
+        -: 2037:			  __iter_val_t<_InputIterator>,
+        -: 2038:			  hash<__iter_key_t<_InputIterator>>,
+        -: 2039:			  equal_to<__iter_key_t<_InputIterator>>, _Allocator>;
+        -: 2040:
+        -: 2041:  template<typename _InputIterator, typename _Hash, typename _Allocator,
+        -: 2042:	   typename = _RequireInputIter<_InputIterator>,
+        -: 2043:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 2044:	   typename = _RequireAllocator<_Allocator>>
+        -: 2045:    unordered_multimap(_InputIterator, _InputIterator,
+        -: 2046:		       unordered_multimap<int, int>::size_type, _Hash,
+        -: 2047:		       _Allocator)
+        -: 2048:    -> unordered_multimap<__iter_key_t<_InputIterator>,
+        -: 2049:			  __iter_val_t<_InputIterator>, _Hash,
+        -: 2050:			  equal_to<__iter_key_t<_InputIterator>>, _Allocator>;
+        -: 2051:
+        -: 2052:  template<typename _Key, typename _Tp, typename _Allocator,
+        -: 2053:	   typename = _RequireAllocator<_Allocator>>
+        -: 2054:    unordered_multimap(initializer_list<pair<_Key, _Tp>>,
+        -: 2055:		       unordered_multimap<int, int>::size_type,
+        -: 2056:		       _Allocator)
+        -: 2057:    -> unordered_multimap<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+        -: 2058:
+        -: 2059:  template<typename _Key, typename _Tp, typename _Allocator,
+        -: 2060:	   typename = _RequireAllocator<_Allocator>>
+        -: 2061:    unordered_multimap(initializer_list<pair<_Key, _Tp>>, _Allocator)
+        -: 2062:    -> unordered_multimap<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+        -: 2063:
+        -: 2064:  template<typename _Key, typename _Tp, typename _Hash, typename _Allocator,
+        -: 2065:	   typename = _RequireNotAllocatorOrIntegral<_Hash>,
+        -: 2066:	   typename = _RequireAllocator<_Allocator>>
+        -: 2067:    unordered_multimap(initializer_list<pair<_Key, _Tp>>,
+        -: 2068:		       unordered_multimap<int, int>::size_type,
+        -: 2069:		       _Hash, _Allocator)
+        -: 2070:    -> unordered_multimap<_Key, _Tp, _Hash, equal_to<_Key>, _Allocator>;
+        -: 2071:
+        -: 2072:#endif
+        -: 2073:
+        -: 2074:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -: 2075:    inline void
+        -: 2076:    swap(unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+        -: 2077:	 unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __y)
+        -: 2078:    noexcept(noexcept(__x.swap(__y)))
+        -: 2079:    { __x.swap(__y); }
+        -: 2080:
+        -: 2081:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -: 2082:    inline void
+        -: 2083:    swap(unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+        -: 2084:	 unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __y)
+        -: 2085:    noexcept(noexcept(__x.swap(__y)))
+        -: 2086:    { __x.swap(__y); }
+        -: 2087:
+        -: 2088:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -: 2089:    inline bool
+        -: 2090:    operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+        -: 2091:	       const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __y)
+        -: 2092:    { return __x._M_h._M_equal(__y._M_h); }
+        -: 2093:
+        -: 2094:#if __cpp_impl_three_way_comparison < 201907L
+        -: 2095:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -: 2096:    inline bool
+        -: 2097:    operator!=(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+        -: 2098:	       const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __y)
+        -: 2099:    { return !(__x == __y); }
+        -: 2100:#endif
+        -: 2101:
+        -: 2102:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -: 2103:    inline bool
+        -: 2104:    operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+        -: 2105:	       const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __y)
+        -: 2106:    { return __x._M_h._M_equal(__y._M_h); }
+        -: 2107:
+        -: 2108:#if __cpp_impl_three_way_comparison < 201907L
+        -: 2109:  template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc>
+        -: 2110:    inline bool
+        -: 2111:    operator!=(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+        -: 2112:	       const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __y)
+        -: 2113:    { return !(__x == __y); }
+        -: 2114:#endif
+        -: 2115:
+        -: 2116:_GLIBCXX_END_NAMESPACE_CONTAINER
+        -: 2117:
+        -: 2118:#if __cplusplus > 201402L
+        -: 2119:  // Allow std::unordered_map access to internals of compatible maps.
+        -: 2120:  template<typename _Key, typename _Val, typename _Hash1, typename _Eq1,
+        -: 2121:	   typename _Alloc, typename _Hash2, typename _Eq2>
+        -: 2122:    struct _Hash_merge_helper<
+        -: 2123:      _GLIBCXX_STD_C::unordered_map<_Key, _Val, _Hash1, _Eq1, _Alloc>,
+        -: 2124:      _Hash2, _Eq2>
+        -: 2125:    {
+        -: 2126:    private:
+        -: 2127:      template<typename... _Tp>
+        -: 2128:	using unordered_map = _GLIBCXX_STD_C::unordered_map<_Tp...>;
+        -: 2129:      template<typename... _Tp>
+        -: 2130:	using unordered_multimap = _GLIBCXX_STD_C::unordered_multimap<_Tp...>;
+        -: 2131:
+        -: 2132:      friend unordered_map<_Key, _Val, _Hash1, _Eq1, _Alloc>;
+        -: 2133:
+        -: 2134:      static auto&
+        -: 2135:      _S_get_table(unordered_map<_Key, _Val, _Hash2, _Eq2, _Alloc>& __map)
+        -: 2136:      { return __map._M_h; }
+        -: 2137:
+        -: 2138:      static auto&
+        -: 2139:      _S_get_table(unordered_multimap<_Key, _Val, _Hash2, _Eq2, _Alloc>& __map)
+        -: 2140:      { return __map._M_h; }
+        -: 2141:    };
+        -: 2142:
+        -: 2143:  // Allow std::unordered_multimap access to internals of compatible maps.
+        -: 2144:  template<typename _Key, typename _Val, typename _Hash1, typename _Eq1,
+        -: 2145:	   typename _Alloc, typename _Hash2, typename _Eq2>
+        -: 2146:    struct _Hash_merge_helper<
+        -: 2147:      _GLIBCXX_STD_C::unordered_multimap<_Key, _Val, _Hash1, _Eq1, _Alloc>,
+        -: 2148:      _Hash2, _Eq2>
+        -: 2149:    {
+        -: 2150:    private:
+        -: 2151:      template<typename... _Tp>
+        -: 2152:	using unordered_map = _GLIBCXX_STD_C::unordered_map<_Tp...>;
+        -: 2153:      template<typename... _Tp>
+        -: 2154:	using unordered_multimap = _GLIBCXX_STD_C::unordered_multimap<_Tp...>;
+        -: 2155:
+        -: 2156:      friend unordered_multimap<_Key, _Val, _Hash1, _Eq1, _Alloc>;
+        -: 2157:
+        -: 2158:      static auto&
+        -: 2159:      _S_get_table(unordered_map<_Key, _Val, _Hash2, _Eq2, _Alloc>& __map)
+        -: 2160:      { return __map._M_h; }
+        -: 2161:
+        -: 2162:      static auto&
+        -: 2163:      _S_get_table(unordered_multimap<_Key, _Val, _Hash2, _Eq2, _Alloc>& __map)
+        -: 2164:      { return __map._M_h; }
+        -: 2165:    };
+        -: 2166:#endif // C++17
+        -: 2167:
+        -: 2168:_GLIBCXX_END_NAMESPACE_VERSION
+        -: 2169:} // namespace std
+        -: 2170:
+        -: 2171:#endif /* _UNORDERED_MAP_H */

@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/ext/type_traits.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// -*- C++ -*-
         -:    2:
@@ -153,18 +153,18 @@
         -:  149:  // For use in string and vstring.
         -:  150:  template<typename _Type>
         -:  151:    inline bool
-      347:  152:    __is_null_pointer(_Type* __ptr)
-      347:  153:    { return __ptr == 0; }
+      380:  152:    __is_null_pointer(_Type* __ptr)
+      380:  153:    { return __ptr == 0; }
 ------------------
 _ZN9__gnu_cxx17__is_null_pointerIcEEbPT_:
-      186:  152:    __is_null_pointer(_Type* __ptr)
-      186:  153:    { return __ptr == 0; }
-      186:  153-block  0
+      209:  152:    __is_null_pointer(_Type* __ptr)
+      209:  153:    { return __ptr == 0; }
+      209:  153-block  0
 ------------------
 _ZN9__gnu_cxx17__is_null_pointerIKcEEbPT_:
-      161:  152:    __is_null_pointer(_Type* __ptr)
-      161:  153:    { return __ptr == 0; }
-      161:  153-block  0
+      171:  152:    __is_null_pointer(_Type* __ptr)
+      171:  153:    { return __ptr == 0; }
+      171:  153-block  0
 ------------------
         -:  154:
         -:  155:  template<typename _Type>

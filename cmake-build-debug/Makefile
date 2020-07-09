@@ -260,6 +260,33 @@ src/Database/PayrollDatabase.cpp.s:
 	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Database/PayrollDatabase.cpp.s
 .PHONY : src/Database/PayrollDatabase.cpp.s
 
+src/Employee/PaymentClassification.obj: src/Employee/PaymentClassification.cpp.obj
+
+.PHONY : src/Employee/PaymentClassification.obj
+
+# target to build an object file
+src/Employee/PaymentClassification.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee/PaymentClassification.cpp.obj
+.PHONY : src/Employee/PaymentClassification.cpp.obj
+
+src/Employee/PaymentClassification.i: src/Employee/PaymentClassification.cpp.i
+
+.PHONY : src/Employee/PaymentClassification.i
+
+# target to preprocess a source file
+src/Employee/PaymentClassification.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee/PaymentClassification.cpp.i
+.PHONY : src/Employee/PaymentClassification.cpp.i
+
+src/Employee/PaymentClassification.s: src/Employee/PaymentClassification.cpp.s
+
+.PHONY : src/Employee/PaymentClassification.s
+
+# target to generate assembly for a file
+src/Employee/PaymentClassification.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Employee/PaymentClassification.cpp.s
+.PHONY : src/Employee/PaymentClassification.cpp.s
+
 src/Transactions/AddEmployeeTransaction.obj: src/Transactions/AddEmployeeTransaction.cpp.obj
 
 .PHONY : src/Transactions/AddEmployeeTransaction.obj
@@ -335,6 +362,9 @@ help:
 	@echo ... src/Database/PayrollDatabase.obj
 	@echo ... src/Database/PayrollDatabase.i
 	@echo ... src/Database/PayrollDatabase.s
+	@echo ... src/Employee/PaymentClassification.obj
+	@echo ... src/Employee/PaymentClassification.i
+	@echo ... src/Employee/PaymentClassification.s
 	@echo ... src/Transactions/AddEmployeeTransaction.obj
 	@echo ... src/Transactions/AddEmployeeTransaction.i
 	@echo ... src/Transactions/AddEmployeeTransaction.s

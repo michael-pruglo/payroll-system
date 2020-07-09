@@ -1,0 +1,30 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentSchedule.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\AddEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_PAYMENTSCHEDULE_HPP
+        -:    2:#define PAYROLL_SYSTEM_PAYMENTSCHEDULE_HPP
+        -:    3:
+        -:    4:
+        -:    5:class PaymentSchedule
+        -:    6:{
+       5*:    7:public: virtual ~PaymentSchedule() = default;
+------------------
+_ZN15PaymentScheduleD0Ev:
+    #####:    7:public: virtual ~PaymentSchedule() = default;
+    %%%%%:    7-block  0
+------------------
+_ZN15PaymentScheduleD1Ev:
+    #####:    7:public: virtual ~PaymentSchedule() = default;
+------------------
+_ZN15PaymentScheduleD2Ev:
+        5:    7:public: virtual ~PaymentSchedule() = default;
+------------------
+        -:    8:};
+        -:    9:
+        -:   10:class WeeklySchedule : public PaymentSchedule {};
+        -:   11:class MonthlySchedule : public PaymentSchedule {};
+        -:   12:class BiweeklySchedule : public PaymentSchedule {};
+        -:   13:
+        -:   14:
+        -:   15:#endif //PAYROLL_SYSTEM_PAYMENTSCHEDULE_HPP

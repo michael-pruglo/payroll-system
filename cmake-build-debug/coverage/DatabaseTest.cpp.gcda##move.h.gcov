@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/move.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\DatabaseTest.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Move, forward and identity for C++11 + swap -*- C++ -*-
         -:    2:
@@ -50,8 +50,8 @@
         -:   46:   */
         -:   47:  template<typename _Tp>
         -:   48:    inline _GLIBCXX_CONSTEXPR _Tp*
-    3420*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    3420*:   50:    { return __builtin_addressof(__r); }
+    3635*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    3635*:   50:    { return __builtin_addressof(__r); }
 ------------------
 _ZSt11__addressofIKSt10shared_ptrI8EmployeeEEPT_RS4_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
@@ -59,9 +59,9 @@ _ZSt11__addressofIKSt10shared_ptrI8EmployeeEEPT_RS4_:
     %%%%%:   50-block  0
 ------------------
 _ZSt11__addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
-       49:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-       49:   50:    { return __builtin_addressof(__r); }
-       49:   50-block  0
+       50:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+       50:   50:    { return __builtin_addressof(__r); }
+       50:   50-block  0
 ------------------
 _ZSt11__addressofIPNSt8__detail15_Hash_node_baseEEPT_RS3_:
         1:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
@@ -69,14 +69,14 @@ _ZSt11__addressofIPNSt8__detail15_Hash_node_baseEEPT_RS3_:
         1:   50-block  0
 ------------------
 _ZSt11__addressofIKcEPT_RS1_:
-     2461:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-     2461:   50:    { return __builtin_addressof(__r); }
-     2461:   50-block  0
+     2586:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+     2586:   50:    { return __builtin_addressof(__r); }
+     2586:   50-block  0
 ------------------
 _ZSt11__addressofIcEPT_RS0_:
-      909:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-      909:   50:    { return __builtin_addressof(__r); }
-      909:   50-block  0
+      998:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+      998:   50:    { return __builtin_addressof(__r); }
+      998:   50-block  0
 ------------------
         -:   51:
         -:   52:#if __cplusplus >= 201103L
@@ -103,8 +103,8 @@ _ZSt11__addressofIcEPT_RS0_:
         -:   73:   */
         -:   74:  template<typename _Tp>
         -:   75:    constexpr _Tp&&
-     647*:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-     647*:   77:    { return static_cast<_Tp&&>(__t); }
+     660*:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+     660*:   77:    { return static_cast<_Tp&&>(__t); }
 ------------------
 _ZSt7forwardIRKSt4pairIKiSt10shared_ptrI8EmployeeEEEOT_RNSt16remove_referenceIS8_E4typeE:
        49:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
@@ -112,9 +112,9 @@ _ZSt7forwardIRKSt4pairIKiSt10shared_ptrI8EmployeeEEEOT_RNSt16remove_referenceIS8
        49:   77-block  0
 ------------------
 _ZSt7forwardIRNSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrI8EmployeeEELb0ELb0EEEEOT_RNSt16remove_referenceISA_E4typeE:
-       49:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       49:   77:    { return static_cast<_Tp&&>(__t); }
-       49:   77-block  0
+       50:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       50:   77:    { return static_cast<_Tp&&>(__t); }
+       50:   77-block  0
 ------------------
 _ZSt7forwardINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrI8EmployeeEELb0ELb0EEEEOT_RNSt16remove_referenceIS9_E4typeE:
     #####:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
@@ -122,29 +122,29 @@ _ZSt7forwardINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrI8EmployeeEELb
     %%%%%:   77-block  0
 ------------------
 _ZSt7forwardIRSt4pairIKiSt10shared_ptrI8EmployeeEEEOT_RNSt16remove_referenceIS7_E4typeE:
-       84:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       84:   77:    { return static_cast<_Tp&&>(__t); }
-       84:   77-block  0
+       93:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       93:   77:    { return static_cast<_Tp&&>(__t); }
+       93:   77-block  0
 ------------------
 _ZSt7forwardISt4pairIKiSt10shared_ptrI8EmployeeEEEOT_RNSt16remove_referenceIS6_E4typeE:
-      294:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-      294:   77:    { return static_cast<_Tp&&>(__t); }
-      294:   77-block  0
+      300:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+      300:   77:    { return static_cast<_Tp&&>(__t); }
+      300:   77-block  0
 ------------------
 _ZSt7forwardIRSt10shared_ptrI8EmployeeEEOT_RNSt16remove_referenceIS4_E4typeE:
-       49:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       49:   77:    { return static_cast<_Tp&&>(__t); }
-       49:   77-block  0
+       50:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       50:   77:    { return static_cast<_Tp&&>(__t); }
+       50:   77-block  0
 ------------------
 _ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE:
-       73:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       73:   77:    { return static_cast<_Tp&&>(__t); }
-       73:   77-block  0
+       66:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       66:   77:    { return static_cast<_Tp&&>(__t); }
+       66:   77-block  0
 ------------------
 _ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE:
-       49:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       49:   77:    { return static_cast<_Tp&&>(__t); }
-       49:   77-block  0
+       52:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       52:   77:    { return static_cast<_Tp&&>(__t); }
+       52:   77-block  0
 ------------------
         -:   78:
         -:   79:  /**
@@ -169,13 +169,13 @@ _ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE:
         -:   98:  */
         -:   99:  template<typename _Tp>
         -:  100:    constexpr typename std::remove_reference<_Tp>::type&&
-    1031*:  101:    move(_Tp&& __t) noexcept
-    1031*:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+    1131*:  101:    move(_Tp&& __t) noexcept
+    1131*:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
 ------------------
 _ZSt4moveIRSt10shared_ptrI8EmployeeEEONSt16remove_referenceIT_E4typeEOS5_:
-       49:  101:    move(_Tp&& __t) noexcept
-       49:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-       49:  102-block  0
+       50:  101:    move(_Tp&& __t) noexcept
+       50:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       50:  102-block  0
 ------------------
 _ZSt4moveIRP15PayrollDatabaseEONSt16remove_referenceIT_E4typeEOS4_:
         3:  101:    move(_Tp&& __t) noexcept
@@ -193,9 +193,9 @@ _ZSt4moveIRSt10shared_ptrI15PayrollDatabaseEEONSt16remove_referenceIT_E4typeEOS5
         1:  102-block  0
 ------------------
 _ZSt4moveIRSt4pairIKiSt10shared_ptrI8EmployeeEEEONSt16remove_referenceIT_E4typeEOS8_:
-       49:  101:    move(_Tp&& __t) noexcept
-       49:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-       49:  102-block  0
+       50:  101:    move(_Tp&& __t) noexcept
+       50:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       50:  102-block  0
 ------------------
 _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
     #####:  101:    move(_Tp&& __t) noexcept
@@ -203,19 +203,19 @@ _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_re
     %%%%%:  102-block  0
 ------------------
 _ZSt4moveIRPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
-       78:  101:    move(_Tp&& __t) noexcept
-       78:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-       78:  102-block  0
+       82:  101:    move(_Tp&& __t) noexcept
+       82:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       82:  102-block  0
 ------------------
 _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_:
-      732:  101:    move(_Tp&& __t) noexcept
-      732:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-      732:  102-block  0
+      811:  101:    move(_Tp&& __t) noexcept
+      811:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+      811:  102-block  0
 ------------------
 _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_:
-      118:  101:    move(_Tp&& __t) noexcept
-      118:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-      118:  102-block  0
+      133:  101:    move(_Tp&& __t) noexcept
+      133:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+      133:  102-block  0
 ------------------
         -:  103:
         -:  104:
@@ -254,8 +254,8 @@ _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_ref
         -:  137:  */
         -:  138:  template<typename _Tp>
         -:  139:    inline _GLIBCXX17_CONSTEXPR _Tp*
-    3420*:  140:    addressof(_Tp& __r) noexcept
-    3420*:  141:    { return std::__addressof(__r); }
+    3635*:  140:    addressof(_Tp& __r) noexcept
+    3635*:  141:    { return std::__addressof(__r); }
 ------------------
 _ZSt9addressofIKSt10shared_ptrI8EmployeeEEPT_RS4_:
     #####:  140:    addressof(_Tp& __r) noexcept
@@ -263,9 +263,9 @@ _ZSt9addressofIKSt10shared_ptrI8EmployeeEEPT_RS4_:
     %%%%%:  141-block  0
 ------------------
 _ZSt9addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
-       49:  140:    addressof(_Tp& __r) noexcept
-       49:  141:    { return std::__addressof(__r); }
-       49:  141-block  0
+       50:  140:    addressof(_Tp& __r) noexcept
+       50:  141:    { return std::__addressof(__r); }
+       50:  141-block  0
 ------------------
 _ZSt9addressofIPNSt8__detail15_Hash_node_baseEEPT_RS3_:
         1:  140:    addressof(_Tp& __r) noexcept
@@ -273,14 +273,14 @@ _ZSt9addressofIPNSt8__detail15_Hash_node_baseEEPT_RS3_:
         1:  141-block  0
 ------------------
 _ZSt9addressofIKcEPT_RS1_:
-     2461:  140:    addressof(_Tp& __r) noexcept
-     2461:  141:    { return std::__addressof(__r); }
-     2461:  141-block  0
+     2586:  140:    addressof(_Tp& __r) noexcept
+     2586:  141:    { return std::__addressof(__r); }
+     2586:  141-block  0
 ------------------
 _ZSt9addressofIcEPT_RS0_:
-      909:  140:    addressof(_Tp& __r) noexcept
-      909:  141:    { return std::__addressof(__r); }
-      909:  141-block  0
+      998:  140:    addressof(_Tp& __r) noexcept
+      998:  141:    { return std::__addressof(__r); }
+      998:  141-block  0
 ------------------
         -:  142:
         -:  143:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
