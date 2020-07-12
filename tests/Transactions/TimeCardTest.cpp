@@ -17,8 +17,6 @@ protected:
         EXPECT_EQ(initSize, 1);
     }
 
-    void assertDatabaseContains(int id) { ASSERT_NO_THROW(database->getEmployee(id)); }
-
     int id = 10;
     std::string name = "Jack", address = "Jamaica";
     Date date = Date(2020, 06, 11);

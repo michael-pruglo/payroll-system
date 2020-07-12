@@ -13,26 +13,34 @@ protected:
     double      hRate = 17.7,           sSalary = 1000.33,      cSalary = 2000.88, cRate = 0.05;
 };
 
+#define ADDITION_TEST( ADDITION_TRANSACTION, CHECK ) \
+    ASSERT_NO_THROW(ADDITION_TRANSACTION.execute()); \
+    ASSERT_EQ(database->size(), 1); \
+    CHECK;
+
+
 TEST_F(AddEmployeeTest, HourlyEmployee)
 {
-    AddHourlyEmployee at(hId, hName, hAddress, hRate);
-    ASSERT_NO_THROW(at.execute());
-    ASSERT_EQ(database->size(), 1);
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName);
+    ADDITION_TEST(
+        ( AddHourlyEmployee(hId, hName, hAddress, hRate) ),
+        ( HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName) )
+    )
 }
 
 TEST_F(AddEmployeeTest, SalariedEmployee)
 {
-    AddSalariedEmployee at(sId, sName, sAddress, sSalary);
-    ASSERT_NO_THROW(at.execute());
-    ASSERT_EQ(database->size(), 1);
-    SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName);
+    ADDITION_TEST(
+        ( AddSalariedEmployee(sId, sName, sAddress, sSalary)),
+        ( SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName))
+    )
 }
 
 TEST_F(AddEmployeeTest, CommissionedEmployee)
 {
-    AddCommissionedEmployee at(cId, cName, cAddress, cSalary, cRate);
-    ASSERT_NO_THROW(at.execute());
-    ASSERT_EQ(database->size(), 1);
-    CommissionedEmployeeCorrectnessTester(*database->getEmployee(cId), cSalary, cRate).invoke(cId, cName);
+    ADDITION_TEST(
+        ( AddCommissionedEmployee(cId, cName, cAddress, cSalary, cRate) ),
+        ( CommissionedEmployeeCorrectnessTester(*database->getEmployee(cId), cSalary, cRate).invoke(cId, cName) )
+    )
 }
+
+#undef ADDITION_TEST

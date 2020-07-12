@@ -15,6 +15,8 @@ protected:
         ASSERT_EQ(database->size(), 0);
     }
 
+    void assertDatabaseContains(int id) { ASSERT_NO_THROW(database->getEmployee(id)); }
+
     int initSize = 0;
     std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
 };
