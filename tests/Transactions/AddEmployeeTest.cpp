@@ -23,7 +23,7 @@ TEST_F(AddEmployeeTest, HourlyEmployee)
 {
     ADDITION_TEST(
         ( AddHourlyEmployee(hId, hName, hAddress, hRate) ),
-        ( HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName) )
+        ( HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName, hAddress) )
     )
 }
 
@@ -31,7 +31,7 @@ TEST_F(AddEmployeeTest, SalariedEmployee)
 {
     ADDITION_TEST(
         ( AddSalariedEmployee(sId, sName, sAddress, sSalary)),
-        ( SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName))
+        ( SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName, sAddress))
     )
 }
 
@@ -39,7 +39,7 @@ TEST_F(AddEmployeeTest, CommissionedEmployee)
 {
     ADDITION_TEST(
         ( AddCommissionedEmployee(cId, cName, cAddress, cSalary, cRate) ),
-        ( CommissionedEmployeeCorrectnessTester(*database->getEmployee(cId), cSalary, cRate).invoke(cId, cName) )
+        ( CommissionedEmployeeCorrectnessTester(*database->getEmployee(cId), cSalary, cRate).invoke(cId, cName, cAddress) )
     )
 }
 

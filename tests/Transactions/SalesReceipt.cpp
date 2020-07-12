@@ -31,5 +31,5 @@ TEST_F(SalesReceiptTest, SalesReceiptUpdates)
     ASSERT_NO_THROW(srt.execute());
 
     CommissionedEmployeeCorrectnessTester(*database->getEmployee(id),
-            cSalary, cRate, SalesReceipt(date, amount)).invoke(id, name);
+            cSalary, cRate, SalesReceipt(date, amount)).invoke(id, name, address);
 }

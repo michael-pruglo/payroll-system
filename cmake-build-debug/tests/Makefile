@@ -224,6 +224,33 @@ Transactions/AddEmployeeTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.s
 .PHONY : Transactions/AddEmployeeTest.cpp.s
 
+Transactions/ChangeEmployeeTest.obj: Transactions/ChangeEmployeeTest.cpp.obj
+
+.PHONY : Transactions/ChangeEmployeeTest.obj
+
+# target to build an object file
+Transactions/ChangeEmployeeTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/ChangeEmployeeTest.cpp.obj
+.PHONY : Transactions/ChangeEmployeeTest.cpp.obj
+
+Transactions/ChangeEmployeeTest.i: Transactions/ChangeEmployeeTest.cpp.i
+
+.PHONY : Transactions/ChangeEmployeeTest.i
+
+# target to preprocess a source file
+Transactions/ChangeEmployeeTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/ChangeEmployeeTest.cpp.i
+.PHONY : Transactions/ChangeEmployeeTest.cpp.i
+
+Transactions/ChangeEmployeeTest.s: Transactions/ChangeEmployeeTest.cpp.s
+
+.PHONY : Transactions/ChangeEmployeeTest.s
+
+# target to generate assembly for a file
+Transactions/ChangeEmployeeTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/ChangeEmployeeTest.cpp.s
+.PHONY : Transactions/ChangeEmployeeTest.cpp.s
+
 Transactions/DeleteEmployeeTest.obj: Transactions/DeleteEmployeeTest.cpp.obj
 
 .PHONY : Transactions/DeleteEmployeeTest.obj
@@ -378,6 +405,9 @@ help:
 	@echo ... Transactions/AddEmployeeTest.obj
 	@echo ... Transactions/AddEmployeeTest.i
 	@echo ... Transactions/AddEmployeeTest.s
+	@echo ... Transactions/ChangeEmployeeTest.obj
+	@echo ... Transactions/ChangeEmployeeTest.i
+	@echo ... Transactions/ChangeEmployeeTest.s
 	@echo ... Transactions/DeleteEmployeeTest.obj
 	@echo ... Transactions/DeleteEmployeeTest.i
 	@echo ... Transactions/DeleteEmployeeTest.s

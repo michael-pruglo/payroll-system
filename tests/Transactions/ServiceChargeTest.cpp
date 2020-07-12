@@ -28,7 +28,7 @@ protected:
     assertDatabaseContains(id); \
     HourlyEmployeeCorrectnessTester hect(*database->getEmployee(id), hRate);\
     BODY \
-    hect.invoke(id, name);\
+    hect.invoke(id, name, address);\
 
 TEST_F(ServiceChargeTest, ServiceChargeUpdates)
 {

@@ -19,6 +19,9 @@ public:
     {}
 
     std::string                             getName() const { return name; }
+    void                                    setName(std::string newName) { name = std::move(newName); }
+    std::string                             getAddress() const { return address; }
+    void                                    setAddress(std::string newAddress) { address = std::move(newAddress); }
     std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
     void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
     std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }

@@ -423,6 +423,12 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/AddEmployeeTransaction.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/ChangeEmployeeTransaction.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/ChangeEmployeeTransaction.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/DeleteEmployeeTransaction.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -448,6 +454,9 @@
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp">
+			<Option target="google_test"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/ChangeEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp">

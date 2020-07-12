@@ -284,6 +284,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/ChangeEmployeeTest.cpp">
+			<Option target="google_test"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>

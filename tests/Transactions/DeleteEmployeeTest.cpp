@@ -35,4 +35,9 @@ TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
     DELETION_TEST(dt.execute())
 }
 
+TEST_F(DeleteEmployeeTest, TransactionOnNonExistentThrows)
+{
+    ASSERT_THROW(DeleteEmployeeTransaction(id+1).execute(), PayrollDatabase::not_found);
+}
+
 #undef DELETION_TEST

@@ -314,6 +314,33 @@ src/Transactions/AddEmployeeTransaction.cpp.s:
 	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/AddEmployeeTransaction.cpp.s
 .PHONY : src/Transactions/AddEmployeeTransaction.cpp.s
 
+src/Transactions/ChangeEmployeeTransaction.obj: src/Transactions/ChangeEmployeeTransaction.cpp.obj
+
+.PHONY : src/Transactions/ChangeEmployeeTransaction.obj
+
+# target to build an object file
+src/Transactions/ChangeEmployeeTransaction.cpp.obj:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/ChangeEmployeeTransaction.cpp.obj
+.PHONY : src/Transactions/ChangeEmployeeTransaction.cpp.obj
+
+src/Transactions/ChangeEmployeeTransaction.i: src/Transactions/ChangeEmployeeTransaction.cpp.i
+
+.PHONY : src/Transactions/ChangeEmployeeTransaction.i
+
+# target to preprocess a source file
+src/Transactions/ChangeEmployeeTransaction.cpp.i:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/ChangeEmployeeTransaction.cpp.i
+.PHONY : src/Transactions/ChangeEmployeeTransaction.cpp.i
+
+src/Transactions/ChangeEmployeeTransaction.s: src/Transactions/ChangeEmployeeTransaction.cpp.s
+
+.PHONY : src/Transactions/ChangeEmployeeTransaction.s
+
+# target to generate assembly for a file
+src/Transactions/ChangeEmployeeTransaction.cpp.s:
+	$(MAKE) -f CMakeFiles\payroll_system.dir\build.make CMakeFiles/payroll_system.dir/src/Transactions/ChangeEmployeeTransaction.cpp.s
+.PHONY : src/Transactions/ChangeEmployeeTransaction.cpp.s
+
 src/main.obj: src/main.cpp.obj
 
 .PHONY : src/main.obj
@@ -368,6 +395,9 @@ help:
 	@echo ... src/Transactions/AddEmployeeTransaction.obj
 	@echo ... src/Transactions/AddEmployeeTransaction.i
 	@echo ... src/Transactions/AddEmployeeTransaction.s
+	@echo ... src/Transactions/ChangeEmployeeTransaction.obj
+	@echo ... src/Transactions/ChangeEmployeeTransaction.i
+	@echo ... src/Transactions/ChangeEmployeeTransaction.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
