@@ -390,6 +390,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Database/PayrollDatabase.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Affiliation.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -408,6 +411,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/SalesReceipt.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/ServiceCharge.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/TimeCard.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -421,6 +427,9 @@
 			<Option target="payroll_system"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/SalesReceiptTransaction.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/ServiceChargeTransaction.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/TimeCardTransaction.hpp">
@@ -445,6 +454,9 @@
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/SalesReceipt.cpp">
+			<Option target="google_test"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/ServiceChargeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TimeCardTest.cpp">

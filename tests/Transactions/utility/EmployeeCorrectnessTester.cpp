@@ -1,21 +1,22 @@
+#include <algorithm>
 #include "EmployeeCorrectnessTester.hpp"
-#include "../../../src/Employee/PaymentClassification.cpp"
+#include "src/Employee/PaymentClassification.cpp"
 
+
+void EmployeeCorrectnessTester::addServiceCharge(ServiceCharge serviceCharge)
+{
+    serviceCharges.push_back(serviceCharge);
+}
 
 void EmployeeCorrectnessTester::invoke(int idToCheck, std::string nameToCheck)
 {
-    testDatabaseContains(idToCheck);
-    testEmployee(database->getEmployee(idToCheck), nameToCheck);
+    testEmployee(nameToCheck);
+    testServiceChargeList(givenE.getAffiliation()->getServiceCharges());
 }
 
-void EmployeeCorrectnessTester::testDatabaseContains(int id)
+void EmployeeCorrectnessTester::testName(std::string givenName, std::string nameToCheck) const
 {
-    ASSERT_NO_THROW(database->getEmployee(id));
-}
-
-void EmployeeCorrectnessTester::testName(std::shared_ptr<Employee> givenE, std::string nameToCheck) const
-{
-    ASSERT_EQ(givenE->getName(), nameToCheck);
+    ASSERT_EQ(givenName, nameToCheck);
 }
 
 template<typename ExpectedT, typename ActualT>
@@ -25,12 +26,19 @@ void EmployeeCorrectnessTester::testIsCorrectDerivedType(ActualT ptrToBase) cons
     ASSERT_NE(ptrToDerived, decltype(ptrToDerived)());
 }
 
-void HourlyEmployeeCorrectnessTester::testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck)
+void EmployeeCorrectnessTester::testServiceChargeList(std::vector<ServiceCharge> givenServiceCharges)
 {
-    testName(givenE, nameToCheck);
-    testClassification(givenE->getPaymentClassification());
-    testIsCorrectDerivedType<WeeklySchedule>(givenE->getPaymentSchedule());
-    testIsCorrectDerivedType<HoldMethod>(givenE->getPaymentMethod());
+    std::sort(givenServiceCharges.begin(), givenServiceCharges.end());
+    std::sort(this->serviceCharges.begin(), this->serviceCharges.end());
+    ASSERT_TRUE(std::equal(givenServiceCharges.begin(), givenServiceCharges.end(), this->serviceCharges.begin()));
+}
+
+void HourlyEmployeeCorrectnessTester::testEmployee(std::string nameToCheck)
+{
+    testName(givenE.getName(), nameToCheck);
+    testClassification(givenE.getPaymentClassification());
+    testIsCorrectDerivedType<WeeklySchedule>(givenE.getPaymentSchedule());
+    testIsCorrectDerivedType<HoldMethod>(givenE.getPaymentMethod());
 }
 
 void HourlyEmployeeCorrectnessTester::testClassification(std::shared_ptr<PaymentClassification> pc) const
@@ -45,12 +53,12 @@ void HourlyEmployeeCorrectnessTester::testClassification(std::shared_ptr<Payment
     }
 }
 
-void SalariedEmployeeCorrectnessTester::testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck)
+void SalariedEmployeeCorrectnessTester::testEmployee(std::string nameToCheck)
 {
-    testName(givenE, nameToCheck);
-    testClassification(givenE->getPaymentClassification());
-    testIsCorrectDerivedType<MonthlySchedule>(givenE->getPaymentSchedule());
-    testIsCorrectDerivedType<HoldMethod>(givenE->getPaymentMethod());
+    testName(givenE.getName(), nameToCheck);
+    testClassification(givenE.getPaymentClassification());
+    testIsCorrectDerivedType<MonthlySchedule>(givenE.getPaymentSchedule());
+    testIsCorrectDerivedType<HoldMethod>(givenE.getPaymentMethod());
 }
 
 void SalariedEmployeeCorrectnessTester::testClassification(std::shared_ptr<PaymentClassification> pc) const
@@ -60,12 +68,12 @@ void SalariedEmployeeCorrectnessTester::testClassification(std::shared_ptr<Payme
     ASSERT_DOUBLE_EQ(classification->getSalary(), sSalary);
 }
 
-void CommissionedEmployeeCorrectnessTester::testEmployee(std::shared_ptr<Employee> givenE, std::string nameToCheck)
+void CommissionedEmployeeCorrectnessTester::testEmployee(std::string nameToCheck)
 {
-    testName(givenE, nameToCheck);
-    testClassification(givenE->getPaymentClassification());
-    testIsCorrectDerivedType<BiweeklySchedule>(givenE->getPaymentSchedule());
-    testIsCorrectDerivedType<HoldMethod>(givenE->getPaymentMethod());
+    testName(givenE.getName(), nameToCheck);
+    testClassification(givenE.getPaymentClassification());
+    testIsCorrectDerivedType<BiweeklySchedule>(givenE.getPaymentSchedule());
+    testIsCorrectDerivedType<HoldMethod>(givenE.getPaymentMethod());
 }
 
 void CommissionedEmployeeCorrectnessTester::testClassification(std::shared_ptr<PaymentClassification> pc) const

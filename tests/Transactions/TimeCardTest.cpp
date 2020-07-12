@@ -32,5 +32,5 @@ TEST_F(TimeCardTest, TimeCardUpdates)
     TimeCardTransaction tct(date, hours, id);
     ASSERT_NO_THROW(tct.execute());
 
-    HourlyEmployeeCorrectnessTester(hRate, TimeCard(date, hours)).invoke(id, name);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate, TimeCard(date, hours)).invoke(id, name);
 }

@@ -18,7 +18,7 @@ TEST_F(AddEmployeeTest, HourlyEmployee)
     AddHourlyEmployee at(hId, hName, hAddress, hRate);
     ASSERT_NO_THROW(at.execute());
     ASSERT_EQ(database->size(), 1);
-    HourlyEmployeeCorrectnessTester(hRate).invoke(hId, hName);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName);
 }
 
 TEST_F(AddEmployeeTest, SalariedEmployee)
@@ -26,7 +26,7 @@ TEST_F(AddEmployeeTest, SalariedEmployee)
     AddSalariedEmployee at(sId, sName, sAddress, sSalary);
     ASSERT_NO_THROW(at.execute());
     ASSERT_EQ(database->size(), 1);
-    SalariedEmployeeCorrectnessTester(sSalary).invoke(sId, sName);
+    SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName);
 }
 
 TEST_F(AddEmployeeTest, CommissionedEmployee)
@@ -34,5 +34,5 @@ TEST_F(AddEmployeeTest, CommissionedEmployee)
     AddCommissionedEmployee at(cId, cName, cAddress, cSalary, cRate);
     ASSERT_NO_THROW(at.execute());
     ASSERT_EQ(database->size(), 1);
-    CommissionedEmployeeCorrectnessTester(cSalary, cRate).invoke(cId, cName);
+    CommissionedEmployeeCorrectnessTester(*database->getEmployee(cId), cSalary, cRate).invoke(cId, cName);
 }

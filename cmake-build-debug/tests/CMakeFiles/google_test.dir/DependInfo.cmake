@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/SalesReceipt.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/Transactions/SalesReceipt.cpp.obj"
+  "C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/ServiceChargeTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/Transactions/ServiceChargeTest.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/TimeCardTest.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj"
   "C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/EmployeeCorrectnessTester.cpp" "C:/Users/mickl/ClionProjects/payroll-system/cmake-build-debug/tests/CMakeFiles/google_test.dir/Transactions/utility/EmployeeCorrectnessTester.cpp.obj"
   )

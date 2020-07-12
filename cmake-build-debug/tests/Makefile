@@ -278,6 +278,33 @@ Transactions/SalesReceipt.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/SalesReceipt.cpp.s
 .PHONY : Transactions/SalesReceipt.cpp.s
 
+Transactions/ServiceChargeTest.obj: Transactions/ServiceChargeTest.cpp.obj
+
+.PHONY : Transactions/ServiceChargeTest.obj
+
+# target to build an object file
+Transactions/ServiceChargeTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/ServiceChargeTest.cpp.obj
+.PHONY : Transactions/ServiceChargeTest.cpp.obj
+
+Transactions/ServiceChargeTest.i: Transactions/ServiceChargeTest.cpp.i
+
+.PHONY : Transactions/ServiceChargeTest.i
+
+# target to preprocess a source file
+Transactions/ServiceChargeTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/ServiceChargeTest.cpp.i
+.PHONY : Transactions/ServiceChargeTest.cpp.i
+
+Transactions/ServiceChargeTest.s: Transactions/ServiceChargeTest.cpp.s
+
+.PHONY : Transactions/ServiceChargeTest.s
+
+# target to generate assembly for a file
+Transactions/ServiceChargeTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/ServiceChargeTest.cpp.s
+.PHONY : Transactions/ServiceChargeTest.cpp.s
+
 Transactions/TimeCardTest.obj: Transactions/TimeCardTest.cpp.obj
 
 .PHONY : Transactions/TimeCardTest.obj
@@ -357,6 +384,9 @@ help:
 	@echo ... Transactions/SalesReceipt.obj
 	@echo ... Transactions/SalesReceipt.i
 	@echo ... Transactions/SalesReceipt.s
+	@echo ... Transactions/ServiceChargeTest.obj
+	@echo ... Transactions/ServiceChargeTest.i
+	@echo ... Transactions/ServiceChargeTest.s
 	@echo ... Transactions/TimeCardTest.obj
 	@echo ... Transactions/TimeCardTest.i
 	@echo ... Transactions/TimeCardTest.s

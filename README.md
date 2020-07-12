@@ -18,6 +18,6 @@ This system consists of a database of employees in the company and their associa
 
 -`PayrollDatabase` is a **Facade** and a **Singleton**
 
--`AddEmployeeTransaction::execte()` is a **Template Method**
+-`AddEmployeeTransaction::execute()`, `ECT::invoke()` are **Template Methods**
 
-- 
+-`NoAffiliation` is a **NullObject**
