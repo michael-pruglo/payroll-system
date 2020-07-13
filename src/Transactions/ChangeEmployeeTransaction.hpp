@@ -14,7 +14,7 @@ public:
     virtual void execute() override;
     virtual void change(std::shared_ptr<Employee>) = 0;
 
-private:
+protected:
     int id;
 };
 
@@ -88,13 +88,13 @@ public:
     ChangeMethodTransaction(int id) : ChangeEmployeeTransaction(id) {}
     virtual ~ChangeMethodTransaction() override = default;
     void change(std::shared_ptr<Employee> employee) override;
-    virtual std::shared_ptr<PaymentMethod> getPaymentMethod() = 0;
+    virtual std::shared_ptr<PaymentMethod> getPaymentMethod() const = 0;
 };
 class ChangeToDirectMethodTransaction : public ChangeMethodTransaction
 {
 public:
     ChangeToDirectMethodTransaction(int id, std::string bank, int account);
-    std::shared_ptr<PaymentMethod> getPaymentMethod() override;
+    std::shared_ptr<PaymentMethod> getPaymentMethod() const override;
 private:
     std::string bank;
     int account;
@@ -103,7 +103,7 @@ class ChangeToMailMethodTransaction : public ChangeMethodTransaction
 {
 public:
     ChangeToMailMethodTransaction(int id, std::string address);
-    std::shared_ptr<PaymentMethod> getPaymentMethod() override;
+    std::shared_ptr<PaymentMethod> getPaymentMethod() const override;
 private:
     std::string address;
 };
@@ -111,7 +111,33 @@ class ChangeToHoldMethodTransaction : public ChangeMethodTransaction
 {
 public:
     ChangeToHoldMethodTransaction(int id);
-    std::shared_ptr<PaymentMethod> getPaymentMethod() override;
+    std::shared_ptr<PaymentMethod> getPaymentMethod() const override;
+};
+
+class ChangeAffiliationTransaction : public ChangeEmployeeTransaction
+{
+public:
+    ChangeAffiliationTransaction(int id) : ChangeEmployeeTransaction(id) {}
+    virtual ~ChangeAffiliationTransaction() override = default;
+    void change(std::shared_ptr<Employee> employee) override;
+    virtual void recordMembership(std::shared_ptr<Employee> employee) = 0;
+    virtual std::shared_ptr<Affiliation> getAffiliation() const = 0;
+};
+class ChangeToUnionAffiliationTransaction : public ChangeAffiliationTransaction
+{
+public:
+    ChangeToUnionAffiliationTransaction(int id, int memberId);
+    std::shared_ptr<Affiliation> getAffiliation() const override;
+    void recordMembership(std::shared_ptr<Employee> employee) override;
+private:
+    int memberId;
+};
+class ChangeToNoAffiliationTransaction : public ChangeAffiliationTransaction
+{
+public:
+    ChangeToNoAffiliationTransaction(int id);
+    std::shared_ptr<Affiliation> getAffiliation() const override;
+    void recordMembership(std::shared_ptr<Employee> employee) override;
 };
 
 #endif //PAYROLL_SYSTEM_CHANGEEMPLOYEETRANSACTION_HPP

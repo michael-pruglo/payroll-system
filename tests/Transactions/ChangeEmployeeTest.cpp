@@ -87,7 +87,6 @@ TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
     HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
         .invoke<DirectMethod>(id, name, address);
 }
-
 TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
 {
     assertDatabaseContains(id);
@@ -98,7 +97,6 @@ TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
     HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
         .invoke<MailMethod>(id, name, address);
 }
-
 TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMailAndBack)
 {
     assertDatabaseContains(id);
@@ -110,4 +108,26 @@ TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMailAndBack)
 
     HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
         .invoke(id, name, address);
+}
+
+TEST_F(ChangeEmployeeTest, ChangeAffiliationToMember)
+{
+    assertDatabaseContains(id);
+
+    int memberId = 88;
+    ChangeToUnionAffiliationTransaction ctuat(id, memberId);
+    ASSERT_NO_THROW(ctuat.execute());
+
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(database->getIdByUnionMemberId(memberId)), hRate)
+        .invoke<HoldMethod, UnionAffiliation>(id, name, address);
+}
+TEST_F(ChangeEmployeeTest, ChangeAffiliationToNo)
+{
+    assertDatabaseContains(id);
+
+    ChangeToNoAffiliationTransaction ctnat(id);
+    ASSERT_NO_THROW(ctnat.execute());
+
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        .invoke<HoldMethod, NoAffiliation>(id, name, address);
 }

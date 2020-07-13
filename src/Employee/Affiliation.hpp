@@ -22,18 +22,20 @@ public:
 class UnionAffiliation : public Affiliation
 {
 public:
+    explicit UnionAffiliation(int memberId) : memberId(memberId) {}
     void addServiceCharge(ServiceCharge serviceCharge) override
     {
         serviceCharges.push_back(serviceCharge);
     }
-
     std::vector<ServiceCharge> getServiceCharges() const override
     {
         return serviceCharges;
     }
+    int getMemberId() const { return memberId; }
 
 private:
     double dues;
+    int memberId;
     std::vector<ServiceCharge> serviceCharges;
 };
 

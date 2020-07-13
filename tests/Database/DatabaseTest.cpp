@@ -111,3 +111,25 @@ TEST_F(PayrollDatabaseTest, Clear)
     database->clear();
     ASSERT_EQ(database->size(), 0);
 }
+
+TEST_F(PayrollDatabaseTest, addUnionMember)
+{
+    ASSERT_NO_THROW(database->addUnionMember(17, bobId));
+    int givenId;
+    ASSERT_NO_THROW(givenId =database->getIdByUnionMemberId(17));
+    ASSERT_EQ(givenId, bobId);
+}
+
+TEST_F(PayrollDatabaseTest, add2UnionMembersThrows)
+{
+    ASSERT_NO_THROW(database->addUnionMember(17, bobId));
+    ASSERT_THROW(database->addUnionMember(17, bobId), PayrollDatabase::add_duplicate);
+}
+
+TEST_F(PayrollDatabaseTest, removeUnionMember)
+{
+    ASSERT_NO_THROW(database->addUnionMember(17, bobId));
+    ASSERT_NO_THROW(database->removeUnionMember(17));
+    ASSERT_THROW(database->getIdByUnionMemberId(17), PayrollDatabase::not_found);
+}
+

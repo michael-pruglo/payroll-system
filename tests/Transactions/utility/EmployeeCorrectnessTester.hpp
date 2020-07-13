@@ -15,13 +15,14 @@ public:
     virtual ~EmployeeCorrectnessTester() = default;
     void addServiceCharge(ServiceCharge serviceCharge);
 
-    template <typename PaymentMethodType = HoldMethod>
+    template <typename PaymentMethodType = HoldMethod, typename AffiliationType = NoAffiliation>
     void invoke(int idToCheck, std::string nameToCheck, std::string addressToCheck)
     {
         testName(givenE.getName(), nameToCheck);
         testAddress(givenE.getAddress(), addressToCheck);
         testClassification(givenE.getPaymentClassification());
         testIsCorrectDerivedType<PaymentMethodType>(givenE.getPaymentMethod());
+        testIsCorrectDerivedType<AffiliationType>(givenE.getAffiliation());
         testScheduleType();
         testServiceChargeList(givenE.getAffiliation()->getServiceCharges());
     }

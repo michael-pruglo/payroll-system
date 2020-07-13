@@ -64,7 +64,7 @@ ChangeToDirectMethodTransaction::ChangeToDirectMethodTransaction(int id, std::st
     account(account)
 {}
 
-std::shared_ptr<PaymentMethod> ChangeToDirectMethodTransaction::getPaymentMethod()
+std::shared_ptr<PaymentMethod> ChangeToDirectMethodTransaction::getPaymentMethod() const
 {
     return std::make_shared<DirectMethod>(bank, account);
 }
@@ -74,7 +74,7 @@ ChangeToMailMethodTransaction::ChangeToMailMethodTransaction(int id, std::string
     address(address)
 {}
 
-std::shared_ptr<PaymentMethod> ChangeToMailMethodTransaction::getPaymentMethod()
+std::shared_ptr<PaymentMethod> ChangeToMailMethodTransaction::getPaymentMethod() const
 {
     return std::make_shared<MailMethod>(address);
 }
@@ -83,7 +83,47 @@ ChangeToHoldMethodTransaction::ChangeToHoldMethodTransaction(int id) :
     ChangeMethodTransaction(id)
 {}
 
-std::shared_ptr<PaymentMethod> ChangeToHoldMethodTransaction::getPaymentMethod()
+std::shared_ptr<PaymentMethod> ChangeToHoldMethodTransaction::getPaymentMethod() const
 {
     return std::make_shared<HoldMethod>();
+}
+
+void ChangeAffiliationTransaction::change(std::shared_ptr<Employee> employee)
+{
+    recordMembership(employee);
+    employee->setAffiliation(getAffiliation());
+}
+
+ChangeToUnionAffiliationTransaction::ChangeToUnionAffiliationTransaction(int id, int memberId) :
+    ChangeAffiliationTransaction(id),
+    memberId(memberId)
+{}
+
+std::shared_ptr<Affiliation> ChangeToUnionAffiliationTransaction::getAffiliation() const
+{
+    return std::make_shared<UnionAffiliation>(memberId);
+}
+
+void ChangeToUnionAffiliationTransaction::recordMembership(std::shared_ptr<Employee> employee)
+{
+    PayrollDatabase::getInstance()->addUnionMember(memberId, id);
+}
+
+ChangeToNoAffiliationTransaction::ChangeToNoAffiliationTransaction(int id) :
+    ChangeAffiliationTransaction(id)
+{}
+
+std::shared_ptr<Affiliation> ChangeToNoAffiliationTransaction::getAffiliation() const
+{
+    return std::make_shared<NoAffiliation>();
+}
+
+void ChangeToNoAffiliationTransaction::recordMembership(std::shared_ptr<Employee> employee)
+{
+    auto affiliation = employee->getAffiliation();
+    if (auto uaffiliation = std::dynamic_pointer_cast<UnionAffiliation>(affiliation))
+    {
+        int memberId = uaffiliation->getMemberId();
+        PayrollDatabase::getInstance()->removeUnionMember(memberId);
+    }
 }

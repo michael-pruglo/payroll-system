@@ -7,11 +7,14 @@
     else \
         IF_CONTAINS;
 
-#define IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND( FOO ) EXECUTE_OPTION( database, id, FOO, throw not_found(id) )
+#define DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND( FOO ) \
+    EXECUTE_OPTION( database, id, FOO, throw not_found(id) )
+#define UNION_DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND( FOO ) \
+    EXECUTE_OPTION( unionMembershipDatabase, memberId, FOO, throw not_found(memberId) )
 
 void PayrollDatabase::addEmployee(int id, std::shared_ptr<Employee> employee)
 {
-    if(database.contains(id))
+    if (database.contains(id))
         throw add_duplicate(id);
     else
         database.insert({id, employee});
@@ -19,27 +22,44 @@ void PayrollDatabase::addEmployee(int id, std::shared_ptr<Employee> employee)
 
 std::shared_ptr<Employee> PayrollDatabase::getEmployee(int id) const
 {
-    IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(return it->second);
+    DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(return it->second);
 }
 
 void PayrollDatabase::updateEmployee(int id, std::shared_ptr<Employee> newEmployee)
 {
-    IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(it->second = newEmployee);
+    DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(it->second = newEmployee);
 }
 
 void PayrollDatabase::deleteEmployee(int id)
 {
-    IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(database.erase(it));
+    DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(database.erase(it));
+}
+
+void PayrollDatabase::addUnionMember(int memberId, int empId)
+{
+    if (unionMembershipDatabase.contains(memberId))
+        throw add_duplicate(memberId);
+    else
+        unionMembershipDatabase.insert({memberId, empId});
+}
+
+int PayrollDatabase::getIdByUnionMemberId(int memberId)
+{
+    UNION_DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(return it->second);
+}
+
+void PayrollDatabase::removeUnionMember(int memberId)
+{
+    UNION_DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(unionMembershipDatabase.erase(it));
 }
 
 #undef EXECUTE_OPTION
-#undef IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND
-
-
-std::shared_ptr<PayrollDatabase> PayrollDatabase::_instance = nullptr;
+#undef DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND
+#undef UNION_DB_IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND
 
 std::shared_ptr<PayrollDatabase> PayrollDatabase::getInstance()
 {
+    static std::shared_ptr<PayrollDatabase> _instance = nullptr;
     if (_instance == nullptr)
         _instance = std::shared_ptr<PayrollDatabase> {new PayrollDatabase()};
     return _instance;

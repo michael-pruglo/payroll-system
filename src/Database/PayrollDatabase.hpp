@@ -18,7 +18,11 @@ public:
     void                        updateEmployee(int id, std::shared_ptr<Employee> newEmployee);
     void                        deleteEmployee(int id);
     auto                        size() const { return database.size(); }
-    void                        clear() { database.clear(); }
+    void                        clear() { database.clear(); unionMembershipDatabase.clear(); }
+
+    void                        addUnionMember(int memberId, int empId);
+    int                         getIdByUnionMemberId(int memberId);
+    void                        removeUnionMember(int memberId);
 
 public: //exceptions
     class not_found;
@@ -27,16 +31,15 @@ public: //exceptions
 
 private:
     std::unordered_map<int, std::shared_ptr<Employee>> database;
+    std::unordered_map<int, int> unionMembershipDatabase;
 
     //Singleton
 private:
     PayrollDatabase() = default;
-    static std::shared_ptr<PayrollDatabase> _instance;
 public:
     PayrollDatabase(PayrollDatabase& other) = delete;
     void operator=(const PayrollDatabase& other) = delete;
     static std::shared_ptr<PayrollDatabase> getInstance();
-
 };
 
 class PayrollDatabase::not_found : public std::runtime_error
