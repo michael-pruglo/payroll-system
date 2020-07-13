@@ -273,9 +273,19 @@
         -:  269:      { return this->_M_payload._M_value; }
         -:  270:
         -:  271:      constexpr const _Tp&
+        4:  272:      _M_get() const noexcept
+        4:  273:      { return this->_M_payload._M_value; }
+------------------
+_ZNKSt22_Optional_payload_baseI12SalesReceiptE6_M_getEv:
         2:  272:      _M_get() const noexcept
         2:  273:      { return this->_M_payload._M_value; }
         2:  273-block  0
+------------------
+_ZNKSt22_Optional_payload_baseI8TimeCardE6_M_getEv:
+        2:  272:      _M_get() const noexcept
+        2:  273:      { return this->_M_payload._M_value; }
+        2:  273-block  0
+------------------
         -:  274:
         -:  275:      // _M_reset is a 'safe' operation with no precondition.
         -:  276:      constexpr void
@@ -436,9 +446,19 @@
         -:  431:      _M_reset() noexcept
         -:  432:      { static_cast<_Dp*>(this)->_M_payload._M_reset(); }
         -:  433:
-        2:  434:      constexpr bool _M_is_engaged() const noexcept
-        2:  435:      { return static_cast<const _Dp*>(this)->_M_payload._M_engaged; }
-        2:  435-block  0
+       13:  434:      constexpr bool _M_is_engaged() const noexcept
+       13:  435:      { return static_cast<const _Dp*>(this)->_M_payload._M_engaged; }
+------------------
+_ZNKSt19_Optional_base_implI12SalesReceiptSt14_Optional_baseIS0_Lb1ELb1EEE13_M_is_engagedEv:
+        3:  434:      constexpr bool _M_is_engaged() const noexcept
+        3:  435:      { return static_cast<const _Dp*>(this)->_M_payload._M_engaged; }
+        3:  435-block  0
+------------------
+_ZNKSt19_Optional_base_implI8TimeCardSt14_Optional_baseIS0_Lb1ELb1EEE13_M_is_engagedEv:
+       10:  434:      constexpr bool _M_is_engaged() const noexcept
+       10:  435:      { return static_cast<const _Dp*>(this)->_M_payload._M_engaged; }
+       10:  435-block  0
+------------------
         -:  436:
         -:  437:      // The _M_get operations have _M_engaged as a precondition.
         -:  438:      constexpr _Tp&
@@ -449,12 +469,28 @@
         -:  443:      }
         -:  444:
         -:  445:      constexpr const _Tp&
+        4:  446:      _M_get() const noexcept
+        -:  447:      {
+        -:  448:	__glibcxx_assert(this->_M_is_engaged());
+        4:  449:	return static_cast<const _Dp*>(this)->_M_payload._M_get();
+        -:  450:      }
+------------------
+_ZNKSt19_Optional_base_implI12SalesReceiptSt14_Optional_baseIS0_Lb1ELb1EEE6_M_getEv:
         2:  446:      _M_get() const noexcept
         -:  447:      {
         -:  448:	__glibcxx_assert(this->_M_is_engaged());
         2:  449:	return static_cast<const _Dp*>(this)->_M_payload._M_get();
         2:  449-block  0
         -:  450:      }
+------------------
+_ZNKSt19_Optional_base_implI8TimeCardSt14_Optional_baseIS0_Lb1ELb1EEE6_M_getEv:
+        2:  446:      _M_get() const noexcept
+        -:  447:      {
+        -:  448:	__glibcxx_assert(this->_M_is_engaged());
+        2:  449:	return static_cast<const _Dp*>(this)->_M_payload._M_get();
+        2:  449-block  0
+        -:  450:      }
+------------------
         -:  451:    };
         -:  452:
         -:  453:  /**
@@ -895,9 +931,19 @@
         -:  888:
         -:  889:      // Observers.
         -:  890:      constexpr const _Tp*
+        4:  891:      operator->() const
+        4:  892:      { return std::__addressof(this->_M_get()); }
+------------------
+_ZNKSt8optionalI12SalesReceiptEptEv:
         2:  891:      operator->() const
         2:  892:      { return std::__addressof(this->_M_get()); }
         2:  892-block  0
+------------------
+_ZNKSt8optionalI8TimeCardEptEv:
+        2:  891:      operator->() const
+        2:  892:      { return std::__addressof(this->_M_get()); }
+        2:  892-block  0
+------------------
         -:  893:
         -:  894:      constexpr _Tp*
         -:  895:      operator->()
@@ -919,9 +965,19 @@
         -:  911:      operator*() const&&
         -:  912:      { return std::move(this->_M_get()); }
         -:  913:
-        2:  914:      constexpr explicit operator bool() const noexcept
-        2:  915:      { return this->_M_is_engaged(); }
-        2:  915-block  0
+       13:  914:      constexpr explicit operator bool() const noexcept
+       13:  915:      { return this->_M_is_engaged(); }
+------------------
+_ZNKSt8optionalI12SalesReceiptEcvbEv:
+        3:  914:      constexpr explicit operator bool() const noexcept
+        3:  915:      { return this->_M_is_engaged(); }
+        3:  915-block  0
+------------------
+_ZNKSt8optionalI8TimeCardEcvbEv:
+       10:  914:      constexpr explicit operator bool() const noexcept
+       10:  915:      { return this->_M_is_engaged(); }
+       10:  915-block  0
+------------------
         -:  916:
         -:  917:      constexpr bool has_value() const noexcept
         -:  918:      { return this->_M_is_engaged(); }

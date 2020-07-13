@@ -1019,10 +1019,11 @@
         -: 1005:      using element_type = _Tp;
         -: 1006:
         -: 1007:      element_type&
-        -: 1008:      operator*() const noexcept
+    #####: 1008:      operator*() const noexcept
         -: 1009:      {
         -: 1010:	__glibcxx_assert(_M_get() != nullptr);
-        -: 1011:	return *_M_get();
+    #####: 1011:	return *_M_get();
+    %%%%%: 1011-block  0
         -: 1012:      }
         -: 1013:
         -: 1014:      element_type*
@@ -1030,6 +1031,14 @@
         -: 1016:      {
         -: 1017:	_GLIBCXX_DEBUG_PEDASSERT(_M_get() != nullptr);
     #####: 1018:	return _M_get();
+        -: 1019:      }
+------------------
+_ZNKSt19__shared_ptr_accessI11AffiliationLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv:
+    #####: 1015:      operator->() const noexcept
+        -: 1016:      {
+        -: 1017:	_GLIBCXX_DEBUG_PEDASSERT(_M_get() != nullptr);
+    #####: 1018:	return _M_get();
+    %%%%%: 1018-block  0
         -: 1019:      }
 ------------------
 _ZNKSt19__shared_ptr_accessI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv:
@@ -1061,6 +1070,11 @@ _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb
         -: 1022:      element_type*
     #####: 1023:      _M_get() const noexcept
     #####: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+------------------
+_ZNKSt19__shared_ptr_accessI11AffiliationLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv:
+    #####: 1023:      _M_get() const noexcept
+    #####: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+    %%%%%: 1024-block  0
 ------------------
 _ZNKSt19__shared_ptr_accessI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv:
     #####: 1023:      _M_get() const noexcept
@@ -1175,8 +1189,20 @@ _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb
         -: 1120:
     #####: 1121:      constexpr __shared_ptr() noexcept
     #####: 1122:      : _M_ptr(0), _M_refcount()
+    #####: 1123:      { }
+------------------
+_ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
+    #####: 1121:      constexpr __shared_ptr() noexcept
+    #####: 1122:      : _M_ptr(0), _M_refcount()
     %%%%%: 1122-block  0
     #####: 1123:      { }
+------------------
+_ZNSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
+    #####: 1121:      constexpr __shared_ptr() noexcept
+    #####: 1122:      : _M_ptr(0), _M_refcount()
+    %%%%%: 1122-block  0
+    #####: 1123:      { }
+------------------
         -: 1124:
         -: 1125:      template<typename _Yp, typename = _SafeConv<_Yp>>
         -: 1126:	explicit
@@ -1222,8 +1248,22 @@ _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb
     #####: 1166:	__shared_ptr(const __shared_ptr<_Yp, _Lp>& __r,
         -: 1167:		     element_type* __p) noexcept
     #####: 1168:	: _M_ptr(__p), _M_refcount(__r._M_refcount) // never throws
+    #####: 1169:	{ }
+------------------
+_ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EEC2I13PaymentMethodEERKS_IT_LS2_2EEPS0_:
+    #####: 1166:	__shared_ptr(const __shared_ptr<_Yp, _Lp>& __r,
+        -: 1167:		     element_type* __p) noexcept
+    #####: 1168:	: _M_ptr(__p), _M_refcount(__r._M_refcount) // never throws
     %%%%%: 1168-block  0
     #####: 1169:	{ }
+------------------
+_ZNSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EEC2I21PaymentClassificationEERKS_IT_LS2_2EEPS0_:
+    #####: 1166:	__shared_ptr(const __shared_ptr<_Yp, _Lp>& __r,
+        -: 1167:		     element_type* __p) noexcept
+    #####: 1168:	: _M_ptr(__p), _M_refcount(__r._M_refcount) // never throws
+    %%%%%: 1168-block  0
+    #####: 1169:	{ }
+------------------
         -: 1170:
         -: 1171:      // Aliasing constructor
         -: 1172:      template<typename _Yp>
@@ -1236,9 +1276,29 @@ _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb
         -: 1179:	}
         -: 1180:
     #####: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+    #####: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
     %%%%%: 1181-block  0
+------------------
+_ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+    #####: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+    %%%%%: 1181-block  0
+------------------
+_ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+    #####: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+    %%%%%: 1181-block  0
+------------------
+_ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+    #####: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+    %%%%%: 1181-block  0
+------------------
         -: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
     #####: 1183:      ~__shared_ptr() = default;
+------------------
+_ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+    #####: 1183:      ~__shared_ptr() = default;
+    %%%%%: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     #####: 1183:      ~__shared_ptr() = default;
@@ -1249,6 +1309,18 @@ _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     %%%%%: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+    #####: 1183:      ~__shared_ptr() = default;
+    %%%%%: 1183-block  0
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+    #####: 1183:      ~__shared_ptr() = default;
+    %%%%%: 1183-block  0
+------------------
+_ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+    #####: 1183:      ~__shared_ptr() = default;
+    %%%%%: 1183-block  0
+------------------
+_ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     #####: 1183:      ~__shared_ptr() = default;
     %%%%%: 1183-block  0
 ------------------
@@ -1398,6 +1470,21 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
         -: 1323:      element_type*
     #####: 1324:      get() const noexcept
     #####: 1325:      { return _M_ptr; }
+------------------
+_ZNKSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EE3getEv:
+    #####: 1324:      get() const noexcept
+    #####: 1325:      { return _M_ptr; }
+    %%%%%: 1325-block  0
+------------------
+_ZNKSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EE3getEv:
+    #####: 1324:      get() const noexcept
+    #####: 1325:      { return _M_ptr; }
+    %%%%%: 1325-block  0
+------------------
+_ZNKSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EE3getEv:
+    #####: 1324:      get() const noexcept
+    #####: 1325:      { return _M_ptr; }
+    %%%%%: 1325-block  0
 ------------------
 _ZNKSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EE3getEv:
     #####: 1324:      get() const noexcept

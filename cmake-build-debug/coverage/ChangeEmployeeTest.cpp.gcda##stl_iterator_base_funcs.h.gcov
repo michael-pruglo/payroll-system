@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/stl_iterator_base_funcs.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Functions used by iterators -*- C++ -*-
         -:    2:
@@ -106,8 +106,30 @@
         -:  102:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
         -:  103:				  _RandomAccessIterator>)
     #####:  104:      return __last - __first;
+        -:  105:    }
+------------------
+_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag:
+    #####:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
+        -:   99:               random_access_iterator_tag)
+        -:  100:    {
+        -:  101:      // concept requirements
+        -:  102:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
+        -:  103:				  _RandomAccessIterator>)
+    #####:  104:      return __last - __first;
     %%%%%:  104-block  0
         -:  105:    }
+------------------
+_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag:
+    #####:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
+        -:   99:               random_access_iterator_tag)
+        -:  100:    {
+        -:  101:      // concept requirements
+        -:  102:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
+        -:  103:				  _RandomAccessIterator>)
+    #####:  104:      return __last - __first;
+    %%%%%:  104-block  0
+        -:  105:    }
+------------------
         -:  106:
         -:  107:#if _GLIBCXX_USE_CXX11_ABI
         -:  108:  // Forward declaration because of the qualified call in distance.
@@ -145,7 +167,6 @@
         -:  140:      // concept requirements -- taken care of in __distance
     #####:  141:      return std::__distance(__first, __last,
     #####:  142:			     std::__iterator_category(__first));
-    %%%%%:  142-block  0
         -:  143:    }
         -:  144:
         -:  145:  template<typename _InputIterator, typename _Distance>

@@ -239,9 +239,19 @@
         -:  235:      { return _M_storage._M_ptr(); }
         -:  236:
         -:  237:      const _Val*
+       3*:  238:      _M_valptr() const
+       3*:  239:      { return _M_storage._M_ptr(); }
+------------------
+_ZNKSt13_Rb_tree_nodeISt4pairIK4Date12SalesReceiptEE9_M_valptrEv:
+        3:  238:      _M_valptr() const
+        3:  239:      { return _M_storage._M_ptr(); }
+        3:  239-block  0
+------------------
+_ZNKSt13_Rb_tree_nodeISt4pairIK4Date8TimeCardEE9_M_valptrEv:
     #####:  238:      _M_valptr() const
     #####:  239:      { return _M_storage._M_ptr(); }
     %%%%%:  239-block  0
+------------------
         -:  240:#endif
         -:  241:    };
         -:  242:
@@ -349,8 +359,17 @@
         -:  344:      : _M_node() { }
         -:  345:
         -:  346:      explicit
+        6:  347:      _Rb_tree_const_iterator(_Base_ptr __x) _GLIBCXX_NOEXCEPT
+        6:  348:      : _M_node(__x) { }
+------------------
+_ZNSt23_Rb_tree_const_iteratorISt4pairIK4Date12SalesReceiptEEC1EPKSt18_Rb_tree_node_base:
         3:  347:      _Rb_tree_const_iterator(_Base_ptr __x) _GLIBCXX_NOEXCEPT
         3:  348:      : _M_node(__x) { }
+------------------
+_ZNSt23_Rb_tree_const_iteratorISt4pairIK4Date8TimeCardEEC1EPKSt18_Rb_tree_node_base:
+        3:  347:      _Rb_tree_const_iterator(_Base_ptr __x) _GLIBCXX_NOEXCEPT
+        3:  348:      : _M_node(__x) { }
+------------------
         -:  349:
         -:  350:      _Rb_tree_const_iterator(const iterator& __it) _GLIBCXX_NOEXCEPT
         -:  351:      : _M_node(__it._M_node) { }
@@ -364,9 +383,19 @@
         -:  359:      { return *static_cast<_Link_type>(_M_node)->_M_valptr(); }
         -:  360:
         -:  361:      pointer
+        2:  362:      operator->() const _GLIBCXX_NOEXCEPT
+        2:  363:      { return static_cast<_Link_type>(_M_node)->_M_valptr(); }
+------------------
+_ZNKSt23_Rb_tree_const_iteratorISt4pairIK4Date12SalesReceiptEEptEv:
         1:  362:      operator->() const _GLIBCXX_NOEXCEPT
         1:  363:      { return static_cast<_Link_type>(_M_node)->_M_valptr(); }
         1:  363-block  0
+------------------
+_ZNKSt23_Rb_tree_const_iteratorISt4pairIK4Date8TimeCardEEptEv:
+        1:  362:      operator->() const _GLIBCXX_NOEXCEPT
+        1:  363:      { return static_cast<_Link_type>(_M_node)->_M_valptr(); }
+        1:  363-block  0
+------------------
         -:  364:
         -:  365:      _Self&
         -:  366:      operator++() _GLIBCXX_NOEXCEPT
@@ -399,9 +428,19 @@
         -:  393:      }
         -:  394:
         -:  395:      friend bool
+        4:  396:      operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+        4:  397:      { return __x._M_node == __y._M_node; }
+------------------
+_ZSteqRKSt23_Rb_tree_const_iteratorISt4pairIK4Date12SalesReceiptEES7_:
         2:  396:      operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
         2:  397:      { return __x._M_node == __y._M_node; }
         2:  397-block  0
+------------------
+_ZSteqRKSt23_Rb_tree_const_iteratorISt4pairIK4Date8TimeCardEES7_:
+        2:  396:      operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+        2:  397:      { return __x._M_node == __y._M_node; }
+        2:  397-block  0
+------------------
         -:  398:
         -:  399:#if ! __cpp_lib_three_way_comparison
         -:  400:      friend bool
@@ -756,23 +795,94 @@
         -:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
         -:  750:
         -:  751:      _Const_Link_type
+        2:  752:      _M_begin() const _GLIBCXX_NOEXCEPT
+        -:  753:      {
+        -:  754:	return static_cast<_Const_Link_type>
+        2:  755:	  (this->_M_impl._M_header._M_parent);
+        -:  756:      }
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_beginEv:
         1:  752:      _M_begin() const _GLIBCXX_NOEXCEPT
         -:  753:      {
         -:  754:	return static_cast<_Const_Link_type>
         1:  755:	  (this->_M_impl._M_header._M_parent);
         1:  755-block  0
         -:  756:      }
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_beginEv:
+        1:  752:      _M_begin() const _GLIBCXX_NOEXCEPT
+        -:  753:      {
+        -:  754:	return static_cast<_Const_Link_type>
+        1:  755:	  (this->_M_impl._M_header._M_parent);
+        1:  755-block  0
+        -:  756:      }
+------------------
         -:  757:
         -:  758:      _Base_ptr
         -:  759:      _M_end() _GLIBCXX_NOEXCEPT
         -:  760:      { return &this->_M_impl._M_header; }
         -:  761:
         -:  762:      _Const_Base_ptr
+        2:  763:      _M_end() const _GLIBCXX_NOEXCEPT
+        2:  764:      { return &this->_M_impl._M_header; }
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE6_M_endEv:
         1:  763:      _M_end() const _GLIBCXX_NOEXCEPT
         1:  764:      { return &this->_M_impl._M_header; }
         1:  764-block  0
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE6_M_endEv:
+        1:  763:      _M_end() const _GLIBCXX_NOEXCEPT
+        1:  764:      { return &this->_M_impl._M_header; }
+        1:  764-block  0
+------------------
         -:  765:
         -:  766:      static const _Key&
+       2*:  767:      _S_key(_Const_Link_type __x)
+        -:  768:      {
+        -:  769:#if __cplusplus >= 201103L
+        -:  770:	// If we're asking for the key we're presumably using the comparison
+        -:  771:	// object, and so this is a good place to sanity check it.
+        -:  772:	static_assert(__is_invocable<_Compare&, const _Key&, const _Key&>{},
+        -:  773:		      "comparison object must be invocable "
+        -:  774:		      "with two arguments of key type");
+        -:  775:# if __cplusplus >= 201703L
+        -:  776:	// _GLIBCXX_RESOLVE_LIB_DEFECTS
+        -:  777:	// 2542. Missing const requirements for associative containers
+        -:  778:	if constexpr (__is_invocable<_Compare&, const _Key&, const _Key&>{})
+        -:  779:	  static_assert(
+        -:  780:	      is_invocable_v<const _Compare&, const _Key&, const _Key&>,
+        -:  781:	      "comparison object must be invocable as const");
+        -:  782:# endif // C++17
+        -:  783:#endif // C++11
+        -:  784:
+       2*:  785:	return _KeyOfValue()(*__x->_M_valptr());
+        -:  786:      }
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE6_S_keyEPKSt13_Rb_tree_nodeIS4_E:
+        2:  767:      _S_key(_Const_Link_type __x)
+        -:  768:      {
+        -:  769:#if __cplusplus >= 201103L
+        -:  770:	// If we're asking for the key we're presumably using the comparison
+        -:  771:	// object, and so this is a good place to sanity check it.
+        -:  772:	static_assert(__is_invocable<_Compare&, const _Key&, const _Key&>{},
+        -:  773:		      "comparison object must be invocable "
+        -:  774:		      "with two arguments of key type");
+        -:  775:# if __cplusplus >= 201703L
+        -:  776:	// _GLIBCXX_RESOLVE_LIB_DEFECTS
+        -:  777:	// 2542. Missing const requirements for associative containers
+        -:  778:	if constexpr (__is_invocable<_Compare&, const _Key&, const _Key&>{})
+        -:  779:	  static_assert(
+        -:  780:	      is_invocable_v<const _Compare&, const _Key&, const _Key&>,
+        -:  781:	      "comparison object must be invocable as const");
+        -:  782:# endif // C++17
+        -:  783:#endif // C++11
+        -:  784:
+        2:  785:	return _KeyOfValue()(*__x->_M_valptr());
+        2:  785-block  0
+        -:  786:      }
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE6_S_keyEPKSt13_Rb_tree_nodeIS4_E:
     #####:  767:      _S_key(_Const_Link_type __x)
         -:  768:      {
         -:  769:#if __cplusplus >= 201103L
@@ -794,15 +904,26 @@
     #####:  785:	return _KeyOfValue()(*__x->_M_valptr());
     %%%%%:  785-block  0
         -:  786:      }
+------------------
         -:  787:
         -:  788:      static _Link_type
         -:  789:      _S_left(_Base_ptr __x) _GLIBCXX_NOEXCEPT
         -:  790:      { return static_cast<_Link_type>(__x->_M_left); }
         -:  791:
         -:  792:      static _Const_Link_type
+        2:  793:      _S_left(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
+        2:  794:      { return static_cast<_Const_Link_type>(__x->_M_left); }
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE7_S_leftEPKSt18_Rb_tree_node_base:
         1:  793:      _S_left(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
         1:  794:      { return static_cast<_Const_Link_type>(__x->_M_left); }
         1:  794-block  0
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE7_S_leftEPKSt18_Rb_tree_node_base:
+        1:  793:      _S_left(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
+        1:  794:      { return static_cast<_Const_Link_type>(__x->_M_left); }
+        1:  794-block  0
+------------------
         -:  795:
         -:  796:      static _Link_type
         -:  797:      _S_right(_Base_ptr __x) _GLIBCXX_NOEXCEPT
@@ -811,12 +932,32 @@
         -:  800:      static _Const_Link_type
     #####:  801:      _S_right(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
     #####:  802:      { return static_cast<_Const_Link_type>(__x->_M_right); }
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_S_rightEPKSt18_Rb_tree_node_base:
+    #####:  801:      _S_right(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
+    #####:  802:      { return static_cast<_Const_Link_type>(__x->_M_right); }
     %%%%%:  802-block  0
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_S_rightEPKSt18_Rb_tree_node_base:
+    #####:  801:      _S_right(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
+    #####:  802:      { return static_cast<_Const_Link_type>(__x->_M_right); }
+    %%%%%:  802-block  0
+------------------
         -:  803:
         -:  804:      static const _Key&
+       1*:  805:      _S_key(_Const_Base_ptr __x)
+       1*:  806:      { return _S_key(static_cast<_Const_Link_type>(__x)); }
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE6_S_keyEPKSt18_Rb_tree_node_base:
+        1:  805:      _S_key(_Const_Base_ptr __x)
+        1:  806:      { return _S_key(static_cast<_Const_Link_type>(__x)); }
+        1:  806-block  0
+------------------
+_ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE6_S_keyEPKSt18_Rb_tree_node_base:
     #####:  805:      _S_key(_Const_Base_ptr __x)
     #####:  806:      { return _S_key(static_cast<_Const_Link_type>(__x)); }
     %%%%%:  806-block  0
+------------------
         -:  807:
         -:  808:      static _Base_ptr
         -:  809:      _S_minimum(_Base_ptr __x) _GLIBCXX_NOEXCEPT
@@ -1024,9 +1165,19 @@
         -: 1011:      { return iterator(&this->_M_impl._M_header); }
         -: 1012:
         -: 1013:      const_iterator
+        4: 1014:      end() const _GLIBCXX_NOEXCEPT
+        4: 1015:      { return const_iterator(&this->_M_impl._M_header); }
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE3endEv:
         2: 1014:      end() const _GLIBCXX_NOEXCEPT
         2: 1015:      { return const_iterator(&this->_M_impl._M_header); }
         2: 1015-block  0
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE3endEv:
+        2: 1014:      end() const _GLIBCXX_NOEXCEPT
+        2: 1015:      { return const_iterator(&this->_M_impl._M_header); }
+        2: 1015-block  0
+------------------
         -: 1016:
         -: 1017:      reverse_iterator
         -: 1018:      rbegin() _GLIBCXX_NOEXCEPT
@@ -1957,6 +2108,19 @@
         -: 1943:	   typename _Compare, typename _Alloc>
         -: 1944:    typename _Rb_tree<_Key, _Val, _KeyOfValue,
         -: 1945:		      _Compare, _Alloc>::const_iterator
+        4: 1946:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
+        -: 1947:    _M_lower_bound(_Const_Link_type __x, _Const_Base_ptr __y,
+        -: 1948:		   const _Key& __k) const
+        -: 1949:    {
+        4: 1950:      while (__x != 0)
+        2: 1951:	if (!_M_impl._M_key_compare(_S_key(__x), __k))
+        2: 1952:	  __y = __x, __x = _S_left(__x);
+        -: 1953:	else
+    #####: 1954:	  __x = _S_right(__x);
+        2: 1955:      return const_iterator(__y);
+        -: 1956:    }
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_:
         2: 1946:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
         -: 1947:    _M_lower_bound(_Const_Link_type __x, _Const_Base_ptr __y,
         -: 1948:		   const _Key& __k) const
@@ -1974,6 +2138,26 @@
         1: 1955:      return const_iterator(__y);
         1: 1955-block  0
         -: 1956:    }
+------------------
+_ZNKSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_:
+        2: 1946:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
+        -: 1947:    _M_lower_bound(_Const_Link_type __x, _Const_Base_ptr __y,
+        -: 1948:		   const _Key& __k) const
+        -: 1949:    {
+        2: 1950:      while (__x != 0)
+        2: 1950-block  0
+        1: 1950-block  1
+        1: 1951:	if (!_M_impl._M_key_compare(_S_key(__x), __k))
+        1: 1951-block  0
+        1: 1952:	  __y = __x, __x = _S_left(__x);
+        1: 1952-block  0
+        -: 1953:	else
+    #####: 1954:	  __x = _S_right(__x);
+    %%%%%: 1954-block  0
+        1: 1955:      return const_iterator(__y);
+        1: 1955-block  0
+        -: 1956:    }
+------------------
         -: 1957:
         -: 1958:  template<typename _Key, typename _Val, typename _KeyOfValue,
         -: 1959:	   typename _Compare, typename _Alloc>
@@ -2580,22 +2764,13 @@
         -: 2560:	   typename _Compare, typename _Alloc>
         -: 2561:    typename _Rb_tree<_Key, _Val, _KeyOfValue,
         -: 2562:		      _Compare, _Alloc>::const_iterator
-        1: 2563:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
+        2: 2563:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
         -: 2564:    find(const _Key& __k) const
         -: 2565:    {
-        1: 2566:      const_iterator __j = _M_lower_bound(_M_begin(), _M_end(), __k);
-        1: 2566-block  0
-        2: 2567:      return (__j == end()
-        1: 2567-block  0
-        1: 2567-block  1
-    $$$$$: 2567-block  2
-        1: 2568:	      || _M_impl._M_key_compare(__k,
-        1: 2568-block  0
-        1: 2568-block  1
-       3*: 2569:					_S_key(__j._M_node))) ? end() : __j;
-    %%%%%: 2569-block  0
-        1: 2569-block  1
-        1: 2569-block  2
+        2: 2566:      const_iterator __j = _M_lower_bound(_M_begin(), _M_end(), __k);
+        4: 2567:      return (__j == end()
+        2: 2568:	      || _M_impl._M_key_compare(__k,
+       6*: 2569:					_S_key(__j._M_node))) ? end() : __j;
         -: 2570:    }
         -: 2571:
         -: 2572:  template<typename _Key, typename _Val, typename _KeyOfValue,

@@ -383,20 +383,26 @@
         -:  372:    {
         -:  373:    public:
         -:  374:      explicit
-        -:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
-        -:  376:      : _M_ptr(__p) { }
+    #####:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
+    #####:  376:      : _M_ptr(__p) { }
+    %%%%%:  376-block  0
         -:  377:
         -:  378:      virtual void
-        -:  379:      _M_dispose() noexcept
-        -:  380:      { delete _M_ptr; }
+    #####:  379:      _M_dispose() noexcept
+    #####:  380:      { delete _M_ptr; }
+    %%%%%:  380-block  0
+    %%%%%:  380-block  1
         -:  381:
         -:  382:      virtual void
-        -:  383:      _M_destroy() noexcept
-        -:  384:      { delete this; }
+    #####:  383:      _M_destroy() noexcept
+    #####:  384:      { delete this; }
+    %%%%%:  384-block  0
+    %%%%%:  384-block  1
         -:  385:
         -:  386:      virtual void*
-        -:  387:      _M_get_deleter(const std::type_info&) noexcept
-        -:  388:      { return nullptr; }
+    #####:  387:      _M_get_deleter(const std::type_info&) noexcept
+    #####:  388:      { return nullptr; }
+    %%%%%:  388-block  0
         -:  389:
         -:  390:      _Sp_counted_ptr(const _Sp_counted_ptr&) = delete;
         -:  391:      _Sp_counted_ptr& operator=(const _Sp_counted_ptr&) = delete;
@@ -425,13 +431,13 @@
         -:  414:  template<int _Nm, typename _Tp>
         -:  415:    struct _Sp_ebo_helper<_Nm, _Tp, true> : private _Tp
         -:  416:    {
-        2:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        2:  417-block  0
+        3:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+        3:  417-block  0
         -:  418:      explicit _Sp_ebo_helper(_Tp&& __tp) : _Tp(std::move(__tp)) { }
         -:  419:
         -:  420:      static _Tp&
-        4:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        4:  421-block  0
+        6:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+        6:  421-block  0
         -:  422:    };
         -:  423:
         -:  424:  /// Specialization not using EBO.
@@ -545,11 +551,11 @@
         -:  531:	typedef _Sp_ebo_helper<0, _Alloc>	_A_base;
         -:  532:
         -:  533:      public:
-        2:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        2:  534-block  0
+        3:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+        3:  534-block  0
         -:  535:
-        4:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        4:  536-block  0
+        6:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+        6:  536-block  0
         -:  537:
         -:  538:	__gnu_cxx::__aligned_buffer<_Tp> _M_storage;
         -:  539:      };
@@ -559,46 +565,46 @@
         -:  543:
         -:  544:      // Alloc parameter is not a reference so doesn't alias anything in __args
         -:  545:      template<typename... _Args>
-        2:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        2:  547:	: _M_impl(__a)
-        2:  547-block  0
+        3:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+        3:  547:	: _M_impl(__a)
+        3:  547-block  0
     $$$$$:  547-block  1
     $$$$$:  547-block  2
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        2:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+        3:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        2:  553:	}
-        2:  553-block  0
+        3:  553:	}
+        3:  553-block  0
         -:  554:
-       2*:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+       3*:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI8EmployeeSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI8EmployeeSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        2:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        2:  555-block  0
+        3:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+        3:  555-block  0
 ------------------
         -:  556:
         -:  557:      virtual void
-        2:  558:      _M_dispose() noexcept
+        3:  558:      _M_dispose() noexcept
         -:  559:      {
-        2:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        2:  560-block  0
-        2:  561:      }
+        3:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+        3:  560-block  0
+        3:  561:      }
         -:  562:
         -:  563:      // Override because the allocator needs to know the dynamic type
         -:  564:      virtual void
-        2:  565:      _M_destroy() noexcept
+        3:  565:      _M_destroy() noexcept
         -:  566:      {
-        4:  567:	__allocator_type __a(_M_impl._M_alloc());
-        2:  567-block  0
-        4:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        2:  569:	this->~_Sp_counted_ptr_inplace();
-        2:  570:      }
+        6:  567:	__allocator_type __a(_M_impl._M_alloc());
+        3:  567-block  0
+        6:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+        3:  569:	this->~_Sp_counted_ptr_inplace();
+        3:  570:      }
         -:  571:
         -:  572:    private:
         -:  573:      friend class __shared_count<_Lp>; // To be able to call _M_ptr().
@@ -632,8 +638,8 @@ _ZNSt23_Sp_counted_ptr_inplaceI8EmployeeSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1E
     %%%%%:  594-block  0
         -:  595:      }
         -:  596:
-        6:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        6:  597-block  0
+        9:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+        9:  597-block  0
         -:  598:
         -:  599:      _Impl _M_impl;
         -:  600:    };
@@ -660,23 +666,31 @@ _ZNSt23_Sp_counted_ptr_inplaceI8EmployeeSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1E
         -:  621:
         -:  622:      template<typename _Ptr>
         -:  623:        explicit
-        -:  624:	__shared_count(_Ptr __p) : _M_pi(0)
+    #####:  624:	__shared_count(_Ptr __p) : _M_pi(0)
         -:  625:	{
         -:  626:	  __try
         -:  627:	    {
-        -:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+    #####:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+    %%%%%:  628-block  0
+    %%%%%:  628-block  1
         -:  629:	    }
-        -:  630:	  __catch(...)
+    =====:  630:	  __catch(...)
+    $$$$$:  630-block  0
+    $$$$$:  630-block  1
+    $$$$$:  630-block  2
         -:  631:	    {
-        -:  632:	      delete __p;
-        -:  633:	      __throw_exception_again;
+    =====:  632:	      delete __p;
+    $$$$$:  632-block  0
+    =====:  633:	      __throw_exception_again;
+    $$$$$:  633-block  0
         -:  634:	    }
-        -:  635:	}
+    #####:  635:	}
         -:  636:
         -:  637:      template<typename _Ptr>
-        -:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
-        -:  639:	: __shared_count(__p)
-        -:  640:	{ }
+    #####:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
+    #####:  639:	: __shared_count(__p)
+    %%%%%:  639-block  0
+    #####:  640:	{ }
         -:  641:
         -:  642:      template<typename _Ptr>
         -:  643:	__shared_count(_Ptr __p, /* is_array = */ true_type)
@@ -711,27 +725,27 @@ _ZNSt23_Sp_counted_ptr_inplaceI8EmployeeSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1E
         -:  672:	}
         -:  673:
         -:  674:      template<typename _Tp, typename _Alloc, typename... _Args>
-        2:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+        3:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        4:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        2:  679-block  0
+        6:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+        3:  679-block  0
     $$$$$:  679-block  1
-        2:  680:	  auto __guard = std::__allocate_guarded(__a2);
+        3:  680:	  auto __guard = std::__allocate_guarded(__a2);
     $$$$$:  680-block  0
-        2:  681:	  _Sp_cp_type* __mem = __guard.get();
-        2:  681-block  0
-        4:  682:	  auto __pi = ::new (__mem)
-        2:  682-block  0
+        3:  681:	  _Sp_cp_type* __mem = __guard.get();
+        3:  681-block  0
+        6:  682:	  auto __pi = ::new (__mem)
+        3:  682-block  0
     $$$$$:  682-block  1
     $$$$$:  682-block  2
     $$$$$:  682-block  3
-        2:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        2:  684:	  __guard = nullptr;
-        2:  685:	  _M_pi = __pi;
-        2:  686:	  __p = __pi->_M_ptr();
-        2:  687:	}
+        3:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
+        3:  684:	  __guard = nullptr;
+        3:  685:	  _M_pi = __pi;
+        3:  686:	  __p = __pi->_M_ptr();
+        3:  687:	}
         -:  688:
         -:  689:#if _GLIBCXX_USE_DEPRECATED
         -:  690:#pragma GCC diagnostic push
@@ -1194,13 +1208,14 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
         -: 1124:
         -: 1125:      template<typename _Yp, typename = _SafeConv<_Yp>>
         -: 1126:	explicit
-        -: 1127:	__shared_ptr(_Yp* __p)
-        -: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+    #####: 1127:	__shared_ptr(_Yp* __p)
+    #####: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+    %%%%%: 1128-block  0
         -: 1129:	{
         -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
         -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
-        -: 1132:	  _M_enable_shared_from_this_with(__p);
-        -: 1133:	}
+    #####: 1132:	  _M_enable_shared_from_this_with(__p);
+    #####: 1133:	}
         -: 1134:
         -: 1135:      template<typename _Yp, typename _Deleter, typename = _SafeConv<_Yp>>
         -: 1136:	__shared_ptr(_Yp* __p, _Deleter __d)
@@ -1257,6 +1272,10 @@ _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     %%%%%: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+    #####: 1183:      ~__shared_ptr() = default;
+    %%%%%: 1183-block  0
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     #####: 1183:      ~__shared_ptr() = default;
     %%%%%: 1183-block  0
 ------------------
@@ -1459,10 +1478,10 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
         -: 1367:    protected:
         -: 1368:      // This constructor is non-standard, it is used by allocate_shared.
         -: 1369:      template<typename _Alloc, typename... _Args>
-        2: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        2: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        2: 1371-block  0
-        2: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+        3: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        3: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+        3: 1371-block  0
+        3: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
         -: 1373:
         -: 1374:      template<typename _Tp1, _Lock_policy _Lp1, typename _Alloc,
         -: 1375:	       typename... _Args>
@@ -1507,6 +1526,15 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
         -: 1414:	typename enable_if<!__has_esft_base<_Yp2>::value>::type
     #####: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
     #####: 1416:	{ }
+------------------
+_ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
+    #####: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+    #####: 1416:	{ }
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withI13NoAffiliationS5_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
+    #####: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+    #####: 1416:	{ }
+------------------
         -: 1417:
         -: 1418:      void*
         -: 1419:      _M_get_deleter(const std::type_info& __ti) const noexcept

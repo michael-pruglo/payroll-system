@@ -12,14 +12,14 @@
         -:    8:class DeleteEmployeeTransaction : public Transaction
         -:    9:{
         -:   10:public:
-        2:   11:    DeleteEmployeeTransaction(int id) : id(id) {}
-        2:   11-block  0
-        3:   12:    virtual void execute() override
+        3:   11:    DeleteEmployeeTransaction(int id) : id(id) {}
+        3:   11-block  0
+        4:   12:    virtual void execute() override
         -:   13:    {
-        3:   14:        PayrollDatabase::getInstance()->deleteEmployee(id);
-        3:   14-block  0
+        4:   14:        PayrollDatabase::getInstance()->deleteEmployee(id);
+        4:   14-block  0
         2:   14-block  1
-        1:   14-block  2
+        2:   14-block  2
         2:   15:    }
         -:   16:
         -:   17:private:

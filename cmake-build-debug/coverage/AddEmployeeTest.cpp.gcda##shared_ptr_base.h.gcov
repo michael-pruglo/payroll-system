@@ -386,24 +386,66 @@
         -:  374:      explicit
     #####:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
     #####:  376:      : _M_ptr(__p) { }
+------------------
+_ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC1ES1_:
+    #####:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
+    #####:  376:      : _M_ptr(__p) { }
     %%%%%:  376-block  0
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EEC1ES1_:
+    #####:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
+    #####:  376:      : _M_ptr(__p) { }
+    %%%%%:  376-block  0
+------------------
         -:  377:
         -:  378:      virtual void
     #####:  379:      _M_dispose() noexcept
     #####:  380:      { delete _M_ptr; }
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
+    #####:  379:      _M_dispose() noexcept
+    #####:  380:      { delete _M_ptr; }
     %%%%%:  380-block  0
     %%%%%:  380-block  1
+------------------
+_ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
+    #####:  379:      _M_dispose() noexcept
+    #####:  380:      { delete _M_ptr; }
+    %%%%%:  380-block  0
+    %%%%%:  380-block  1
+------------------
         -:  381:
         -:  382:      virtual void
     #####:  383:      _M_destroy() noexcept
     #####:  384:      { delete this; }
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
+    #####:  383:      _M_destroy() noexcept
+    #####:  384:      { delete this; }
     %%%%%:  384-block  0
     %%%%%:  384-block  1
+------------------
+_ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
+    #####:  383:      _M_destroy() noexcept
+    #####:  384:      { delete this; }
+    %%%%%:  384-block  0
+    %%%%%:  384-block  1
+------------------
         -:  385:
         -:  386:      virtual void*
     #####:  387:      _M_get_deleter(const std::type_info&) noexcept
     #####:  388:      { return nullptr; }
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info:
+    #####:  387:      _M_get_deleter(const std::type_info&) noexcept
+    #####:  388:      { return nullptr; }
     %%%%%:  388-block  0
+------------------
+_ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info:
+    #####:  387:      _M_get_deleter(const std::type_info&) noexcept
+    #####:  388:      { return nullptr; }
+    %%%%%:  388-block  0
+------------------
         -:  389:
         -:  390:      _Sp_counted_ptr(const _Sp_counted_ptr&) = delete;
         -:  391:      _Sp_counted_ptr& operator=(const _Sp_counted_ptr&) = delete;
@@ -432,68 +474,68 @@
         -:  414:  template<int _Nm, typename _Tp>
         -:  415:    struct _Sp_ebo_helper<_Nm, _Tp, true> : private _Tp
         -:  416:    {
-       15:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+       76:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI16BiweeklyScheduleELb1EEC2ERKS1_:
-        2:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        2:  417-block  0
+        3:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+        3:  417-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI26CommissionedClassificationELb1EEC2ERKS1_:
-        2:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        2:  417-block  0
+        3:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+        3:  417-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI15MonthlyScheduleELb1EEC2ERKS1_:
-        1:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        1:  417-block  0
+       10:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+       10:  417-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI22SalariedClassificationELb1EEC2ERKS1_:
-        1:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        1:  417-block  0
+       10:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+       10:  417-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI14WeeklyScheduleELb1EEC2ERKS1_:
-        2:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        2:  417-block  0
+       13:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+       13:  417-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI20HourlyClassificationELb1EEC2ERKS1_:
-        2:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        2:  417-block  0
+       13:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+       13:  417-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI10HoldMethodELb1EEC2ERKS1_:
-        5:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
-        5:  417-block  0
+       24:  417:      explicit _Sp_ebo_helper(const _Tp& __tp) : _Tp(__tp) { }
+       24:  417-block  0
 ------------------
         -:  418:      explicit _Sp_ebo_helper(_Tp&& __tp) : _Tp(std::move(__tp)) { }
         -:  419:
         -:  420:      static _Tp&
-       30:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+      152:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI10HoldMethodELb1EE6_S_getERS2_:
-       10:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-       10:  421-block  0
+       48:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+       48:  421-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI20HourlyClassificationELb1EE6_S_getERS2_:
-        4:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        4:  421-block  0
+       26:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+       26:  421-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI14WeeklyScheduleELb1EE6_S_getERS2_:
-        4:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        4:  421-block  0
+       26:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+       26:  421-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI22SalariedClassificationELb1EE6_S_getERS2_:
-        2:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        2:  421-block  0
+       20:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+       20:  421-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI15MonthlyScheduleELb1EE6_S_getERS2_:
-        2:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        2:  421-block  0
+       20:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+       20:  421-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI26CommissionedClassificationELb1EE6_S_getERS2_:
-        4:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        4:  421-block  0
+        6:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+        6:  421-block  0
 ------------------
 _ZNSt14_Sp_ebo_helperILi0ESaI16BiweeklyScheduleELb1EE6_S_getERS2_:
-        4:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
-        4:  421-block  0
+        6:  421:      _S_get(_Sp_ebo_helper& __eboh) { return static_cast<_Tp&>(__eboh); }
+        6:  421-block  0
 ------------------
         -:  422:    };
         -:  423:
@@ -608,66 +650,66 @@ _ZNSt14_Sp_ebo_helperILi0ESaI16BiweeklyScheduleELb1EE6_S_getERS2_:
         -:  531:	typedef _Sp_ebo_helper<0, _Alloc>	_A_base;
         -:  532:
         -:  533:      public:
-       15:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+       76:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        2:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        2:  534-block  0
+        3:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+        3:  534-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        2:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        2:  534-block  0
+        3:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+        3:  534-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        1:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        1:  534-block  0
+       10:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+       10:  534-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        1:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        1:  534-block  0
+       10:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+       10:  534-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        2:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        2:  534-block  0
+       13:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+       13:  534-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        2:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        2:  534-block  0
+       13:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+       13:  534-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_ImplC1ES1_:
-        5:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
-        5:  534-block  0
+       24:  534:	explicit _Impl(_Alloc __a) noexcept : _A_base(__a) { }
+       24:  534-block  0
 ------------------
         -:  535:
-       30:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+      152:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-       10:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-       10:  536-block  0
+       48:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+       48:  536-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-        4:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        4:  536-block  0
+       26:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+       26:  536-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-        4:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        4:  536-block  0
+       26:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+       26:  536-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-        2:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        2:  536-block  0
+       20:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+       20:  536-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-        2:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        2:  536-block  0
+       20:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+       20:  536-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-        4:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        4:  536-block  0
+        6:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+        6:  536-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE5_Impl8_M_allocEv:
-        4:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
-        4:  536-block  0
+        6:  536:	_Alloc& _M_alloc() noexcept { return _A_base::_S_get(*this); }
+        6:  536-block  0
 ------------------
         -:  537:
         -:  538:	__gnu_cxx::__aligned_buffer<_Tp> _M_storage;
@@ -678,288 +720,288 @@ _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_poli
         -:  543:
         -:  544:      // Alloc parameter is not a reference so doesn't alias anything in __args
         -:  545:      template<typename... _Args>
-       15:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-       15:  547:	: _M_impl(__a)
+       76:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+       76:  547:	: _M_impl(__a)
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-       15:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+       76:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-       15:  553:	}
+       76:  553:	}
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJEEES1_DpOT_:
-        2:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        2:  547:	: _M_impl(__a)
-        2:  547-block  0
+        3:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+        3:  547:	: _M_impl(__a)
+        3:  547-block  0
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        2:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+        3:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        2:  553:	}
+        3:  553:	}
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJRKdS7_EEES1_DpOT_:
-        2:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        2:  547:	: _M_impl(__a)
-        2:  547-block  0
+        3:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+        3:  547:	: _M_impl(__a)
+        3:  547-block  0
     $$$$$:  547-block  1
     $$$$$:  547-block  2
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        2:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+        3:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        2:  553:	}
-        2:  553-block  0
+        3:  553:	}
+        3:  553-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJEEES1_DpOT_:
-        1:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        1:  547:	: _M_impl(__a)
-        1:  547-block  0
+       10:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+       10:  547:	: _M_impl(__a)
+       10:  547-block  0
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        1:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+       10:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        1:  553:	}
+       10:  553:	}
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJRKdEEES1_DpOT_:
-        1:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        1:  547:	: _M_impl(__a)
-        1:  547-block  0
+       10:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+       10:  547:	: _M_impl(__a)
+       10:  547-block  0
     $$$$$:  547-block  1
     $$$$$:  547-block  2
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        1:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+       10:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        1:  553:	}
-        1:  553-block  0
+       10:  553:	}
+       10:  553-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJEEES1_DpOT_:
-        2:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        2:  547:	: _M_impl(__a)
-        2:  547-block  0
+       13:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+       13:  547:	: _M_impl(__a)
+       13:  547-block  0
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        2:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+       13:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        2:  553:	}
+       13:  553:	}
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJRKdEEES1_DpOT_:
-        2:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        2:  547:	: _M_impl(__a)
-        2:  547-block  0
+       13:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+       13:  547:	: _M_impl(__a)
+       13:  547-block  0
     $$$$$:  547-block  1
     $$$$$:  547-block  2
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        2:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+       13:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        2:  553:	}
-        2:  553-block  0
+       13:  553:	}
+       13:  553-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EEC1IJEEES1_DpOT_:
-        5:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
-        5:  547:	: _M_impl(__a)
-        5:  547-block  0
+       24:  546:	_Sp_counted_ptr_inplace(_Alloc __a, _Args&&... __args)
+       24:  547:	: _M_impl(__a)
+       24:  547-block  0
         -:  548:	{
         -:  549:	  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  550:	  // 2070.  allocate_shared should use allocator_traits<A>::construct
-        5:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
+       24:  551:	  allocator_traits<_Alloc>::construct(__a, _M_ptr(),
         -:  552:	      std::forward<_Args>(__args)...); // might throw
-        5:  553:	}
+       24:  553:	}
 ------------------
         -:  554:
-      15*:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+      76*:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        5:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        5:  555-block  0
+       24:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+       24:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        2:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        2:  555-block  0
+       13:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+       13:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        2:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        2:  555-block  0
+       13:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+       13:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        1:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        1:  555-block  0
+       10:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+       10:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        1:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        1:  555-block  0
+       10:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+       10:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        2:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        2:  555-block  0
+        3:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+        3:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED0Ev:
     #####:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
     %%%%%:  555-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EED1Ev:
-        2:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
-        2:  555-block  0
+        3:  555:      ~_Sp_counted_ptr_inplace() noexcept { }
+        3:  555-block  0
 ------------------
         -:  556:
         -:  557:      virtual void
-       15:  558:      _M_dispose() noexcept
+       76:  558:      _M_dispose() noexcept
         -:  559:      {
-       15:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-       15:  561:      }
+       76:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+       76:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        5:  558:      _M_dispose() noexcept
+       24:  558:      _M_dispose() noexcept
         -:  559:      {
-        5:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        5:  560-block  0
-        5:  561:      }
+       24:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+       24:  560-block  0
+       24:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        2:  558:      _M_dispose() noexcept
+       13:  558:      _M_dispose() noexcept
         -:  559:      {
-        2:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        2:  560-block  0
-        2:  561:      }
+       13:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+       13:  560-block  0
+       13:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        2:  558:      _M_dispose() noexcept
+       13:  558:      _M_dispose() noexcept
         -:  559:      {
-        2:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        2:  560-block  0
-        2:  561:      }
+       13:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+       13:  560-block  0
+       13:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        1:  558:      _M_dispose() noexcept
+       10:  558:      _M_dispose() noexcept
         -:  559:      {
-        1:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        1:  560-block  0
-        1:  561:      }
+       10:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+       10:  560-block  0
+       10:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        1:  558:      _M_dispose() noexcept
+       10:  558:      _M_dispose() noexcept
         -:  559:      {
-        1:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        1:  560-block  0
-        1:  561:      }
+       10:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+       10:  560-block  0
+       10:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        2:  558:      _M_dispose() noexcept
+        3:  558:      _M_dispose() noexcept
         -:  559:      {
-        2:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        2:  560-block  0
-        2:  561:      }
+        3:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+        3:  560-block  0
+        3:  561:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-        2:  558:      _M_dispose() noexcept
+        3:  558:      _M_dispose() noexcept
         -:  559:      {
-        2:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
-        2:  560-block  0
-        2:  561:      }
+        3:  560:	allocator_traits<_Alloc>::destroy(_M_impl._M_alloc(), _M_ptr());
+        3:  560-block  0
+        3:  561:      }
 ------------------
         -:  562:
         -:  563:      // Override because the allocator needs to know the dynamic type
         -:  564:      virtual void
-       15:  565:      _M_destroy() noexcept
+       76:  565:      _M_destroy() noexcept
         -:  566:      {
-       30:  567:	__allocator_type __a(_M_impl._M_alloc());
-       30:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-       15:  569:	this->~_Sp_counted_ptr_inplace();
-       15:  570:      }
+      152:  567:	__allocator_type __a(_M_impl._M_alloc());
+      152:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+       76:  569:	this->~_Sp_counted_ptr_inplace();
+       76:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        5:  565:      _M_destroy() noexcept
+       24:  565:      _M_destroy() noexcept
         -:  566:      {
-       10:  567:	__allocator_type __a(_M_impl._M_alloc());
-        5:  567-block  0
-       10:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        5:  569:	this->~_Sp_counted_ptr_inplace();
-        5:  570:      }
+       48:  567:	__allocator_type __a(_M_impl._M_alloc());
+       24:  567-block  0
+       48:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+       24:  569:	this->~_Sp_counted_ptr_inplace();
+       24:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        2:  565:      _M_destroy() noexcept
+       13:  565:      _M_destroy() noexcept
         -:  566:      {
-        4:  567:	__allocator_type __a(_M_impl._M_alloc());
-        2:  567-block  0
-        4:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        2:  569:	this->~_Sp_counted_ptr_inplace();
-        2:  570:      }
+       26:  567:	__allocator_type __a(_M_impl._M_alloc());
+       13:  567-block  0
+       26:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+       13:  569:	this->~_Sp_counted_ptr_inplace();
+       13:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        2:  565:      _M_destroy() noexcept
+       13:  565:      _M_destroy() noexcept
         -:  566:      {
-        4:  567:	__allocator_type __a(_M_impl._M_alloc());
-        2:  567-block  0
-        4:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        2:  569:	this->~_Sp_counted_ptr_inplace();
-        2:  570:      }
+       26:  567:	__allocator_type __a(_M_impl._M_alloc());
+       13:  567-block  0
+       26:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+       13:  569:	this->~_Sp_counted_ptr_inplace();
+       13:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        1:  565:      _M_destroy() noexcept
+       10:  565:      _M_destroy() noexcept
         -:  566:      {
-        2:  567:	__allocator_type __a(_M_impl._M_alloc());
-        1:  567-block  0
-        2:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        1:  569:	this->~_Sp_counted_ptr_inplace();
-        1:  570:      }
+       20:  567:	__allocator_type __a(_M_impl._M_alloc());
+       10:  567-block  0
+       20:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+       10:  569:	this->~_Sp_counted_ptr_inplace();
+       10:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        1:  565:      _M_destroy() noexcept
+       10:  565:      _M_destroy() noexcept
         -:  566:      {
-        2:  567:	__allocator_type __a(_M_impl._M_alloc());
-        1:  567-block  0
-        2:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        1:  569:	this->~_Sp_counted_ptr_inplace();
-        1:  570:      }
+       20:  567:	__allocator_type __a(_M_impl._M_alloc());
+       10:  567-block  0
+       20:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+       10:  569:	this->~_Sp_counted_ptr_inplace();
+       10:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        2:  565:      _M_destroy() noexcept
+        3:  565:      _M_destroy() noexcept
         -:  566:      {
-        4:  567:	__allocator_type __a(_M_impl._M_alloc());
-        2:  567-block  0
-        4:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        2:  569:	this->~_Sp_counted_ptr_inplace();
-        2:  570:      }
+        6:  567:	__allocator_type __a(_M_impl._M_alloc());
+        3:  567-block  0
+        6:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+        3:  569:	this->~_Sp_counted_ptr_inplace();
+        3:  570:      }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-        2:  565:      _M_destroy() noexcept
+        3:  565:      _M_destroy() noexcept
         -:  566:      {
-        4:  567:	__allocator_type __a(_M_impl._M_alloc());
-        2:  567-block  0
-        4:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
-        2:  569:	this->~_Sp_counted_ptr_inplace();
-        2:  570:      }
+        6:  567:	__allocator_type __a(_M_impl._M_alloc());
+        3:  567-block  0
+        6:  568:	__allocated_ptr<__allocator_type> __guard_ptr{ __a, this };
+        3:  569:	this->~_Sp_counted_ptr_inplace();
+        3:  570:      }
 ------------------
         -:  571:
         -:  572:    private:
@@ -1177,35 +1219,35 @@ _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_poli
         -:  595:      }
 ------------------
         -:  596:
-       45:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+      228:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-        6:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        6:  597-block  0
+        9:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+        9:  597-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-        6:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        6:  597-block  0
+        9:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+        9:  597-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-        3:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        3:  597-block  0
+       30:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+       30:  597-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-        3:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        3:  597-block  0
+       30:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+       30:  597-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-        6:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        6:  597-block  0
+       39:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+       39:  597-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-        6:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-        6:  597-block  0
+       39:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+       39:  597-block  0
 ------------------
 _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv:
-       15:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
-       15:  597-block  0
+       72:  597:      _Tp* _M_ptr() noexcept { return _M_impl._M_storage._M_ptr(); }
+       72:  597-block  0
 ------------------
         -:  598:
         -:  599:      _Impl _M_impl;
@@ -1238,6 +1280,20 @@ _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE
         -:  626:	  __try
         -:  627:	    {
     #####:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+        -:  629:	    }
+    =====:  630:	  __catch(...)
+        -:  631:	    {
+    =====:  632:	      delete __p;
+    =====:  633:	      __throw_exception_again;
+        -:  634:	    }
+    #####:  635:	}
+------------------
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP8EmployeeEET_:
+    #####:  624:	__shared_count(_Ptr __p) : _M_pi(0)
+        -:  625:	{
+        -:  626:	  __try
+        -:  627:	    {
+    #####:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
     %%%%%:  628-block  0
     %%%%%:  628-block  1
         -:  629:	    }
@@ -1252,12 +1308,46 @@ _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE
     $$$$$:  633-block  0
         -:  634:	    }
     #####:  635:	}
+------------------
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP13NoAffiliationEET_:
+    #####:  624:	__shared_count(_Ptr __p) : _M_pi(0)
+        -:  625:	{
+        -:  626:	  __try
+        -:  627:	    {
+    #####:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+    %%%%%:  628-block  0
+    %%%%%:  628-block  1
+        -:  629:	    }
+    =====:  630:	  __catch(...)
+    $$$$$:  630-block  0
+    $$$$$:  630-block  1
+    $$$$$:  630-block  2
+        -:  631:	    {
+    =====:  632:	      delete __p;
+    $$$$$:  632-block  0
+    =====:  633:	      __throw_exception_again;
+    $$$$$:  633-block  0
+        -:  634:	    }
+    #####:  635:	}
+------------------
         -:  636:
         -:  637:      template<typename _Ptr>
     #####:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
     #####:  639:	: __shared_count(__p)
+    #####:  640:	{ }
+------------------
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP8EmployeeEET_St17integral_constantIbLb0EE:
+    #####:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
+    #####:  639:	: __shared_count(__p)
     %%%%%:  639-block  0
     #####:  640:	{ }
+------------------
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP13NoAffiliationEET_St17integral_constantIbLb0EE:
+    #####:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
+    #####:  639:	: __shared_count(__p)
+    %%%%%:  639-block  0
+    #####:  640:	{ }
+------------------
         -:  641:
         -:  642:      template<typename _Ptr>
         -:  643:	__shared_count(_Ptr __p, /* is_array = */ true_type)
@@ -1292,160 +1382,160 @@ _ZNSt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS0_ELN9__gnu_cxx12_Lock_policyE2EE
         -:  672:	}
         -:  673:
         -:  674:      template<typename _Tp, typename _Alloc, typename... _Args>
-       15:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+       76:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-       30:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-       15:  680:	  auto __guard = std::__allocate_guarded(__a2);
-       15:  681:	  _Sp_cp_type* __mem = __guard.get();
-       20:  682:	  auto __pi = ::new (__mem)
-        5:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-       15:  684:	  __guard = nullptr;
-       15:  685:	  _M_pi = __pi;
-       15:  686:	  __p = __pi->_M_ptr();
-       15:  687:	}
+      152:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+       76:  680:	  auto __guard = std::__allocate_guarded(__a2);
+       76:  681:	  _Sp_cp_type* __mem = __guard.get();
+      102:  682:	  auto __pi = ::new (__mem)
+       26:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
+       76:  684:	  __guard = nullptr;
+       76:  685:	  _M_pi = __pi;
+       76:  686:	  __p = __pi->_M_ptr();
+       76:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I16BiweeklyScheduleSaIS4_EJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        2:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+        3:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        4:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        2:  679-block  0
+        6:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+        3:  679-block  0
     $$$$$:  679-block  1
-        2:  680:	  auto __guard = std::__allocate_guarded(__a2);
-        2:  681:	  _Sp_cp_type* __mem = __guard.get();
-        2:  681-block  0
-        2:  682:	  auto __pi = ::new (__mem)
+        3:  680:	  auto __guard = std::__allocate_guarded(__a2);
+        3:  681:	  _Sp_cp_type* __mem = __guard.get();
+        3:  681-block  0
+        3:  682:	  auto __pi = ::new (__mem)
         -:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        2:  684:	  __guard = nullptr;
-        2:  685:	  _M_pi = __pi;
-        2:  686:	  __p = __pi->_M_ptr();
-        2:  687:	}
+        3:  684:	  __guard = nullptr;
+        3:  685:	  _M_pi = __pi;
+        3:  686:	  __p = __pi->_M_ptr();
+        3:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I26CommissionedClassificationSaIS4_EJRKdS7_EEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        2:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+        3:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        4:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        2:  679-block  0
+        6:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+        3:  679-block  0
     $$$$$:  679-block  1
-        2:  680:	  auto __guard = std::__allocate_guarded(__a2);
+        3:  680:	  auto __guard = std::__allocate_guarded(__a2);
     $$$$$:  680-block  0
-        2:  681:	  _Sp_cp_type* __mem = __guard.get();
-        2:  681-block  0
-        4:  682:	  auto __pi = ::new (__mem)
-        2:  682-block  0
+        3:  681:	  _Sp_cp_type* __mem = __guard.get();
+        3:  681-block  0
+        6:  682:	  auto __pi = ::new (__mem)
+        3:  682-block  0
     $$$$$:  682-block  1
     $$$$$:  682-block  2
     $$$$$:  682-block  3
-        2:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        2:  684:	  __guard = nullptr;
-        2:  685:	  _M_pi = __pi;
-        2:  686:	  __p = __pi->_M_ptr();
-        2:  687:	}
+        3:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
+        3:  684:	  __guard = nullptr;
+        3:  685:	  _M_pi = __pi;
+        3:  686:	  __p = __pi->_M_ptr();
+        3:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I15MonthlyScheduleSaIS4_EJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        1:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+       10:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        2:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        1:  679-block  0
+       20:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+       10:  679-block  0
     $$$$$:  679-block  1
-        1:  680:	  auto __guard = std::__allocate_guarded(__a2);
-        1:  681:	  _Sp_cp_type* __mem = __guard.get();
-        1:  681-block  0
-        1:  682:	  auto __pi = ::new (__mem)
+       10:  680:	  auto __guard = std::__allocate_guarded(__a2);
+       10:  681:	  _Sp_cp_type* __mem = __guard.get();
+       10:  681-block  0
+       10:  682:	  auto __pi = ::new (__mem)
         -:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        1:  684:	  __guard = nullptr;
-        1:  685:	  _M_pi = __pi;
-        1:  686:	  __p = __pi->_M_ptr();
-        1:  687:	}
+       10:  684:	  __guard = nullptr;
+       10:  685:	  _M_pi = __pi;
+       10:  686:	  __p = __pi->_M_ptr();
+       10:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I22SalariedClassificationSaIS4_EJRKdEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        1:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+       10:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        2:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        1:  679-block  0
+       20:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+       10:  679-block  0
     $$$$$:  679-block  1
-        1:  680:	  auto __guard = std::__allocate_guarded(__a2);
+       10:  680:	  auto __guard = std::__allocate_guarded(__a2);
     $$$$$:  680-block  0
-        1:  681:	  _Sp_cp_type* __mem = __guard.get();
-        1:  681-block  0
-        2:  682:	  auto __pi = ::new (__mem)
-        1:  682-block  0
+       10:  681:	  _Sp_cp_type* __mem = __guard.get();
+       10:  681-block  0
+       20:  682:	  auto __pi = ::new (__mem)
+       10:  682-block  0
     $$$$$:  682-block  1
     $$$$$:  682-block  2
     $$$$$:  682-block  3
-        1:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        1:  684:	  __guard = nullptr;
-        1:  685:	  _M_pi = __pi;
-        1:  686:	  __p = __pi->_M_ptr();
-        1:  687:	}
+       10:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
+       10:  684:	  __guard = nullptr;
+       10:  685:	  _M_pi = __pi;
+       10:  686:	  __p = __pi->_M_ptr();
+       10:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I14WeeklyScheduleSaIS4_EJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        2:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+       13:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        4:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        2:  679-block  0
+       26:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+       13:  679-block  0
     $$$$$:  679-block  1
-        2:  680:	  auto __guard = std::__allocate_guarded(__a2);
-        2:  681:	  _Sp_cp_type* __mem = __guard.get();
-        2:  681-block  0
-        2:  682:	  auto __pi = ::new (__mem)
+       13:  680:	  auto __guard = std::__allocate_guarded(__a2);
+       13:  681:	  _Sp_cp_type* __mem = __guard.get();
+       13:  681-block  0
+       13:  682:	  auto __pi = ::new (__mem)
         -:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        2:  684:	  __guard = nullptr;
-        2:  685:	  _M_pi = __pi;
-        2:  686:	  __p = __pi->_M_ptr();
-        2:  687:	}
+       13:  684:	  __guard = nullptr;
+       13:  685:	  _M_pi = __pi;
+       13:  686:	  __p = __pi->_M_ptr();
+       13:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I20HourlyClassificationSaIS4_EJRKdEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        2:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+       13:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-        4:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        2:  679-block  0
+       26:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+       13:  679-block  0
     $$$$$:  679-block  1
-        2:  680:	  auto __guard = std::__allocate_guarded(__a2);
+       13:  680:	  auto __guard = std::__allocate_guarded(__a2);
     $$$$$:  680-block  0
-        2:  681:	  _Sp_cp_type* __mem = __guard.get();
-        2:  681-block  0
-        4:  682:	  auto __pi = ::new (__mem)
-        2:  682-block  0
+       13:  681:	  _Sp_cp_type* __mem = __guard.get();
+       13:  681-block  0
+       26:  682:	  auto __pi = ::new (__mem)
+       13:  682-block  0
     $$$$$:  682-block  1
     $$$$$:  682-block  2
     $$$$$:  682-block  3
-        2:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        2:  684:	  __guard = nullptr;
-        2:  685:	  _M_pi = __pi;
-        2:  686:	  __p = __pi->_M_ptr();
-        2:  687:	}
+       13:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
+       13:  684:	  __guard = nullptr;
+       13:  685:	  _M_pi = __pi;
+       13:  686:	  __p = __pi->_M_ptr();
+       13:  687:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I10HoldMethodSaIS4_EJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_:
-        5:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
+       24:  675:	__shared_count(_Tp*& __p, _Sp_alloc_shared_tag<_Alloc> __a,
         -:  676:		       _Args&&... __args)
         -:  677:	{
         -:  678:	  typedef _Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp> _Sp_cp_type;
-       10:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
-        5:  679-block  0
+       48:  679:	  typename _Sp_cp_type::__allocator_type __a2(__a._M_a);
+       24:  679-block  0
     $$$$$:  679-block  1
-        5:  680:	  auto __guard = std::__allocate_guarded(__a2);
-        5:  681:	  _Sp_cp_type* __mem = __guard.get();
-        5:  681-block  0
-        5:  682:	  auto __pi = ::new (__mem)
+       24:  680:	  auto __guard = std::__allocate_guarded(__a2);
+       24:  681:	  _Sp_cp_type* __mem = __guard.get();
+       24:  681-block  0
+       24:  682:	  auto __pi = ::new (__mem)
         -:  683:	    _Sp_cp_type(__a._M_a, std::forward<_Args>(__args)...);
-        5:  684:	  __guard = nullptr;
-        5:  685:	  _M_pi = __pi;
-        5:  686:	  __p = __pi->_M_ptr();
-        5:  687:	}
+       24:  684:	  __guard = nullptr;
+       24:  685:	  _M_pi = __pi;
+       24:  686:	  __p = __pi->_M_ptr();
+       24:  687:	}
 ------------------
         -:  688:
         -:  689:#if _GLIBCXX_USE_DEPRECATED
@@ -1778,17 +1868,26 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1I10HoldMethodSaIS4_EJEEERP
         -: 1005:      using element_type = _Tp;
         -: 1006:
         -: 1007:      element_type&
-        -: 1008:      operator*() const noexcept
+       15: 1008:      operator*() const noexcept
         -: 1009:      {
         -: 1010:	__glibcxx_assert(_M_get() != nullptr);
-        -: 1011:	return *_M_get();
+       15: 1011:	return *_M_get();
+       15: 1011-block  0
         -: 1012:      }
         -: 1013:
         -: 1014:      element_type*
-      37*: 1015:      operator->() const noexcept
+     152*: 1015:      operator->() const noexcept
         -: 1016:      {
         -: 1017:	_GLIBCXX_DEBUG_PEDASSERT(_M_get() != nullptr);
-      37*: 1018:	return _M_get();
+     152*: 1018:	return _M_get();
+        -: 1019:      }
+------------------
+_ZNKSt19__shared_ptr_accessI11AffiliationLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv:
+       33: 1015:      operator->() const noexcept
+        -: 1016:      {
+        -: 1017:	_GLIBCXX_DEBUG_PEDASSERT(_M_get() != nullptr);
+       33: 1018:	return _M_get();
+       33: 1018-block  0
         -: 1019:      }
 ------------------
 _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv:
@@ -1800,18 +1899,23 @@ _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb
         -: 1019:      }
 ------------------
 _ZNKSt19__shared_ptr_accessI8EmployeeLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv:
-       37: 1015:      operator->() const noexcept
+      119: 1015:      operator->() const noexcept
         -: 1016:      {
         -: 1017:	_GLIBCXX_DEBUG_PEDASSERT(_M_get() != nullptr);
-       37: 1018:	return _M_get();
-       37: 1018-block  0
+      119: 1018:	return _M_get();
+      119: 1018-block  0
         -: 1019:      }
 ------------------
         -: 1020:
         -: 1021:    private:
         -: 1022:      element_type*
-      37*: 1023:      _M_get() const noexcept
-      37*: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+     167*: 1023:      _M_get() const noexcept
+     167*: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+------------------
+_ZNKSt19__shared_ptr_accessI11AffiliationLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv:
+       33: 1023:      _M_get() const noexcept
+       33: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+       33: 1024-block  0
 ------------------
 _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv:
     #####: 1023:      _M_get() const noexcept
@@ -1819,9 +1923,9 @@ _ZNKSt19__shared_ptr_accessI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2ELb0ELb
     %%%%%: 1024-block  0
 ------------------
 _ZNKSt19__shared_ptr_accessI8EmployeeLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv:
-       37: 1023:      _M_get() const noexcept
-       37: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
-       37: 1024-block  0
+      134: 1023:      _M_get() const noexcept
+      134: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+      134: 1024-block  0
 ------------------
         -: 1025:    };
         -: 1026:
@@ -1919,9 +2023,15 @@ _ZNKSt19__shared_ptr_accessI8EmployeeLN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_g
         -: 1118:      using weak_type = __weak_ptr<_Tp, _Lp>;
         -: 1119:#endif
         -: 1120:
-    #####: 1121:      constexpr __shared_ptr() noexcept
-    #####: 1122:      : _M_ptr(0), _M_refcount()
-    #####: 1123:      { }
+      13*: 1121:      constexpr __shared_ptr() noexcept
+      13*: 1122:      : _M_ptr(0), _M_refcount()
+      13*: 1123:      { }
+------------------
+_ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
+       13: 1121:      constexpr __shared_ptr() noexcept
+       13: 1122:      : _M_ptr(0), _M_refcount()
+       13: 1122-block  0
+       13: 1123:      { }
 ------------------
 _ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
     #####: 1121:      constexpr __shared_ptr() noexcept
@@ -1946,12 +2056,32 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
         -: 1126:	explicit
     #####: 1127:	__shared_ptr(_Yp* __p)
     #####: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+        -: 1129:	{
+        -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
+        -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
+    #####: 1132:	  _M_enable_shared_from_this_with(__p);
+    #####: 1133:	}
+------------------
+_ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEEPT_:
+    #####: 1127:	__shared_ptr(_Yp* __p)
+    #####: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
     %%%%%: 1128-block  0
         -: 1129:	{
         -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
         -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
     #####: 1132:	  _M_enable_shared_from_this_with(__p);
     #####: 1133:	}
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EEC2I13NoAffiliationvEEPT_:
+    #####: 1127:	__shared_ptr(_Yp* __p)
+    #####: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+    %%%%%: 1128-block  0
+        -: 1129:	{
+        -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
+        -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
+    #####: 1132:	  _M_enable_shared_from_this_with(__p);
+    #####: 1133:	}
+------------------
         -: 1134:
         -: 1135:      template<typename _Yp, typename _Deleter, typename = _SafeConv<_Yp>>
         -: 1136:	__shared_ptr(_Yp* __p, _Deleter __d)
@@ -1984,10 +2114,11 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
         -: 1163:
         -: 1164:      // Aliasing constructor
         -: 1165:      template<typename _Yp>
-        -: 1166:	__shared_ptr(const __shared_ptr<_Yp, _Lp>& __r,
+       13: 1166:	__shared_ptr(const __shared_ptr<_Yp, _Lp>& __r,
         -: 1167:		     element_type* __p) noexcept
-        -: 1168:	: _M_ptr(__p), _M_refcount(__r._M_refcount) // never throws
-        -: 1169:	{ }
+       13: 1168:	: _M_ptr(__p), _M_refcount(__r._M_refcount) // never throws
+       13: 1168-block  0
+       13: 1169:	{ }
         -: 1170:
         -: 1171:      // Aliasing constructor
         -: 1172:      template<typename _Yp>
@@ -1999,57 +2130,81 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
         -: 1178:	  __r._M_ptr = 0;
         -: 1179:	}
         -: 1180:
+     301*: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+------------------
+_ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
     #####: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
     %%%%%: 1181-block  0
-       15: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+       98: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+       98: 1181-block  0
+------------------
+_ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+       62: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+       62: 1181-block  0
+------------------
+_ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+       62: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+       62: 1181-block  0
+------------------
+_ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
+       79: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+       79: 1181-block  0
+------------------
+       79: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
 ------------------
 _ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEaSERKS3_:
-        5: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
-        5: 1182-block  0
+       27: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
+       27: 1182-block  0
 ------------------
 _ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEaSERKS3_:
-        5: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
-        5: 1182-block  0
+       26: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
+       26: 1182-block  0
 ------------------
 _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEaSERKS3_:
-        5: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
-        5: 1182-block  0
+       26: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
+       26: 1182-block  0
 ------------------
-      52*: 1183:      ~__shared_ptr() = default;
+     179*: 1183:      ~__shared_ptr() = default;
 ------------------
 _ZNSt12__shared_ptrI16BiweeklyScheduleLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-        6: 1183:      ~__shared_ptr() = default;
-        6: 1183-block  0
+        9: 1183:      ~__shared_ptr() = default;
+        9: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-        9: 1183:      ~__shared_ptr() = default;
-        9: 1183-block  0
+       13: 1183:      ~__shared_ptr() = default;
+       13: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI15MonthlyScheduleLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-        3: 1183:      ~__shared_ptr() = default;
-        3: 1183-block  0
+       14: 1183:      ~__shared_ptr() = default;
+       14: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI22SalariedClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-        4: 1183:      ~__shared_ptr() = default;
-        4: 1183-block  0
+       16: 1183:      ~__shared_ptr() = default;
+       16: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI14WeeklyScheduleLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-        6: 1183:      ~__shared_ptr() = default;
-        6: 1183-block  0
+       33: 1183:      ~__shared_ptr() = default;
+       33: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI20HourlyClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-        9: 1183:      ~__shared_ptr() = default;
-        9: 1183-block  0
+       44: 1183:      ~__shared_ptr() = default;
+       44: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     #####: 1183:      ~__shared_ptr() = default;
     %%%%%: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-       15: 1183:      ~__shared_ptr() = default;
-       15: 1183-block  0
+       50: 1183:      ~__shared_ptr() = default;
+       50: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+    #####: 1183:      ~__shared_ptr() = default;
+    %%%%%: 1183-block  0
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
     #####: 1183:      ~__shared_ptr() = default;
     %%%%%: 1183-block  0
 ------------------
@@ -2079,75 +2234,75 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
         -: 1195:      }
         -: 1196:
         -: 1197:      template<typename _Yp, typename = _Compatible<_Yp>>
-       15: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-       15: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+       76: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+       76: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
         -: 1200:	{
-       15: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-       15: 1202:	  __r._M_ptr = 0;
-       15: 1203:	}
+       76: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+       76: 1202:	  __r._M_ptr = 0;
+       76: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEC2I16BiweeklySchedulevEEOS_IT_LS2_2EE:
-        2: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        2: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        2: 1199-block  0
+        3: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+        3: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+        3: 1199-block  0
         -: 1200:	{
-        2: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        2: 1202:	  __r._M_ptr = 0;
-        2: 1203:	}
+        3: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+        3: 1202:	  __r._M_ptr = 0;
+        3: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2I26CommissionedClassificationvEEOS_IT_LS2_2EE:
-        2: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        2: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        2: 1199-block  0
+        3: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+        3: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+        3: 1199-block  0
         -: 1200:	{
-        2: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        2: 1202:	  __r._M_ptr = 0;
-        2: 1203:	}
+        3: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+        3: 1202:	  __r._M_ptr = 0;
+        3: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEC2I15MonthlySchedulevEEOS_IT_LS2_2EE:
-        1: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        1: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        1: 1199-block  0
+       10: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+       10: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+       10: 1199-block  0
         -: 1200:	{
-        1: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        1: 1202:	  __r._M_ptr = 0;
-        1: 1203:	}
+       10: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+       10: 1202:	  __r._M_ptr = 0;
+       10: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2I22SalariedClassificationvEEOS_IT_LS2_2EE:
-        1: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        1: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        1: 1199-block  0
+       10: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+       10: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+       10: 1199-block  0
         -: 1200:	{
-        1: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        1: 1202:	  __r._M_ptr = 0;
-        1: 1203:	}
+       10: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+       10: 1202:	  __r._M_ptr = 0;
+       10: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEC2I14WeeklySchedulevEEOS_IT_LS2_2EE:
-        2: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        2: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        2: 1199-block  0
+       13: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+       13: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+       13: 1199-block  0
         -: 1200:	{
-        2: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        2: 1202:	  __r._M_ptr = 0;
-        2: 1203:	}
+       13: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+       13: 1202:	  __r._M_ptr = 0;
+       13: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2I20HourlyClassificationvEEOS_IT_LS2_2EE:
-        2: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        2: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        2: 1199-block  0
+       13: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+       13: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+       13: 1199-block  0
         -: 1200:	{
-        2: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        2: 1202:	  __r._M_ptr = 0;
-        2: 1203:	}
+       13: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+       13: 1202:	  __r._M_ptr = 0;
+       13: 1203:	}
 ------------------
 _ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEC2I10HoldMethodvEEOS_IT_LS2_2EE:
-        5: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
-        5: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
-        5: 1199-block  0
+       24: 1198:	__shared_ptr(__shared_ptr<_Yp, _Lp>&& __r) noexcept
+       24: 1199:	: _M_ptr(__r._M_ptr), _M_refcount()
+       24: 1199-block  0
         -: 1200:	{
-        5: 1201:	  _M_refcount._M_swap(__r._M_refcount);
-        5: 1202:	  __r._M_ptr = 0;
-        5: 1203:	}
+       24: 1201:	  _M_refcount._M_swap(__r._M_refcount);
+       24: 1202:	  __r._M_ptr = 0;
+       24: 1203:	}
 ------------------
         -: 1204:
         -: 1205:      template<typename _Yp, typename = _Compatible<_Yp>>
@@ -2269,8 +2424,23 @@ _ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEC2I10HoldMethod
         -: 1321:
         -: 1322:      /// Return the stored pointer.
         -: 1323:      element_type*
-    #####: 1324:      get() const noexcept
-    #####: 1325:      { return _M_ptr; }
+      74*: 1324:      get() const noexcept
+      74*: 1325:      { return _M_ptr; }
+------------------
+_ZNKSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EE3getEv:
+       26: 1324:      get() const noexcept
+       26: 1325:      { return _M_ptr; }
+       26: 1325-block  0
+------------------
+_ZNKSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EE3getEv:
+       33: 1324:      get() const noexcept
+       33: 1325:      { return _M_ptr; }
+       33: 1325-block  0
+------------------
+_ZNKSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EE3getEv:
+       15: 1324:      get() const noexcept
+       15: 1325:      { return _M_ptr; }
+       15: 1325-block  0
 ------------------
 _ZNKSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE3getEv:
     #####: 1324:      get() const noexcept
@@ -2326,51 +2496,51 @@ _ZNKSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EE3getEv:
         -: 1367:    protected:
         -: 1368:      // This constructor is non-standard, it is used by allocate_shared.
         -: 1369:      template<typename _Alloc, typename... _Args>
-       15: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-       15: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-       15: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+       76: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       76: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+       76: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI16BiweeklyScheduleLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        2: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        2: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        2: 1371-block  0
-        2: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+        3: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        3: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+        3: 1371-block  0
+        3: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJRKdS7_EEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        2: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        2: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        2: 1371-block  0
-        2: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+        3: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+        3: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+        3: 1371-block  0
+        3: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI15MonthlyScheduleLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        1: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        1: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        1: 1371-block  0
-        1: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+       10: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       10: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+       10: 1371-block  0
+       10: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI22SalariedClassificationLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJRKdEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        1: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        1: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        1: 1371-block  0
-        1: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+       10: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       10: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+       10: 1371-block  0
+       10: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI14WeeklyScheduleLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        2: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        2: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        2: 1371-block  0
-        2: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+       13: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       13: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+       13: 1371-block  0
+       13: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI20HourlyClassificationLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJRKdEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        2: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        2: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        2: 1371-block  0
-        2: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+       13: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       13: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+       13: 1371-block  0
+       13: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
 _ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_:
-        5: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
-        5: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
-        5: 1371-block  0
-        5: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
+       24: 1370:	__shared_ptr(_Sp_alloc_shared_tag<_Alloc> __tag, _Args&&... __args)
+       24: 1371:	: _M_ptr(), _M_refcount(_M_ptr, __tag, std::forward<_Args>(__args)...)
+       24: 1371-block  0
+       24: 1372:	{ _M_enable_shared_from_this_with(_M_ptr); }
 ------------------
         -: 1373:
         -: 1374:      template<typename _Tp1, _Lock_policy _Lp1, typename _Alloc,
@@ -2414,38 +2584,42 @@ _ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EEC2ISaIS0_EJEEESt20
         -: 1412:
         -: 1413:      template<typename _Yp, typename _Yp2 = typename remove_cv<_Yp>::type>
         -: 1414:	typename enable_if<!__has_esft_base<_Yp2>::value>::type
-      15*: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-      15*: 1416:	{ }
+      76*: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+      76*: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI16BiweeklyScheduleLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        2: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        2: 1416:	{ }
+        3: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+        3: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI26CommissionedClassificationLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        2: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        2: 1416:	{ }
+        3: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+        3: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI15MonthlyScheduleLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        1: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        1: 1416:	{ }
+       10: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       10: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI22SalariedClassificationLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        1: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        1: 1416:	{ }
+       10: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       10: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI14WeeklyScheduleLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        2: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        2: 1416:	{ }
+       13: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       13: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI20HourlyClassificationLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        2: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        2: 1416:	{ }
+       13: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       13: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI10HoldMethodLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-        5: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-        5: 1416:	{ }
+       24: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       24: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
+    #####: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+    #####: 1416:	{ }
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withI13NoAffiliationS5_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
     #####: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
     #####: 1416:	{ }
 ------------------

@@ -1,0 +1,33 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/ServiceCharge.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_SERVICECHARGE_HPP
+        -:    2:#define PAYROLL_SYSTEM_SERVICECHARGE_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include "../utility/Date.hpp"
+        -:    6:
+        -:    7:class ServiceCharge
+        -:    8:{
+        -:    9:public:
+        -:   10:    ServiceCharge(const Date& date, double amount) : date(date), amount(amount) {}
+        -:   11:    Date getDate() const { return date; }
+        -:   12:    double getAmount() const { return amount; }
+        -:   13:
+       55:   14:    bool operator<(const ServiceCharge& other) const { return date<other.date; }
+       55:   14-block  0
+    #####:   15:    bool operator==(const ServiceCharge& other) const { return date==other.date && amount==other.amount; }
+    %%%%%:   15-block  0
+    %%%%%:   15-block  1
+    %%%%%:   15-block  2
+    %%%%%:   15-block  3
+    %%%%%:   15-block  4
+        -:   16:
+        -:   17:private:
+        -:   18:    Date date;
+        -:   19:    double amount;
+        -:   20:};
+        -:   21:
+        -:   22:
+        -:   23:#endif //PAYROLL_SYSTEM_SERVICECHARGE_HPP

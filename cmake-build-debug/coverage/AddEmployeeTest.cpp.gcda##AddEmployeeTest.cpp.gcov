@@ -17,170 +17,202 @@
         -:   13:    double      hRate = 17.7,           sSalary = 1000.33,      cSalary = 2000.88, cRate = 0.05;
         -:   14:};
         -:   15:
-        4:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
-        -:   17:{
-        2:   18:    AddHourlyEmployee at(hId, hName, hAddress, hRate);
-       1*:   19:    ASSERT_NO_THROW(at.execute());
-       1*:   20:    ASSERT_EQ(database->size(), 1);
-        1:   21:    HourlyEmployeeCorrectnessTester(hRate).invoke(hId, hName);
-        -:   22:}
+        -:   16:#define ADDITION_TEST( ADDITION_TRANSACTION, CHECK ) \
+        -:   17:    ASSERT_NO_THROW(ADDITION_TRANSACTION.execute()); \
+        -:   18:    ASSERT_EQ(database->size(), 1); \
+        -:   19:    CHECK;
+        -:   20:
+        -:   21:
+        4:   22:TEST_F(AddEmployeeTest, HourlyEmployee)
+        -:   23:{
+       3*:   24:    ADDITION_TEST(
+        -:   25:        ( AddHourlyEmployee(hId, hName, hAddress, hRate) ),
+        -:   26:        ( HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName, hAddress) )
+        -:   27:    )
+        -:   28:}
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_TestD0Ev:
-        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
-        1:   16-block  0
+        1:   22:TEST_F(AddEmployeeTest, HourlyEmployee)
+        1:   22-block  0
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_TestD1Ev:
-        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
-        1:   16-block  0
+        1:   22:TEST_F(AddEmployeeTest, HourlyEmployee)
+        1:   22-block  0
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_Test8TestBodyEv:
-        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
-        -:   17:{
-        2:   18:    AddHourlyEmployee at(hId, hName, hAddress, hRate);
-        1:   18-block  0
-        1:   18-block  1
-        1:   18-block  2
-    $$$$$:   18-block  3
-    $$$$$:   18-block  4
-       1*:   19:    ASSERT_NO_THROW(at.execute());
-        1:   19-block  0
-        1:   19-block  1
-        1:   19-block  2
-    %%%%%:   19-block  3
-    %%%%%:   19-block  4
-    %%%%%:   19-block  5
-    %%%%%:   19-block  6
-    %%%%%:   19-block  7
-    $$$$$:   19-block  8
-    $$$$$:   19-block  9
-    $$$$$:   19-block 10
-    $$$$$:   19-block 11
-    $$$$$:   19-block 12
-    $$$$$:   19-block 13
-    $$$$$:   19-block 14
-    $$$$$:   19-block 15
-    $$$$$:   19-block 16
-    $$$$$:   19-block 17
-    $$$$$:   19-block 18
-    $$$$$:   19-block 19
-    $$$$$:   19-block 20
-    $$$$$:   19-block 21
-    $$$$$:   19-block 22
-    $$$$$:   19-block 23
-       1*:   20:    ASSERT_EQ(database->size(), 1);
-        1:   20-block  0
-        1:   20-block  1
-    %%%%%:   20-block  2
-    %%%%%:   20-block  3
-    %%%%%:   20-block  4
-    %%%%%:   20-block  5
-    $$$$$:   20-block  6
-    $$$$$:   20-block  7
-    $$$$$:   20-block  8
-    $$$$$:   20-block  9
-    $$$$$:   20-block 10
-    $$$$$:   20-block 11
-    $$$$$:   20-block 12
-        1:   21:    HourlyEmployeeCorrectnessTester(hRate).invoke(hId, hName);
-        1:   21-block  0
-        1:   21-block  1
-        1:   21-block  2
-        1:   21-block  3
-    $$$$$:   21-block  4
-    $$$$$:   21-block  5
-    $$$$$:   21-block  6
-    $$$$$:   21-block  7
-        -:   22:}
+        1:   22:TEST_F(AddEmployeeTest, HourlyEmployee)
+        -:   23:{
+       3*:   24:    ADDITION_TEST(
+        1:   24-block  0
+        1:   24-block  1
+        1:   24-block  2
+        1:   24-block  3
+        1:   24-block  4
+        1:   24-block  5
+        1:   24-block  6
+    %%%%%:   24-block  7
+    %%%%%:   24-block  8
+    %%%%%:   24-block  9
+    %%%%%:   24-block 10
+    %%%%%:   24-block 11
+        1:   24-block 12
+        1:   24-block 13
+    %%%%%:   24-block 14
+    %%%%%:   24-block 15
+    %%%%%:   24-block 16
+    %%%%%:   24-block 17
+        1:   24-block 18
+        1:   24-block 19
+        1:   24-block 20
+        1:   24-block 21
+        1:   24-block 22
+        1:   24-block 23
+    $$$$$:   24-block 24
+    $$$$$:   24-block 25
+    $$$$$:   24-block 26
+    $$$$$:   24-block 27
+    $$$$$:   24-block 28
+    $$$$$:   24-block 29
+    $$$$$:   24-block 30
+    $$$$$:   24-block 31
+    $$$$$:   24-block 32
+    $$$$$:   24-block 33
+    $$$$$:   24-block 34
+    $$$$$:   24-block 35
+    $$$$$:   24-block 36
+    $$$$$:   24-block 37
+    $$$$$:   24-block 38
+    $$$$$:   24-block 39
+    $$$$$:   24-block 40
+    $$$$$:   24-block 41
+    $$$$$:   24-block 42
+    $$$$$:   24-block 43
+    $$$$$:   24-block 44
+    $$$$$:   24-block 45
+    $$$$$:   24-block 46
+    $$$$$:   24-block 47
+    $$$$$:   24-block 48
+    $$$$$:   24-block 49
+    $$$$$:   24-block 50
+    $$$$$:   24-block 51
+    $$$$$:   24-block 52
+    $$$$$:   24-block 53
+    $$$$$:   24-block 54
+    $$$$$:   24-block 55
+    $$$$$:   24-block 56
+    $$$$$:   24-block 57
+    $$$$$:   24-block 58
+    $$$$$:   24-block 59
+    $$$$$:   24-block 60
+    $$$$$:   24-block 61
+        -:   25:        ( AddHourlyEmployee(hId, hName, hAddress, hRate) ),
+        -:   26:        ( HourlyEmployeeCorrectnessTester(*database->getEmployee(hId), hRate).invoke(hId, hName, hAddress) )
+        -:   27:    )
+        -:   28:}
 ------------------
 _ZN35AddEmployeeTest_HourlyEmployee_TestC1Ev:
-        1:   16:TEST_F(AddEmployeeTest, HourlyEmployee)
-        1:   16-block  0
+        1:   22:TEST_F(AddEmployeeTest, HourlyEmployee)
+        1:   22-block  0
 ------------------
-        -:   23:
-        4:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
-        -:   25:{
-        2:   26:    AddSalariedEmployee at(sId, sName, sAddress, sSalary);
-       1*:   27:    ASSERT_NO_THROW(at.execute());
-       1*:   28:    ASSERT_EQ(database->size(), 1);
-        1:   29:    SalariedEmployeeCorrectnessTester(sSalary).invoke(sId, sName);
-        -:   30:}
+        -:   29:
+        4:   30:TEST_F(AddEmployeeTest, SalariedEmployee)
+        -:   31:{
+       3*:   32:    ADDITION_TEST(
+        -:   33:        ( AddSalariedEmployee(sId, sName, sAddress, sSalary)),
+        -:   34:        ( SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName, sAddress))
+        -:   35:    )
+        -:   36:}
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_TestD0Ev:
-        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
-        1:   24-block  0
+        1:   30:TEST_F(AddEmployeeTest, SalariedEmployee)
+        1:   30-block  0
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_TestD1Ev:
-        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
-        1:   24-block  0
+        1:   30:TEST_F(AddEmployeeTest, SalariedEmployee)
+        1:   30-block  0
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_Test8TestBodyEv:
-        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
-        -:   25:{
-        2:   26:    AddSalariedEmployee at(sId, sName, sAddress, sSalary);
-        1:   26-block  0
-        1:   26-block  1
-        1:   26-block  2
-    $$$$$:   26-block  3
-    $$$$$:   26-block  4
-       1*:   27:    ASSERT_NO_THROW(at.execute());
-        1:   27-block  0
-        1:   27-block  1
-        1:   27-block  2
-    %%%%%:   27-block  3
-    %%%%%:   27-block  4
-    %%%%%:   27-block  5
-    %%%%%:   27-block  6
-    %%%%%:   27-block  7
-    $$$$$:   27-block  8
-    $$$$$:   27-block  9
-    $$$$$:   27-block 10
-    $$$$$:   27-block 11
-    $$$$$:   27-block 12
-    $$$$$:   27-block 13
-    $$$$$:   27-block 14
-    $$$$$:   27-block 15
-    $$$$$:   27-block 16
-    $$$$$:   27-block 17
-    $$$$$:   27-block 18
-    $$$$$:   27-block 19
-    $$$$$:   27-block 20
-    $$$$$:   27-block 21
-    $$$$$:   27-block 22
-    $$$$$:   27-block 23
-       1*:   28:    ASSERT_EQ(database->size(), 1);
-        1:   28-block  0
-        1:   28-block  1
-    %%%%%:   28-block  2
-    %%%%%:   28-block  3
-    %%%%%:   28-block  4
-    %%%%%:   28-block  5
-    $$$$$:   28-block  6
-    $$$$$:   28-block  7
-    $$$$$:   28-block  8
-    $$$$$:   28-block  9
-    $$$$$:   28-block 10
-    $$$$$:   28-block 11
-    $$$$$:   28-block 12
-        1:   29:    SalariedEmployeeCorrectnessTester(sSalary).invoke(sId, sName);
-        1:   29-block  0
-        1:   29-block  1
-        1:   29-block  2
-        1:   29-block  3
-    $$$$$:   29-block  4
-    $$$$$:   29-block  5
-    $$$$$:   29-block  6
-    $$$$$:   29-block  7
-        -:   30:}
+        1:   30:TEST_F(AddEmployeeTest, SalariedEmployee)
+        -:   31:{
+       3*:   32:    ADDITION_TEST(
+        1:   32-block  0
+        1:   32-block  1
+        1:   32-block  2
+        1:   32-block  3
+        1:   32-block  4
+        1:   32-block  5
+        1:   32-block  6
+    %%%%%:   32-block  7
+    %%%%%:   32-block  8
+    %%%%%:   32-block  9
+    %%%%%:   32-block 10
+    %%%%%:   32-block 11
+        1:   32-block 12
+        1:   32-block 13
+    %%%%%:   32-block 14
+    %%%%%:   32-block 15
+    %%%%%:   32-block 16
+    %%%%%:   32-block 17
+        1:   32-block 18
+        1:   32-block 19
+        1:   32-block 20
+        1:   32-block 21
+        1:   32-block 22
+        1:   32-block 23
+    $$$$$:   32-block 24
+    $$$$$:   32-block 25
+    $$$$$:   32-block 26
+    $$$$$:   32-block 27
+    $$$$$:   32-block 28
+    $$$$$:   32-block 29
+    $$$$$:   32-block 30
+    $$$$$:   32-block 31
+    $$$$$:   32-block 32
+    $$$$$:   32-block 33
+    $$$$$:   32-block 34
+    $$$$$:   32-block 35
+    $$$$$:   32-block 36
+    $$$$$:   32-block 37
+    $$$$$:   32-block 38
+    $$$$$:   32-block 39
+    $$$$$:   32-block 40
+    $$$$$:   32-block 41
+    $$$$$:   32-block 42
+    $$$$$:   32-block 43
+    $$$$$:   32-block 44
+    $$$$$:   32-block 45
+    $$$$$:   32-block 46
+    $$$$$:   32-block 47
+    $$$$$:   32-block 48
+    $$$$$:   32-block 49
+    $$$$$:   32-block 50
+    $$$$$:   32-block 51
+    $$$$$:   32-block 52
+    $$$$$:   32-block 53
+    $$$$$:   32-block 54
+    $$$$$:   32-block 55
+    $$$$$:   32-block 56
+    $$$$$:   32-block 57
+    $$$$$:   32-block 58
+    $$$$$:   32-block 59
+    $$$$$:   32-block 60
+    $$$$$:   32-block 61
+        -:   33:        ( AddSalariedEmployee(sId, sName, sAddress, sSalary)),
+        -:   34:        ( SalariedEmployeeCorrectnessTester(*database->getEmployee(sId), sSalary).invoke(sId, sName, sAddress))
+        -:   35:    )
+        -:   36:}
 ------------------
 _ZN37AddEmployeeTest_SalariedEmployee_TestC1Ev:
-        1:   24:TEST_F(AddEmployeeTest, SalariedEmployee)
-        1:   24-block  0
+        1:   30:TEST_F(AddEmployeeTest, SalariedEmployee)
+        1:   30-block  0
 ------------------
-        -:   31:
-        4:   32:TEST_F(AddEmployeeTest, CommissionedEmployee)
-        -:   33:{
-        2:   34:    AddCommissionedEmployee at(cId, cName, cAddress, cSalary, cRate);
-       1*:   35:    ASSERT_NO_THROW(at.execute());
-       1*:   36:    ASSERT_EQ(database->size(), 1);
-        1:   37:    CommissionedEmployeeCorrectnessTester(cSalary, cRate).invoke(cId, cName);
-        -:   38:}
+        -:   37:
+        4:   38:TEST_F(AddEmployeeTest, CommissionedEmployee)
+        -:   39:{
+       3*:   40:    ADDITION_TEST(
+        -:   41:        ( AddCommissionedEmployee(cId, cName, cAddress, cSalary, cRate) ),
+        -:   42:        ( CommissionedEmployeeCorrectnessTester(*database->getEmployee(cId), cSalary, cRate).invoke(cId, cName, cAddress) )
+        -:   43:    )
+        -:   44:}
+        -:   45:
+        -:   46:#undef ADDITION_TEST

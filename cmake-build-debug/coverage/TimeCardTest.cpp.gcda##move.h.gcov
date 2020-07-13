@@ -53,12 +53,22 @@
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
 ------------------
+_ZSt11__addressofIKSt10shared_ptrI10HoldMethodEEPT_RS4_:
+    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    #####:   50:    { return __builtin_addressof(__r); }
+    %%%%%:   50-block  0
+------------------
 _ZSt11__addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
 ------------------
 _ZSt11__addressofIKcEPT_RS1_:
+    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    #####:   50:    { return __builtin_addressof(__r); }
+    %%%%%:   50-block  0
+------------------
+_ZSt11__addressofI13ServiceChargeEPT_RS1_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
@@ -216,6 +226,11 @@ _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_:
         -:  139:    inline _GLIBCXX17_CONSTEXPR _Tp*
     #####:  140:    addressof(_Tp& __r) noexcept
     #####:  141:    { return std::__addressof(__r); }
+------------------
+_ZSt9addressofIKSt10shared_ptrI10HoldMethodEEPT_RS4_:
+    #####:  140:    addressof(_Tp& __r) noexcept
+    #####:  141:    { return std::__addressof(__r); }
+    %%%%%:  141-block  0
 ------------------
 _ZSt9addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
     #####:  140:    addressof(_Tp& __r) noexcept

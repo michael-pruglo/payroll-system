@@ -299,7 +299,7 @@
         -:  295:  // around may change its bits, although the new value is guaranteed
         -:  296:  // to be also a NAN.  Therefore, don't expect this constructor to
         -:  297:  // preserve the bits in x when x is a NAN.
-       14:  298:  explicit FloatingPoint(const RawType& x) { u_.value_ = x; }
+       36:  298:  explicit FloatingPoint(const RawType& x) { u_.value_ = x; }
         -:  299:
         -:  300:  // Static methods
         -:  301:
@@ -326,8 +326,8 @@
         -:  322:  const Bits &bits() const { return u_.bits_; }
         -:  323:
         -:  324:  // Returns the exponent bits of this number.
-       14:  325:  Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
-       14:  325-block  0
+       36:  325:  Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
+       36:  325-block  0
         -:  326:
         -:  327:  // Returns the fraction bits of this number.
     #####:  328:  Bits fraction_bits() const { return kFractionBitMask & u_.bits_; }
@@ -337,15 +337,15 @@
         -:  331:  Bits sign_bit() const { return kSignBitMask & u_.bits_; }
         -:  332:
         -:  333:  // Returns true if and only if this is NAN (not a number).
-       14:  334:  bool is_nan() const {
+       36:  334:  bool is_nan() const {
         -:  335:    // It's a NAN if the exponent bits are all ones and the fraction
         -:  336:    // bits are not entirely zeros.
-      14*:  337:    return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
-       14:  337-block  0
+      36*:  337:    return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
+       36:  337-block  0
     %%%%%:  337-block  1
     %%%%%:  337-block  2
-       14:  337-block  3
-       14:  337-block  4
+       36:  337-block  3
+       36:  337-block  4
         -:  338:  }
         -:  339:
         -:  340:  // Returns true if and only if this number is at most kMaxUlps ULP's away
@@ -354,20 +354,20 @@
         -:  343:  //   - returns false if either number is (or both are) NAN.
         -:  344:  //   - treats really large numbers as almost equal to infinity.
         -:  345:  //   - thinks +0.0 and -0.0 are 0 DLP's apart.
-        7:  346:  bool AlmostEquals(const FloatingPoint& rhs) const {
+       18:  346:  bool AlmostEquals(const FloatingPoint& rhs) const {
         -:  347:    // The IEEE standard says that any comparison operation involving
         -:  348:    // a NAN must return false.
-       7*:  349:    if (is_nan() || rhs.is_nan()) return false;
-        7:  349-block  0
-        7:  349-block  1
+      18*:  349:    if (is_nan() || rhs.is_nan()) return false;
+       18:  349-block  0
+       18:  349-block  1
     %%%%%:  349-block  2
-        7:  349-block  3
-        7:  349-block  4
+       18:  349-block  3
+       18:  349-block  4
     %%%%%:  349-block  5
         -:  350:
-        7:  351:    return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
-        7:  351-block  0
-        7:  352:        <= kMaxUlps;
+       18:  351:    return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
+       18:  351-block  0
+       18:  352:        <= kMaxUlps;
         -:  353:  }
         -:  354:
         -:  355: private:
@@ -392,30 +392,30 @@
         -:  374:  //
         -:  375:  // Read http://en.wikipedia.org/wiki/Signed_number_representations
         -:  376:  // for more details on signed number representations.
-       14:  377:  static Bits SignAndMagnitudeToBiased(const Bits &sam) {
-       14:  378:    if (kSignBitMask & sam) {
-       14:  378-block  0
+       36:  377:  static Bits SignAndMagnitudeToBiased(const Bits &sam) {
+       36:  378:    if (kSignBitMask & sam) {
+       36:  378-block  0
         -:  379:      // sam represents a negative number.
     #####:  380:      return ~sam + 1;
     %%%%%:  380-block  0
         -:  381:    } else {
         -:  382:      // sam represents a positive number.
-       14:  383:      return kSignBitMask | sam;
-       14:  383-block  0
+       36:  383:      return kSignBitMask | sam;
+       36:  383-block  0
         -:  384:    }
         -:  385:  }
         -:  386:
         -:  387:  // Given two numbers in the sign-and-magnitude representation,
         -:  388:  // returns the distance between them as an unsigned number.
-        7:  389:  static Bits DistanceBetweenSignAndMagnitudeNumbers(const Bits &sam1,
+       18:  389:  static Bits DistanceBetweenSignAndMagnitudeNumbers(const Bits &sam1,
         -:  390:                                                     const Bits &sam2) {
-        7:  391:    const Bits biased1 = SignAndMagnitudeToBiased(sam1);
-        7:  391-block  0
-        7:  392:    const Bits biased2 = SignAndMagnitudeToBiased(sam2);
-       7*:  393:    return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
-        7:  393-block  0
+       18:  391:    const Bits biased1 = SignAndMagnitudeToBiased(sam1);
+       18:  391-block  0
+       18:  392:    const Bits biased2 = SignAndMagnitudeToBiased(sam2);
+      18*:  393:    return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
+       18:  393-block  0
     %%%%%:  393-block  1
-        7:  393-block  2
+       18:  393-block  2
         -:  394:  }
         -:  395:
         -:  396:  FloatingPointUnion u_;
@@ -872,12 +872,10 @@
         -:  847:// Helper for declaring std::string within 'if' statement
         -:  848:// in pre C++17 build environment.
         -:  849:struct TrueWithString {
-    #####:  850:  TrueWithString() = default;
-    %%%%%:  850-block  0
+        -:  850:  TrueWithString() = default;
         -:  851:  explicit TrueWithString(const char* str) : value(str) {}
         -:  852:  explicit TrueWithString(const std::string& str) : value(str) {}
-    #####:  853:  explicit operator bool() const { return true; }
-    %%%%%:  853-block  0
+        -:  853:  explicit operator bool() const { return true; }
         -:  854:  std::string value;
         -:  855:};
         -:  856:

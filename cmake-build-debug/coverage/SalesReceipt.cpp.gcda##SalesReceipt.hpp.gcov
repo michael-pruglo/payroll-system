@@ -6,14 +6,14 @@
         -:    2:#define PAYROLL_SYSTEM_SALESRECEIPT_HPP
         -:    3:
         -:    4:
-        -:    5:#include <src/utility/Date.hpp>
+        -:    5:#include "src/utility/Date.hpp"
         -:    6:
         -:    7:class SalesReceipt
         -:    8:{
         -:    9:public:
         2:   10:    SalesReceipt(const Date& date, double amount) : date(date), amount(amount) {}
-        1:   11:    Date getDate() const { return date; }
-        1:   11-block  0
+    #####:   11:    Date getDate() const { return date; }
+    %%%%%:   11-block  0
         -:   12:    double getAmount() const { return amount; }
         -:   13:
         -:   14:private:

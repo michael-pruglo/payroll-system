@@ -1,0 +1,120 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/ChangeEmployeeTransaction.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "ChangeEmployeeTransaction.hpp"
+        -:    2:#include "../Database/PayrollDatabase.hpp"
+        -:    3:
+        9:    4:void ChangeEmployeeTransaction::execute()
+        -:    5:{
+        9:    6:    auto employee = PayrollDatabase::getInstance()->getEmployee(id);
+        9:    6-block  0
+        9:    6-block  1
+    $$$$$:    6-block  2
+    $$$$$:    6-block  3
+        9:    7:    change(employee);
+        9:    7-block  0
+    $$$$$:    7-block  1
+    $$$$$:    7-block  2
+        9:    8:}
+        -:    9:
+        1:   10:void ChangeNameTransaction::change(std::shared_ptr<Employee> employee)
+        -:   11:{
+        1:   12:    employee->setName(newName);
+        1:   12-block  0
+        1:   13:}
+        -:   14:
+        1:   15:void ChangeAddressTransaction::change(std::shared_ptr<Employee> employee)
+        -:   16:{
+        1:   17:    employee->setAddress(newAddress);
+        1:   17-block  0
+        1:   18:}
+        -:   19:
+        3:   20:void ChangeClassificationTransaction::change(std::shared_ptr<Employee> employee)
+        -:   21:{
+        3:   22:    employee->setPaymentClassification(getClassification());
+        3:   22-block  0
+        3:   23:    employee->setPaymentSchedule(getSchedule());
+        3:   24:}
+        -:   25:
+        1:   26:std::shared_ptr<PaymentClassification> ChangeToHourlyTransaction::getClassification() const
+        -:   27:{
+        1:   28:    return std::make_shared<HourlyClassification>(hRate);
+        1:   28-block  0
+        -:   29:}
+        -:   30:
+        1:   31:std::shared_ptr<PaymentSchedule> ChangeToHourlyTransaction::getSchedule() const
+        -:   32:{
+        1:   33:    return std::make_shared<WeeklySchedule>();
+        1:   33-block  0
+        -:   34:}
+        -:   35:
+        1:   36:std::shared_ptr<PaymentClassification> ChangeToSalariedTransaction::getClassification() const
+        -:   37:{
+        1:   38:    return std::make_shared<SalariedClassification>(sSalary);
+        1:   38-block  0
+        -:   39:}
+        -:   40:
+        1:   41:std::shared_ptr<PaymentSchedule> ChangeToSalariedTransaction::getSchedule() const
+        -:   42:{
+        1:   43:    return std::make_shared<MonthlySchedule>();
+        1:   43-block  0
+        -:   44:}
+        -:   45:
+        1:   46:std::shared_ptr<PaymentClassification> ChangeToCommissionedTransaction::getClassification() const
+        -:   47:{
+        1:   48:    return std::make_shared<CommissionedClassification>(cSalary, cRate);
+        1:   48-block  0
+        -:   49:}
+        -:   50:
+        1:   51:std::shared_ptr<PaymentSchedule> ChangeToCommissionedTransaction::getSchedule() const
+        -:   52:{
+        1:   53:    return std::make_shared<BiweeklySchedule>();
+        1:   53-block  0
+        -:   54:}
+        -:   55:
+        4:   56:void ChangeMethodTransaction::change(std::shared_ptr<Employee> employee)
+        -:   57:{
+        4:   58:    employee->setPaymentMethod(getPaymentMethod());
+        4:   58-block  0
+        4:   59:}
+        -:   60:
+        1:   61:ChangeToDirectMethodTransaction::ChangeToDirectMethodTransaction(int id, std::string bank, int account) :
+        -:   62:    ChangeMethodTransaction(id),
+        -:   63:    bank(bank),
+        1:   64:    account(account)
+        1:   64-block  0
+    $$$$$:   64-block  1
+        1:   65:{}
+        1:   65-block  0
+        -:   66:
+        1:   67:std::shared_ptr<PaymentMethod> ChangeToDirectMethodTransaction::getPaymentMethod()
+        -:   68:{
+        1:   69:    return std::make_shared<DirectMethod>(bank, account);
+        1:   69-block  0
+        -:   70:}
+        -:   71:
+        2:   72:ChangeToMailMethodTransaction::ChangeToMailMethodTransaction(int id, std::string address) :
+        -:   73:    ChangeMethodTransaction(id),
+        2:   74:    address(address)
+        2:   74-block  0
+    $$$$$:   74-block  1
+        2:   75:{}
+        2:   75-block  0
+        -:   76:
+        2:   77:std::shared_ptr<PaymentMethod> ChangeToMailMethodTransaction::getPaymentMethod()
+        -:   78:{
+        2:   79:    return std::make_shared<MailMethod>(address);
+        2:   79-block  0
+        -:   80:}
+        -:   81:
+        1:   82:ChangeToHoldMethodTransaction::ChangeToHoldMethodTransaction(int id) :
+        1:   83:    ChangeMethodTransaction(id)
+        1:   83-block  0
+        1:   84:{}
+        -:   85:
+        1:   86:std::shared_ptr<PaymentMethod> ChangeToHoldMethodTransaction::getPaymentMethod()
+        -:   87:{
+        1:   88:    return std::make_shared<HoldMethod>();
+        1:   88-block  0
+        -:   89:}

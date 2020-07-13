@@ -50,13 +50,13 @@
         -:   46:   */
         -:   47:  template<typename _Tp>
         -:   48:    inline _GLIBCXX_CONSTEXPR _Tp*
-       4*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-       4*:   50:    { return __builtin_addressof(__r); }
+       6*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+       6*:   50:    { return __builtin_addressof(__r); }
 ------------------
 _ZSt11__addressofISaISt23_Sp_counted_ptr_inplaceI8EmployeeSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEPT_RS7_:
-        4:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-        4:   50:    { return __builtin_addressof(__r); }
-        4:   50-block  0
+        6:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        6:   50:    { return __builtin_addressof(__r); }
+        6:   50-block  0
 ------------------
 _ZSt11__addressofINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEPT_RS9_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
@@ -98,13 +98,13 @@ _ZSt11__addressofIcEPT_RS0_:
         -:   73:   */
         -:   74:  template<typename _Tp>
         -:   75:    constexpr _Tp&&
-      32*:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-      32*:   77:    { return static_cast<_Tp&&>(__t); }
+      72*:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+      72*:   77:    { return static_cast<_Tp&&>(__t); }
 ------------------
 _ZSt7forwardIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS7_E4typeE:
-       32:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-       32:   77:    { return static_cast<_Tp&&>(__t); }
-       32:   77-block  0
+       72:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       72:   77:    { return static_cast<_Tp&&>(__t); }
+       72:   77-block  0
 ------------------
 _ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE:
     #####:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept

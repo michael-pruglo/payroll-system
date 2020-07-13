@@ -9,34 +9,54 @@
         -:    5:#include "PaymentClassification.hpp"
         -:    6:#include "PaymentSchedule.hpp"
         -:    7:#include "PaymentMethod.hpp"
-        -:    8:
+        -:    8:#include "Affiliation.hpp"
         -:    9:
-        -:   10:class Employee
-        -:   11:{
-        -:   12:public:
-    #####:   13:    Employee(int id, std::string name, std::string address) :
-        -:   14:            id(id),
-    #####:   15:            name(std::move(name)),
-    #####:   16:            address(std::move(address))
-    %%%%%:   16-block  0
-    #####:   17:    {}
-        -:   18:
-        -:   19:    std::string                             getName() const { return name; }
-        -:   20:    std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
-        5:   21:    void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
-        5:   21-block  0
-        -:   22:    std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }
-        5:   23:    void                                    setPaymentSchedule(std::shared_ptr<PaymentSchedule> pc) { paymentSchedule = pc; }
-        5:   23-block  0
-        -:   24:    std::shared_ptr<PaymentMethod>          getPaymentMethod() const { return paymentMethod; }
-        5:   25:    void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
-        5:   25-block  0
-        -:   26:private:
-        -:   27:    int id;
-        -:   28:    std::string name, address;
-        -:   29:    std::shared_ptr<PaymentClassification> paymentClassification;
-        -:   30:    std::shared_ptr<PaymentSchedule> paymentSchedule;
-        -:   31:    std::shared_ptr<PaymentMethod> paymentMethod;
-        -:   32:};
-        -:   33:
-        -:   34:#endif //PAYROLL_SYSTEM_EMPLOYEE_HPP
+        -:   10:
+        -:   11:class Employee
+        -:   12:{
+        -:   13:public:
+    #####:   14:    Employee(int id, std::string name, std::string address) :
+        -:   15:            id(id),
+    #####:   16:            name(std::move(name)),
+    #####:   17:            address(std::move(address)),
+    #####:   18:            affiliation(new NoAffiliation())
+    %%%%%:   18-block  0
+    %%%%%:   18-block  1
+    $$$$$:   18-block  2
+    $$$$$:   18-block  3
+    $$$$$:   18-block  4
+    $$$$$:   18-block  5
+    $$$$$:   18-block  6
+    #####:   19:    {}
+    %%%%%:   19-block  0
+        -:   20:
+       15:   21:    std::string                             getName() const { return name; }
+       15:   21-block  0
+        -:   22:    void                                    setName(std::string newName) { name = std::move(newName); }
+       15:   23:    std::string                             getAddress() const { return address; }
+       15:   23-block  0
+        -:   24:    void                                    setAddress(std::string newAddress) { address = std::move(newAddress); }
+       17:   25:    std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
+       17:   25-block  0
+       26:   26:    void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
+       26:   26-block  0
+        -:   27:    std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }
+       26:   28:    void                                    setPaymentSchedule(std::shared_ptr<PaymentSchedule> pc) { paymentSchedule = pc; }
+       26:   28-block  0
+       15:   29:    std::shared_ptr<PaymentMethod>          getPaymentMethod() const { return paymentMethod; }
+       15:   29-block  0
+       27:   30:    void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
+       27:   30-block  0
+       33:   31:    std::shared_ptr<Affiliation>            getAffiliation() const { return affiliation; }
+       33:   31-block  0
+        -:   32:    void                                    setAffiliation(std::shared_ptr<Affiliation> a) { affiliation = a; }
+        -:   33:private:
+        -:   34:    int id;
+        -:   35:    std::string name, address;
+        -:   36:    std::shared_ptr<PaymentClassification> paymentClassification;
+        -:   37:    std::shared_ptr<PaymentSchedule> paymentSchedule;
+        -:   38:    std::shared_ptr<PaymentMethod> paymentMethod;
+        -:   39:    std::shared_ptr<Affiliation> affiliation;
+        -:   40:};
+        -:   41:
+        -:   42:#endif //PAYROLL_SYSTEM_EMPLOYEE_HPP

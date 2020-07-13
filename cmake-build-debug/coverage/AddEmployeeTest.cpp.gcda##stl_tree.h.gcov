@@ -147,11 +147,11 @@
         -:  143:    {
         -:  144:      _Key_compare		_M_key_compare;
         -:  145:
-        4:  146:      _Rb_tree_key_compare()
+       16:  146:      _Rb_tree_key_compare()
         -:  147:      _GLIBCXX_NOEXCEPT_IF(
         -:  148:	is_nothrow_default_constructible<_Key_compare>::value)
         -:  149:      : _M_key_compare()
-        4:  150:      { }
+       16:  150:      { }
         -:  151:
         -:  152:      _Rb_tree_key_compare(const _Key_compare& __comp)
         -:  153:      : _M_key_compare(__comp)
@@ -174,12 +174,12 @@
         -:  170:    _Rb_tree_node_base	_M_header;
         -:  171:    size_t		_M_node_count; // Keeps track of size of tree.
         -:  172:
-        6:  173:    _Rb_tree_header() _GLIBCXX_NOEXCEPT
-        6:  174:    {
-        6:  175:      _M_header._M_color = _S_red;
-        6:  176:      _M_reset();
-        6:  176-block  0
-        6:  177:    }
+       18:  173:    _Rb_tree_header() _GLIBCXX_NOEXCEPT
+       18:  174:    {
+       18:  175:      _M_header._M_color = _S_red;
+       18:  176:      _M_reset();
+       18:  176-block  0
+       18:  177:    }
         -:  178:
         -:  179:#if __cplusplus >= 201103L
         -:  180:    _Rb_tree_header(_Rb_tree_header&& __x) noexcept
@@ -208,13 +208,13 @@
         -:  203:    }
         -:  204:
         -:  205:    void
-        6:  206:    _M_reset()
+       18:  206:    _M_reset()
         -:  207:    {
-        6:  208:      _M_header._M_parent = 0;
-        6:  209:      _M_header._M_left = &_M_header;
-        6:  210:      _M_header._M_right = &_M_header;
-        6:  211:      _M_node_count = 0;
-        6:  212:    }
+       18:  208:      _M_header._M_parent = 0;
+       18:  209:      _M_header._M_left = &_M_header;
+       18:  210:      _M_header._M_right = &_M_header;
+       18:  211:      _M_node_count = 0;
+       18:  212:    }
         -:  213:  };
         -:  214:
         -:  215:  template<typename _Val>
@@ -761,30 +761,30 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_E
         -:  681:	{
         -:  682:	  typedef _Rb_tree_key_compare<_Key_compare> _Base_key_compare;
         -:  683:
-        4:  684:	  _Rb_tree_impl()
+       16:  684:	  _Rb_tree_impl()
         -:  685:	    _GLIBCXX_NOEXCEPT_IF(
         -:  686:		is_nothrow_default_constructible<_Node_allocator>::value
         -:  687:		&& is_nothrow_default_constructible<_Base_key_compare>::value )
-        4:  688:	  : _Node_allocator()
-        4:  689:	  { }
+       16:  688:	  : _Node_allocator()
+       16:  689:	  { }
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE13_Rb_tree_implIS8_Lb1EEC1Ev:
-        2:  684:	  _Rb_tree_impl()
+        3:  684:	  _Rb_tree_impl()
         -:  685:	    _GLIBCXX_NOEXCEPT_IF(
         -:  686:		is_nothrow_default_constructible<_Node_allocator>::value
         -:  687:		&& is_nothrow_default_constructible<_Base_key_compare>::value )
-        2:  688:	  : _Node_allocator()
-        2:  688-block  0
-        2:  689:	  { }
+        3:  688:	  : _Node_allocator()
+        3:  688-block  0
+        3:  689:	  { }
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE13_Rb_tree_implIS8_Lb1EEC1Ev:
-        2:  684:	  _Rb_tree_impl()
+       13:  684:	  _Rb_tree_impl()
         -:  685:	    _GLIBCXX_NOEXCEPT_IF(
         -:  686:		is_nothrow_default_constructible<_Node_allocator>::value
         -:  687:		&& is_nothrow_default_constructible<_Base_key_compare>::value )
-        2:  688:	  : _Node_allocator()
-        2:  688-block  0
-        2:  689:	  { }
+       13:  688:	  : _Node_allocator()
+       13:  688-block  0
+       13:  689:	  { }
 ------------------
         -:  690:
         -:  691:	  _Rb_tree_impl(const _Rb_tree_impl& __x)
@@ -844,18 +844,18 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_E
         -:  745:      { return this->_M_impl._M_header._M_right; }
         -:  746:
         -:  747:      _Link_type
-        6:  748:      _M_begin() _GLIBCXX_NOEXCEPT
-        6:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
+       18:  748:      _M_begin() _GLIBCXX_NOEXCEPT
+       18:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_beginEv:
-        3:  748:      _M_begin() _GLIBCXX_NOEXCEPT
-        3:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
-        3:  749-block  0
+        4:  748:      _M_begin() _GLIBCXX_NOEXCEPT
+        4:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
+        4:  749-block  0
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_beginEv:
-        3:  748:      _M_begin() _GLIBCXX_NOEXCEPT
-        3:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
-        3:  749-block  0
+       14:  748:      _M_begin() _GLIBCXX_NOEXCEPT
+       14:  749:      { return static_cast<_Link_type>(this->_M_impl._M_header._M_parent); }
+       14:  749-block  0
 ------------------
         -:  750:
         -:  751:      _Const_Link_type
@@ -1064,15 +1064,15 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_E
         -:  932:#if __cplusplus < 201103L
         -:  933:      _Rb_tree() { }
         -:  934:#else
-        4:  935:      _Rb_tree() = default;
+       16:  935:      _Rb_tree() = default;
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EEC1Ev:
-        2:  935:      _Rb_tree() = default;
-        2:  935-block  0
+        3:  935:      _Rb_tree() = default;
+        3:  935-block  0
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EEC1Ev:
-        2:  935:      _Rb_tree() = default;
-        2:  935-block  0
+       13:  935:      _Rb_tree() = default;
+       13:  935-block  0
 ------------------
         -:  936:#endif
         -:  937:
@@ -1128,18 +1128,18 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_E
         -:  987:      { }
         -:  988:#endif
         -:  989:
-        4:  990:      ~_Rb_tree() _GLIBCXX_NOEXCEPT
-        4:  991:      { _M_erase(_M_begin()); }
+       16:  990:      ~_Rb_tree() _GLIBCXX_NOEXCEPT
+       16:  991:      { _M_erase(_M_begin()); }
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EED1Ev:
-        2:  990:      ~_Rb_tree() _GLIBCXX_NOEXCEPT
-        2:  991:      { _M_erase(_M_begin()); }
-        2:  991-block  0
+        3:  990:      ~_Rb_tree() _GLIBCXX_NOEXCEPT
+        3:  991:      { _M_erase(_M_begin()); }
+        3:  991-block  0
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EED1Ev:
-        2:  990:      ~_Rb_tree() _GLIBCXX_NOEXCEPT
-        2:  991:      { _M_erase(_M_begin()); }
-        2:  991-block  0
+       13:  990:      ~_Rb_tree() _GLIBCXX_NOEXCEPT
+       13:  991:      { _M_erase(_M_begin()); }
+       13:  991-block  0
 ------------------
         -:  992:
         -:  993:      _Rb_tree&
@@ -2062,26 +2062,26 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_E
         -: 1910:  template<typename _Key, typename _Val, typename _KeyOfValue,
         -: 1911:	   typename _Compare, typename _Alloc>
         -: 1912:    void
-        8: 1913:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
+       20: 1913:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
         -: 1914:    _M_erase(_Link_type __x)
         -: 1915:    {
         -: 1916:      // Erase without rebalancing.
-        8: 1917:      while (__x != 0)
+       20: 1917:      while (__x != 0)
         -: 1918:	{
         2: 1919:	  _M_erase(_S_right(__x));
         2: 1920:	  _Link_type __y = _S_left(__x);
         2: 1921:	  _M_drop_node(__x);
         2: 1922:	  __x = __y;
         -: 1923:	}
-        6: 1924:    }
+       18: 1924:    }
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E:
-        4: 1913:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
+        5: 1913:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
         -: 1914:    _M_erase(_Link_type __x)
         -: 1915:    {
         -: 1916:      // Erase without rebalancing.
-        4: 1917:      while (__x != 0)
-        4: 1917-block  0
+        5: 1917:      while (__x != 0)
+        5: 1917-block  0
         -: 1918:	{
         1: 1919:	  _M_erase(_S_right(__x));
         1: 1919-block  0
@@ -2089,15 +2089,15 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_12SalesReceiptESt10_Select1stIS4_ESt4lessIS0_ESa
         1: 1921:	  _M_drop_node(__x);
         1: 1922:	  __x = __y;
         -: 1923:	}
-        3: 1924:    }
+        4: 1924:    }
 ------------------
 _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E:
-        4: 1913:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
+       15: 1913:    _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::
         -: 1914:    _M_erase(_Link_type __x)
         -: 1915:    {
         -: 1916:      // Erase without rebalancing.
-        4: 1917:      while (__x != 0)
-        4: 1917-block  0
+       15: 1917:      while (__x != 0)
+       15: 1917-block  0
         -: 1918:	{
         1: 1919:	  _M_erase(_S_right(__x));
         1: 1919-block  0
@@ -2105,7 +2105,7 @@ _ZNSt8_Rb_treeI4DateSt4pairIKS0_8TimeCardESt10_Select1stIS4_ESt4lessIS0_ESaIS4_E
         1: 1921:	  _M_drop_node(__x);
         1: 1922:	  __x = __y;
         -: 1923:	}
-        3: 1924:    }
+       14: 1924:    }
 ------------------
         -: 1925:
         -: 1926:  template<typename _Key, typename _Val, typename _KeyOfValue,

@@ -90,8 +90,33 @@
         -:   86:	}
         -:   87:      else
     #####:   88:	__location->~_Tp();
+    #####:   89:    }
+------------------
+_ZSt10destroy_atISt4pairIKiSt10shared_ptrI8EmployeeEEEvPT_:
+    #####:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+    #####:   88:	__location->~_Tp();
     %%%%%:   88-block  0
     #####:   89:    }
+------------------
+_ZSt10destroy_atI13ServiceChargeEvPT_:
+    #####:   80:    destroy_at(_Tp* __location)
+        -:   81:    {
+        -:   82:      if constexpr (__cplusplus > 201703L && is_array_v<_Tp>)
+        -:   83:	{
+        -:   84:	  for (auto& __x : *__location)
+        -:   85:	    std::destroy_at(std::__addressof(__x));
+        -:   86:	}
+        -:   87:      else
+    #####:   88:	__location->~_Tp();
+    #####:   89:    }
+------------------
         -:   90:
         -:   91:#if __cplusplus > 201703L
         -:   92:  template<typename _Tp, typename... _Args>
@@ -138,25 +163,28 @@
         -:  132:   */
         -:  133:  template<typename _Tp>
         -:  134:    _GLIBCXX14_CONSTEXPR inline void
-        -:  135:    _Destroy(_Tp* __pointer)
+    #####:  135:    _Destroy(_Tp* __pointer)
         -:  136:    {
         -:  137:#if __cplusplus > 201703L
-        -:  138:      std::destroy_at(__pointer);
+    #####:  138:      std::destroy_at(__pointer);
+    %%%%%:  138-block  0
         -:  139:#else
         -:  140:      __pointer->~_Tp();
         -:  141:#endif
-        -:  142:    }
+    #####:  142:    }
         -:  143:
         -:  144:  template<bool>
         -:  145:    struct _Destroy_aux
         -:  146:    {
         -:  147:      template<typename _ForwardIterator>
         -:  148:	static _GLIBCXX20_CONSTEXPR void
-        -:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
+    #####:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  150:	{
-        -:  151:	  for (; __first != __last; ++__first)
-        -:  152:	    std::_Destroy(std::__addressof(*__first));
-        -:  153:	}
+    #####:  151:	  for (; __first != __last; ++__first)
+    %%%%%:  151-block  0
+    #####:  152:	    std::_Destroy(std::__addressof(*__first));
+    %%%%%:  152-block  0
+    #####:  153:	}
         -:  154:    };
         -:  155:
         -:  156:  template<>
@@ -164,7 +192,7 @@
         -:  158:    {
         -:  159:      template<typename _ForwardIterator>
         -:  160:        static void
-        -:  161:        __destroy(_ForwardIterator, _ForwardIterator) { }
+    #####:  161:        __destroy(_ForwardIterator, _ForwardIterator) { }
         -:  162:    };
         -:  163:
         -:  164:  /**
@@ -174,7 +202,7 @@
         -:  168:   */
         -:  169:  template<typename _ForwardIterator>
         -:  170:    _GLIBCXX20_CONSTEXPR inline void
-        -:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+    #####:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  172:    {
         -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  174:                       _Value_type;
@@ -184,11 +212,14 @@
         -:  178:		    "value type is destructible");
         -:  179:#endif
         -:  180:#if __cplusplus > 201703L && defined __cpp_lib_is_constant_evaluated
-        -:  181:      if (std::is_constant_evaluated())
-        -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
+    #####:  181:      if (std::is_constant_evaluated())
+    %%%%%:  181-block  0
+    #####:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
+    %%%%%:  182-block  0
         -:  183:#endif
         -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-        -:  185:	__destroy(__first, __last);
+    #####:  185:	__destroy(__first, __last);
+    %%%%%:  185-block  0
         -:  186:    }
         -:  187:
         -:  188:  template<bool>

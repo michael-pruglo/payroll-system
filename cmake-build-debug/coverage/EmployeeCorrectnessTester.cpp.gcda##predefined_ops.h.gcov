@@ -1,0 +1,414 @@
+        -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/bits/predefined_ops.h
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcda
+        -:    0:Runs:1
+        -:    1:// Default predicates for internal use -*- C++ -*-
+        -:    2:
+        -:    3:// Copyright (C) 2013-2020 Free Software Foundation, Inc.
+        -:    4://
+        -:    5:// This file is part of the GNU ISO C++ Library.  This library is free
+        -:    6:// software; you can redistribute it and/or modify it under the
+        -:    7:// terms of the GNU General Public License as published by the
+        -:    8:// Free Software Foundation; either version 3, or (at your option)
+        -:    9:// any later version.
+        -:   10:
+        -:   11:// This library is distributed in the hope that it will be useful,
+        -:   12:// but WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:   13:// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        -:   14:// GNU General Public License for more details.
+        -:   15:
+        -:   16:// Under Section 7 of GPL version 3, you are granted additional
+        -:   17:// permissions described in the GCC Runtime Library Exception, version
+        -:   18:// 3.1, as published by the Free Software Foundation.
+        -:   19:
+        -:   20:// You should have received a copy of the GNU General Public License and
+        -:   21:// a copy of the GCC Runtime Library Exception along with this program;
+        -:   22:// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+        -:   23:// <http://www.gnu.org/licenses/>.
+        -:   24:
+        -:   25:/** @file predefined_ops.h
+        -:   26: *  This is an internal header file, included by other library headers.
+        -:   27: *  You should not attempt to use it directly. @headername{algorithm}
+        -:   28: */
+        -:   29:
+        -:   30:#ifndef _GLIBCXX_PREDEFINED_OPS_H
+        -:   31:#define _GLIBCXX_PREDEFINED_OPS_H	1
+        -:   32:
+        -:   33:namespace __gnu_cxx
+        -:   34:{
+        -:   35:namespace __ops
+        -:   36:{
+        -:   37:  struct _Iter_less_iter
+        -:   38:  {
+        -:   39:    template<typename _Iterator1, typename _Iterator2>
+        -:   40:      _GLIBCXX14_CONSTEXPR
+        -:   41:      bool
+       35:   42:      operator()(_Iterator1 __it1, _Iterator2 __it2) const
+       35:   43:      { return *__it1 < *__it2; }
+       35:   43-block  0
+        -:   44:  };
+        -:   45:
+        -:   46:  _GLIBCXX14_CONSTEXPR
+        -:   47:  inline _Iter_less_iter
+       30:   48:  __iter_less_iter()
+       30:   49:  { return _Iter_less_iter(); }
+       30:   49-block  0
+        -:   50:
+        -:   51:  struct _Iter_less_val
+        -:   52:  {
+        -:   53:#if __cplusplus >= 201103L
+        -:   54:    constexpr _Iter_less_val() = default;
+        -:   55:#else
+        -:   56:    _Iter_less_val() { }
+        -:   57:#endif
+        -:   58:
+        -:   59:    _GLIBCXX20_CONSTEXPR
+        -:   60:    explicit
+        -:   61:    _Iter_less_val(_Iter_less_iter) { }
+        -:   62:
+        -:   63:    template<typename _Iterator, typename _Value>
+        -:   64:      _GLIBCXX20_CONSTEXPR
+        -:   65:      bool
+    #####:   66:      operator()(_Iterator __it, _Value& __val) const
+    #####:   67:      { return *__it < __val; }
+    %%%%%:   67-block  0
+        -:   68:  };
+        -:   69:
+        -:   70:  _GLIBCXX20_CONSTEXPR
+        -:   71:  inline _Iter_less_val
+        -:   72:  __iter_less_val()
+        -:   73:  { return _Iter_less_val(); }
+        -:   74:
+        -:   75:  _GLIBCXX20_CONSTEXPR
+        -:   76:  inline _Iter_less_val
+        -:   77:  __iter_comp_val(_Iter_less_iter)
+        -:   78:  { return _Iter_less_val(); }
+        -:   79:
+        -:   80:  struct _Val_less_iter
+        -:   81:  {
+        -:   82:#if __cplusplus >= 201103L
+        -:   83:    constexpr _Val_less_iter() = default;
+        -:   84:#else
+        -:   85:    _Val_less_iter() { }
+        -:   86:#endif
+        -:   87:
+        -:   88:    _GLIBCXX20_CONSTEXPR
+        -:   89:    explicit
+        -:   90:    _Val_less_iter(_Iter_less_iter) { }
+        -:   91:
+        -:   92:    template<typename _Value, typename _Iterator>
+        -:   93:      _GLIBCXX20_CONSTEXPR
+        -:   94:      bool
+       20:   95:      operator()(_Value& __val, _Iterator __it) const
+       20:   96:      { return __val < *__it; }
+       20:   96-block  0
+        -:   97:  };
+        -:   98:
+        -:   99:  _GLIBCXX20_CONSTEXPR
+        -:  100:  inline _Val_less_iter
+        -:  101:  __val_less_iter()
+        -:  102:  { return _Val_less_iter(); }
+        -:  103:
+        -:  104:  _GLIBCXX20_CONSTEXPR
+        -:  105:  inline _Val_less_iter
+       14:  106:  __val_comp_iter(_Iter_less_iter)
+       14:  107:  { return _Val_less_iter(); }
+       14:  107-block  0
+        -:  108:
+        -:  109:  struct _Iter_equal_to_iter
+        -:  110:  {
+        -:  111:    template<typename _Iterator1, typename _Iterator2>
+        -:  112:      _GLIBCXX20_CONSTEXPR
+        -:  113:      bool
+        -:  114:      operator()(_Iterator1 __it1, _Iterator2 __it2) const
+        -:  115:      { return *__it1 == *__it2; }
+        -:  116:  };
+        -:  117:
+        -:  118:  _GLIBCXX20_CONSTEXPR
+        -:  119:  inline _Iter_equal_to_iter
+        -:  120:  __iter_equal_to_iter()
+        -:  121:  { return _Iter_equal_to_iter(); }
+        -:  122:
+        -:  123:  struct _Iter_equal_to_val
+        -:  124:  {
+        -:  125:    template<typename _Iterator, typename _Value>
+        -:  126:      _GLIBCXX20_CONSTEXPR
+        -:  127:      bool
+        -:  128:      operator()(_Iterator __it, _Value& __val) const
+        -:  129:      { return *__it == __val; }
+        -:  130:  };
+        -:  131:
+        -:  132:  _GLIBCXX20_CONSTEXPR
+        -:  133:  inline _Iter_equal_to_val
+        -:  134:  __iter_equal_to_val()
+        -:  135:  { return _Iter_equal_to_val(); }
+        -:  136:
+        -:  137:  _GLIBCXX20_CONSTEXPR
+        -:  138:  inline _Iter_equal_to_val
+        -:  139:  __iter_comp_val(_Iter_equal_to_iter)
+        -:  140:  { return _Iter_equal_to_val(); }
+        -:  141:
+        -:  142:  template<typename _Compare>
+        -:  143:    struct _Iter_comp_iter
+        -:  144:    {
+        -:  145:      _Compare _M_comp;
+        -:  146:
+        -:  147:      explicit _GLIBCXX14_CONSTEXPR
+        -:  148:      _Iter_comp_iter(_Compare __comp)
+        -:  149:	: _M_comp(_GLIBCXX_MOVE(__comp))
+        -:  150:      { }
+        -:  151:
+        -:  152:      template<typename _Iterator1, typename _Iterator2>
+        -:  153:        _GLIBCXX14_CONSTEXPR
+        -:  154:        bool
+        -:  155:        operator()(_Iterator1 __it1, _Iterator2 __it2)
+        -:  156:        { return bool(_M_comp(*__it1, *__it2)); }
+        -:  157:    };
+        -:  158:
+        -:  159:  template<typename _Compare>
+        -:  160:    _GLIBCXX14_CONSTEXPR
+        -:  161:    inline _Iter_comp_iter<_Compare>
+        -:  162:    __iter_comp_iter(_Compare __comp)
+        -:  163:    { return _Iter_comp_iter<_Compare>(_GLIBCXX_MOVE(__comp)); }
+        -:  164:
+        -:  165:  template<typename _Compare>
+        -:  166:    struct _Iter_comp_val
+        -:  167:    {
+        -:  168:      _Compare _M_comp;
+        -:  169:
+        -:  170:      _GLIBCXX20_CONSTEXPR
+        -:  171:      explicit
+        -:  172:      _Iter_comp_val(_Compare __comp)
+        -:  173:	: _M_comp(_GLIBCXX_MOVE(__comp))
+        -:  174:      { }
+        -:  175:
+        -:  176:      _GLIBCXX20_CONSTEXPR
+        -:  177:      explicit
+        -:  178:      _Iter_comp_val(const _Iter_comp_iter<_Compare>& __comp)
+        -:  179:	: _M_comp(__comp._M_comp)
+        -:  180:      { }
+        -:  181:
+        -:  182:#if __cplusplus >= 201103L
+        -:  183:      _GLIBCXX20_CONSTEXPR
+        -:  184:      explicit
+        -:  185:      _Iter_comp_val(_Iter_comp_iter<_Compare>&& __comp)
+        -:  186:	: _M_comp(std::move(__comp._M_comp))
+        -:  187:      { }
+        -:  188:#endif
+        -:  189:
+        -:  190:      template<typename _Iterator, typename _Value>
+        -:  191:	_GLIBCXX20_CONSTEXPR
+        -:  192:	bool
+        -:  193:	operator()(_Iterator __it, _Value& __val)
+        -:  194:	{ return bool(_M_comp(*__it, __val)); }
+        -:  195:    };
+        -:  196:
+        -:  197:  template<typename _Compare>
+        -:  198:    _GLIBCXX20_CONSTEXPR
+        -:  199:    inline _Iter_comp_val<_Compare>
+        -:  200:    __iter_comp_val(_Compare __comp)
+        -:  201:    { return _Iter_comp_val<_Compare>(_GLIBCXX_MOVE(__comp)); }
+        -:  202:
+        -:  203:  template<typename _Compare>
+        -:  204:    _GLIBCXX20_CONSTEXPR
+        -:  205:    inline _Iter_comp_val<_Compare>
+        -:  206:    __iter_comp_val(_Iter_comp_iter<_Compare> __comp)
+        -:  207:    { return _Iter_comp_val<_Compare>(_GLIBCXX_MOVE(__comp)); }
+        -:  208:
+        -:  209:  template<typename _Compare>
+        -:  210:    struct _Val_comp_iter
+        -:  211:    {
+        -:  212:      _Compare _M_comp;
+        -:  213:
+        -:  214:      _GLIBCXX20_CONSTEXPR
+        -:  215:      explicit
+        -:  216:      _Val_comp_iter(_Compare __comp)
+        -:  217:	: _M_comp(_GLIBCXX_MOVE(__comp))
+        -:  218:      { }
+        -:  219:
+        -:  220:      _GLIBCXX20_CONSTEXPR
+        -:  221:      explicit
+        -:  222:      _Val_comp_iter(const _Iter_comp_iter<_Compare>& __comp)
+        -:  223:	: _M_comp(__comp._M_comp)
+        -:  224:      { }
+        -:  225:
+        -:  226:#if __cplusplus >= 201103L
+        -:  227:      _GLIBCXX20_CONSTEXPR
+        -:  228:      explicit
+        -:  229:      _Val_comp_iter(_Iter_comp_iter<_Compare>&& __comp)
+        -:  230:	: _M_comp(std::move(__comp._M_comp))
+        -:  231:      { }
+        -:  232:#endif
+        -:  233:
+        -:  234:      template<typename _Value, typename _Iterator>
+        -:  235:	_GLIBCXX20_CONSTEXPR
+        -:  236:	bool
+        -:  237:	operator()(_Value& __val, _Iterator __it)
+        -:  238:	{ return bool(_M_comp(__val, *__it)); }
+        -:  239:    };
+        -:  240:
+        -:  241:  template<typename _Compare>
+        -:  242:    _GLIBCXX20_CONSTEXPR
+        -:  243:    inline _Val_comp_iter<_Compare>
+        -:  244:    __val_comp_iter(_Compare __comp)
+        -:  245:    { return _Val_comp_iter<_Compare>(_GLIBCXX_MOVE(__comp)); }
+        -:  246:
+        -:  247:  template<typename _Compare>
+        -:  248:    _GLIBCXX20_CONSTEXPR
+        -:  249:    inline _Val_comp_iter<_Compare>
+        -:  250:    __val_comp_iter(_Iter_comp_iter<_Compare> __comp)
+        -:  251:    { return _Val_comp_iter<_Compare>(_GLIBCXX_MOVE(__comp)); }
+        -:  252:
+        -:  253:  template<typename _Value>
+        -:  254:    struct _Iter_equals_val
+        -:  255:    {
+        -:  256:      _Value& _M_value;
+        -:  257:
+        -:  258:      _GLIBCXX20_CONSTEXPR
+        -:  259:      explicit
+        -:  260:      _Iter_equals_val(_Value& __value)
+        -:  261:	: _M_value(__value)
+        -:  262:      { }
+        -:  263:
+        -:  264:      template<typename _Iterator>
+        -:  265:	_GLIBCXX20_CONSTEXPR
+        -:  266:	bool
+        -:  267:	operator()(_Iterator __it)
+        -:  268:	{ return *__it == _M_value; }
+        -:  269:    };
+        -:  270:
+        -:  271:  template<typename _Value>
+        -:  272:    _GLIBCXX20_CONSTEXPR
+        -:  273:    inline _Iter_equals_val<_Value>
+        -:  274:    __iter_equals_val(_Value& __val)
+        -:  275:    { return _Iter_equals_val<_Value>(__val); }
+        -:  276:
+        -:  277:  template<typename _Iterator1>
+        -:  278:    struct _Iter_equals_iter
+        -:  279:    {
+        -:  280:      _Iterator1 _M_it1;
+        -:  281:
+        -:  282:      _GLIBCXX20_CONSTEXPR
+        -:  283:      explicit
+        -:  284:      _Iter_equals_iter(_Iterator1 __it1)
+        -:  285:	: _M_it1(__it1)
+        -:  286:      { }
+        -:  287:
+        -:  288:      template<typename _Iterator2>
+        -:  289:	_GLIBCXX20_CONSTEXPR
+        -:  290:	bool
+        -:  291:	operator()(_Iterator2 __it2)
+        -:  292:	{ return *__it2 == *_M_it1; }
+        -:  293:    };
+        -:  294:
+        -:  295:  template<typename _Iterator>
+        -:  296:    _GLIBCXX20_CONSTEXPR
+        -:  297:    inline _Iter_equals_iter<_Iterator>
+        -:  298:    __iter_comp_iter(_Iter_equal_to_iter, _Iterator __it)
+        -:  299:    { return _Iter_equals_iter<_Iterator>(__it); }
+        -:  300:
+        -:  301:  template<typename _Predicate>
+        -:  302:    struct _Iter_pred
+        -:  303:    {
+        -:  304:      _Predicate _M_pred;
+        -:  305:
+        -:  306:      _GLIBCXX20_CONSTEXPR
+        -:  307:      explicit
+        -:  308:      _Iter_pred(_Predicate __pred)
+        -:  309:	: _M_pred(_GLIBCXX_MOVE(__pred))
+        -:  310:      { }
+        -:  311:
+        -:  312:      template<typename _Iterator>
+        -:  313:	_GLIBCXX20_CONSTEXPR
+        -:  314:	bool
+        -:  315:	operator()(_Iterator __it)
+        -:  316:	{ return bool(_M_pred(*__it)); }
+        -:  317:    };
+        -:  318:
+        -:  319:  template<typename _Predicate>
+        -:  320:    _GLIBCXX20_CONSTEXPR
+        -:  321:    inline _Iter_pred<_Predicate>
+        -:  322:    __pred_iter(_Predicate __pred)
+        -:  323:    { return _Iter_pred<_Predicate>(_GLIBCXX_MOVE(__pred)); }
+        -:  324:
+        -:  325:  template<typename _Compare, typename _Value>
+        -:  326:    struct _Iter_comp_to_val
+        -:  327:    {
+        -:  328:      _Compare _M_comp;
+        -:  329:      _Value& _M_value;
+        -:  330:
+        -:  331:      _GLIBCXX20_CONSTEXPR
+        -:  332:      _Iter_comp_to_val(_Compare __comp, _Value& __value)
+        -:  333:	: _M_comp(_GLIBCXX_MOVE(__comp)), _M_value(__value)
+        -:  334:      { }
+        -:  335:
+        -:  336:      template<typename _Iterator>
+        -:  337:	_GLIBCXX20_CONSTEXPR
+        -:  338:	bool
+        -:  339:	operator()(_Iterator __it)
+        -:  340:	{ return bool(_M_comp(*__it, _M_value)); }
+        -:  341:    };
+        -:  342:
+        -:  343:  template<typename _Compare, typename _Value>
+        -:  344:    _Iter_comp_to_val<_Compare, _Value>
+        -:  345:    _GLIBCXX20_CONSTEXPR
+        -:  346:    __iter_comp_val(_Compare __comp, _Value &__val)
+        -:  347:    {
+        -:  348:      return _Iter_comp_to_val<_Compare, _Value>(_GLIBCXX_MOVE(__comp), __val);
+        -:  349:    }
+        -:  350:
+        -:  351:  template<typename _Compare, typename _Iterator1>
+        -:  352:    struct _Iter_comp_to_iter
+        -:  353:    {
+        -:  354:      _Compare _M_comp;
+        -:  355:      _Iterator1 _M_it1;
+        -:  356:
+        -:  357:      _GLIBCXX20_CONSTEXPR
+        -:  358:      _Iter_comp_to_iter(_Compare __comp, _Iterator1 __it1)
+        -:  359:	: _M_comp(_GLIBCXX_MOVE(__comp)), _M_it1(__it1)
+        -:  360:      { }
+        -:  361:
+        -:  362:      template<typename _Iterator2>
+        -:  363:	_GLIBCXX20_CONSTEXPR
+        -:  364:	bool
+        -:  365:	operator()(_Iterator2 __it2)
+        -:  366:	{ return bool(_M_comp(*__it2, *_M_it1)); }
+        -:  367:    };
+        -:  368:
+        -:  369:  template<typename _Compare, typename _Iterator>
+        -:  370:    _GLIBCXX20_CONSTEXPR
+        -:  371:    inline _Iter_comp_to_iter<_Compare, _Iterator>
+        -:  372:    __iter_comp_iter(_Iter_comp_iter<_Compare> __comp, _Iterator __it)
+        -:  373:    {
+        -:  374:      return _Iter_comp_to_iter<_Compare, _Iterator>(
+        -:  375:	  _GLIBCXX_MOVE(__comp._M_comp), __it);
+        -:  376:    }
+        -:  377:
+        -:  378:  template<typename _Predicate>
+        -:  379:    struct _Iter_negate
+        -:  380:    {
+        -:  381:      _Predicate _M_pred;
+        -:  382:
+        -:  383:      _GLIBCXX20_CONSTEXPR
+        -:  384:      explicit
+        -:  385:      _Iter_negate(_Predicate __pred)
+        -:  386:	: _M_pred(_GLIBCXX_MOVE(__pred))
+        -:  387:      { }
+        -:  388:
+        -:  389:      template<typename _Iterator>
+        -:  390:	_GLIBCXX20_CONSTEXPR
+        -:  391:	bool
+        -:  392:	operator()(_Iterator __it)
+        -:  393:	{ return !bool(_M_pred(*__it)); }
+        -:  394:    };
+        -:  395:
+        -:  396:  template<typename _Predicate>
+        -:  397:    _GLIBCXX20_CONSTEXPR
+        -:  398:    inline _Iter_negate<_Predicate>
+        -:  399:    __negate(_Iter_pred<_Predicate> __pred)
+        -:  400:    { return _Iter_negate<_Predicate>(_GLIBCXX_MOVE(__pred._M_pred)); }
+        -:  401:
+        -:  402:} // namespace __ops
+        -:  403:} // namespace __gnu_cxx
+        -:  404:
+        -:  405:#endif

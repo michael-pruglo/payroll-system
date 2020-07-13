@@ -83,7 +83,7 @@
     #####:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
         -:   80:
         -:   81:      _GLIBCXX20_CONSTEXPR
-    #####:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
+        -:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
         -:   83:
         -:   84:      template<typename _Tp1>
         -:   85:	_GLIBCXX20_CONSTEXPR
@@ -104,6 +104,41 @@
         -:  100:      // NB: __n is permitted to be 0.  The C++ standard says nothing
         -:  101:      // about what the return value is when __n == 0.
         -:  102:      _GLIBCXX_NODISCARD _Tp*
+       7*:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+        -:  104:      {
+       7*:  105:	if (__n > this->_M_max_size())
+    #####:  106:	  std::__throw_bad_alloc();
+        -:  107:
+        -:  108:#if __cpp_aligned_new
+        -:  109:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+        -:  110:	  {
+        -:  111:	    std::align_val_t __al = std::align_val_t(alignof(_Tp));
+        -:  112:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
+        -:  113:	  }
+        -:  114:#endif
+       7*:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+        -:  116:      }
+------------------
+_ZN9__gnu_cxx13new_allocatorI13ServiceChargeE8allocateEyPKv:
+        7:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+        -:  104:      {
+        7:  105:	if (__n > this->_M_max_size())
+        7:  105-block  0
+    #####:  106:	  std::__throw_bad_alloc();
+    %%%%%:  106-block  0
+        -:  107:
+        -:  108:#if __cpp_aligned_new
+        -:  109:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+        -:  110:	  {
+        -:  111:	    std::align_val_t __al = std::align_val_t(alignof(_Tp));
+        -:  112:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
+        -:  113:	  }
+        -:  114:#endif
+        7:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+        7:  115-block  0
+        -:  116:      }
+------------------
+_ZN9__gnu_cxx13new_allocatorIcE8allocateEyPKv:
     #####:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         -:  104:      {
     #####:  105:	if (__n > this->_M_max_size())
@@ -121,9 +156,31 @@
     #####:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
     %%%%%:  115-block  0
         -:  116:      }
+------------------
         -:  117:
         -:  118:      // __p is not permitted to be a null pointer.
         -:  119:      void
+    #####:  120:      deallocate(_Tp* __p, size_type __t)
+        -:  121:      {
+        -:  122:#if __cpp_aligned_new
+        -:  123:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+        -:  124:	  {
+        -:  125:	    ::operator delete(__p,
+        -:  126:# if __cpp_sized_deallocation
+        -:  127:			      __t * sizeof(_Tp),
+        -:  128:# endif
+        -:  129:			      std::align_val_t(alignof(_Tp)));
+        -:  130:	    return;
+        -:  131:	  }
+        -:  132:#endif
+    #####:  133:	::operator delete(__p
+        -:  134:#if __cpp_sized_deallocation
+        -:  135:			  , __t * sizeof(_Tp)
+        -:  136:#endif
+        -:  137:			 );
+        -:  138:      }
+------------------
+_ZN9__gnu_cxx13new_allocatorIcE10deallocateEPcy:
     #####:  120:      deallocate(_Tp* __p, size_type __t)
     %%%%%:  120-block  0
         -:  121:      {
@@ -145,6 +202,30 @@
         -:  136:#endif
         -:  137:			 );
         -:  138:      }
+------------------
+_ZN9__gnu_cxx13new_allocatorI13ServiceChargeE10deallocateEPS1_y:
+    #####:  120:      deallocate(_Tp* __p, size_type __t)
+    %%%%%:  120-block  0
+        -:  121:      {
+        -:  122:#if __cpp_aligned_new
+        -:  123:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+        -:  124:	  {
+        -:  125:	    ::operator delete(__p,
+        -:  126:# if __cpp_sized_deallocation
+        -:  127:			      __t * sizeof(_Tp),
+        -:  128:# endif
+        -:  129:			      std::align_val_t(alignof(_Tp)));
+        -:  130:	    return;
+        -:  131:	  }
+        -:  132:#endif
+    #####:  133:	::operator delete(__p
+    %%%%%:  133-block  0
+        -:  134:#if __cpp_sized_deallocation
+        -:  135:			  , __t * sizeof(_Tp)
+        -:  136:#endif
+        -:  137:			 );
+        -:  138:      }
+------------------
         -:  139:
         -:  140:#if __cplusplus <= 201703L
         -:  141:      size_type
@@ -191,11 +272,10 @@
         -:  182:
         -:  183:    private:
         -:  184:      _GLIBCXX_CONSTEXPR size_type
-    #####:  185:      _M_max_size() const _GLIBCXX_USE_NOEXCEPT
+       7*:  185:      _M_max_size() const _GLIBCXX_USE_NOEXCEPT
         -:  186:      {
         -:  187:#if __PTRDIFF_MAX__ < __SIZE_MAX__
-    #####:  188:	return std::size_t(__PTRDIFF_MAX__) / sizeof(_Tp);
-    %%%%%:  188-block  0
+       7*:  188:	return std::size_t(__PTRDIFF_MAX__) / sizeof(_Tp);
         -:  189:#else
         -:  190:	return std::size_t(-1) / sizeof(_Tp);
         -:  191:#endif

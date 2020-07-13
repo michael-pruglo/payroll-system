@@ -301,10 +301,10 @@
         -:  297:#else /* not hppa-hpux */
         -:  298:
         -:  299:static inline int
-      534:  300:__gthread_active_p (void)
+     1812:  300:__gthread_active_p (void)
         -:  301:{
-      534:  302:  return 1;
-      534:  302-block  0
+     1812:  302:  return 1;
+     1812:  302-block  0
         -:  303:}
         -:  304:
         -:  305:#endif /* hppa-hpux */

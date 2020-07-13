@@ -1,0 +1,172 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/ServiceChargeTest.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "src/Employee/ServiceCharge.hpp"
+        -:    2:#include "src/utility/Date.hpp"
+        -:    3:#include "src/Transactions/AddEmployeeTransaction.hpp"
+        -:    4:#include "src/Transactions/ServiceChargeTransaction.hpp"
+        -:    5:#include "utility/EmployeeCorrectnessTester.hpp"
+        -:    6:#include "utility/TestUsingDatabase.hpp"
+        -:    7:
+        -:    8:
+        -:    9:class ServiceChargeTest : public TestUsingDatabase
+        -:   10:{
+        -:   11:protected:
+        -:   12:
+        2:   13:    void SetUp() override
+        -:   14:    {
+        4:   15:        AddHourlyEmployee at(id, name, address, hRate);
+        2:   15-block  0
+        2:   15-block  1
+        2:   15-block  2
+    $$$$$:   15-block  3
+    $$$$$:   15-block  4
+    $$$$$:   15-block  5
+       2*:   16:        ASSERT_NO_THROW(at.execute());
+        2:   16-block  0
+        2:   16-block  1
+        2:   16-block  2
+    %%%%%:   16-block  3
+    %%%%%:   16-block  4
+    %%%%%:   16-block  5
+    %%%%%:   16-block  6
+    %%%%%:   16-block  7
+    $$$$$:   16-block  8
+    $$$$$:   16-block  9
+    $$$$$:   16-block 10
+    $$$$$:   16-block 11
+    $$$$$:   16-block 12
+    $$$$$:   16-block 13
+    $$$$$:   16-block 14
+    $$$$$:   16-block 15
+    $$$$$:   16-block 16
+    $$$$$:   16-block 17
+    $$$$$:   16-block 18
+    $$$$$:   16-block 19
+    $$$$$:   16-block 20
+    $$$$$:   16-block 21
+    $$$$$:   16-block 22
+    $$$$$:   16-block 23
+        2:   17:        initSize = database->size();
+        2:   17-block  0
+       2*:   18:        EXPECT_EQ(initSize, 1);
+        2:   18-block  0
+    %%%%%:   18-block  1
+    %%%%%:   18-block  2
+    %%%%%:   18-block  3
+    %%%%%:   18-block  4
+        2:   18-block  5
+    $$$$$:   18-block  6
+    $$$$$:   18-block  7
+    $$$$$:   18-block  8
+    $$$$$:   18-block  9
+    $$$$$:   18-block 10
+    $$$$$:   18-block 11
+        -:   19:    }
+        -:   20:
+        -:   21:    int id = 12;
+        -:   22:    std::string name = "Josh", address = "Jerusalem";
+        -:   23:    Date date = Date(2020, 8, 9);
+        -:   24:    double amount = 17.0, hRate = 19.0;
+        -:   25:};
+        -:   26:
+        -:   27:#define TESTJOSH( BODY ) \
+        -:   28:    assertDatabaseContains(id); \
+        -:   29:    HourlyEmployeeCorrectnessTester hect(*database->getEmployee(id), hRate);\
+        -:   30:    BODY \
+        -:   31:    hect.invoke(id, name, address);\
+        -:   32:
+        4:   33:TEST_F(ServiceChargeTest, ServiceChargeUpdates)
+        -:   34:{
+       3*:   35:    TESTJOSH(
+        -:   36:        ServiceChargeTransaction sct(date, amount, id);
+        -:   37:        ASSERT_NO_THROW(sct.execute());
+        -:   38:
+        -:   39:        hect.addServiceCharge(ServiceCharge(date, amount));
+        -:   40:    )
+        -:   41:}
+------------------
+_ZN43ServiceChargeTest_ServiceChargeUpdates_TestD0Ev:
+        1:   33:TEST_F(ServiceChargeTest, ServiceChargeUpdates)
+        1:   33-block  0
+------------------
+_ZN43ServiceChargeTest_ServiceChargeUpdates_TestD1Ev:
+        1:   33:TEST_F(ServiceChargeTest, ServiceChargeUpdates)
+        1:   33-block  0
+------------------
+_ZN43ServiceChargeTest_ServiceChargeUpdates_Test8TestBodyEv:
+        1:   33:TEST_F(ServiceChargeTest, ServiceChargeUpdates)
+        -:   34:{
+       3*:   35:    TESTJOSH(
+        1:   35-block  0
+        1:   35-block  1
+        1:   35-block  2
+        1:   35-block  3
+        1:   35-block  4
+        1:   35-block  5
+        1:   35-block  6
+    %%%%%:   35-block  7
+    %%%%%:   35-block  8
+    %%%%%:   35-block  9
+    %%%%%:   35-block 10
+    %%%%%:   35-block 11
+        1:   35-block 12
+        1:   35-block 13
+        1:   35-block 14
+        1:   35-block 15
+        1:   35-block 16
+    $$$$$:   35-block 17
+    $$$$$:   35-block 18
+    $$$$$:   35-block 19
+    $$$$$:   35-block 20
+    $$$$$:   35-block 21
+    $$$$$:   35-block 22
+    $$$$$:   35-block 23
+    $$$$$:   35-block 24
+    $$$$$:   35-block 25
+    $$$$$:   35-block 26
+    $$$$$:   35-block 27
+    $$$$$:   35-block 28
+    $$$$$:   35-block 29
+    $$$$$:   35-block 30
+    $$$$$:   35-block 31
+    $$$$$:   35-block 32
+    $$$$$:   35-block 33
+    $$$$$:   35-block 34
+    $$$$$:   35-block 35
+    $$$$$:   35-block 36
+    $$$$$:   35-block 37
+    $$$$$:   35-block 38
+    $$$$$:   35-block 39
+    $$$$$:   35-block 40
+    $$$$$:   35-block 41
+        -:   36:        ServiceChargeTransaction sct(date, amount, id);
+        -:   37:        ASSERT_NO_THROW(sct.execute());
+        -:   38:
+        -:   39:        hect.addServiceCharge(ServiceCharge(date, amount));
+        -:   40:    )
+        -:   41:}
+------------------
+_ZN43ServiceChargeTest_ServiceChargeUpdates_TestC1Ev:
+        1:   33:TEST_F(ServiceChargeTest, ServiceChargeUpdates)
+        1:   33-block  0
+------------------
+        -:   42:
+        4:   43:TEST_F(ServiceChargeTest, NServiceCharges)
+        -:   44:{
+      36*:   45:    TESTJOSH(
+        -:   46:        for (int i = 0; i < 17; ++i)
+        -:   47:        {
+        -:   48:            auto date = Date(i, 5, 5);
+        -:   49:            auto amount = 18.0+i;
+        -:   50:
+        -:   51:            ServiceChargeTransaction sct(date, amount, id);
+        -:   52:            ASSERT_NO_THROW(sct.execute());
+        -:   53:
+        -:   54:            hect.addServiceCharge(ServiceCharge(date, amount));
+        -:   55:        }
+        -:   56:    )
+        -:   57:}
+        -:   58:
+        -:   59:#undef TESTJOSH

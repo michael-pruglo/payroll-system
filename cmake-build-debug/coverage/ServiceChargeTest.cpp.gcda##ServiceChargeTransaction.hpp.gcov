@@ -1,0 +1,39 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/ServiceChargeTransaction.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_SERVICECHARGETRANSACTION_HPP
+        -:    2:#define PAYROLL_SYSTEM_SERVICECHARGETRANSACTION_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include "Transaction.hpp"
+        -:    6:#include "../Database/PayrollDatabase.hpp"
+        -:    7:
+        -:    8:class ServiceChargeTransaction : public Transaction
+        -:    9:{
+        -:   10:public:
+       18:   11:    ServiceChargeTransaction(const Date& date, double amount, int id) : date(date), amount(amount), id(id) {}
+       18:   11-block  0
+        -:   12:
+       18:   13:    virtual void execute() override
+        -:   14:    {
+       36:   15:        auto employee = PayrollDatabase::getInstance()->getEmployee(id);
+       18:   15-block  0
+       18:   15-block  1
+    $$$$$:   15-block  2
+    $$$$$:   15-block  3
+       18:   16:        auto aff = employee->getAffiliation();
+    $$$$$:   16-block  0
+       18:   17:        aff->addServiceCharge(ServiceCharge(date, amount));
+    $$$$$:   17-block  0
+       18:   18:        employee->setAffiliation(aff);
+       18:   18-block  0
+       18:   19:    }
+        -:   20:
+        -:   21:    Date date;
+        -:   22:    double amount;
+        -:   23:    int id;
+        -:   24:};
+        -:   25:
+        -:   26:
+        -:   27:#endif //PAYROLL_SYSTEM_SERVICECHARGETRANSACTION_HPP

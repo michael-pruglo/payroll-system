@@ -435,8 +435,7 @@
         -:  430:    struct less<_Tp*> : public binary_function<_Tp*, _Tp*, bool>
         -:  431:    {
         -:  432:      _GLIBCXX14_CONSTEXPR bool
-    #####:  433:      operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW
-    %%%%%:  433-block  0
+        -:  433:      operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW
         -:  434:      {
         -:  435:#if __cplusplus >= 201402L
         -:  436:#ifdef _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED
@@ -446,8 +445,7 @@
         -:  440:#endif
         -:  441:	  return __x < __y;
         -:  442:#endif
-    #####:  443:	return (__UINTPTR_TYPE__)__x < (__UINTPTR_TYPE__)__y;
-    %%%%%:  443-block  0
+        -:  443:	return (__UINTPTR_TYPE__)__x < (__UINTPTR_TYPE__)__y;
         -:  444:      }
         -:  445:    };
         -:  446:
@@ -1159,9 +1157,19 @@
         -: 1152:      { return __x.first; }
         -: 1153:
         -: 1154:      const typename _Pair::first_type&
+       2*: 1155:      operator()(const _Pair& __x) const
+       2*: 1156:      { return __x.first; }
+------------------
+_ZNKSt10_Select1stISt4pairIK4Date12SalesReceiptEEclERKS4_:
+        2: 1155:      operator()(const _Pair& __x) const
+        2: 1156:      { return __x.first; }
+        2: 1156-block  0
+------------------
+_ZNKSt10_Select1stISt4pairIK4Date8TimeCardEEclERKS4_:
     #####: 1155:      operator()(const _Pair& __x) const
     #####: 1156:      { return __x.first; }
     %%%%%: 1156-block  0
+------------------
         -: 1157:
         -: 1158:#if __cplusplus >= 201103L
         -: 1159:      template<typename _Pair2>

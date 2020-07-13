@@ -148,11 +148,35 @@
         -:  144:       *  @brief  Construct an empty %shared_ptr.
         -:  145:       *  @post   use_count()==0 && get()==0
         -:  146:       */
-        2:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        2:  147-block  0
+      10*:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+------------------
+_ZNSt10shared_ptrI10HoldMethodEC1Ev:
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+    %%%%%:  147-block  0
+------------------
+_ZNSt10shared_ptrI20HourlyClassificationEC1Ev:
+       10:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+       10:  147-block  0
+------------------
         -:  148:
-       12:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-       12:  149-block  0
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+------------------
+_ZNSt10shared_ptrI11AffiliationEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
+_ZNSt10shared_ptrI13PaymentMethodEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
+_ZNSt10shared_ptrI15PaymentScheduleEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
+_ZNSt10shared_ptrI21PaymentClassificationEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
         -:  150:
         -:  151:      /**
         -:  152:       *  @brief  Construct a %shared_ptr that owns the pointer @a __p.
@@ -259,9 +283,19 @@
         -:  253:       * @endcode
         -:  254:       */
         -:  255:      template<typename _Yp>
-        5:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        5:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        5:  257-block  0
+      21*:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+      21*:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+------------------
+_ZNSt10shared_ptrI10HoldMethodEC1I13PaymentMethodEERKS_IT_EPS0_:
+    #####:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+    #####:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+    %%%%%:  257-block  0
+------------------
+_ZNSt10shared_ptrI20HourlyClassificationEC1I21PaymentClassificationEERKS_IT_EPS0_:
+       21:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+       21:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+       21:  257-block  0
+------------------
         -:  258:
         -:  259:#if __cplusplus > 201703L
         -:  260:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -440,8 +474,9 @@
         -:  433:  /// Equality operator for shared_ptr objects, compares the stored pointers
         -:  434:  template<typename _Tp, typename _Up>
         -:  435:    _GLIBCXX_NODISCARD inline bool
-        -:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        -:  437:    { return __a.get() == __b.get(); }
+    #####:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+    #####:  437:    { return __a.get() == __b.get(); }
+    %%%%%:  437-block  0
         -:  438:
         -:  439:  /// shared_ptr comparison with nullptr
         -:  440:  template<typename _Tp>
@@ -603,18 +638,12 @@
         -:  596:  /// Convert type of `shared_ptr`, via `dynamic_cast`
         -:  597:  template<typename _Tp, typename _Up>
         -:  598:    inline shared_ptr<_Tp>
-        5:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
+      21*:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
         -:  600:    {
         -:  601:      using _Sp = shared_ptr<_Tp>;
-       5*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-        5:  602-block  0
-        5:  602-block  1
-    %%%%%:  602-block  2
-        5:  602-block  3
-        5:  603:	return _Sp(__r, __p);
-        5:  603-block  0
+      21*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
+      21*:  603:	return _Sp(__r, __p);
     #####:  604:      return _Sp();
-    %%%%%:  604-block  0
         -:  605:    }
         -:  606:
         -:  607:#if __cplusplus >= 201703L

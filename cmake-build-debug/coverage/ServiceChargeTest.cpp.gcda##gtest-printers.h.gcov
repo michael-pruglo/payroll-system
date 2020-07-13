@@ -1,0 +1,1126 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/lib/googletest/include/gtest/gtest-printers.h
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:// Copyright 2007, Google Inc.
+        -:    2:// All rights reserved.
+        -:    3://
+        -:    4:// Redistribution and use in source and binary forms, with or without
+        -:    5:// modification, are permitted provided that the following conditions are
+        -:    6:// met:
+        -:    7://
+        -:    8://     * Redistributions of source code must retain the above copyright
+        -:    9:// notice, this list of conditions and the following disclaimer.
+        -:   10://     * Redistributions in binary form must reproduce the above
+        -:   11:// copyright notice, this list of conditions and the following disclaimer
+        -:   12:// in the documentation and/or other materials provided with the
+        -:   13:// distribution.
+        -:   14://     * Neither the name of Google Inc. nor the names of its
+        -:   15:// contributors may be used to endorse or promote products derived from
+        -:   16:// this software without specific prior written permission.
+        -:   17://
+        -:   18:// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+        -:   19:// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+        -:   20:// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+        -:   21:// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+        -:   22:// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+        -:   23:// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+        -:   24:// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+        -:   25:// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+        -:   26:// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        -:   27:// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        -:   28:// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        -:   29:
+        -:   30:
+        -:   31:// Google Test - The Google C++ Testing and Mocking Framework
+        -:   32://
+        -:   33:// This file implements a universal value printer that can print a
+        -:   34:// value of any type T:
+        -:   35://
+        -:   36://   void ::testing::internal::UniversalPrinter<T>::Print(value, ostream_ptr);
+        -:   37://
+        -:   38:// A user can teach this function how to print a class type T by
+        -:   39:// defining either operator<<() or PrintTo() in the namespace that
+        -:   40:// defines T.  More specifically, the FIRST defined function in the
+        -:   41:// following list will be used (assuming T is defined in namespace
+        -:   42:// foo):
+        -:   43://
+        -:   44://   1. foo::PrintTo(const T&, ostream*)
+        -:   45://   2. operator<<(ostream&, const T&) defined in either foo or the
+        -:   46://      global namespace.
+        -:   47://
+        -:   48:// However if T is an STL-style container then it is printed element-wise
+        -:   49:// unless foo::PrintTo(const T&, ostream*) is defined. Note that
+        -:   50:// operator<<() is ignored for container types.
+        -:   51://
+        -:   52:// If none of the above is defined, it will print the debug string of
+        -:   53:// the value if it is a protocol buffer, or print the raw bytes in the
+        -:   54:// value otherwise.
+        -:   55://
+        -:   56:// To aid debugging: when T is a reference type, the address of the
+        -:   57:// value is also printed; when T is a (const) char pointer, both the
+        -:   58:// pointer value and the NUL-terminated string it points to are
+        -:   59:// printed.
+        -:   60://
+        -:   61:// We also provide some convenient wrappers:
+        -:   62://
+        -:   63://   // Prints a value to a string.  For a (const or not) char
+        -:   64://   // pointer, the NUL-terminated string (but not the pointer) is
+        -:   65://   // printed.
+        -:   66://   std::string ::testing::PrintToString(const T& value);
+        -:   67://
+        -:   68://   // Prints a value tersely: for a reference type, the referenced
+        -:   69://   // value (but not the address) is printed; for a (const or not) char
+        -:   70://   // pointer, the NUL-terminated string (but not the pointer) is
+        -:   71://   // printed.
+        -:   72://   void ::testing::internal::UniversalTersePrint(const T& value, ostream*);
+        -:   73://
+        -:   74://   // Prints value using the type inferred by the compiler.  The difference
+        -:   75://   // from UniversalTersePrint() is that this function prints both the
+        -:   76://   // pointer and the NUL-terminated string for a (const or not) char pointer.
+        -:   77://   void ::testing::internal::UniversalPrint(const T& value, ostream*);
+        -:   78://
+        -:   79://   // Prints the fields of a tuple tersely to a string vector, one
+        -:   80://   // element for each field. Tuple support must be enabled in
+        -:   81://   // gtest-port.h.
+        -:   82://   std::vector<string> UniversalTersePrintTupleFieldsToStrings(
+        -:   83://       const Tuple& value);
+        -:   84://
+        -:   85:// Known limitation:
+        -:   86://
+        -:   87:// The print primitives print the elements of an STL-style container
+        -:   88:// using the compiler-inferred type of *iter where iter is a
+        -:   89:// const_iterator of the container.  When const_iterator is an input
+        -:   90:// iterator but not a forward iterator, this inferred type may not
+        -:   91:// match value_type, and the print output may be incorrect.  In
+        -:   92:// practice, this is rarely a problem as for most containers
+        -:   93:// const_iterator is a forward iterator.  We'll fix this if there's an
+        -:   94:// actual need for it.  Note that this fix cannot rely on value_type
+        -:   95:// being defined as many user-defined container types don't have
+        -:   96:// value_type.
+        -:   97:
+        -:   98:// GOOGLETEST_CM0001 DO NOT DELETE
+        -:   99:
+        -:  100:#ifndef GTEST_INCLUDE_GTEST_GTEST_PRINTERS_H_
+        -:  101:#define GTEST_INCLUDE_GTEST_GTEST_PRINTERS_H_
+        -:  102:
+        -:  103:#include <functional>
+        -:  104:#include <ostream>  // NOLINT
+        -:  105:#include <sstream>
+        -:  106:#include <string>
+        -:  107:#include <tuple>
+        -:  108:#include <type_traits>
+        -:  109:#include <utility>
+        -:  110:#include <vector>
+        -:  111:#include "gtest/internal/gtest-internal.h"
+        -:  112:#include "gtest/internal/gtest-port.h"
+        -:  113:
+        -:  114:#if GTEST_HAS_ABSL
+        -:  115:#include "absl/strings/string_view.h"
+        -:  116:#endif  // GTEST_HAS_ABSL
+        -:  117:
+        -:  118:namespace testing {
+        -:  119:
+        -:  120:// Definitions in the internal* namespaces are subject to change without notice.
+        -:  121:// DO NOT USE THEM IN USER CODE!
+        -:  122:namespace internal {
+        -:  123:
+        -:  124:template <typename T>
+        -:  125:void UniversalPrint(const T& value, ::std::ostream* os);
+        -:  126:
+        -:  127:// Used to print an STL-style container when the user doesn't define
+        -:  128:// a PrintTo() for it.
+        -:  129:struct ContainerPrinter {
+        -:  130:  template <typename T,
+        -:  131:            typename = typename std::enable_if<
+        -:  132:                (sizeof(IsContainerTest<T>(0)) == sizeof(IsContainer)) &&
+        -:  133:                !IsRecursiveContainer<T>::value>::type>
+        -:  134:  static void PrintValue(const T& container, std::ostream* os) {
+        -:  135:    const size_t kMaxCount = 32;  // The maximum number of elements to print.
+        -:  136:    *os << '{';
+        -:  137:    size_t count = 0;
+        -:  138:    for (auto&& elem : container) {
+        -:  139:      if (count > 0) {
+        -:  140:        *os << ',';
+        -:  141:        if (count == kMaxCount) {  // Enough has been printed.
+        -:  142:          *os << " ...";
+        -:  143:          break;
+        -:  144:        }
+        -:  145:      }
+        -:  146:      *os << ' ';
+        -:  147:      // We cannot call PrintTo(elem, os) here as PrintTo() doesn't
+        -:  148:      // handle `elem` being a native array.
+        -:  149:      internal::UniversalPrint(elem, os);
+        -:  150:      ++count;
+        -:  151:    }
+        -:  152:
+        -:  153:    if (count > 0) {
+        -:  154:      *os << ' ';
+        -:  155:    }
+        -:  156:    *os << '}';
+        -:  157:  }
+        -:  158:};
+        -:  159:
+        -:  160:// Used to print a pointer that is neither a char pointer nor a member
+        -:  161:// pointer, when the user doesn't define PrintTo() for it.  (A member
+        -:  162:// variable pointer or member function pointer doesn't really point to
+        -:  163:// a location in the address space.  Their representation is
+        -:  164:// implementation-defined.  Therefore they will be printed as raw
+        -:  165:// bytes.)
+        -:  166:struct FunctionPointerPrinter {
+        -:  167:  template <typename T, typename = typename std::enable_if<
+        -:  168:                            std::is_function<T>::value>::type>
+        -:  169:  static void PrintValue(T* p, ::std::ostream* os) {
+        -:  170:    if (p == nullptr) {
+        -:  171:      *os << "NULL";
+        -:  172:    } else {
+        -:  173:      // T is a function type, so '*os << p' doesn't do what we want
+        -:  174:      // (it just prints p as bool).  We want to print p as a const
+        -:  175:      // void*.
+        -:  176:      *os << reinterpret_cast<const void*>(p);
+        -:  177:    }
+        -:  178:  }
+        -:  179:};
+        -:  180:
+        -:  181:struct PointerPrinter {
+        -:  182:  template <typename T>
+        -:  183:  static void PrintValue(T* p, ::std::ostream* os) {
+        -:  184:    if (p == nullptr) {
+        -:  185:      *os << "NULL";
+        -:  186:    } else {
+        -:  187:      // T is not a function type.  We just call << to print p,
+        -:  188:      // relying on ADL to pick up user-defined << for their pointer
+        -:  189:      // types, if any.
+        -:  190:      *os << p;
+        -:  191:    }
+        -:  192:  }
+        -:  193:};
+        -:  194:
+        -:  195:namespace internal_stream {
+        -:  196:
+        -:  197:struct Sentinel;
+        -:  198:template <typename Char, typename CharTraits, typename T>
+        -:  199:Sentinel* operator<<(::std::basic_ostream<Char, CharTraits>& os, const T& x);
+        -:  200:
+        -:  201:// Check if the user has a user-defined operator<< for their type.
+        -:  202://
+        -:  203:// We put this in its own namespace to inject a custom operator<< that allows us
+        -:  204:// to probe the type's operator.
+        -:  205://
+        -:  206:// Note that this operator<< takes a generic std::basic_ostream<Char,
+        -:  207:// CharTraits> type instead of the more restricted std::ostream.  If
+        -:  208:// we define it to take an std::ostream instead, we'll get an
+        -:  209:// "ambiguous overloads" compiler error when trying to print a type
+        -:  210:// Foo that supports streaming to std::basic_ostream<Char,
+        -:  211:// CharTraits>, as the compiler cannot tell whether
+        -:  212:// operator<<(std::ostream&, const T&) or
+        -:  213:// operator<<(std::basic_stream<Char, CharTraits>, const Foo&) is more
+        -:  214:// specific.
+        -:  215:template <typename T>
+        -:  216:constexpr bool UseStreamOperator() {
+        -:  217:  return !std::is_same<decltype(std::declval<std::ostream&>()
+        -:  218:                                << std::declval<const T&>()),
+        -:  219:                       Sentinel*>::value;
+        -:  220:}
+        -:  221:
+        -:  222:}  // namespace internal_stream
+        -:  223:
+        -:  224:struct StreamPrinter {
+        -:  225:  template <typename T, typename = typename std::enable_if<
+        -:  226:                            internal_stream::UseStreamOperator<T>()>::type>
+    #####:  227:  static void PrintValue(const T& value, ::std::ostream* os) {
+    #####:  228:    *os << value;
+    #####:  229:  }
+------------------
+_ZN7testing8internal13StreamPrinter10PrintValueIivEEvRKT_PSo:
+    #####:  227:  static void PrintValue(const T& value, ::std::ostream* os) {
+    #####:  228:    *os << value;
+    %%%%%:  228-block  0
+    #####:  229:  }
+------------------
+_ZN7testing8internal13StreamPrinter10PrintValueIyvEEvRKT_PSo:
+    #####:  227:  static void PrintValue(const T& value, ::std::ostream* os) {
+    #####:  228:    *os << value;
+    %%%%%:  228-block  0
+    #####:  229:  }
+------------------
+        -:  230:};
+        -:  231:
+        -:  232:struct ProtobufPrinter {
+        -:  233:  // We print a protobuf using its ShortDebugString() when the string
+        -:  234:  // doesn't exceed this many characters; otherwise we print it using
+        -:  235:  // DebugString() for better readability.
+        -:  236:  static const size_t kProtobufOneLinerMaxLength = 50;
+        -:  237:
+        -:  238:  template <typename T, typename = typename std::enable_if<
+        -:  239:                            internal::IsAProtocolMessage<T>::value>::type>
+        -:  240:  static void PrintValue(const T& value, ::std::ostream* os) {
+        -:  241:    std::string pretty_str = value.ShortDebugString();
+        -:  242:    if (pretty_str.length() > kProtobufOneLinerMaxLength) {
+        -:  243:      pretty_str = "\n" + value.DebugString();
+        -:  244:    }
+        -:  245:    *os << ("<" + pretty_str + ">");
+        -:  246:  }
+        -:  247:};
+        -:  248:
+        -:  249:struct ConvertibleToIntegerPrinter {
+        -:  250:  // Since T has no << operator or PrintTo() but can be implicitly
+        -:  251:  // converted to BiggestInt, we print it as a BiggestInt.
+        -:  252:  //
+        -:  253:  // Most likely T is an enum type (either named or unnamed), in which
+        -:  254:  // case printing it as an integer is the desired behavior.  In case
+        -:  255:  // T is not an enum, printing it as an integer is the best we can do
+        -:  256:  // given that it has no user-defined printer.
+        -:  257:  static void PrintValue(internal::BiggestInt value, ::std::ostream* os) {
+        -:  258:    *os << value;
+        -:  259:  }
+        -:  260:};
+        -:  261:
+        -:  262:struct ConvertibleToStringViewPrinter {
+        -:  263:#if GTEST_INTERNAL_HAS_STRING_VIEW
+        -:  264:  static void PrintValue(internal::StringView value, ::std::ostream* os) {
+        -:  265:    internal::UniversalPrint(value, os);
+        -:  266:  }
+        -:  267:#endif
+        -:  268:};
+        -:  269:
+        -:  270:
+        -:  271:// Prints the given number of bytes in the given object to the given
+        -:  272:// ostream.
+        -:  273:GTEST_API_ void PrintBytesInObjectTo(const unsigned char* obj_bytes,
+        -:  274:                                     size_t count,
+        -:  275:                                     ::std::ostream* os);
+        -:  276:struct FallbackPrinter {
+        -:  277:  template <typename T>
+    #####:  278:  static void PrintValue(const T& value, ::std::ostream* os) {
+    #####:  279:    PrintBytesInObjectTo(
+        -:  280:        static_cast<const unsigned char*>(
+    #####:  281:            reinterpret_cast<const void*>(std::addressof(value))),
+    %%%%%:  281-block  0
+        -:  282:        sizeof(value), os);
+    #####:  283:  }
+        -:  284:};
+        -:  285:
+        -:  286:// Try every printer in order and return the first one that works.
+        -:  287:template <typename T, typename E, typename Printer, typename... Printers>
+        -:  288:struct FindFirstPrinter : FindFirstPrinter<T, E, Printers...> {};
+        -:  289:
+        -:  290:template <typename T, typename Printer, typename... Printers>
+        -:  291:struct FindFirstPrinter<
+        -:  292:    T, decltype(Printer::PrintValue(std::declval<const T&>(), nullptr)),
+        -:  293:    Printer, Printers...> {
+        -:  294:  using type = Printer;
+        -:  295:};
+        -:  296:
+        -:  297:// Select the best printer in the following order:
+        -:  298://  - Print containers (they have begin/end/etc).
+        -:  299://  - Print function pointers.
+        -:  300://  - Print object pointers.
+        -:  301://  - Use the stream operator, if available.
+        -:  302://  - Print protocol buffers.
+        -:  303://  - Print types convertible to BiggestInt.
+        -:  304://  - Print types convertible to StringView, if available.
+        -:  305://  - Fallback to printing the raw bytes of the object.
+        -:  306:template <typename T>
+    #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
+        -:  308:  using Printer = typename FindFirstPrinter<
+        -:  309:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
+        -:  310:      StreamPrinter, ProtobufPrinter, ConvertibleToIntegerPrinter,
+        -:  311:      ConvertibleToStringViewPrinter, FallbackPrinter>::type;
+    #####:  312:  Printer::PrintValue(value, os);
+    #####:  313:}
+------------------
+_ZN7testing8internal17PrintWithFallbackISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
+    #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
+        -:  308:  using Printer = typename FindFirstPrinter<
+        -:  309:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
+        -:  310:      StreamPrinter, ProtobufPrinter, ConvertibleToIntegerPrinter,
+        -:  311:      ConvertibleToStringViewPrinter, FallbackPrinter>::type;
+    #####:  312:  Printer::PrintValue(value, os);
+    %%%%%:  312-block  0
+    #####:  313:}
+------------------
+_ZN7testing8internal17PrintWithFallbackIiEEvRKT_PSo:
+    #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
+        -:  308:  using Printer = typename FindFirstPrinter<
+        -:  309:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
+        -:  310:      StreamPrinter, ProtobufPrinter, ConvertibleToIntegerPrinter,
+        -:  311:      ConvertibleToStringViewPrinter, FallbackPrinter>::type;
+    #####:  312:  Printer::PrintValue(value, os);
+    %%%%%:  312-block  0
+    #####:  313:}
+------------------
+_ZN7testing8internal17PrintWithFallbackIyEEvRKT_PSo:
+    #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
+        -:  308:  using Printer = typename FindFirstPrinter<
+        -:  309:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
+        -:  310:      StreamPrinter, ProtobufPrinter, ConvertibleToIntegerPrinter,
+        -:  311:      ConvertibleToStringViewPrinter, FallbackPrinter>::type;
+    #####:  312:  Printer::PrintValue(value, os);
+    %%%%%:  312-block  0
+    #####:  313:}
+------------------
+        -:  314:
+        -:  315:// FormatForComparison<ToPrint, OtherOperand>::Format(value) formats a
+        -:  316:// value of type ToPrint that is an operand of a comparison assertion
+        -:  317:// (e.g. ASSERT_EQ).  OtherOperand is the type of the other operand in
+        -:  318:// the comparison, and is used to help determine the best way to
+        -:  319:// format the value.  In particular, when the value is a C string
+        -:  320:// (char pointer) and the other operand is an STL string object, we
+        -:  321:// want to format the C string as a string, since we know it is
+        -:  322:// compared by value with the string object.  If the value is a char
+        -:  323:// pointer but the other operand is not an STL string object, we don't
+        -:  324:// know whether the pointer is supposed to point to a NUL-terminated
+        -:  325:// string, and thus want to print it as a pointer to be safe.
+        -:  326://
+        -:  327:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
+        -:  328:
+        -:  329:// The default case.
+        -:  330:template <typename ToPrint, typename OtherOperand>
+        -:  331:class FormatForComparison {
+        -:  332: public:
+    #####:  333:  static ::std::string Format(const ToPrint& value) {
+    #####:  334:    return ::testing::PrintToString(value);
+        -:  335:  }
+------------------
+_ZN7testing8internal19FormatForComparisonISt10shared_ptrI10HoldMethodES4_E6FormatB5cxx11ERKS4_:
+    #####:  333:  static ::std::string Format(const ToPrint& value) {
+    #####:  334:    return ::testing::PrintToString(value);
+    %%%%%:  334-block  0
+        -:  335:  }
+------------------
+_ZN7testing8internal19FormatForComparisonIiiE6FormatB5cxx11ERKi:
+    #####:  333:  static ::std::string Format(const ToPrint& value) {
+    #####:  334:    return ::testing::PrintToString(value);
+    %%%%%:  334-block  0
+        -:  335:  }
+------------------
+_ZN7testing8internal19FormatForComparisonIiyE6FormatB5cxx11ERKi:
+    #####:  333:  static ::std::string Format(const ToPrint& value) {
+    #####:  334:    return ::testing::PrintToString(value);
+    %%%%%:  334-block  0
+        -:  335:  }
+------------------
+_ZN7testing8internal19FormatForComparisonIyiE6FormatB5cxx11ERKy:
+    #####:  333:  static ::std::string Format(const ToPrint& value) {
+    #####:  334:    return ::testing::PrintToString(value);
+    %%%%%:  334-block  0
+        -:  335:  }
+------------------
+        -:  336:};
+        -:  337:
+        -:  338:// Array.
+        -:  339:template <typename ToPrint, size_t N, typename OtherOperand>
+        -:  340:class FormatForComparison<ToPrint[N], OtherOperand> {
+        -:  341: public:
+        -:  342:  static ::std::string Format(const ToPrint* value) {
+        -:  343:    return FormatForComparison<const ToPrint*, OtherOperand>::Format(value);
+        -:  344:  }
+        -:  345:};
+        -:  346:
+        -:  347:// By default, print C string as pointers to be safe, as we don't know
+        -:  348:// whether they actually point to a NUL-terminated string.
+        -:  349:
+        -:  350:#define GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(CharType)                \
+        -:  351:  template <typename OtherOperand>                                      \
+        -:  352:  class FormatForComparison<CharType*, OtherOperand> {                  \
+        -:  353:   public:                                                              \
+        -:  354:    static ::std::string Format(CharType* value) {                      \
+        -:  355:      return ::testing::PrintToString(static_cast<const void*>(value)); \
+        -:  356:    }                                                                   \
+        -:  357:  }
+        -:  358:
+        -:  359:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(char);
+        -:  360:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(const char);
+        -:  361:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(wchar_t);
+        -:  362:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(const wchar_t);
+        -:  363:#ifdef __cpp_char8_t
+        -:  364:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(char8_t);
+        -:  365:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(const char8_t);
+        -:  366:#endif
+        -:  367:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(char16_t);
+        -:  368:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(const char16_t);
+        -:  369:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(char32_t);
+        -:  370:GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_(const char32_t);
+        -:  371:
+        -:  372:#undef GTEST_IMPL_FORMAT_C_STRING_AS_POINTER_
+        -:  373:
+        -:  374:// If a C string is compared with an STL string object, we know it's meant
+        -:  375:// to point to a NUL-terminated string, and thus can print it as a string.
+        -:  376:
+        -:  377:#define GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(CharType, OtherStringType) \
+        -:  378:  template <>                                                           \
+        -:  379:  class FormatForComparison<CharType*, OtherStringType> {               \
+        -:  380:   public:                                                              \
+        -:  381:    static ::std::string Format(CharType* value) {                      \
+        -:  382:      return ::testing::PrintToString(value);                           \
+        -:  383:    }                                                                   \
+        -:  384:  }
+        -:  385:
+        -:  386:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(char, ::std::string);
+        -:  387:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const char, ::std::string);
+        -:  388:#ifdef __cpp_char8_t
+        -:  389:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(char8_t, ::std::u8string);
+        -:  390:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const char8_t, ::std::u8string);
+        -:  391:#endif
+        -:  392:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(char16_t, ::std::u16string);
+        -:  393:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const char16_t, ::std::u16string);
+        -:  394:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(char32_t, ::std::u32string);
+        -:  395:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const char32_t, ::std::u32string);
+        -:  396:
+        -:  397:#if GTEST_HAS_STD_WSTRING
+        -:  398:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(wchar_t, ::std::wstring);
+        -:  399:GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const wchar_t, ::std::wstring);
+        -:  400:#endif
+        -:  401:
+        -:  402:#undef GTEST_IMPL_FORMAT_C_STRING_AS_STRING_
+        -:  403:
+        -:  404:// Formats a comparison assertion (e.g. ASSERT_EQ, EXPECT_LT, and etc)
+        -:  405:// operand to be used in a failure message.  The type (but not value)
+        -:  406:// of the other operand may affect the format.  This allows us to
+        -:  407:// print a char* as a raw pointer when it is compared against another
+        -:  408:// char* or void*, and print it as a C string when it is compared
+        -:  409:// against an std::string object, for example.
+        -:  410://
+        -:  411:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
+        -:  412:template <typename T1, typename T2>
+    #####:  413:std::string FormatForComparisonFailureMessage(
+        -:  414:    const T1& value, const T2& /* other_operand */) {
+    #####:  415:  return FormatForComparison<T1, T2>::Format(value);
+        -:  416:}
+------------------
+_ZN7testing8internal33FormatForComparisonFailureMessageISt10shared_ptrI10HoldMethodES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
+    #####:  413:std::string FormatForComparisonFailureMessage(
+        -:  414:    const T1& value, const T2& /* other_operand */) {
+    #####:  415:  return FormatForComparison<T1, T2>::Format(value);
+    %%%%%:  415-block  0
+        -:  416:}
+------------------
+_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
+    #####:  413:std::string FormatForComparisonFailureMessage(
+        -:  414:    const T1& value, const T2& /* other_operand */) {
+    #####:  415:  return FormatForComparison<T1, T2>::Format(value);
+    %%%%%:  415-block  0
+        -:  416:}
+------------------
+_ZN7testing8internal33FormatForComparisonFailureMessageIiyEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
+    #####:  413:std::string FormatForComparisonFailureMessage(
+        -:  414:    const T1& value, const T2& /* other_operand */) {
+    #####:  415:  return FormatForComparison<T1, T2>::Format(value);
+    %%%%%:  415-block  0
+        -:  416:}
+------------------
+_ZN7testing8internal33FormatForComparisonFailureMessageIyiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
+    #####:  413:std::string FormatForComparisonFailureMessage(
+        -:  414:    const T1& value, const T2& /* other_operand */) {
+    #####:  415:  return FormatForComparison<T1, T2>::Format(value);
+    %%%%%:  415-block  0
+        -:  416:}
+------------------
+        -:  417:
+        -:  418:// UniversalPrinter<T>::Print(value, ostream_ptr) prints the given
+        -:  419:// value to the given ostream.  The caller must ensure that
+        -:  420:// 'ostream_ptr' is not NULL, or the behavior is undefined.
+        -:  421://
+        -:  422:// We define UniversalPrinter as a class template (as opposed to a
+        -:  423:// function template), as we need to partially specialize it for
+        -:  424:// reference types, which cannot be done with function templates.
+        -:  425:template <typename T>
+        -:  426:class UniversalPrinter;
+        -:  427:
+        -:  428:// Prints the given value using the << operator if it has one;
+        -:  429:// otherwise prints the bytes in it.  This is what
+        -:  430:// UniversalPrinter<T>::Print() does when PrintTo() is not specialized
+        -:  431:// or overloaded for type T.
+        -:  432://
+        -:  433:// A user can override this behavior for a class type Foo by defining
+        -:  434:// an overload of PrintTo() in the namespace where Foo is defined.  We
+        -:  435:// give the user this option as sometimes defining a << operator for
+        -:  436:// Foo is not desirable (e.g. the coding style may prevent doing it,
+        -:  437:// or there is already a << operator but it doesn't do what the user
+        -:  438:// wants).
+        -:  439:template <typename T>
+    #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
+    #####:  441:  internal::PrintWithFallback(value, os);
+    #####:  442:}
+------------------
+_ZN7testing8internal7PrintToISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
+    #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
+    #####:  441:  internal::PrintWithFallback(value, os);
+    %%%%%:  441-block  0
+    #####:  442:}
+------------------
+_ZN7testing8internal7PrintToIiEEvRKT_PSo:
+    #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
+    #####:  441:  internal::PrintWithFallback(value, os);
+    %%%%%:  441-block  0
+    #####:  442:}
+------------------
+_ZN7testing8internal7PrintToIyEEvRKT_PSo:
+    #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
+    #####:  441:  internal::PrintWithFallback(value, os);
+    %%%%%:  441-block  0
+    #####:  442:}
+------------------
+        -:  443:
+        -:  444:// The following list of PrintTo() overloads tells
+        -:  445:// UniversalPrinter<T>::Print() how to print standard types (built-in
+        -:  446:// types, strings, plain arrays, and pointers).
+        -:  447:
+        -:  448:// Overloads for various char types.
+        -:  449:GTEST_API_ void PrintTo(unsigned char c, ::std::ostream* os);
+        -:  450:GTEST_API_ void PrintTo(signed char c, ::std::ostream* os);
+        -:  451:inline void PrintTo(char c, ::std::ostream* os) {
+        -:  452:  // When printing a plain char, we always treat it as unsigned.  This
+        -:  453:  // way, the output won't be affected by whether the compiler thinks
+        -:  454:  // char is signed or not.
+        -:  455:  PrintTo(static_cast<unsigned char>(c), os);
+        -:  456:}
+        -:  457:
+        -:  458:// Overloads for other simple built-in types.
+        -:  459:inline void PrintTo(bool x, ::std::ostream* os) {
+        -:  460:  *os << (x ? "true" : "false");
+        -:  461:}
+        -:  462:
+        -:  463:// Overload for wchar_t type.
+        -:  464:// Prints a wchar_t as a symbol if it is printable or as its internal
+        -:  465:// code otherwise and also as its decimal code (except for L'\0').
+        -:  466:// The L'\0' char is printed as "L'\\0'". The decimal code is printed
+        -:  467:// as signed integer when wchar_t is implemented by the compiler
+        -:  468:// as a signed type and is printed as an unsigned integer when wchar_t
+        -:  469:// is implemented as an unsigned type.
+        -:  470:GTEST_API_ void PrintTo(wchar_t wc, ::std::ostream* os);
+        -:  471:
+        -:  472:GTEST_API_ void PrintTo(char32_t c, ::std::ostream* os);
+        -:  473:inline void PrintTo(char16_t c, ::std::ostream* os) {
+        -:  474:  PrintTo(ImplicitCast_<char32_t>(c), os);
+        -:  475:}
+        -:  476:#ifdef __cpp_char8_t
+        -:  477:inline void PrintTo(char8_t c, ::std::ostream* os) {
+        -:  478:  PrintTo(ImplicitCast_<char32_t>(c), os);
+        -:  479:}
+        -:  480:#endif
+        -:  481:
+        -:  482:// Overloads for C strings.
+        -:  483:GTEST_API_ void PrintTo(const char* s, ::std::ostream* os);
+        -:  484:inline void PrintTo(char* s, ::std::ostream* os) {
+        -:  485:  PrintTo(ImplicitCast_<const char*>(s), os);
+        -:  486:}
+        -:  487:
+        -:  488:// signed/unsigned char is often used for representing binary data, so
+        -:  489:// we print pointers to it as void* to be safe.
+        -:  490:inline void PrintTo(const signed char* s, ::std::ostream* os) {
+        -:  491:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  492:}
+        -:  493:inline void PrintTo(signed char* s, ::std::ostream* os) {
+        -:  494:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  495:}
+        -:  496:inline void PrintTo(const unsigned char* s, ::std::ostream* os) {
+        -:  497:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  498:}
+        -:  499:inline void PrintTo(unsigned char* s, ::std::ostream* os) {
+        -:  500:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  501:}
+        -:  502:#ifdef __cpp_char8_t
+        -:  503:inline void PrintTo(const char8_t* s, ::std::ostream* os) {
+        -:  504:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  505:}
+        -:  506:inline void PrintTo(char8_t* s, ::std::ostream* os) {
+        -:  507:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  508:}
+        -:  509:#endif
+        -:  510:inline void PrintTo(const char16_t* s, ::std::ostream* os) {
+        -:  511:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  512:}
+        -:  513:inline void PrintTo(char16_t* s, ::std::ostream* os) {
+        -:  514:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  515:}
+        -:  516:inline void PrintTo(const char32_t* s, ::std::ostream* os) {
+        -:  517:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  518:}
+        -:  519:inline void PrintTo(char32_t* s, ::std::ostream* os) {
+        -:  520:  PrintTo(ImplicitCast_<const void*>(s), os);
+        -:  521:}
+        -:  522:
+        -:  523:// MSVC can be configured to define wchar_t as a typedef of unsigned
+        -:  524:// short.  It defines _NATIVE_WCHAR_T_DEFINED when wchar_t is a native
+        -:  525:// type.  When wchar_t is a typedef, defining an overload for const
+        -:  526:// wchar_t* would cause unsigned short* be printed as a wide string,
+        -:  527:// possibly causing invalid memory accesses.
+        -:  528:#if !defined(_MSC_VER) || defined(_NATIVE_WCHAR_T_DEFINED)
+        -:  529:// Overloads for wide C strings
+        -:  530:GTEST_API_ void PrintTo(const wchar_t* s, ::std::ostream* os);
+        -:  531:inline void PrintTo(wchar_t* s, ::std::ostream* os) {
+        -:  532:  PrintTo(ImplicitCast_<const wchar_t*>(s), os);
+        -:  533:}
+        -:  534:#endif
+        -:  535:
+        -:  536:// Overload for C arrays.  Multi-dimensional arrays are printed
+        -:  537:// properly.
+        -:  538:
+        -:  539:// Prints the given number of elements in an array, without printing
+        -:  540:// the curly braces.
+        -:  541:template <typename T>
+        -:  542:void PrintRawArrayTo(const T a[], size_t count, ::std::ostream* os) {
+        -:  543:  UniversalPrint(a[0], os);
+        -:  544:  for (size_t i = 1; i != count; i++) {
+        -:  545:    *os << ", ";
+        -:  546:    UniversalPrint(a[i], os);
+        -:  547:  }
+        -:  548:}
+        -:  549:
+        -:  550:// Overloads for ::std::string.
+        -:  551:GTEST_API_ void PrintStringTo(const ::std::string&s, ::std::ostream* os);
+        -:  552:inline void PrintTo(const ::std::string& s, ::std::ostream* os) {
+        -:  553:  PrintStringTo(s, os);
+        -:  554:}
+        -:  555:
+        -:  556:// Overloads for ::std::wstring.
+        -:  557:#if GTEST_HAS_STD_WSTRING
+        -:  558:GTEST_API_ void PrintWideStringTo(const ::std::wstring&s, ::std::ostream* os);
+        -:  559:inline void PrintTo(const ::std::wstring& s, ::std::ostream* os) {
+        -:  560:  PrintWideStringTo(s, os);
+        -:  561:}
+        -:  562:#endif  // GTEST_HAS_STD_WSTRING
+        -:  563:
+        -:  564:#if GTEST_INTERNAL_HAS_STRING_VIEW
+        -:  565:// Overload for internal::StringView.
+        -:  566:inline void PrintTo(internal::StringView sp, ::std::ostream* os) {
+        -:  567:  PrintTo(::std::string(sp), os);
+        -:  568:}
+        -:  569:#endif  // GTEST_INTERNAL_HAS_STRING_VIEW
+        -:  570:
+        -:  571:inline void PrintTo(std::nullptr_t, ::std::ostream* os) { *os << "(nullptr)"; }
+        -:  572:
+        -:  573:template <typename T>
+        -:  574:void PrintTo(std::reference_wrapper<T> ref, ::std::ostream* os) {
+        -:  575:  UniversalPrinter<T&>::Print(ref.get(), os);
+        -:  576:}
+        -:  577:
+        -:  578:// Helper function for printing a tuple.  T must be instantiated with
+        -:  579:// a tuple type.
+        -:  580:template <typename T>
+        -:  581:void PrintTupleTo(const T&, std::integral_constant<size_t, 0>,
+        -:  582:                  ::std::ostream*) {}
+        -:  583:
+        -:  584:template <typename T, size_t I>
+        -:  585:void PrintTupleTo(const T& t, std::integral_constant<size_t, I>,
+        -:  586:                  ::std::ostream* os) {
+        -:  587:  PrintTupleTo(t, std::integral_constant<size_t, I - 1>(), os);
+        -:  588:  GTEST_INTENTIONAL_CONST_COND_PUSH_()
+        -:  589:  if (I > 1) {
+        -:  590:    GTEST_INTENTIONAL_CONST_COND_POP_()
+        -:  591:    *os << ", ";
+        -:  592:  }
+        -:  593:  UniversalPrinter<typename std::tuple_element<I - 1, T>::type>::Print(
+        -:  594:      std::get<I - 1>(t), os);
+        -:  595:}
+        -:  596:
+        -:  597:template <typename... Types>
+        -:  598:void PrintTo(const ::std::tuple<Types...>& t, ::std::ostream* os) {
+        -:  599:  *os << "(";
+        -:  600:  PrintTupleTo(t, std::integral_constant<size_t, sizeof...(Types)>(), os);
+        -:  601:  *os << ")";
+        -:  602:}
+        -:  603:
+        -:  604:// Overload for std::pair.
+        -:  605:template <typename T1, typename T2>
+        -:  606:void PrintTo(const ::std::pair<T1, T2>& value, ::std::ostream* os) {
+        -:  607:  *os << '(';
+        -:  608:  // We cannot use UniversalPrint(value.first, os) here, as T1 may be
+        -:  609:  // a reference type.  The same for printing value.second.
+        -:  610:  UniversalPrinter<T1>::Print(value.first, os);
+        -:  611:  *os << ", ";
+        -:  612:  UniversalPrinter<T2>::Print(value.second, os);
+        -:  613:  *os << ')';
+        -:  614:}
+        -:  615:
+        -:  616:// Implements printing a non-reference type T by letting the compiler
+        -:  617:// pick the right overload of PrintTo() for T.
+        -:  618:template <typename T>
+        -:  619:class UniversalPrinter {
+        -:  620: public:
+        -:  621:  // MSVC warns about adding const to a function type, so we want to
+        -:  622:  // disable the warning.
+        -:  623:  GTEST_DISABLE_MSC_WARNINGS_PUSH_(4180)
+        -:  624:
+        -:  625:  // Note: we deliberately don't call this PrintTo(), as that name
+        -:  626:  // conflicts with ::testing::internal::PrintTo in the body of the
+        -:  627:  // function.
+    #####:  628:  static void Print(const T& value, ::std::ostream* os) {
+        -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
+        -:  630:    // the value.
+        -:  631:    //
+        -:  632:    // Thanks to Koenig look-up, if T is a class and has its own
+        -:  633:    // PrintTo() function defined in its namespace, that function will
+        -:  634:    // be visible here.  Since it is more specific than the generic ones
+        -:  635:    // in ::testing::internal, it will be picked by the compiler in the
+        -:  636:    // following statement - exactly what we want.
+    #####:  637:    PrintTo(value, os);
+    #####:  638:  }
+------------------
+_ZN7testing8internal16UniversalPrinterISt10shared_ptrI10HoldMethodEE5PrintERKS4_PSo:
+    #####:  628:  static void Print(const T& value, ::std::ostream* os) {
+        -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
+        -:  630:    // the value.
+        -:  631:    //
+        -:  632:    // Thanks to Koenig look-up, if T is a class and has its own
+        -:  633:    // PrintTo() function defined in its namespace, that function will
+        -:  634:    // be visible here.  Since it is more specific than the generic ones
+        -:  635:    // in ::testing::internal, it will be picked by the compiler in the
+        -:  636:    // following statement - exactly what we want.
+    #####:  637:    PrintTo(value, os);
+    %%%%%:  637-block  0
+    #####:  638:  }
+------------------
+_ZN7testing8internal16UniversalPrinterIiE5PrintERKiPSo:
+    #####:  628:  static void Print(const T& value, ::std::ostream* os) {
+        -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
+        -:  630:    // the value.
+        -:  631:    //
+        -:  632:    // Thanks to Koenig look-up, if T is a class and has its own
+        -:  633:    // PrintTo() function defined in its namespace, that function will
+        -:  634:    // be visible here.  Since it is more specific than the generic ones
+        -:  635:    // in ::testing::internal, it will be picked by the compiler in the
+        -:  636:    // following statement - exactly what we want.
+    #####:  637:    PrintTo(value, os);
+    %%%%%:  637-block  0
+    #####:  638:  }
+------------------
+_ZN7testing8internal16UniversalPrinterIyE5PrintERKyPSo:
+    #####:  628:  static void Print(const T& value, ::std::ostream* os) {
+        -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
+        -:  630:    // the value.
+        -:  631:    //
+        -:  632:    // Thanks to Koenig look-up, if T is a class and has its own
+        -:  633:    // PrintTo() function defined in its namespace, that function will
+        -:  634:    // be visible here.  Since it is more specific than the generic ones
+        -:  635:    // in ::testing::internal, it will be picked by the compiler in the
+        -:  636:    // following statement - exactly what we want.
+    #####:  637:    PrintTo(value, os);
+    %%%%%:  637-block  0
+    #####:  638:  }
+------------------
+        -:  639:
+        -:  640:  GTEST_DISABLE_MSC_WARNINGS_POP_()
+        -:  641:};
+        -:  642:
+        -:  643:#if GTEST_INTERNAL_HAS_ANY
+        -:  644:
+        -:  645:// Printer for std::any / absl::any
+        -:  646:
+        -:  647:template <>
+        -:  648:class UniversalPrinter<Any> {
+        -:  649: public:
+        -:  650:  static void Print(const Any& value, ::std::ostream* os) {
+        -:  651:    if (value.has_value()) {
+        -:  652:      *os << "value of type " << GetTypeName(value);
+        -:  653:    } else {
+        -:  654:      *os << "no value";
+        -:  655:    }
+        -:  656:  }
+        -:  657:
+        -:  658: private:
+        -:  659:  static std::string GetTypeName(const Any& value) {
+        -:  660:#if GTEST_HAS_RTTI
+        -:  661:    return internal::GetTypeName(value.type());
+        -:  662:#else
+        -:  663:    static_cast<void>(value);  // possibly unused
+        -:  664:    return "<unknown_type>";
+        -:  665:#endif  // GTEST_HAS_RTTI
+        -:  666:  }
+        -:  667:};
+        -:  668:
+        -:  669:#endif  // GTEST_INTERNAL_HAS_ANY
+        -:  670:
+        -:  671:#if GTEST_INTERNAL_HAS_OPTIONAL
+        -:  672:
+        -:  673:// Printer for std::optional / absl::optional
+        -:  674:
+        -:  675:template <typename T>
+        -:  676:class UniversalPrinter<Optional<T>> {
+        -:  677: public:
+        -:  678:  static void Print(const Optional<T>& value, ::std::ostream* os) {
+        -:  679:    *os << '(';
+        -:  680:    if (!value) {
+        -:  681:      *os << "nullopt";
+        -:  682:    } else {
+        -:  683:      UniversalPrint(*value, os);
+        -:  684:    }
+        -:  685:    *os << ')';
+        -:  686:  }
+        -:  687:};
+        -:  688:
+        -:  689:#endif  // GTEST_INTERNAL_HAS_OPTIONAL
+        -:  690:
+        -:  691:#if GTEST_INTERNAL_HAS_VARIANT
+        -:  692:
+        -:  693:// Printer for std::variant / absl::variant
+        -:  694:
+        -:  695:template <typename... T>
+        -:  696:class UniversalPrinter<Variant<T...>> {
+        -:  697: public:
+        -:  698:  static void Print(const Variant<T...>& value, ::std::ostream* os) {
+        -:  699:    *os << '(';
+        -:  700:#if GTEST_HAS_ABSL
+        -:  701:    absl::visit(Visitor{os, value.index()}, value);
+        -:  702:#else
+        -:  703:    std::visit(Visitor{os, value.index()}, value);
+        -:  704:#endif  // GTEST_HAS_ABSL
+        -:  705:    *os << ')';
+        -:  706:  }
+        -:  707:
+        -:  708: private:
+        -:  709:  struct Visitor {
+        -:  710:    template <typename U>
+        -:  711:    void operator()(const U& u) const {
+        -:  712:      *os << "'" << GetTypeName<U>() << "(index = " << index
+        -:  713:          << ")' with value ";
+        -:  714:      UniversalPrint(u, os);
+        -:  715:    }
+        -:  716:    ::std::ostream* os;
+        -:  717:    std::size_t index;
+        -:  718:  };
+        -:  719:};
+        -:  720:
+        -:  721:#endif  // GTEST_INTERNAL_HAS_VARIANT
+        -:  722:
+        -:  723:// UniversalPrintArray(begin, len, os) prints an array of 'len'
+        -:  724:// elements, starting at address 'begin'.
+        -:  725:template <typename T>
+        -:  726:void UniversalPrintArray(const T* begin, size_t len, ::std::ostream* os) {
+        -:  727:  if (len == 0) {
+        -:  728:    *os << "{}";
+        -:  729:  } else {
+        -:  730:    *os << "{ ";
+        -:  731:    const size_t kThreshold = 18;
+        -:  732:    const size_t kChunkSize = 8;
+        -:  733:    // If the array has more than kThreshold elements, we'll have to
+        -:  734:    // omit some details by printing only the first and the last
+        -:  735:    // kChunkSize elements.
+        -:  736:    if (len <= kThreshold) {
+        -:  737:      PrintRawArrayTo(begin, len, os);
+        -:  738:    } else {
+        -:  739:      PrintRawArrayTo(begin, kChunkSize, os);
+        -:  740:      *os << ", ..., ";
+        -:  741:      PrintRawArrayTo(begin + len - kChunkSize, kChunkSize, os);
+        -:  742:    }
+        -:  743:    *os << " }";
+        -:  744:  }
+        -:  745:}
+        -:  746:// This overload prints a (const) char array compactly.
+        -:  747:GTEST_API_ void UniversalPrintArray(
+        -:  748:    const char* begin, size_t len, ::std::ostream* os);
+        -:  749:
+        -:  750:// This overload prints a (const) wchar_t array compactly.
+        -:  751:GTEST_API_ void UniversalPrintArray(
+        -:  752:    const wchar_t* begin, size_t len, ::std::ostream* os);
+        -:  753:
+        -:  754:// Implements printing an array type T[N].
+        -:  755:template <typename T, size_t N>
+        -:  756:class UniversalPrinter<T[N]> {
+        -:  757: public:
+        -:  758:  // Prints the given array, omitting some elements when there are too
+        -:  759:  // many.
+        -:  760:  static void Print(const T (&a)[N], ::std::ostream* os) {
+        -:  761:    UniversalPrintArray(a, N, os);
+        -:  762:  }
+        -:  763:};
+        -:  764:
+        -:  765:// Implements printing a reference type T&.
+        -:  766:template <typename T>
+        -:  767:class UniversalPrinter<T&> {
+        -:  768: public:
+        -:  769:  // MSVC warns about adding const to a function type, so we want to
+        -:  770:  // disable the warning.
+        -:  771:  GTEST_DISABLE_MSC_WARNINGS_PUSH_(4180)
+        -:  772:
+        -:  773:  static void Print(const T& value, ::std::ostream* os) {
+        -:  774:    // Prints the address of the value.  We use reinterpret_cast here
+        -:  775:    // as static_cast doesn't compile when T is a function type.
+        -:  776:    *os << "@" << reinterpret_cast<const void*>(&value) << " ";
+        -:  777:
+        -:  778:    // Then prints the value itself.
+        -:  779:    UniversalPrint(value, os);
+        -:  780:  }
+        -:  781:
+        -:  782:  GTEST_DISABLE_MSC_WARNINGS_POP_()
+        -:  783:};
+        -:  784:
+        -:  785:// Prints a value tersely: for a reference type, the referenced value
+        -:  786:// (but not the address) is printed; for a (const) char pointer, the
+        -:  787:// NUL-terminated string (but not the pointer) is printed.
+        -:  788:
+        -:  789:template <typename T>
+        -:  790:class UniversalTersePrinter {
+        -:  791: public:
+    #####:  792:  static void Print(const T& value, ::std::ostream* os) {
+    #####:  793:    UniversalPrint(value, os);
+    #####:  794:  }
+------------------
+_ZN7testing8internal21UniversalTersePrinterISt10shared_ptrI10HoldMethodEE5PrintERKS4_PSo:
+    #####:  792:  static void Print(const T& value, ::std::ostream* os) {
+    #####:  793:    UniversalPrint(value, os);
+    %%%%%:  793-block  0
+    #####:  794:  }
+------------------
+_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo:
+    #####:  792:  static void Print(const T& value, ::std::ostream* os) {
+    #####:  793:    UniversalPrint(value, os);
+    %%%%%:  793-block  0
+    #####:  794:  }
+------------------
+_ZN7testing8internal21UniversalTersePrinterIyE5PrintERKyPSo:
+    #####:  792:  static void Print(const T& value, ::std::ostream* os) {
+    #####:  793:    UniversalPrint(value, os);
+    %%%%%:  793-block  0
+    #####:  794:  }
+------------------
+        -:  795:};
+        -:  796:template <typename T>
+        -:  797:class UniversalTersePrinter<T&> {
+        -:  798: public:
+        -:  799:  static void Print(const T& value, ::std::ostream* os) {
+        -:  800:    UniversalPrint(value, os);
+        -:  801:  }
+        -:  802:};
+        -:  803:template <typename T, size_t N>
+        -:  804:class UniversalTersePrinter<T[N]> {
+        -:  805: public:
+        -:  806:  static void Print(const T (&value)[N], ::std::ostream* os) {
+        -:  807:    UniversalPrinter<T[N]>::Print(value, os);
+        -:  808:  }
+        -:  809:};
+        -:  810:template <>
+        -:  811:class UniversalTersePrinter<const char*> {
+        -:  812: public:
+        -:  813:  static void Print(const char* str, ::std::ostream* os) {
+        -:  814:    if (str == nullptr) {
+        -:  815:      *os << "NULL";
+        -:  816:    } else {
+        -:  817:      UniversalPrint(std::string(str), os);
+        -:  818:    }
+        -:  819:  }
+        -:  820:};
+        -:  821:template <>
+        -:  822:class UniversalTersePrinter<char*> {
+        -:  823: public:
+        -:  824:  static void Print(char* str, ::std::ostream* os) {
+        -:  825:    UniversalTersePrinter<const char*>::Print(str, os);
+        -:  826:  }
+        -:  827:};
+        -:  828:
+        -:  829:#if GTEST_HAS_STD_WSTRING
+        -:  830:template <>
+        -:  831:class UniversalTersePrinter<const wchar_t*> {
+        -:  832: public:
+        -:  833:  static void Print(const wchar_t* str, ::std::ostream* os) {
+        -:  834:    if (str == nullptr) {
+        -:  835:      *os << "NULL";
+        -:  836:    } else {
+        -:  837:      UniversalPrint(::std::wstring(str), os);
+        -:  838:    }
+        -:  839:  }
+        -:  840:};
+        -:  841:#endif
+        -:  842:
+        -:  843:template <>
+        -:  844:class UniversalTersePrinter<wchar_t*> {
+        -:  845: public:
+        -:  846:  static void Print(wchar_t* str, ::std::ostream* os) {
+        -:  847:    UniversalTersePrinter<const wchar_t*>::Print(str, os);
+        -:  848:  }
+        -:  849:};
+        -:  850:
+        -:  851:template <typename T>
+        -:  852:void UniversalTersePrint(const T& value, ::std::ostream* os) {
+        -:  853:  UniversalTersePrinter<T>::Print(value, os);
+        -:  854:}
+        -:  855:
+        -:  856:// Prints a value using the type inferred by the compiler.  The
+        -:  857:// difference between this and UniversalTersePrint() is that for a
+        -:  858:// (const) char pointer, this prints both the pointer and the
+        -:  859:// NUL-terminated string.
+        -:  860:template <typename T>
+    #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
+        -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
+        -:  863:  // UniversalPrinter with T directly.
+        -:  864:  typedef T T1;
+    #####:  865:  UniversalPrinter<T1>::Print(value, os);
+    #####:  866:}
+------------------
+_ZN7testing8internal14UniversalPrintISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
+    #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
+        -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
+        -:  863:  // UniversalPrinter with T directly.
+        -:  864:  typedef T T1;
+    #####:  865:  UniversalPrinter<T1>::Print(value, os);
+    %%%%%:  865-block  0
+    #####:  866:}
+------------------
+_ZN7testing8internal14UniversalPrintIiEEvRKT_PSo:
+    #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
+        -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
+        -:  863:  // UniversalPrinter with T directly.
+        -:  864:  typedef T T1;
+    #####:  865:  UniversalPrinter<T1>::Print(value, os);
+    %%%%%:  865-block  0
+    #####:  866:}
+------------------
+_ZN7testing8internal14UniversalPrintIyEEvRKT_PSo:
+    #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
+        -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
+        -:  863:  // UniversalPrinter with T directly.
+        -:  864:  typedef T T1;
+    #####:  865:  UniversalPrinter<T1>::Print(value, os);
+    %%%%%:  865-block  0
+    #####:  866:}
+------------------
+        -:  867:
+        -:  868:typedef ::std::vector< ::std::string> Strings;
+        -:  869:
+        -:  870:  // Tersely prints the first N fields of a tuple to a string vector,
+        -:  871:  // one element for each field.
+        -:  872:template <typename Tuple>
+        -:  873:void TersePrintPrefixToStrings(const Tuple&, std::integral_constant<size_t, 0>,
+        -:  874:                               Strings*) {}
+        -:  875:template <typename Tuple, size_t I>
+        -:  876:void TersePrintPrefixToStrings(const Tuple& t,
+        -:  877:                               std::integral_constant<size_t, I>,
+        -:  878:                               Strings* strings) {
+        -:  879:  TersePrintPrefixToStrings(t, std::integral_constant<size_t, I - 1>(),
+        -:  880:                            strings);
+        -:  881:  ::std::stringstream ss;
+        -:  882:  UniversalTersePrint(std::get<I - 1>(t), &ss);
+        -:  883:  strings->push_back(ss.str());
+        -:  884:}
+        -:  885:
+        -:  886:// Prints the fields of a tuple tersely to a string vector, one
+        -:  887:// element for each field.  See the comment before
+        -:  888:// UniversalTersePrint() for how we define "tersely".
+        -:  889:template <typename Tuple>
+        -:  890:Strings UniversalTersePrintTupleFieldsToStrings(const Tuple& value) {
+        -:  891:  Strings result;
+        -:  892:  TersePrintPrefixToStrings(
+        -:  893:      value, std::integral_constant<size_t, std::tuple_size<Tuple>::value>(),
+        -:  894:      &result);
+        -:  895:  return result;
+        -:  896:}
+        -:  897:
+        -:  898:}  // namespace internal
+        -:  899:
+        -:  900:template <typename T>
+    #####:  901:::std::string PrintToString(const T& value) {
+    #####:  902:  ::std::stringstream ss;
+    #####:  903:  internal::UniversalTersePrinter<T>::Print(value, &ss);
+    #####:  904:  return ss.str();
+        -:  905:}
+        -:  906:
+        -:  907:}  // namespace testing
+        -:  908:
+        -:  909:// Include any custom printer added by the local installation.
+        -:  910:// We must include this header at the end to make sure it can use the
+        -:  911:// declarations from this file.
+        -:  912:#include "gtest/internal/custom/gtest-printers.h"
+        -:  913:
+        -:  914:#endif  // GTEST_INCLUDE_GTEST_GTEST_PRINTERS_H_

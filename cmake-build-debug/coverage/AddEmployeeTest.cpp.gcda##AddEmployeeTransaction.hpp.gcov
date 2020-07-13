@@ -13,8 +13,8 @@
         -:    9:{
         -:   10:public:
         -:   11:                    AddEmployeeTransaction(int id, std::string name, std::string address);
-        5:   12:    virtual         ~AddEmployeeTransaction() = default;
-        5:   12-block  0
+       23:   12:    virtual         ~AddEmployeeTransaction() = default;
+       23:   12-block  0
         -:   13:
         -:   14:    virtual void    execute() override;
         -:   15:
@@ -33,15 +33,15 @@
         -:   28:{
         -:   29:public:
         -:   30:                AddHourlyEmployee(int id, std::string name, std::string address, double hourlyRate);
-       2*:   31:    virtual     ~AddHourlyEmployee() = default;
+      12*:   31:    virtual     ~AddHourlyEmployee() = default;
 ------------------
 _ZN17AddHourlyEmployeeD0Ev:
     #####:   31:    virtual     ~AddHourlyEmployee() = default;
     %%%%%:   31-block  0
 ------------------
 _ZN17AddHourlyEmployeeD1Ev:
-        2:   31:    virtual     ~AddHourlyEmployee() = default;
-        2:   31-block  0
+       12:   31:    virtual     ~AddHourlyEmployee() = default;
+       12:   31-block  0
 ------------------
         -:   32:    virtual std::shared_ptr<PaymentClassification>
         -:   33:                getPaymentClassification() const override;
@@ -56,15 +56,15 @@ _ZN17AddHourlyEmployeeD1Ev:
         -:   42:{
         -:   43:public:
         -:   44:                AddSalariedEmployee(int id, std::string name, std::string address, double salary);
-       1*:   45:    virtual     ~AddSalariedEmployee() = default;
+       9*:   45:    virtual     ~AddSalariedEmployee() = default;
 ------------------
 _ZN19AddSalariedEmployeeD0Ev:
     #####:   45:    virtual     ~AddSalariedEmployee() = default;
     %%%%%:   45-block  0
 ------------------
 _ZN19AddSalariedEmployeeD1Ev:
-        1:   45:    virtual     ~AddSalariedEmployee() = default;
-        1:   45-block  0
+        9:   45:    virtual     ~AddSalariedEmployee() = default;
+        9:   45-block  0
 ------------------
         -:   46:    virtual std::shared_ptr<PaymentClassification>
         -:   47:                getPaymentClassification() const override;

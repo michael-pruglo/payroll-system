@@ -1,0 +1,45 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Affiliation.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Database\DatabaseTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_AFFILIATION_HPP
+        -:    2:#define PAYROLL_SYSTEM_AFFILIATION_HPP
+        -:    3:
+        -:    4:
+        -:    5:#include <vector>
+        -:    6:#include "ServiceCharge.hpp"
+        -:    7:
+        -:    8:class Affiliation
+        -:    9:{
+        -:   10:public:
+       38:   11:    virtual ~Affiliation() = default;
+        -:   12:    virtual void addServiceCharge(ServiceCharge serviceCharge) = 0;
+        -:   13:    virtual std::vector<ServiceCharge> getServiceCharges() const = 0;
+        -:   14:};
+        -:   15:
+        -:   16:class NoAffiliation : public Affiliation
+        -:   17:{
+        -:   18:public:
+       18:   19:    void addServiceCharge(ServiceCharge serviceCharge) override {}
+       15:   20:    std::vector<ServiceCharge> getServiceCharges() const override { return {}; }
+       15:   20-block  0
+        -:   21:};
+        -:   22:class UnionAffiliation : public Affiliation
+        -:   23:{
+        -:   24:public:
+        -:   25:    void addServiceCharge(ServiceCharge serviceCharge) override
+        -:   26:    {
+        -:   27:        serviceCharges.push_back(serviceCharge);
+        -:   28:    }
+        -:   29:
+        -:   30:    std::vector<ServiceCharge> getServiceCharges() const override
+        -:   31:    {
+        -:   32:        return serviceCharges;
+        -:   33:    }
+        -:   34:
+        -:   35:private:
+        -:   36:    double dues;
+        -:   37:    std::vector<ServiceCharge> serviceCharges;
+        -:   38:};
+        -:   39:
+        -:   40:#endif //PAYROLL_SYSTEM_AFFILIATION_HPP

@@ -311,9 +311,9 @@
         -:  306:
         -:  307:      ///  Returns the size of the %unordered_map.
         -:  308:      size_type
-       67:  309:      size() const noexcept
-       67:  310:      { return _M_h.size(); }
-       67:  310-block  0
+       89:  309:      size() const noexcept
+       89:  310:      { return _M_h.size(); }
+       89:  310-block  0
         -:  311:
         -:  312:      ///  Returns the maximum size of the %unordered_map.
         -:  313:      size_type
@@ -349,9 +349,9 @@
         -:  343:       *  the %unordered_map.
         -:  344:       */
         -:  345:      iterator
-       69:  346:      end() noexcept
-       69:  347:      { return _M_h.end(); }
-       69:  347-block  0
+       10:  346:      end() noexcept
+       10:  347:      { return _M_h.end(); }
+       10:  347-block  0
         -:  348:
         -:  349:      //@{
         -:  350:      /**
@@ -359,9 +359,9 @@
         -:  352:       *  element in the %unordered_map.
         -:  353:       */
         -:  354:      const_iterator
-       28:  355:      end() const noexcept
-       28:  356:      { return _M_h.end(); }
-       28:  356-block  0
+       70:  355:      end() const noexcept
+       70:  356:      { return _M_h.end(); }
+       70:  356-block  0
         -:  357:
         -:  358:      const_iterator
         -:  359:      cend() const noexcept
@@ -590,9 +590,9 @@
         -:  582:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  583:      // 2354. Unnecessary copying when inserting into maps with braced-init
         -:  584:      std::pair<iterator, bool>
-       50:  585:      insert(value_type&& __x)
-       50:  586:      { return _M_h.insert(std::move(__x)); }
-       50:  586-block  0
+       69:  585:      insert(value_type&& __x)
+       69:  586:      { return _M_h.insert(std::move(__x)); }
+       69:  586-block  0
         -:  587:
         -:  588:      template<typename _Pair>
         -:  589:	__enable_if_t<is_constructible<value_type, _Pair&&>::value,
@@ -848,9 +848,9 @@
         -:  838:       *  in any way.  Managing the pointer is the user's responsibility.
         -:  839:       */
         -:  840:      void
-       19:  841:      clear() noexcept
-       19:  842:      { _M_h.clear(); }
-       19:  842-block  0
+       30:  841:      clear() noexcept
+       30:  842:      { _M_h.clear(); }
+       30:  842-block  0
         -:  843:
         -:  844:      /**
         -:  845:       *  @brief  Swaps data with another %unordered_map.
@@ -927,14 +927,14 @@
         -:  916:       *  past-the-end ( @c end() ) iterator.
         -:  917:       */
         -:  918:      iterator
-       69:  919:      find(const key_type& __x)
-       69:  920:      { return _M_h.find(__x); }
-       69:  920-block  0
+       10:  919:      find(const key_type& __x)
+       10:  920:      { return _M_h.find(__x); }
+       10:  920-block  0
         -:  921:
         -:  922:      const_iterator
-       28:  923:      find(const key_type& __x) const
-       28:  924:      { return _M_h.find(__x); }
-       28:  924-block  0
+       70:  923:      find(const key_type& __x) const
+       70:  924:      { return _M_h.find(__x); }
+       70:  924-block  0
         -:  925:      //@}
         -:  926:
         -:  927:      /**
@@ -957,8 +957,11 @@
         -:  944:       *  @return  True if there is any element with the specified key.
         -:  945:       */
         -:  946:      bool
-        -:  947:      contains(const key_type& __x) const
-        -:  948:      { return _M_h.find(__x) != _M_h.end(); }
+       79:  947:      contains(const key_type& __x) const
+       79:  948:      { return _M_h.find(__x) != _M_h.end(); }
+       79:  948-block  0
+       79:  948-block  1
+       79:  948-block  2
         -:  949:#endif
         -:  950:
         -:  951:      //@{

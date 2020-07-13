@@ -53,51 +53,51 @@
         -:   49:      using value_type = typename allocator_traits<_Alloc>::value_type;
         -:   50:
         -:   51:      /// Take ownership of __ptr
-       30:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-       30:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-       30:   54:      { }
+      152:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+      152:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+      152:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-        4:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        4:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        4:   53-block  0
-        4:   54:      { }
+        6:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+        6:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+        6:   53-block  0
+        6:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-        4:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        4:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        4:   53-block  0
-        4:   54:      { }
+        6:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+        6:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+        6:   53-block  0
+        6:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-        2:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        2:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        2:   53-block  0
-        2:   54:      { }
+       20:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+       20:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+       20:   53-block  0
+       20:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-        2:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        2:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        2:   53-block  0
-        2:   54:      { }
+       20:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+       20:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+       20:   53-block  0
+       20:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-        4:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        4:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        4:   53-block  0
-        4:   54:      { }
+       26:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+       26:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+       26:   53-block  0
+       26:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-        4:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        4:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        4:   53-block  0
-        4:   54:      { }
+       26:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+       26:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+       26:   53-block  0
+       26:   54:      { }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEC1ERS6_PS5_:
-       10:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-       10:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-       10:   53-block  0
-       10:   54:      { }
+       48:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+       48:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+       48:   53-block  0
+       48:   54:      { }
 ------------------
         -:   55:
         -:   56:      /// Convert __ptr to allocator's pointer type and take ownership of it
@@ -114,171 +114,171 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gn
         -:   67:      { __gd._M_ptr = nullptr; }
         -:   68:
         -:   69:      /// Deallocate the owned pointer
-       30:   70:      ~__allocated_ptr()
+      152:   70:      ~__allocated_ptr()
         -:   71:      {
-       30:   72:	if (_M_ptr != nullptr)
-       15:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-       30:   74:      }
+      152:   72:	if (_M_ptr != nullptr)
+       76:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+      152:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-        4:   70:      ~__allocated_ptr()
+        6:   70:      ~__allocated_ptr()
         -:   71:      {
-        4:   72:	if (_M_ptr != nullptr)
-        4:   72-block  0
-        2:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        2:   73-block  0
-        4:   74:      }
+        6:   72:	if (_M_ptr != nullptr)
+        6:   72-block  0
+        3:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+        3:   73-block  0
+        6:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-        4:   70:      ~__allocated_ptr()
+        6:   70:      ~__allocated_ptr()
         -:   71:      {
-        4:   72:	if (_M_ptr != nullptr)
-        4:   72-block  0
-        2:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        2:   73-block  0
-        4:   74:      }
+        6:   72:	if (_M_ptr != nullptr)
+        6:   72-block  0
+        3:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+        3:   73-block  0
+        6:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-        2:   70:      ~__allocated_ptr()
+       20:   70:      ~__allocated_ptr()
         -:   71:      {
-        2:   72:	if (_M_ptr != nullptr)
-        2:   72-block  0
-        1:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        1:   73-block  0
-        2:   74:      }
+       20:   72:	if (_M_ptr != nullptr)
+       20:   72-block  0
+       10:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+       10:   73-block  0
+       20:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-        2:   70:      ~__allocated_ptr()
+       20:   70:      ~__allocated_ptr()
         -:   71:      {
-        2:   72:	if (_M_ptr != nullptr)
-        2:   72-block  0
-        1:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        1:   73-block  0
-        2:   74:      }
+       20:   72:	if (_M_ptr != nullptr)
+       20:   72-block  0
+       10:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+       10:   73-block  0
+       20:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-        4:   70:      ~__allocated_ptr()
+       26:   70:      ~__allocated_ptr()
         -:   71:      {
-        4:   72:	if (_M_ptr != nullptr)
-        4:   72-block  0
-        2:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        2:   73-block  0
-        4:   74:      }
+       26:   72:	if (_M_ptr != nullptr)
+       26:   72-block  0
+       13:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+       13:   73-block  0
+       26:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-        4:   70:      ~__allocated_ptr()
+       26:   70:      ~__allocated_ptr()
         -:   71:      {
-        4:   72:	if (_M_ptr != nullptr)
-        4:   72-block  0
-        2:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        2:   73-block  0
-        4:   74:      }
+       26:   72:	if (_M_ptr != nullptr)
+       26:   72-block  0
+       13:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+       13:   73-block  0
+       26:   74:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEED1Ev:
-       10:   70:      ~__allocated_ptr()
+       48:   70:      ~__allocated_ptr()
         -:   71:      {
-       10:   72:	if (_M_ptr != nullptr)
-       10:   72-block  0
-        5:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        5:   73-block  0
-       10:   74:      }
+       48:   72:	if (_M_ptr != nullptr)
+       48:   72-block  0
+       24:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+       24:   73-block  0
+       48:   74:      }
 ------------------
         -:   75:
         -:   76:      /// Release ownership of the owned pointer
         -:   77:      __allocated_ptr&
-       15:   78:      operator=(std::nullptr_t) noexcept
+       76:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-       15:   80:	_M_ptr = nullptr;
-       15:   81:	return *this;
+       76:   80:	_M_ptr = nullptr;
+       76:   81:	return *this;
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        2:   78:      operator=(std::nullptr_t) noexcept
+        3:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        2:   80:	_M_ptr = nullptr;
-        2:   81:	return *this;
-        2:   81-block  0
+        3:   80:	_M_ptr = nullptr;
+        3:   81:	return *this;
+        3:   81-block  0
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        2:   78:      operator=(std::nullptr_t) noexcept
+        3:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        2:   80:	_M_ptr = nullptr;
-        2:   81:	return *this;
-        2:   81-block  0
+        3:   80:	_M_ptr = nullptr;
+        3:   81:	return *this;
+        3:   81-block  0
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        1:   78:      operator=(std::nullptr_t) noexcept
+       10:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        1:   80:	_M_ptr = nullptr;
-        1:   81:	return *this;
-        1:   81-block  0
+       10:   80:	_M_ptr = nullptr;
+       10:   81:	return *this;
+       10:   81-block  0
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        1:   78:      operator=(std::nullptr_t) noexcept
+       10:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        1:   80:	_M_ptr = nullptr;
-        1:   81:	return *this;
-        1:   81-block  0
+       10:   80:	_M_ptr = nullptr;
+       10:   81:	return *this;
+       10:   81-block  0
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        2:   78:      operator=(std::nullptr_t) noexcept
+       13:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        2:   80:	_M_ptr = nullptr;
-        2:   81:	return *this;
-        2:   81-block  0
+       13:   80:	_M_ptr = nullptr;
+       13:   81:	return *this;
+       13:   81-block  0
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        2:   78:      operator=(std::nullptr_t) noexcept
+       13:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        2:   80:	_M_ptr = nullptr;
-        2:   81:	return *this;
-        2:   81-block  0
+       13:   80:	_M_ptr = nullptr;
+       13:   81:	return *this;
+       13:   81-block  0
         -:   82:      }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEEaSEDn:
-        5:   78:      operator=(std::nullptr_t) noexcept
+       24:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        5:   80:	_M_ptr = nullptr;
-        5:   81:	return *this;
-        5:   81-block  0
+       24:   80:	_M_ptr = nullptr;
+       24:   81:	return *this;
+       24:   81-block  0
         -:   82:      }
 ------------------
         -:   83:
         -:   84:      /// Get the address that the owned pointer refers to.
-       15:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+       76:   85:      value_type* get() { return std::__to_address(_M_ptr); }
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI16BiweeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        2:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        2:   85-block  0
+        3:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+        3:   85-block  0
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI26CommissionedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        2:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        2:   85-block  0
+        3:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+        3:   85-block  0
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI15MonthlyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        1:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        1:   85-block  0
+       10:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+       10:   85-block  0
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI22SalariedClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        1:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        1:   85-block  0
+       10:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+       10:   85-block  0
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI14WeeklyScheduleSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        2:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        2:   85-block  0
+       13:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+       13:   85-block  0
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI20HourlyClassificationSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        2:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        2:   85-block  0
+       13:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+       13:   85-block  0
 ------------------
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gnu_cxx12_Lock_policyE2EEEE3getEv:
-        5:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        5:   85-block  0
+       24:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+       24:   85-block  0
 ------------------
         -:   86:
         -:   87:    private:
@@ -289,9 +289,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10HoldMethodSaIS1_ELN9__gn
         -:   92:  /// Allocate space for a single object using __a
         -:   93:  template<typename _Alloc>
         -:   94:    __allocated_ptr<_Alloc>
-       15:   95:    __allocate_guarded(_Alloc& __a)
+       76:   95:    __allocate_guarded(_Alloc& __a)
         -:   96:    {
-       15:   97:      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+       76:   97:      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
         -:   98:    }
         -:   99:
         -:  100:_GLIBCXX_END_NAMESPACE_VERSION

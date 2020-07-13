@@ -436,13 +436,13 @@
         -:  432:// returned for different types.  Calling the function twice with the
         -:  433:// same type argument is guaranteed to return the same ID.
         -:  434:template <typename T>
-        2:  435:TypeId GetTypeId() {
+        3:  435:TypeId GetTypeId() {
         -:  436:  // The compiler is required to allocate a different
         -:  437:  // TypeIdHelper<T>::dummy_ variable for each T used to instantiate
         -:  438:  // the template.  Therefore, the address of dummy_ is guaranteed to
         -:  439:  // be unique.
-        2:  440:  return &(TypeIdHelper<T>::dummy_);
-        2:  440-block  0
+        3:  440:  return &(TypeIdHelper<T>::dummy_);
+        3:  440-block  0
         -:  441:}
         -:  442:
         -:  443:// Returns the type ID of ::testing::Test.  Always call this instead
@@ -474,7 +474,7 @@
         -:  469:template <class TestClass>
         -:  470:class TestFactoryImpl : public TestFactoryBase {
         -:  471: public:
-        2:  472:  Test* CreateTest() override { return new TestClass; }
+        3:  472:  Test* CreateTest() override { return new TestClass; }
 ------------------
 _ZN7testing8internal15TestFactoryImplI38DeleteEmployeeTest_DeleteEmployee_TestE10CreateTestEv:
         1:  472:  Test* CreateTest() override { return new TestClass; }
@@ -484,6 +484,13 @@ _ZN7testing8internal15TestFactoryImplI38DeleteEmployeeTest_DeleteEmployee_TestE1
     $$$$$:  472-block  3
 ------------------
 _ZN7testing8internal15TestFactoryImplI49DeleteEmployeeTest_DeleteEmployeeTwiceThrows_TestE10CreateTestEv:
+        1:  472:  Test* CreateTest() override { return new TestClass; }
+        1:  472-block  0
+        1:  472-block  1
+        1:  472-block  2
+    $$$$$:  472-block  3
+------------------
+_ZN7testing8internal15TestFactoryImplI54DeleteEmployeeTest_TransactionOnNonExistentThrows_TestE10CreateTestEv:
         1:  472:  Test* CreateTest() override { return new TestClass; }
         1:  472-block  0
         1:  472-block  1
@@ -543,19 +550,19 @@ _ZN7testing8internal15TestFactoryImplI49DeleteEmployeeTest_DeleteEmployeeTwiceTh
         -:  518:  using Test =
         -:  519:      typename std::conditional<sizeof(T) != 0, ::testing::Test, void>::type;
         -:  520:
-        2:  521:  static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,
+        3:  521:  static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,
         -:  522:                                                        int line_num) {
         -:  523:    SetUpTearDownSuiteFuncType test_case_fp =
-        2:  524:        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
-        2:  524-block  0
+        3:  524:        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
+        3:  524-block  0
         -:  525:    SetUpTearDownSuiteFuncType test_suite_fp =
-        2:  526:        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
+        3:  526:        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
         -:  527:
-       2*:  528:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+       3*:  528:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     %%%%%:  528-block  0
-        2:  528-block  1
+        3:  528-block  1
     %%%%%:  528-block  2
-        2:  528-block  3
+        3:  528-block  3
     %%%%%:  528-block  4
     %%%%%:  528-block  5
     $$$$$:  528-block  6
@@ -567,27 +574,27 @@ _ZN7testing8internal15TestFactoryImplI49DeleteEmployeeTest_DeleteEmployeeTwiceTh
     %%%%%:  531-block  2
     %%%%%:  531-block  3
         -:  532:
-       2*:  533:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        2:  533-block  0
+       3*:  533:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        3:  533-block  0
     %%%%%:  533-block  1
-        2:  533-block  2
-        2:  533-block  3
-        2:  533-block  4
+        3:  533-block  2
+        3:  533-block  3
+        3:  533-block  4
         -:  534:  }
         -:  535:
-        2:  536:  static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,
+        3:  536:  static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,
         -:  537:                                                           int line_num) {
         -:  538:    SetUpTearDownSuiteFuncType test_case_fp =
-        2:  539:        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
-        2:  539-block  0
+        3:  539:        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
+        3:  539-block  0
         -:  540:    SetUpTearDownSuiteFuncType test_suite_fp =
-        2:  541:        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
+        3:  541:        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
         -:  542:
-       2*:  543:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+       3*:  543:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     %%%%%:  543-block  0
-        2:  543-block  1
+        3:  543-block  1
     %%%%%:  543-block  2
-        2:  543-block  3
+        3:  543-block  3
     %%%%%:  543-block  4
     %%%%%:  543-block  5
     $$$$$:  543-block  6
@@ -599,12 +606,12 @@ _ZN7testing8internal15TestFactoryImplI49DeleteEmployeeTest_DeleteEmployeeTwiceTh
     %%%%%:  546-block  2
     %%%%%:  546-block  3
         -:  547:
-       2*:  548:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        2:  548-block  0
+       3*:  548:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        3:  548-block  0
     %%%%%:  548-block  1
-        2:  548-block  2
-        2:  548-block  3
-        2:  548-block  4
+        3:  548-block  2
+        3:  548-block  3
+        3:  548-block  4
         -:  549:  }
         -:  550:};
         -:  551:

@@ -1,0 +1,49 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentMethod.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_PAYMENTMETHOD_HPP
+        -:    2:#define PAYROLL_SYSTEM_PAYMENTMETHOD_HPP
+        -:    3:
+        -:    4:
+        -:    5:class PaymentMethod
+        -:    6:{
+    #####:    7:public: virtual ~PaymentMethod() = default;
+------------------
+_ZN13PaymentMethodD0Ev:
+    #####:    7:public: virtual ~PaymentMethod() = default;
+    %%%%%:    7-block  0
+------------------
+_ZN13PaymentMethodD1Ev:
+    #####:    7:public: virtual ~PaymentMethod() = default;
+------------------
+_ZN13PaymentMethodD2Ev:
+    #####:    7:public: virtual ~PaymentMethod() = default;
+------------------
+        -:    8:};
+        -:    9:
+        -:   10:class HoldMethod : public PaymentMethod {};
+        -:   11:class DirectMethod : public PaymentMethod
+        -:   12:{
+        -:   13:public:
+        1:   14:    DirectMethod(std::string bank, int account) : bank(bank), account(account) {}
+        1:   14-block  0
+        1:   14-block  1
+    $$$$$:   14-block  2
+        -:   15:private:
+        -:   16:    std::string bank;
+        -:   17:    int account;
+        -:   18:};
+        -:   19:class MailMethod : public PaymentMethod
+        -:   20:{
+        -:   21:public:
+        2:   22:    MailMethod(const std::string& address) : address(address) {}
+        2:   22-block  0
+        2:   22-block  1
+    $$$$$:   22-block  2
+        -:   23:private:
+        -:   24:    std::string address;
+        -:   25:};
+        -:   26:
+        -:   27:
+        -:   28:#endif //PAYROLL_SYSTEM_PAYMENTMETHOD_HPP

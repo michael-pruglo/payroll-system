@@ -9,15 +9,15 @@
         -:    5:{
         -:    6:protected:
         -:    7:
-        2:    8:    void SetUp() override
+        3:    8:    void SetUp() override
         -:    9:    {
-       2*:   10:        ASSERT_NO_THROW(database->addEmployee(
-        2:   10-block  0
-        2:   10-block  1
-        2:   10-block  2
-        2:   10-block  3
-        2:   10-block  4
-        2:   10-block  5
+       3*:   10:        ASSERT_NO_THROW(database->addEmployee(
+        3:   10-block  0
+        3:   10-block  1
+        3:   10-block  2
+        3:   10-block  3
+        3:   10-block  4
+        3:   10-block  5
     %%%%%:   10-block  6
     %%%%%:   10-block  7
     %%%%%:   10-block  8
@@ -41,17 +41,17 @@
     $$$$$:   10-block 26
     $$$$$:   10-block 27
     $$$$$:   10-block 28
-        -:   11:                id, std::make_shared<Employee>(id, name, address)
+        -:   11:            id, std::make_shared<Employee>(id, name, address)
         -:   12:        ));
-        2:   13:        initSize = database->size();
-        2:   13-block  0
-       2*:   14:        EXPECT_EQ(initSize, 1);
-        2:   14-block  0
+        3:   13:        initSize = database->size();
+        3:   13-block  0
+       3*:   14:        EXPECT_EQ(initSize, 1);
+        3:   14-block  0
     %%%%%:   14-block  1
     %%%%%:   14-block  2
     %%%%%:   14-block  3
     %%%%%:   14-block  4
-        2:   14-block  5
+        3:   14-block  5
     $$$$$:   14-block  6
     $$$$$:   14-block  7
     $$$$$:   14-block  8
@@ -64,97 +64,177 @@
         -:   18:    std::string name = "Fin", address = "Finland";
         -:   19:};
         -:   20:
-        4:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        -:   22:{
-        1:   23:    DeleteEmployeeTransaction dt(id);
-       1*:   24:    ASSERT_NO_THROW(dt.execute());
-       1*:   25:    ASSERT_THROW(database->getEmployee(id), PayrollDatabase::not_found);
-       1*:   26:    ASSERT_EQ(database->size(), initSize-1);
-        -:   27:}
+        -:   21:#define DELETION_TEST( EXECUTE ) \
+        -:   22:    DeleteEmployeeTransaction dt(id); \
+        -:   23:    ASSERT_NO_THROW(dt.execute()); \
+        -:   24:    ASSERT_THROW(EXECUTE, PayrollDatabase::not_found); \
+        -:   25:    ASSERT_EQ(database->size(), initSize-1);
+        -:   26:
+        -:   27:
+        4:   28:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        -:   29:{
+       2*:   30:    DELETION_TEST(database->getEmployee(id))
+        -:   31:}
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_TestD0Ev:
-        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        1:   21-block  0
+        1:   28:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        1:   28-block  0
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_TestD1Ev:
-        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        1:   21-block  0
+        1:   28:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        1:   28-block  0
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_Test8TestBodyEv:
-        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        -:   22:{
-        1:   23:    DeleteEmployeeTransaction dt(id);
-        1:   23-block  0
-    $$$$$:   23-block  1
-       1*:   24:    ASSERT_NO_THROW(dt.execute());
-        1:   24-block  0
-        1:   24-block  1
-        1:   24-block  2
-    %%%%%:   24-block  3
-    %%%%%:   24-block  4
-    %%%%%:   24-block  5
-    %%%%%:   24-block  6
-    %%%%%:   24-block  7
-    $$$$$:   24-block  8
-    $$$$$:   24-block  9
-    $$$$$:   24-block 10
-    $$$$$:   24-block 11
-    $$$$$:   24-block 12
-    $$$$$:   24-block 13
-    $$$$$:   24-block 14
-    $$$$$:   24-block 15
-    $$$$$:   24-block 16
-    $$$$$:   24-block 17
-    $$$$$:   24-block 18
-    $$$$$:   24-block 19
-    $$$$$:   24-block 20
-    $$$$$:   24-block 21
-    $$$$$:   24-block 22
-    $$$$$:   24-block 23
-       1*:   25:    ASSERT_THROW(database->getEmployee(id), PayrollDatabase::not_found);
-        1:   25-block  0
-        1:   25-block  1
-        1:   25-block  2
-        1:   25-block  3
-    %%%%%:   25-block  4
-        1:   25-block  5
-    %%%%%:   25-block  6
-    %%%%%:   25-block  7
-    %%%%%:   25-block  8
-    %%%%%:   25-block  9
-    %%%%%:   25-block 10
-        1:   25-block 11
-        1:   25-block 12
-    $$$$$:   25-block 13
-    $$$$$:   25-block 14
-    $$$$$:   25-block 15
-    $$$$$:   25-block 16
-    $$$$$:   25-block 17
-       1*:   26:    ASSERT_EQ(database->size(), initSize-1);
-        1:   26-block  0
-        1:   26-block  1
-    %%%%%:   26-block  2
-    %%%%%:   26-block  3
-    %%%%%:   26-block  4
-    %%%%%:   26-block  5
-    $$$$$:   26-block  6
-    $$$$$:   26-block  7
-    $$$$$:   26-block  8
-    $$$$$:   26-block  9
-    $$$$$:   26-block 10
-    $$$$$:   26-block 11
-    $$$$$:   26-block 12
-        -:   27:}
+        1:   28:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        -:   29:{
+       2*:   30:    DELETION_TEST(database->getEmployee(id))
+        1:   30-block  0
+        1:   30-block  1
+        1:   30-block  2
+        1:   30-block  3
+    %%%%%:   30-block  4
+    %%%%%:   30-block  5
+    %%%%%:   30-block  6
+    %%%%%:   30-block  7
+    %%%%%:   30-block  8
+        1:   30-block  9
+        1:   30-block 10
+        1:   30-block 11
+        1:   30-block 12
+    %%%%%:   30-block 13
+        1:   30-block 14
+    %%%%%:   30-block 15
+    %%%%%:   30-block 16
+    %%%%%:   30-block 17
+    %%%%%:   30-block 18
+    %%%%%:   30-block 19
+        1:   30-block 20
+        1:   30-block 21
+    %%%%%:   30-block 22
+    %%%%%:   30-block 23
+    %%%%%:   30-block 24
+    %%%%%:   30-block 25
+    $$$$$:   30-block 26
+    $$$$$:   30-block 27
+    $$$$$:   30-block 28
+    $$$$$:   30-block 29
+    $$$$$:   30-block 30
+    $$$$$:   30-block 31
+    $$$$$:   30-block 32
+    $$$$$:   30-block 33
+    $$$$$:   30-block 34
+    $$$$$:   30-block 35
+    $$$$$:   30-block 36
+    $$$$$:   30-block 37
+    $$$$$:   30-block 38
+    $$$$$:   30-block 39
+    $$$$$:   30-block 40
+    $$$$$:   30-block 41
+        1:   30-block 42
+        1:   30-block 43
+    $$$$$:   30-block 44
+    $$$$$:   30-block 45
+    $$$$$:   30-block 46
+    $$$$$:   30-block 47
+    $$$$$:   30-block 48
+    $$$$$:   30-block 49
+    $$$$$:   30-block 50
+    $$$$$:   30-block 51
+    $$$$$:   30-block 52
+    $$$$$:   30-block 53
+    $$$$$:   30-block 54
+    $$$$$:   30-block 55
+    $$$$$:   30-block 56
+        -:   31:}
 ------------------
 _ZN38DeleteEmployeeTest_DeleteEmployee_TestC1Ev:
-        1:   21:TEST_F(DeleteEmployeeTest, DeleteEmployee)
-        1:   21-block  0
+        1:   28:TEST_F(DeleteEmployeeTest, DeleteEmployee)
+        1:   28-block  0
 ------------------
-        -:   28:
-        4:   29:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
-        -:   30:{
-        1:   31:    DeleteEmployeeTransaction dt(id);
-       1*:   32:    ASSERT_NO_THROW(dt.execute());
-       1*:   33:    ASSERT_THROW(dt.execute(), PayrollDatabase::not_found);
-       1*:   34:    ASSERT_EQ(database->size(), initSize-1);
-        -:   35:}
+        -:   32:
+        4:   33:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
+        -:   34:{
+       2*:   35:    DELETION_TEST(dt.execute())
+        -:   36:}
+------------------
+_ZN49DeleteEmployeeTest_DeleteEmployeeTwiceThrows_TestD0Ev:
+        1:   33:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
+        1:   33-block  0
+------------------
+_ZN49DeleteEmployeeTest_DeleteEmployeeTwiceThrows_TestD1Ev:
+        1:   33:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
+        1:   33-block  0
+------------------
+_ZN49DeleteEmployeeTest_DeleteEmployeeTwiceThrows_Test8TestBodyEv:
+        1:   33:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
+        -:   34:{
+       2*:   35:    DELETION_TEST(dt.execute())
+        1:   35-block  0
+        1:   35-block  1
+        1:   35-block  2
+        1:   35-block  3
+    %%%%%:   35-block  4
+    %%%%%:   35-block  5
+    %%%%%:   35-block  6
+    %%%%%:   35-block  7
+    %%%%%:   35-block  8
+        1:   35-block  9
+        1:   35-block 10
+        1:   35-block 11
+        1:   35-block 12
+        1:   35-block 13
+    %%%%%:   35-block 14
+    %%%%%:   35-block 15
+    %%%%%:   35-block 16
+    %%%%%:   35-block 17
+    %%%%%:   35-block 18
+        1:   35-block 19
+        1:   35-block 20
+    %%%%%:   35-block 21
+    %%%%%:   35-block 22
+    %%%%%:   35-block 23
+    %%%%%:   35-block 24
+    $$$$$:   35-block 25
+    $$$$$:   35-block 26
+    $$$$$:   35-block 27
+    $$$$$:   35-block 28
+    $$$$$:   35-block 29
+    $$$$$:   35-block 30
+    $$$$$:   35-block 31
+    $$$$$:   35-block 32
+    $$$$$:   35-block 33
+    $$$$$:   35-block 34
+    $$$$$:   35-block 35
+    $$$$$:   35-block 36
+    $$$$$:   35-block 37
+    $$$$$:   35-block 38
+    $$$$$:   35-block 39
+    $$$$$:   35-block 40
+        1:   35-block 41
+        1:   35-block 42
+    $$$$$:   35-block 43
+    $$$$$:   35-block 44
+    $$$$$:   35-block 45
+    $$$$$:   35-block 46
+    $$$$$:   35-block 47
+    $$$$$:   35-block 48
+    $$$$$:   35-block 49
+    $$$$$:   35-block 50
+    $$$$$:   35-block 51
+    $$$$$:   35-block 52
+    $$$$$:   35-block 53
+    $$$$$:   35-block 54
+    $$$$$:   35-block 55
+        -:   36:}
+------------------
+_ZN49DeleteEmployeeTest_DeleteEmployeeTwiceThrows_TestC1Ev:
+        1:   33:TEST_F(DeleteEmployeeTest, DeleteEmployeeTwiceThrows)
+        1:   33-block  0
+------------------
+        -:   37:
+        4:   38:TEST_F(DeleteEmployeeTest, TransactionOnNonExistentThrows)
+        -:   39:{
+       2*:   40:    ASSERT_THROW(DeleteEmployeeTransaction(id+1).execute(), PayrollDatabase::not_found);
+        -:   41:}
+        -:   42:
+        -:   43:#undef DELETION_TEST

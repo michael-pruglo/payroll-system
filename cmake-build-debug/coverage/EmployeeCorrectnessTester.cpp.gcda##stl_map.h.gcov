@@ -384,9 +384,19 @@
         -:  380:       *  the keys.
         -:  381:       */
         -:  382:      const_iterator
+        2:  383:      end() const _GLIBCXX_NOEXCEPT
+        2:  384:      { return _M_t.end(); }
+------------------
+_ZNKSt3mapI4Date12SalesReceiptSt4lessIS0_ESaISt4pairIKS0_S1_EEE3endEv:
         1:  383:      end() const _GLIBCXX_NOEXCEPT
         1:  384:      { return _M_t.end(); }
         1:  384-block  0
+------------------
+_ZNKSt3mapI4Date8TimeCardSt4lessIS0_ESaISt4pairIKS0_S1_EEE3endEv:
+        1:  383:      end() const _GLIBCXX_NOEXCEPT
+        1:  384:      { return _M_t.end(); }
+        1:  384-block  0
+------------------
         -:  385:
         -:  386:      /**
         -:  387:       *  Returns a read/write reverse iterator that points to the last pair in
@@ -1196,9 +1206,19 @@
         -: 1191:       */
         -: 1192:
         -: 1193:      const_iterator
+        2: 1194:      find(const key_type& __x) const
+        2: 1195:      { return _M_t.find(__x); }
+------------------
+_ZNKSt3mapI4Date12SalesReceiptSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_:
         1: 1194:      find(const key_type& __x) const
         1: 1195:      { return _M_t.find(__x); }
         1: 1195-block  0
+------------------
+_ZNKSt3mapI4Date8TimeCardSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_:
+        1: 1194:      find(const key_type& __x) const
+        1: 1195:      { return _M_t.find(__x); }
+        1: 1195-block  0
+------------------
         -: 1196:
         -: 1197:#if __cplusplus > 201103L
         -: 1198:      template<typename _Kt>

@@ -306,13 +306,14 @@
         -:  302:  // the argument is implicitly convertible to AssertionResult. In that case
         -:  303:  // we want AssertionResult's copy constructor to be used.
         -:  304:  template <typename T>
-        -:  305:  explicit AssertionResult(
+      211:  305:  explicit AssertionResult(
         -:  306:      const T& success,
         -:  307:      typename std::enable_if<
         -:  308:          !std::is_convertible<T, AssertionResult>::value>::type*
         -:  309:      /*enabler*/
         -:  310:      = nullptr)
-        -:  311:      : success_(success) {}
+      211:  311:      : success_(success) {}
+      211:  311-block  0
         -:  312:
         -:  313:#if defined(_MSC_VER) && (_MSC_VER < 1910 || _MSC_VER >= 1920)
         -:  314:  GTEST_DISABLE_MSC_WARNINGS_POP_()
@@ -1645,26 +1646,26 @@ _ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_tra
         -: 1537:
         -: 1538:// The helper function for {ASSERT|EXPECT}_EQ.
         -: 1539:template <typename T1, typename T2>
-        6: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
+       32: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
         -: 1543:                            const T2& rhs) {
-        6: 1544:  if (lhs == rhs) {
-        6: 1545:    return AssertionSuccess();
+       32: 1544:  if (lhs == rhs) {
+       32: 1545:    return AssertionSuccess();
         -: 1546:  }
         -: 1547:
     #####: 1548:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
         -: 1549:}
 ------------------
 _ZN7testing8internal11CmpHelperEQIddEENS_15AssertionResultEPKcS4_RKT_RKT0_:
-        1: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
+        2: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
         -: 1543:                            const T2& rhs) {
-        1: 1544:  if (lhs == rhs) {
-        1: 1544-block  0
-        1: 1545:    return AssertionSuccess();
-        1: 1545-block  0
+        2: 1544:  if (lhs == rhs) {
+        2: 1544-block  0
+        2: 1545:    return AssertionSuccess();
+        2: 1545-block  0
         -: 1546:  }
         -: 1547:
     #####: 1548:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
@@ -1672,14 +1673,14 @@ _ZN7testing8internal11CmpHelperEQIddEENS_15AssertionResultEPKcS4_RKT_RKT0_:
         -: 1549:}
 ------------------
 _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_:
-        5: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
+       30: 1540:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1541:                            const char* rhs_expression,
         -: 1542:                            const T1& lhs,
         -: 1543:                            const T2& rhs) {
-        5: 1544:  if (lhs == rhs) {
-        5: 1544-block  0
-        5: 1545:    return AssertionSuccess();
-        5: 1545-block  0
+       30: 1544:  if (lhs == rhs) {
+       30: 1544-block  0
+       30: 1545:    return AssertionSuccess();
+       30: 1545-block  0
         -: 1546:  }
         -: 1547:
     #####: 1548:  return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
@@ -1704,26 +1705,26 @@ _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcES
         -: 1565:      // and the other is the null pointer constant.
         -: 1566:      typename std::enable_if<!std::is_integral<T1>::value ||
         -: 1567:                              !std::is_pointer<T2>::value>::type* = nullptr>
-        6: 1568:  static AssertionResult Compare(const char* lhs_expression,
+       32: 1568:  static AssertionResult Compare(const char* lhs_expression,
         -: 1569:                                 const char* rhs_expression, const T1& lhs,
         -: 1570:                                 const T2& rhs) {
-        6: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+       32: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
         -: 1572:  }
 ------------------
 _ZN7testing8internal8EqHelper7CompareIddLPv0EEENS_15AssertionResultEPKcS6_RKT_RKT0_:
-        1: 1568:  static AssertionResult Compare(const char* lhs_expression,
+        2: 1568:  static AssertionResult Compare(const char* lhs_expression,
         -: 1569:                                 const char* rhs_expression, const T1& lhs,
         -: 1570:                                 const T2& rhs) {
-        1: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
-        1: 1571-block  0
+        2: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+        2: 1571-block  0
         -: 1572:  }
 ------------------
 _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_LPv0EEENS_15AssertionResultEPKcSC_RKT_RKT0_:
-        5: 1568:  static AssertionResult Compare(const char* lhs_expression,
+       30: 1568:  static AssertionResult Compare(const char* lhs_expression,
         -: 1569:                                 const char* rhs_expression, const T1& lhs,
         -: 1570:                                 const T2& rhs) {
-        5: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
-        5: 1571-block  0
+       30: 1571:    return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+       30: 1571-block  0
         -: 1572:  }
 ------------------
         -: 1573:
@@ -1914,36 +1915,6 @@ _ZN7testing8internal18CmpHelperOpFailureISt10shared_ptrI20HourlyClassificationES
     $$$$$: 1608-block  7
         -: 1609:}
 ------------------
-_ZN7testing8internal18CmpHelperOpFailureISt10shared_ptrI10HoldMethodES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_S7_:
-    #####: 1602:AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
-        -: 1603:                                   const T1& val1, const T2& val2,
-        -: 1604:                                   const char* op) {
-    #####: 1605:  return AssertionFailure()
-    %%%%%: 1605-block  0
-    $$$$$: 1605-block  1
-    #####: 1606:         << "Expected: (" << expr1 << ") " << op << " (" << expr2
-    %%%%%: 1606-block  0
-    %%%%%: 1606-block  1
-    %%%%%: 1606-block  2
-    %%%%%: 1606-block  3
-    %%%%%: 1606-block  4
-    #####: 1607:         << "), actual: " << FormatForComparisonFailureMessage(val1, val2)
-    %%%%%: 1607-block  0
-    %%%%%: 1607-block  1
-    %%%%%: 1607-block  2
-    $$$$$: 1607-block  3
-    $$$$$: 1607-block  4
-    #####: 1608:         << " vs " << FormatForComparisonFailureMessage(val2, val1);
-    %%%%%: 1608-block  0
-    %%%%%: 1608-block  1
-    %%%%%: 1608-block  2
-    %%%%%: 1608-block  3
-    %%%%%: 1608-block  4
-    %%%%%: 1608-block  5
-    $$$$$: 1608-block  6
-    $$$$$: 1608-block  7
-        -: 1609:}
-------------------
 _ZN7testing8internal18CmpHelperOpFailureISt10shared_ptrI14WeeklyScheduleES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_S7_:
     #####: 1602:AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
         -: 1603:                                   const T1& val1, const T2& val2,
@@ -2002,48 +1973,42 @@ _ZN7testing8internal18CmpHelperOpFailureISt10shared_ptrI14WeeklyScheduleES4_EENS
         -: 1635:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
         -: 1636:
         -: 1637:// Implements the helper function for {ASSERT|EXPECT}_NE
-      15*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+      30*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
 ------------------
 _ZN7testing8internal11CmpHelperNEISt10shared_ptrI26CommissionedClassificationES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       2*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        2: 1638-block  0
-        2: 1638-block  1
+       3*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+        3: 1638-block  0
+        3: 1638-block  1
     %%%%%: 1638-block  2
 ------------------
 _ZN7testing8internal11CmpHelperNEISt10shared_ptrI16BiweeklyScheduleES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       2*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        2: 1638-block  0
-        2: 1638-block  1
+       3*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+        3: 1638-block  0
+        3: 1638-block  1
     %%%%%: 1638-block  2
 ------------------
 _ZN7testing8internal11CmpHelperNEISt10shared_ptrI22SalariedClassificationES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       1*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        1: 1638-block  0
-        1: 1638-block  1
+       2*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+        2: 1638-block  0
+        2: 1638-block  1
     %%%%%: 1638-block  2
 ------------------
 _ZN7testing8internal11CmpHelperNEISt10shared_ptrI15MonthlyScheduleES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       1*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        1: 1638-block  0
-        1: 1638-block  1
+       2*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+        2: 1638-block  0
+        2: 1638-block  1
     %%%%%: 1638-block  2
 ------------------
 _ZN7testing8internal11CmpHelperNEISt10shared_ptrI20HourlyClassificationES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       2*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        2: 1638-block  0
-        2: 1638-block  1
-    %%%%%: 1638-block  2
-------------------
-_ZN7testing8internal11CmpHelperNEISt10shared_ptrI10HoldMethodES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       5*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        5: 1638-block  0
-        5: 1638-block  1
+      10*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+       10: 1638-block  0
+       10: 1638-block  1
     %%%%%: 1638-block  2
 ------------------
 _ZN7testing8internal11CmpHelperNEISt10shared_ptrI14WeeklyScheduleES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_:
-       2*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
-        2: 1638-block  0
-        2: 1638-block  1
+      10*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+       10: 1638-block  0
+       10: 1638-block  1
     %%%%%: 1638-block  2
 ------------------
         -: 1639:// Implements the helper function for {ASSERT|EXPECT}_LE
@@ -2154,17 +2119,17 @@ _ZN7testing8internal11CmpHelperNEISt10shared_ptrI14WeeklyScheduleES4_EENS_15Asse
         -: 1744://
         -: 1745:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
         -: 1746:template <typename RawType>
-        7: 1747:AssertionResult CmpHelperFloatingPointEQ(const char* lhs_expression,
+       18: 1747:AssertionResult CmpHelperFloatingPointEQ(const char* lhs_expression,
         -: 1748:                                         const char* rhs_expression,
         -: 1749:                                         RawType lhs_value,
         -: 1750:                                         RawType rhs_value) {
-        7: 1751:  const FloatingPoint<RawType> lhs(lhs_value), rhs(rhs_value);
-        7: 1751-block  0
+       18: 1751:  const FloatingPoint<RawType> lhs(lhs_value), rhs(rhs_value);
+       18: 1751-block  0
         -: 1752:
-        7: 1753:  if (lhs.AlmostEquals(rhs)) {
-        7: 1753-block  0
-        7: 1754:    return AssertionSuccess();
-        7: 1754-block  0
+       18: 1753:  if (lhs.AlmostEquals(rhs)) {
+       18: 1753-block  0
+       18: 1754:    return AssertionSuccess();
+       18: 1754-block  0
         -: 1755:  }
         -: 1756:
     #####: 1757:  ::std::stringstream lhs_ss;

@@ -50,8 +50,8 @@
         -:   46:   */
         -:   47:  template<typename _Tp>
         -:   48:    inline _GLIBCXX_CONSTEXPR _Tp*
-       2*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-       2*:   50:    { return __builtin_addressof(__r); }
+       4*:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+       4*:   50:    { return __builtin_addressof(__r); }
 ------------------
 _ZSt11__addressofIKSt10shared_ptrI26CommissionedClassificationEEPT_RS4_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
@@ -78,11 +78,6 @@ _ZSt11__addressofIKSt10shared_ptrI20HourlyClassificationEEPT_RS4_:
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
 ------------------
-_ZSt11__addressofIKSt10shared_ptrI10HoldMethodEEPT_RS4_:
-    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-    #####:   50:    { return __builtin_addressof(__r); }
-    %%%%%:   50-block  0
-------------------
 _ZSt11__addressofIKSt10shared_ptrI14WeeklyScheduleEEPT_RS4_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
@@ -93,10 +88,20 @@ _ZSt11__addressofIKcEPT_RS1_:
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
 ------------------
+_ZSt11__addressofI13ServiceChargeEPT_RS1_:
+    #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    #####:   50:    { return __builtin_addressof(__r); }
+    %%%%%:   50-block  0
+------------------
 _ZSt11__addressofIcEPT_RS0_:
     #####:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
     #####:   50:    { return __builtin_addressof(__r); }
     %%%%%:   50-block  0
+------------------
+_ZSt11__addressofIK12SalesReceiptEPT_RS2_:
+        2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+        2:   50:    { return __builtin_addressof(__r); }
+        2:   50-block  0
 ------------------
 _ZSt11__addressofIK8TimeCardEPT_RS2_:
         2:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
@@ -128,8 +133,19 @@ _ZSt11__addressofIK8TimeCardEPT_RS2_:
         -:   73:   */
         -:   74:  template<typename _Tp>
         -:   75:    constexpr _Tp&&
-        -:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-        -:   77:    { return static_cast<_Tp&&>(__t); }
+      105:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+      105:   77:    { return static_cast<_Tp&&>(__t); }
+------------------
+_ZSt7forwardI13ServiceChargeEOT_RNSt16remove_referenceIS1_E4typeE:
+       62:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       62:   77:    { return static_cast<_Tp&&>(__t); }
+       62:   77-block  0
+------------------
+_ZSt7forwardIRK13ServiceChargeEOT_RNSt16remove_referenceIS3_E4typeE:
+       43:   76:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       43:   77:    { return static_cast<_Tp&&>(__t); }
+       43:   77-block  0
+------------------
         -:   78:
         -:   79:  /**
         -:   80:   *  @brief  Forward an rvalue.
@@ -153,8 +169,13 @@ _ZSt11__addressofIK8TimeCardEPT_RS2_:
         -:   98:  */
         -:   99:  template<typename _Tp>
         -:  100:    constexpr typename std::remove_reference<_Tp>::type&&
-    #####:  101:    move(_Tp&& __t) noexcept
-    #####:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+      72*:  101:    move(_Tp&& __t) noexcept
+      72*:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+------------------
+_ZSt4moveIR13ServiceChargeEONSt16remove_referenceIT_E4typeEOS3_:
+       72:  101:    move(_Tp&& __t) noexcept
+       72:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       72:  102-block  0
 ------------------
 _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
     #####:  101:    move(_Tp&& __t) noexcept
@@ -236,11 +257,6 @@ _ZSt9addressofIKSt10shared_ptrI20HourlyClassificationEEPT_RS4_:
     #####:  141:    { return std::__addressof(__r); }
     %%%%%:  141-block  0
 ------------------
-_ZSt9addressofIKSt10shared_ptrI10HoldMethodEEPT_RS4_:
-    #####:  140:    addressof(_Tp& __r) noexcept
-    #####:  141:    { return std::__addressof(__r); }
-    %%%%%:  141-block  0
-------------------
 _ZSt9addressofIKSt10shared_ptrI14WeeklyScheduleEEPT_RS4_:
     #####:  140:    addressof(_Tp& __r) noexcept
     #####:  141:    { return std::__addressof(__r); }
@@ -303,7 +319,7 @@ _ZSt9addressofIcEPT_RS0_:
         -:  186:#else
         -:  187:    void
         -:  188:#endif
-        -:  189:    swap(_Tp& __a, _Tp& __b)
+        1:  189:    swap(_Tp& __a, _Tp& __b)
         -:  190:    _GLIBCXX_NOEXCEPT_IF(__and_<is_nothrow_move_constructible<_Tp>,
         -:  191:				is_nothrow_move_assignable<_Tp>>::value)
         -:  192:    {
@@ -311,10 +327,11 @@ _ZSt9addressofIcEPT_RS0_:
         -:  194:      // concept requirements
         -:  195:      __glibcxx_function_requires(_SGIAssignableConcept<_Tp>)
         -:  196:#endif
-        -:  197:      _Tp __tmp = _GLIBCXX_MOVE(__a);
-        -:  198:      __a = _GLIBCXX_MOVE(__b);
-        -:  199:      __b = _GLIBCXX_MOVE(__tmp);
-        -:  200:    }
+        1:  197:      _Tp __tmp = _GLIBCXX_MOVE(__a);
+        1:  197-block  0
+        1:  198:      __a = _GLIBCXX_MOVE(__b);
+        1:  199:      __b = _GLIBCXX_MOVE(__tmp);
+        1:  200:    }
         -:  201:
         -:  202:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  203:  // DR 809. std::swap should be overloaded for array types.

@@ -52,3 +52,38 @@ std::shared_ptr<PaymentSchedule> ChangeToCommissionedTransaction::getSchedule() 
 {
     return std::make_shared<BiweeklySchedule>();
 }
+
+void ChangeMethodTransaction::change(std::shared_ptr<Employee> employee)
+{
+    employee->setPaymentMethod(getPaymentMethod());
+}
+
+ChangeToDirectMethodTransaction::ChangeToDirectMethodTransaction(int id, std::string bank, int account) :
+    ChangeMethodTransaction(id),
+    bank(bank),
+    account(account)
+{}
+
+std::shared_ptr<PaymentMethod> ChangeToDirectMethodTransaction::getPaymentMethod()
+{
+    return std::make_shared<DirectMethod>(bank, account);
+}
+
+ChangeToMailMethodTransaction::ChangeToMailMethodTransaction(int id, std::string address) :
+    ChangeMethodTransaction(id),
+    address(address)
+{}
+
+std::shared_ptr<PaymentMethod> ChangeToMailMethodTransaction::getPaymentMethod()
+{
+    return std::make_shared<MailMethod>(address);
+}
+
+ChangeToHoldMethodTransaction::ChangeToHoldMethodTransaction(int id) :
+    ChangeMethodTransaction(id)
+{}
+
+std::shared_ptr<PaymentMethod> ChangeToHoldMethodTransaction::getPaymentMethod()
+{
+    return std::make_shared<HoldMethod>();
+}

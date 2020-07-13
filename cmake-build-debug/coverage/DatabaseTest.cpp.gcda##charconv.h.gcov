@@ -48,24 +48,24 @@
         -:   44:  // Generic implementation for arbitrary bases.
         -:   45:  template<typename _Tp>
         -:   46:    _GLIBCXX14_CONSTEXPR unsigned
-       16:   47:    __to_chars_len(_Tp __value, int __base = 10) noexcept
+       17:   47:    __to_chars_len(_Tp __value, int __base = 10) noexcept
         -:   48:    {
         -:   49:      static_assert(is_integral<_Tp>::value, "implementation bug");
         -:   50:      static_assert(is_unsigned<_Tp>::value, "implementation bug");
         -:   51:
-       16:   52:      unsigned __n = 1;
-       16:   53:      const unsigned __b2 = __base  * __base;
-       16:   54:      const unsigned __b3 = __b2 * __base;
-       16:   55:      const unsigned long __b4 = __b3 * __base;
-       16:   55-block  0
+       17:   52:      unsigned __n = 1;
+       17:   53:      const unsigned __b2 = __base  * __base;
+       17:   54:      const unsigned __b3 = __b2 * __base;
+       17:   55:      const unsigned long __b4 = __b3 * __base;
+       17:   55-block  0
         -:   56:      for (;;)
         -:   57:	{
-       16:   58:	  if (__value < (unsigned)__base) return __n;
-       16:   58-block  0
+       17:   58:	  if (__value < (unsigned)__base) return __n;
+       17:   58-block  0
        16:   58-block  1
-    #####:   59:	  if (__value < __b2) return __n + 1;
-    %%%%%:   59-block  0
-    %%%%%:   59-block  1
+        1:   59:	  if (__value < __b2) return __n + 1;
+        1:   59-block  0
+        1:   59-block  1
     #####:   60:	  if (__value < __b3) return __n + 2;
     %%%%%:   60-block  0
     %%%%%:   60-block  1
@@ -83,7 +83,7 @@
         -:   69:  // (which can be determined by the __to_chars_len function).
         -:   70:  template<typename _Tp>
         -:   71:    void
-       16:   72:    __to_chars_10_impl(char* __first, unsigned __len, _Tp __val) noexcept
+       17:   72:    __to_chars_10_impl(char* __first, unsigned __len, _Tp __val) noexcept
         -:   73:    {
         -:   74:      static_assert(is_integral<_Tp>::value, "implementation bug");
         -:   75:      static_assert(is_unsigned<_Tp>::value, "implementation bug");
@@ -94,10 +94,10 @@
         -:   80:	"4041424344454647484950515253545556575859"
         -:   81:	"6061626364656667686970717273747576777879"
         -:   82:	"8081828384858687888990919293949596979899";
-       16:   83:      unsigned __pos = __len - 1;
-       16:   83-block  0
-      16*:   84:      while (__val >= 100)
-       16:   84-block  0
+       17:   83:      unsigned __pos = __len - 1;
+       17:   83-block  0
+      17*:   84:      while (__val >= 100)
+       17:   84-block  0
         -:   85:	{
     #####:   86:	  auto const __num = (__val % 100) * 2;
     #####:   87:	  __val /= 100;
@@ -106,18 +106,18 @@
     #####:   90:	  __pos -= 2;
     %%%%%:   90-block  0
         -:   91:	}
-       16:   92:      if (__val >= 10)
-       16:   92-block  0
+       17:   92:      if (__val >= 10)
+       17:   92-block  0
         -:   93:	{
-    #####:   94:	  auto const __num = __val * 2;
-    #####:   95:	  __first[1] = __digits[__num + 1];
-    #####:   96:	  __first[0] = __digits[__num];
-    %%%%%:   96-block  0
+        1:   94:	  auto const __num = __val * 2;
+        1:   95:	  __first[1] = __digits[__num + 1];
+        1:   96:	  __first[0] = __digits[__num];
+        1:   96-block  0
         -:   97:	}
         -:   98:      else
        16:   99:	__first[0] = '0' + __val;
        16:   99-block  0
-       16:  100:    }
+       17:  100:    }
         -:  101:
         -:  102:} // namespace __detail
         -:  103:_GLIBCXX_END_NAMESPACE_VERSION

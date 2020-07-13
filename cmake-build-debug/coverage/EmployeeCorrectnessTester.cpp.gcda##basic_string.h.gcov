@@ -157,9 +157,8 @@
         -:  153:	_Alloc_hider(pointer __dat, const _Alloc& __a = _Alloc())
         -:  154:	: allocator_type(__a), _M_p(__dat) { }
         -:  155:#else
-    #####:  156:	_Alloc_hider(pointer __dat, const _Alloc& __a)
-    #####:  157:	: allocator_type(__a), _M_p(__dat) { }
-    %%%%%:  157-block  0
+        -:  156:	_Alloc_hider(pointer __dat, const _Alloc& __a)
+        -:  157:	: allocator_type(__a), _M_p(__dat) { }
         -:  158:
     #####:  159:	_Alloc_hider(pointer __dat, _Alloc&& __a = _Alloc())
     #####:  160:	: allocator_type(std::move(__a)), _M_p(__dat) { }
@@ -254,14 +253,12 @@
         -:  240:      // requires special behaviour if _InIterator is an integral type
         -:  241:      template<typename _InIterator>
         -:  242:        void
-    #####:  243:        _M_construct_aux(_InIterator __beg, _InIterator __end,
+        -:  243:        _M_construct_aux(_InIterator __beg, _InIterator __end,
         -:  244:			 std::__false_type)
         -:  245:	{
         -:  246:          typedef typename iterator_traits<_InIterator>::iterator_category _Tag;
-    #####:  247:          _M_construct(__beg, __end, _Tag());
-    %%%%%:  247-block  0
-    #####:  248:	}
-    %%%%%:  248-block  0
+        -:  247:          _M_construct(__beg, __end, _Tag());
+        -:  248:	}
         -:  249:
         -:  250:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  251:      // 438. Ambiguity in the "do the right thing" clause
@@ -276,12 +273,11 @@
         -:  260:
         -:  261:      template<typename _InIterator>
         -:  262:        void
-    #####:  263:        _M_construct(_InIterator __beg, _InIterator __end)
+        -:  263:        _M_construct(_InIterator __beg, _InIterator __end)
         -:  264:	{
         -:  265:	  typedef typename std::__is_integer<_InIterator>::__type _Integral;
-    #####:  266:	  _M_construct_aux(__beg, __end, _Integral());
-    %%%%%:  266-block  0
-    #####:  267:        }
+        -:  266:	  _M_construct_aux(__beg, __end, _Integral());
+        -:  267:        }
         -:  268:
         -:  269:      // For Input Iterators, used in istreambuf_iterators, etc.
         -:  270:      template<typename _InIterator>
@@ -355,15 +351,10 @@
         -:  334:
         -:  335:      // True if _Rep and source do not overlap.
         -:  336:      bool
-    #####:  337:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
+        -:  337:      _M_disjunct(const _CharT* __s) const _GLIBCXX_NOEXCEPT
         -:  338:      {
-    #####:  339:	return (less<const _CharT*>()(__s, _M_data())
-    %%%%%:  339-block  0
-    #####:  340:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
-    %%%%%:  340-block  0
-    %%%%%:  340-block  1
-    %%%%%:  340-block  2
-    %%%%%:  340-block  3
+        -:  339:	return (less<const _CharT*>()(__s, _M_data())
+        -:  340:		|| less<const _CharT*>()(_M_data() + this->size(), __s));
         -:  341:      }
         -:  342:
         -:  343:      // When __n = 1 way faster than the general multichar
@@ -381,16 +372,13 @@
     #####:  352:      }
         -:  353:
         -:  354:      static void
-    #####:  355:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
+        -:  355:      _S_move(_CharT* __d, const _CharT* __s, size_type __n)
         -:  356:      {
-    #####:  357:	if (__n == 1)
-    %%%%%:  357-block  0
-    #####:  358:	  traits_type::assign(*__d, *__s);
-    %%%%%:  358-block  0
+        -:  357:	if (__n == 1)
+        -:  358:	  traits_type::assign(*__d, *__s);
         -:  359:	else
-    #####:  360:	  traits_type::move(__d, __s, __n);
-    %%%%%:  360-block  0
-    #####:  361:      }
+        -:  360:	  traits_type::move(__d, __s, __n);
+        -:  361:      }
         -:  362:
         -:  363:      static void
         -:  364:      _S_assign(_CharT* __d, size_type __n, _CharT __c)
@@ -421,9 +409,8 @@
         -:  389:      { _S_copy_chars(__p, __k1.base(), __k2.base()); }
         -:  390:
         -:  391:      static void
-    #####:  392:      _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2) _GLIBCXX_NOEXCEPT
-    #####:  393:      { _S_copy(__p, __k1, __k2 - __k1); }
-    %%%%%:  393-block  0
+        -:  392:      _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2) _GLIBCXX_NOEXCEPT
+        -:  393:      { _S_copy(__p, __k1, __k2 - __k1); }
         -:  394:
         -:  395:      static void
         -:  396:      _S_copy_chars(_CharT* __p, const _CharT* __k1, const _CharT* __k2)
@@ -471,22 +458,18 @@
         -:  437:       *  @brief  Construct an empty string using allocator @a a.
         -:  438:       */
         -:  439:      explicit
-    #####:  440:      basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
-    #####:  441:      : _M_dataplus(_M_local_data(), __a)
-    %%%%%:  441-block  0
-    #####:  442:      { _M_set_length(0); }
+        -:  440:      basic_string(const _Alloc& __a) _GLIBCXX_NOEXCEPT
+        -:  441:      : _M_dataplus(_M_local_data(), __a)
+        -:  442:      { _M_set_length(0); }
         -:  443:
         -:  444:      /**
         -:  445:       *  @brief  Construct string with copy of value of @a __str.
         -:  446:       *  @param  __str  Source string.
         -:  447:       */
-    #####:  448:      basic_string(const basic_string& __str)
+        -:  448:      basic_string(const basic_string& __str)
         -:  449:      : _M_dataplus(_M_local_data(),
-    #####:  450:		    _Alloc_traits::_S_select_on_copy(__str._M_get_allocator()))
-    %%%%%:  450-block  0
-    $$$$$:  450-block  1
-    #####:  451:      { _M_construct(__str._M_data(), __str._M_data() + __str.length()); }
-    %%%%%:  451-block  0
+        -:  450:		    _Alloc_traits::_S_select_on_copy(__str._M_get_allocator()))
+        -:  451:      { _M_construct(__str._M_data(), __str._M_data() + __str.length()); }
         -:  452:
         -:  453:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  454:      // 2583. no way to supply an allocator for basic_string(str, pos)
@@ -711,9 +694,8 @@
         -:  672:       *  @param  __s  Source null-terminated string.
         -:  673:       */
         -:  674:      basic_string&
-    #####:  675:      operator=(const _CharT* __s)
-    #####:  676:      { return this->assign(__s); }
-    %%%%%:  676-block  0
+        -:  675:      operator=(const _CharT* __s)
+        -:  676:      { return this->assign(__s); }
         -:  677:
         -:  678:      /**
         -:  679:       *  @brief  Set value to string of length 1.
@@ -1192,9 +1174,8 @@
         -: 1145:       *  @return  Reference to this string.
         -: 1146:       */
         -: 1147:      basic_string&
-    #####: 1148:      operator+=(const _CharT* __s)
-    #####: 1149:      { return this->append(__s); }
-    %%%%%: 1149-block  0
+        -: 1148:      operator+=(const _CharT* __s)
+        -: 1149:      { return this->append(__s); }
         -: 1150:
         -: 1151:      /**
         -: 1152:       *  @brief  Append a character.
@@ -1237,9 +1218,8 @@
         -: 1189:       *  @return  Reference to this string.
         -: 1190:       */
         -: 1191:      basic_string&
-    #####: 1192:      append(const basic_string& __str)
-    #####: 1193:      { return _M_append(__str._M_data(), __str.size()); }
-    %%%%%: 1193-block  0
+        -: 1192:      append(const basic_string& __str)
+        -: 1193:      { return _M_append(__str._M_data(), __str.size()); }
         -: 1194:
         -: 1195:      /**
         -: 1196:       *  @brief  Append a substring.
@@ -1267,12 +1247,11 @@
         -: 1218:       *  @return  Reference to this string.
         -: 1219:       */
         -: 1220:      basic_string&
-    #####: 1221:      append(const _CharT* __s, size_type __n)
+        -: 1221:      append(const _CharT* __s, size_type __n)
         -: 1222:      {
         -: 1223:	__glibcxx_requires_string_len(__s, __n);
-    #####: 1224:	_M_check_length(size_type(0), __n, "basic_string::append");
-    %%%%%: 1224-block  0
-    #####: 1225:	return _M_append(__s, __n);
+        -: 1224:	_M_check_length(size_type(0), __n, "basic_string::append");
+        -: 1225:	return _M_append(__s, __n);
         -: 1226:      }
         -: 1227:
         -: 1228:      /**
@@ -1483,12 +1462,11 @@
         -: 1432:       *  function returns.
         -: 1433:       */
         -: 1434:      basic_string&
-    #####: 1435:      assign(const _CharT* __s)
+        -: 1435:      assign(const _CharT* __s)
         -: 1436:      {
         -: 1437:	__glibcxx_requires_string(__s);
-    #####: 1438:	return _M_replace(size_type(0), this->size(), __s,
-    %%%%%: 1438-block  0
-    #####: 1439:			  traits_type::length(__s));
+        -: 1438:	return _M_replace(size_type(0), this->size(), __s,
+        -: 1439:			  traits_type::length(__s));
         -: 1440:      }
         -: 1441:
         -: 1442:      /**
@@ -2361,9 +2339,9 @@
         -: 2308:       *  (or in C++17 the non-const @c str.data() overload).
         -: 2309:      */
         -: 2310:      const _CharT*
-       10: 2311:      data() const _GLIBCXX_NOEXCEPT
-       10: 2312:      { return _M_data(); }
-       10: 2312-block  0
+       60: 2311:      data() const _GLIBCXX_NOEXCEPT
+       60: 2312:      { return _M_data(); }
+       60: 2312-block  0
         -: 2313:
         -: 2314:#if __cplusplus >= 201703L
         -: 2315:      /**
@@ -2381,9 +2359,8 @@
         -: 2327:       *  @brief  Return copy of allocator used to construct this string.
         -: 2328:      */
         -: 2329:      allocator_type
-    #####: 2330:      get_allocator() const _GLIBCXX_NOEXCEPT
-    #####: 2331:      { return _M_get_allocator(); }
-    %%%%%: 2331-block  0
+        -: 2330:      get_allocator() const _GLIBCXX_NOEXCEPT
+        -: 2331:      { return _M_get_allocator(); }
         -: 2332:
         -: 2333:      /**
         -: 2334:       *  @brief  Find position of a C substring.
@@ -6213,16 +6190,16 @@
         -: 6158:  template<typename _CharT>
         -: 6159:    inline
         -: 6160:    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value, bool>::__type
-        5: 6161:    operator==(const basic_string<_CharT>& __lhs,
+       30: 6161:    operator==(const basic_string<_CharT>& __lhs,
         -: 6162:	       const basic_string<_CharT>& __rhs) _GLIBCXX_NOEXCEPT
-        5: 6163:    { return (__lhs.size() == __rhs.size()
-        5: 6163-block  0
-       5*: 6164:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
-        5: 6164-block  0
-        5: 6164-block  1
+       30: 6163:    { return (__lhs.size() == __rhs.size()
+       30: 6163-block  0
+      30*: 6164:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
+       30: 6164-block  0
+       30: 6164-block  1
     %%%%%: 6164-block  2
-        5: 6165:						    __lhs.size())); }
-        5: 6165-block  0
+       30: 6165:						    __lhs.size())); }
+       30: 6165-block  0
         -: 6166:
         -: 6167:  /**
         -: 6168:   *  @brief  Test equivalence of string and C string.

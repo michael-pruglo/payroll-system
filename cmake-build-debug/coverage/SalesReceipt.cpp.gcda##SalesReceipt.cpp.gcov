@@ -64,46 +64,19 @@
     $$$$$:   17-block 11
         -:   18:    }
         -:   19:
-       1*:   20:    void assertDatabaseContains(int id) { ASSERT_NO_THROW(database->getEmployee(id)); }
-        1:   20-block  0
-        1:   20-block  1
-        1:   20-block  2
-        1:   20-block  3
-        1:   20-block  4
-    %%%%%:   20-block  5
-    %%%%%:   20-block  6
-    %%%%%:   20-block  7
-    %%%%%:   20-block  8
-    %%%%%:   20-block  9
-    $$$$$:   20-block 10
-    $$$$$:   20-block 11
-    $$$$$:   20-block 12
-    $$$$$:   20-block 13
-    $$$$$:   20-block 14
-    $$$$$:   20-block 15
-    $$$$$:   20-block 16
-    $$$$$:   20-block 17
-    $$$$$:   20-block 18
-    $$$$$:   20-block 19
-    $$$$$:   20-block 20
-    $$$$$:   20-block 21
-    $$$$$:   20-block 22
-    $$$$$:   20-block 23
-    $$$$$:   20-block 24
-    $$$$$:   20-block 25
-        -:   21:
-        -:   22:    int id = 11;
-        -:   23:    std::string name = "Nick", address = "Nicaragua";
-        -:   24:    Date date = Date(2020, 7, 7);
-        -:   25:    double amount = 17.0, cSalary = 600.0, cRate = 33.0;
-        -:   26:};
-        -:   27:
-        4:   28:TEST_F(SalesReceiptTest, SalesReceiptUpdates)
-        -:   29:{
-        1:   30:    assertDatabaseContains(id);
-        -:   31:
-        1:   32:    SalesReceiptTransaction srt(date, amount, id);
-       1*:   33:    ASSERT_NO_THROW(srt.execute());
-        -:   34:
-        1:   35:    CommissionedEmployeeCorrectnessTester(cSalary, cRate, SalesReceipt(date, amount)).invoke(id, name);
-        -:   36:}
+        -:   20:    int id = 11;
+        -:   21:    std::string name = "Nick", address = "Nicaragua";
+        -:   22:    Date date = Date(2020, 7, 7);
+        -:   23:    double amount = 17.0, cSalary = 600.0, cRate = 33.0;
+        -:   24:};
+        -:   25:
+        4:   26:TEST_F(SalesReceiptTest, SalesReceiptUpdates)
+        -:   27:{
+        1:   28:    assertDatabaseContains(id);
+        -:   29:
+        1:   30:    SalesReceiptTransaction srt(date, amount, id);
+       1*:   31:    ASSERT_NO_THROW(srt.execute());
+        -:   32:
+        1:   33:    CommissionedEmployeeCorrectnessTester(*database->getEmployee(id),
+        2:   34:            cSalary, cRate, SalesReceipt(date, amount)).invoke(id, name, address);
+        -:   35:}

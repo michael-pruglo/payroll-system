@@ -15,15 +15,28 @@ public:
     virtual ~EmployeeCorrectnessTester() = default;
     void addServiceCharge(ServiceCharge serviceCharge);
 
-    void invoke(int idToCheck, std::string nameToCheck, std::string addressToCheck);
+    template <typename PaymentMethodType = HoldMethod>
+    void invoke(int idToCheck, std::string nameToCheck, std::string addressToCheck)
+    {
+        testName(givenE.getName(), nameToCheck);
+        testAddress(givenE.getAddress(), addressToCheck);
+        testClassification(givenE.getPaymentClassification());
+        testIsCorrectDerivedType<PaymentMethodType>(givenE.getPaymentMethod());
+        testScheduleType();
+        testServiceChargeList(givenE.getAffiliation()->getServiceCharges());
+    }
 
 protected:
-    virtual void testEmployeeType() = 0;
+    virtual void testScheduleType() = 0;
     void testName(std::string givenName, std::string nameToCheck) const;
     void testAddress(std::string givenAddress, std::string addressToCheck) const;
     virtual void testClassification(std::shared_ptr<PaymentClassification> pc) const = 0;
     template<typename ExpectedT, typename ActualT>
-    void testIsCorrectDerivedType(ActualT ptrToBase) const;
+    void testIsCorrectDerivedType(ActualT ptrToBase) const
+    {
+        auto ptrToDerived = std::dynamic_pointer_cast<ExpectedT>(ptrToBase);
+        ASSERT_NE(ptrToDerived, decltype(ptrToDerived)());
+    }
 
 protected:
     Employee givenE;
@@ -44,7 +57,7 @@ public:
     { timeCard = std::make_optional<TimeCard>(tc); }
 
 private:
-    void testEmployeeType() override;
+    void testScheduleType() override;
     void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
 
     double hRate;
@@ -59,7 +72,7 @@ public:
         sSalary(sSalary)
     {}
 private:
-    void testEmployeeType() override;
+    void testScheduleType() override;
     void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
     double sSalary;
 };
@@ -76,7 +89,7 @@ public:
         CommissionedEmployeeCorrectnessTester(e, cSalary, cRate)
     { salesReceipt = std::make_optional<SalesReceipt>(sr); }
 private:
-    void testEmployeeType() override;
+    void testScheduleType() override;
     void testClassification(std::shared_ptr<PaymentClassification> pc) const override;
     double cSalary, cRate;
     std::optional<SalesReceipt> salesReceipt;

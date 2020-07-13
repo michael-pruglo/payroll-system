@@ -501,9 +501,19 @@
         -:  497:  template<typename _Iterator>
         -:  498:    _GLIBCXX20_CONSTEXPR
         -:  499:    inline _Iterator
+       4*:  500:    __miter_base(_Iterator __it)
+       4*:  501:    { return __it; }
+------------------
+_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIP13ServiceChargeSt6vectorIS2_SaIS2_EEEEET_S8_:
+        4:  500:    __miter_base(_Iterator __it)
+        4:  501:    { return __it; }
+        4:  501-block  0
+------------------
+_ZSt12__miter_baseIPKcET_S2_:
     #####:  500:    __miter_base(_Iterator __it)
     #####:  501:    { return __it; }
     %%%%%:  501-block  0
+------------------
         -:  502:
         -:  503:_GLIBCXX_END_NAMESPACE_VERSION
         -:  504:} // namespace

@@ -149,10 +149,34 @@
         -:  145:       *  @post   use_count()==0 && get()==0
         -:  146:       */
     #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+------------------
+_ZNSt10shared_ptrI10HoldMethodEC1Ev:
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
     %%%%%:  147-block  0
+------------------
+_ZNSt10shared_ptrI26CommissionedClassificationEC1Ev:
+    #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+    %%%%%:  147-block  0
+------------------
         -:  148:
     #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+------------------
+_ZNSt10shared_ptrI11AffiliationEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
     %%%%%:  149-block  0
+------------------
+_ZNSt10shared_ptrI13PaymentMethodEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
+_ZNSt10shared_ptrI15PaymentScheduleEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
+_ZNSt10shared_ptrI21PaymentClassificationEC1ERKS1_:
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
+------------------
         -:  150:
         -:  151:      /**
         -:  152:       *  @brief  Construct a %shared_ptr that owns the pointer @a __p.
@@ -261,7 +285,17 @@
         -:  255:      template<typename _Yp>
     #####:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
     #####:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+------------------
+_ZNSt10shared_ptrI10HoldMethodEC1I13PaymentMethodEERKS_IT_EPS0_:
+    #####:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+    #####:  257:	: __shared_ptr<_Tp>(__r, __p) { }
     %%%%%:  257-block  0
+------------------
+_ZNSt10shared_ptrI26CommissionedClassificationEC1I21PaymentClassificationEERKS_IT_EPS0_:
+    #####:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+    #####:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+    %%%%%:  257-block  0
+------------------
         -:  258:
         -:  259:#if __cplusplus > 201703L
         -:  260:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -440,8 +474,9 @@
         -:  433:  /// Equality operator for shared_ptr objects, compares the stored pointers
         -:  434:  template<typename _Tp, typename _Up>
         -:  435:    _GLIBCXX_NODISCARD inline bool
-        -:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        -:  437:    { return __a.get() == __b.get(); }
+    #####:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+    #####:  437:    { return __a.get() == __b.get(); }
+    %%%%%:  437-block  0
         -:  438:
         -:  439:  /// shared_ptr comparison with nullptr
         -:  440:  template<typename _Tp>
@@ -607,14 +642,8 @@
         -:  600:    {
         -:  601:      using _Sp = shared_ptr<_Tp>;
     #####:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-    %%%%%:  602-block  0
-    %%%%%:  602-block  1
-    %%%%%:  602-block  2
-    %%%%%:  602-block  3
     #####:  603:	return _Sp(__r, __p);
-    %%%%%:  603-block  0
     #####:  604:      return _Sp();
-    %%%%%:  604-block  0
         -:  605:    }
         -:  606:
         -:  607:#if __cplusplus >= 201703L

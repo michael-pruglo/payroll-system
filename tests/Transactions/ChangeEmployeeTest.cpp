@@ -74,16 +74,40 @@ TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
 
     HourlyEmployeeCorrectnessTester(*database->getEmployee(sId), hRate).invoke(sId, sName, sAddress);
 }
-/*
-TEST_F(ChangeEmployeeTest, ChangeMethod)
+
+TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
 {
     assertDatabaseContains(id);
 
     std::string bank = "Privat";
     int account = 937272;
-    ChangeToDirectMethodTransaction ctdmt(sId, bank, account);
+    ChangeToDirectMethodTransaction ctdmt(id, bank, account);
     ASSERT_NO_THROW(ctdmt.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        .invoke<DirectMethod>(id, name, address);
 }
- */
+
+TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
+{
+    assertDatabaseContains(id);
+
+    ChangeToMailMethodTransaction ctdmt(id, address);
+    ASSERT_NO_THROW(ctdmt.execute());
+
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        .invoke<MailMethod>(id, name, address);
+}
+
+TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMailAndBack)
+{
+    assertDatabaseContains(id);
+
+    ChangeToMailMethodTransaction ctdmt(id, address);
+    ASSERT_NO_THROW(ctdmt.execute());
+    ChangeToHoldMethodTransaction cthmt(id);
+    ASSERT_NO_THROW(cthmt.execute());
+
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        .invoke(id, name, address);
+}

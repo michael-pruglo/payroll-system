@@ -237,17 +237,17 @@ _ZN7testing7MessagelsIA12_cEERS0_RKT_:
         -:  144:  // ensure consistent result across compilers, we always treat NULL
         -:  145:  // as "(null)".
         -:  146:  template <typename T>
-       20:  147:  inline Message& operator <<(T* const& pointer) {  // NOLINT
-       20:  148:    if (pointer == nullptr) {
-       20:  148-block  0
+    #####:  147:  inline Message& operator <<(T* const& pointer) {  // NOLINT
+    #####:  148:    if (pointer == nullptr) {
+    %%%%%:  148-block  0
     #####:  149:      *ss_ << "(null)";
     %%%%%:  149-block  0
         -:  150:    } else {
-       20:  151:      *ss_ << pointer;
-       20:  151-block  0
+    #####:  151:      *ss_ << pointer;
+    %%%%%:  151-block  0
         -:  152:    }
-       20:  153:    return *this;
-       20:  153-block  0
+    #####:  153:    return *this;
+    %%%%%:  153-block  0
         -:  154:  }
         -:  155:
         -:  156:  // Since the basic IO manipulators are overloaded for both narrow

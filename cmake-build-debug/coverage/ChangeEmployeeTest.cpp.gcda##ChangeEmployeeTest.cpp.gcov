@@ -1,0 +1,682 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/ChangeEmployeeTest.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "src/Transactions/ChangeEmployeeTransaction.hpp"
+        -:    2:#include "src/Transactions/ChangeEmployeeTransaction.cpp"
+        -:    3:#include "src/Transactions/AddEmployeeTransaction.hpp"
+        -:    4:#include "utility/EmployeeCorrectnessTester.hpp"
+        -:    5:#include "utility/TestUsingDatabase.hpp"
+        -:    6:
+        -:    7:
+        -:    8:class ChangeEmployeeTest : public TestUsingDatabase
+        -:    9:{
+        -:   10:protected:
+        -:   11:
+        8:   12:    void SetUp() override
+        -:   13:    {
+       16:   14:        AddHourlyEmployee at(id, name, address, hRate);
+        8:   14-block  0
+        8:   14-block  1
+        8:   14-block  2
+    $$$$$:   14-block  3
+    $$$$$:   14-block  4
+    $$$$$:   14-block  5
+       8*:   15:        ASSERT_NO_THROW(at.execute());
+        8:   15-block  0
+        8:   15-block  1
+        8:   15-block  2
+    %%%%%:   15-block  3
+    %%%%%:   15-block  4
+    %%%%%:   15-block  5
+    %%%%%:   15-block  6
+    %%%%%:   15-block  7
+    $$$$$:   15-block  8
+    $$$$$:   15-block  9
+    $$$$$:   15-block 10
+    $$$$$:   15-block 11
+    $$$$$:   15-block 12
+    $$$$$:   15-block 13
+    $$$$$:   15-block 14
+    $$$$$:   15-block 15
+    $$$$$:   15-block 16
+    $$$$$:   15-block 17
+    $$$$$:   15-block 18
+    $$$$$:   15-block 19
+    $$$$$:   15-block 20
+    $$$$$:   15-block 21
+    $$$$$:   15-block 22
+    $$$$$:   15-block 23
+       16:   16:        AddSalariedEmployee ast(sId, sName, sAddress, sSalary);
+        8:   16-block  0
+        8:   16-block  1
+        8:   16-block  2
+    $$$$$:   16-block  3
+    $$$$$:   16-block  4
+    $$$$$:   16-block  5
+       8*:   17:        ASSERT_NO_THROW(ast.execute());
+        8:   17-block  0
+        8:   17-block  1
+        8:   17-block  2
+    %%%%%:   17-block  3
+    %%%%%:   17-block  4
+    %%%%%:   17-block  5
+    %%%%%:   17-block  6
+    %%%%%:   17-block  7
+    $$$$$:   17-block  8
+    $$$$$:   17-block  9
+    $$$$$:   17-block 10
+    $$$$$:   17-block 11
+    $$$$$:   17-block 12
+    $$$$$:   17-block 13
+    $$$$$:   17-block 14
+    $$$$$:   17-block 15
+    $$$$$:   17-block 16
+    $$$$$:   17-block 17
+    $$$$$:   17-block 18
+    $$$$$:   17-block 19
+    $$$$$:   17-block 20
+    $$$$$:   17-block 21
+    $$$$$:   17-block 22
+    $$$$$:   17-block 23
+        8:   18:        initSize = database->size();
+        8:   18-block  0
+       8*:   19:        EXPECT_EQ(initSize, 2);
+        8:   19-block  0
+    %%%%%:   19-block  1
+    %%%%%:   19-block  2
+    %%%%%:   19-block  3
+    %%%%%:   19-block  4
+        8:   19-block  5
+    $$$$$:   19-block  6
+    $$$$$:   19-block  7
+    $$$$$:   19-block  8
+    $$$$$:   19-block  9
+    $$$$$:   19-block 10
+    $$$$$:   19-block 11
+        -:   20:    }
+        -:   21:
+        -:   22:    int id = 21, sId = 22;
+        -:   23:    std::string name = "Lizz", address = "Lesoto", sName = "Sally", sAddress = "Salamore";
+        -:   24:    double hRate = 10.0, sSalary = 1028.7;
+        -:   25:};
+        -:   26:
+        4:   27:TEST_F(ChangeEmployeeTest, ChangeName)
+        -:   28:{
+        1:   29:    assertDatabaseContains(id);
+        -:   30:
+        1:   31:    std::string newName = "Elizabeth";
+        1:   32:    ChangeNameTransaction cnt(id, newName);
+       1*:   33:    ASSERT_NO_THROW(cnt.execute());
+        -:   34:
+        1:   35:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, newName, address);
+        -:   36:}
+------------------
+_ZN34ChangeEmployeeTest_ChangeName_TestD0Ev:
+        1:   27:TEST_F(ChangeEmployeeTest, ChangeName)
+        1:   27-block  0
+------------------
+_ZN34ChangeEmployeeTest_ChangeName_TestD1Ev:
+        1:   27:TEST_F(ChangeEmployeeTest, ChangeName)
+        1:   27-block  0
+------------------
+_ZN34ChangeEmployeeTest_ChangeName_Test8TestBodyEv:
+        1:   27:TEST_F(ChangeEmployeeTest, ChangeName)
+        -:   28:{
+        1:   29:    assertDatabaseContains(id);
+        1:   29-block  0
+        -:   30:
+        1:   31:    std::string newName = "Elizabeth";
+        1:   31-block  0
+    $$$$$:   31-block  1
+        1:   32:    ChangeNameTransaction cnt(id, newName);
+    $$$$$:   32-block  0
+       1*:   33:    ASSERT_NO_THROW(cnt.execute());
+        1:   33-block  0
+        1:   33-block  1
+        1:   33-block  2
+        1:   33-block  3
+    %%%%%:   33-block  4
+    %%%%%:   33-block  5
+    %%%%%:   33-block  6
+    %%%%%:   33-block  7
+    %%%%%:   33-block  8
+    $$$$$:   33-block  9
+    $$$$$:   33-block 10
+    $$$$$:   33-block 11
+    $$$$$:   33-block 12
+    $$$$$:   33-block 13
+    $$$$$:   33-block 14
+    $$$$$:   33-block 15
+    $$$$$:   33-block 16
+    $$$$$:   33-block 17
+    $$$$$:   33-block 18
+    $$$$$:   33-block 19
+    $$$$$:   33-block 20
+    $$$$$:   33-block 21
+    $$$$$:   33-block 22
+    $$$$$:   33-block 23
+    $$$$$:   33-block 24
+        -:   34:
+        1:   35:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, newName, address);
+        1:   35-block  0
+        1:   35-block  1
+        1:   35-block  2
+        1:   35-block  3
+        1:   35-block  4
+        1:   35-block  5
+        1:   35-block  6
+    $$$$$:   35-block  7
+    $$$$$:   35-block  8
+    $$$$$:   35-block  9
+    $$$$$:   35-block 10
+    $$$$$:   35-block 11
+    $$$$$:   35-block 12
+    $$$$$:   35-block 13
+    $$$$$:   35-block 14
+    $$$$$:   35-block 15
+    $$$$$:   35-block 16
+        -:   36:}
+------------------
+_ZN34ChangeEmployeeTest_ChangeName_TestC1Ev:
+        1:   27:TEST_F(ChangeEmployeeTest, ChangeName)
+        1:   27-block  0
+------------------
+        -:   37:
+        4:   38:TEST_F(ChangeEmployeeTest, ChangeAddress)
+        -:   39:{
+        1:   40:    assertDatabaseContains(id);
+        -:   41:
+        1:   42:    std::string newAddress = "England";
+        1:   43:    ChangeAddressTransaction cat(id, newAddress);
+       1*:   44:    ASSERT_NO_THROW(cat.execute());
+        -:   45:
+        1:   46:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, name, newAddress);
+        -:   47:}
+------------------
+_ZN37ChangeEmployeeTest_ChangeAddress_TestD0Ev:
+        1:   38:TEST_F(ChangeEmployeeTest, ChangeAddress)
+        1:   38-block  0
+------------------
+_ZN37ChangeEmployeeTest_ChangeAddress_TestD1Ev:
+        1:   38:TEST_F(ChangeEmployeeTest, ChangeAddress)
+        1:   38-block  0
+------------------
+_ZN37ChangeEmployeeTest_ChangeAddress_Test8TestBodyEv:
+        1:   38:TEST_F(ChangeEmployeeTest, ChangeAddress)
+        -:   39:{
+        1:   40:    assertDatabaseContains(id);
+        1:   40-block  0
+        -:   41:
+        1:   42:    std::string newAddress = "England";
+        1:   42-block  0
+    $$$$$:   42-block  1
+        1:   43:    ChangeAddressTransaction cat(id, newAddress);
+    $$$$$:   43-block  0
+       1*:   44:    ASSERT_NO_THROW(cat.execute());
+        1:   44-block  0
+        1:   44-block  1
+        1:   44-block  2
+        1:   44-block  3
+    %%%%%:   44-block  4
+    %%%%%:   44-block  5
+    %%%%%:   44-block  6
+    %%%%%:   44-block  7
+    %%%%%:   44-block  8
+    $$$$$:   44-block  9
+    $$$$$:   44-block 10
+    $$$$$:   44-block 11
+    $$$$$:   44-block 12
+    $$$$$:   44-block 13
+    $$$$$:   44-block 14
+    $$$$$:   44-block 15
+    $$$$$:   44-block 16
+    $$$$$:   44-block 17
+    $$$$$:   44-block 18
+    $$$$$:   44-block 19
+    $$$$$:   44-block 20
+    $$$$$:   44-block 21
+    $$$$$:   44-block 22
+    $$$$$:   44-block 23
+    $$$$$:   44-block 24
+        -:   45:
+        1:   46:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, name, newAddress);
+        1:   46-block  0
+        1:   46-block  1
+        1:   46-block  2
+        1:   46-block  3
+        1:   46-block  4
+        1:   46-block  5
+        1:   46-block  6
+    $$$$$:   46-block  7
+    $$$$$:   46-block  8
+    $$$$$:   46-block  9
+    $$$$$:   46-block 10
+    $$$$$:   46-block 11
+    $$$$$:   46-block 12
+    $$$$$:   46-block 13
+    $$$$$:   46-block 14
+    $$$$$:   46-block 15
+    $$$$$:   46-block 16
+        -:   47:}
+------------------
+_ZN37ChangeEmployeeTest_ChangeAddress_TestC1Ev:
+        1:   38:TEST_F(ChangeEmployeeTest, ChangeAddress)
+        1:   38-block  0
+------------------
+        -:   48:
+        4:   49:TEST_F(ChangeEmployeeTest, ChangeHourlyToCommissioned)
+        -:   50:{
+        1:   51:    assertDatabaseContains(id);
+        -:   52:
+        1:   53:    double cRate = 0.8, cSalary = 999.9;
+        1:   54:    ChangeToCommissionedTransaction ctct(id, cSalary, cRate);
+       1*:   55:    ASSERT_NO_THROW(ctct.execute());
+        -:   56:
+        1:   57:    CommissionedEmployeeCorrectnessTester(*database->getEmployee(id), cSalary, cRate).invoke(id, name, address);
+        -:   58:}
+------------------
+_ZN50ChangeEmployeeTest_ChangeHourlyToCommissioned_TestD0Ev:
+        1:   49:TEST_F(ChangeEmployeeTest, ChangeHourlyToCommissioned)
+        1:   49-block  0
+------------------
+_ZN50ChangeEmployeeTest_ChangeHourlyToCommissioned_TestD1Ev:
+        1:   49:TEST_F(ChangeEmployeeTest, ChangeHourlyToCommissioned)
+        1:   49-block  0
+------------------
+_ZN50ChangeEmployeeTest_ChangeHourlyToCommissioned_Test8TestBodyEv:
+        1:   49:TEST_F(ChangeEmployeeTest, ChangeHourlyToCommissioned)
+        -:   50:{
+        1:   51:    assertDatabaseContains(id);
+        1:   51-block  0
+        -:   52:
+        1:   53:    double cRate = 0.8, cSalary = 999.9;
+        1:   54:    ChangeToCommissionedTransaction ctct(id, cSalary, cRate);
+        1:   54-block  0
+    $$$$$:   54-block  1
+       1*:   55:    ASSERT_NO_THROW(ctct.execute());
+        1:   55-block  0
+        1:   55-block  1
+        1:   55-block  2
+    %%%%%:   55-block  3
+    %%%%%:   55-block  4
+    %%%%%:   55-block  5
+    %%%%%:   55-block  6
+    %%%%%:   55-block  7
+    $$$$$:   55-block  8
+    $$$$$:   55-block  9
+    $$$$$:   55-block 10
+    $$$$$:   55-block 11
+    $$$$$:   55-block 12
+    $$$$$:   55-block 13
+    $$$$$:   55-block 14
+    $$$$$:   55-block 15
+    $$$$$:   55-block 16
+    $$$$$:   55-block 17
+    $$$$$:   55-block 18
+    $$$$$:   55-block 19
+    $$$$$:   55-block 20
+    $$$$$:   55-block 21
+    $$$$$:   55-block 22
+    $$$$$:   55-block 23
+        -:   56:
+        1:   57:    CommissionedEmployeeCorrectnessTester(*database->getEmployee(id), cSalary, cRate).invoke(id, name, address);
+        1:   57-block  0
+        1:   57-block  1
+        1:   57-block  2
+        1:   57-block  3
+        1:   57-block  4
+        1:   57-block  5
+        1:   57-block  6
+    $$$$$:   57-block  7
+    $$$$$:   57-block  8
+    $$$$$:   57-block  9
+    $$$$$:   57-block 10
+    $$$$$:   57-block 11
+    $$$$$:   57-block 12
+    $$$$$:   57-block 13
+    $$$$$:   57-block 14
+    $$$$$:   57-block 15
+    $$$$$:   57-block 16
+        -:   58:}
+------------------
+_ZN50ChangeEmployeeTest_ChangeHourlyToCommissioned_TestC1Ev:
+        1:   49:TEST_F(ChangeEmployeeTest, ChangeHourlyToCommissioned)
+        1:   49-block  0
+------------------
+        4:   59:TEST_F(ChangeEmployeeTest, ChangeHourlyToSalaried)
+        -:   60:{
+        1:   61:    assertDatabaseContains(id);
+        -:   62:
+        1:   63:    ChangeToSalariedTransaction ctst(id, sSalary);
+       1*:   64:    ASSERT_NO_THROW(ctst.execute());
+        -:   65:
+        1:   66:    SalariedEmployeeCorrectnessTester(*database->getEmployee(id), sSalary).invoke(id, name, address);
+        -:   67:}
+------------------
+_ZN46ChangeEmployeeTest_ChangeHourlyToSalaried_TestD0Ev:
+        1:   59:TEST_F(ChangeEmployeeTest, ChangeHourlyToSalaried)
+        1:   59-block  0
+------------------
+_ZN46ChangeEmployeeTest_ChangeHourlyToSalaried_TestD1Ev:
+        1:   59:TEST_F(ChangeEmployeeTest, ChangeHourlyToSalaried)
+        1:   59-block  0
+------------------
+_ZN46ChangeEmployeeTest_ChangeHourlyToSalaried_Test8TestBodyEv:
+        1:   59:TEST_F(ChangeEmployeeTest, ChangeHourlyToSalaried)
+        -:   60:{
+        1:   61:    assertDatabaseContains(id);
+        1:   61-block  0
+        -:   62:
+        1:   63:    ChangeToSalariedTransaction ctst(id, sSalary);
+        1:   63-block  0
+    $$$$$:   63-block  1
+       1*:   64:    ASSERT_NO_THROW(ctst.execute());
+        1:   64-block  0
+        1:   64-block  1
+        1:   64-block  2
+    %%%%%:   64-block  3
+    %%%%%:   64-block  4
+    %%%%%:   64-block  5
+    %%%%%:   64-block  6
+    %%%%%:   64-block  7
+    $$$$$:   64-block  8
+    $$$$$:   64-block  9
+    $$$$$:   64-block 10
+    $$$$$:   64-block 11
+    $$$$$:   64-block 12
+    $$$$$:   64-block 13
+    $$$$$:   64-block 14
+    $$$$$:   64-block 15
+    $$$$$:   64-block 16
+    $$$$$:   64-block 17
+    $$$$$:   64-block 18
+    $$$$$:   64-block 19
+    $$$$$:   64-block 20
+    $$$$$:   64-block 21
+    $$$$$:   64-block 22
+    $$$$$:   64-block 23
+        -:   65:
+        1:   66:    SalariedEmployeeCorrectnessTester(*database->getEmployee(id), sSalary).invoke(id, name, address);
+        1:   66-block  0
+        1:   66-block  1
+        1:   66-block  2
+        1:   66-block  3
+        1:   66-block  4
+        1:   66-block  5
+        1:   66-block  6
+    $$$$$:   66-block  7
+    $$$$$:   66-block  8
+    $$$$$:   66-block  9
+    $$$$$:   66-block 10
+    $$$$$:   66-block 11
+    $$$$$:   66-block 12
+    $$$$$:   66-block 13
+    $$$$$:   66-block 14
+    $$$$$:   66-block 15
+    $$$$$:   66-block 16
+        -:   67:}
+------------------
+_ZN46ChangeEmployeeTest_ChangeHourlyToSalaried_TestC1Ev:
+        1:   59:TEST_F(ChangeEmployeeTest, ChangeHourlyToSalaried)
+        1:   59-block  0
+------------------
+        4:   68:TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
+        -:   69:{
+        1:   70:    assertDatabaseContains(sId);
+        -:   71:
+        1:   72:    ChangeToHourlyTransaction ctht(sId, hRate);
+       1*:   73:    ASSERT_NO_THROW(ctht.execute());
+        -:   74:
+        1:   75:    HourlyEmployeeCorrectnessTester(*database->getEmployee(sId), hRate).invoke(sId, sName, sAddress);
+        -:   76:}
+------------------
+_ZN46ChangeEmployeeTest_ChangeSalariedToHourly_TestD0Ev:
+        1:   68:TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
+        1:   68-block  0
+------------------
+_ZN46ChangeEmployeeTest_ChangeSalariedToHourly_TestD1Ev:
+        1:   68:TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
+        1:   68-block  0
+------------------
+_ZN46ChangeEmployeeTest_ChangeSalariedToHourly_Test8TestBodyEv:
+        1:   68:TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
+        -:   69:{
+        1:   70:    assertDatabaseContains(sId);
+        1:   70-block  0
+        -:   71:
+        1:   72:    ChangeToHourlyTransaction ctht(sId, hRate);
+        1:   72-block  0
+    $$$$$:   72-block  1
+       1*:   73:    ASSERT_NO_THROW(ctht.execute());
+        1:   73-block  0
+        1:   73-block  1
+        1:   73-block  2
+    %%%%%:   73-block  3
+    %%%%%:   73-block  4
+    %%%%%:   73-block  5
+    %%%%%:   73-block  6
+    %%%%%:   73-block  7
+    $$$$$:   73-block  8
+    $$$$$:   73-block  9
+    $$$$$:   73-block 10
+    $$$$$:   73-block 11
+    $$$$$:   73-block 12
+    $$$$$:   73-block 13
+    $$$$$:   73-block 14
+    $$$$$:   73-block 15
+    $$$$$:   73-block 16
+    $$$$$:   73-block 17
+    $$$$$:   73-block 18
+    $$$$$:   73-block 19
+    $$$$$:   73-block 20
+    $$$$$:   73-block 21
+    $$$$$:   73-block 22
+    $$$$$:   73-block 23
+        -:   74:
+        1:   75:    HourlyEmployeeCorrectnessTester(*database->getEmployee(sId), hRate).invoke(sId, sName, sAddress);
+        1:   75-block  0
+        1:   75-block  1
+        1:   75-block  2
+        1:   75-block  3
+        1:   75-block  4
+        1:   75-block  5
+        1:   75-block  6
+    $$$$$:   75-block  7
+    $$$$$:   75-block  8
+    $$$$$:   75-block  9
+    $$$$$:   75-block 10
+    $$$$$:   75-block 11
+    $$$$$:   75-block 12
+    $$$$$:   75-block 13
+    $$$$$:   75-block 14
+    $$$$$:   75-block 15
+    $$$$$:   75-block 16
+        -:   76:}
+------------------
+_ZN46ChangeEmployeeTest_ChangeSalariedToHourly_TestC1Ev:
+        1:   68:TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
+        1:   68-block  0
+------------------
+        -:   77:
+        4:   78:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
+        -:   79:{
+        1:   80:    assertDatabaseContains(id);
+        -:   81:
+        1:   82:    std::string bank = "Privat";
+        1:   83:    int account = 937272;
+        1:   84:    ChangeToDirectMethodTransaction ctdmt(id, bank, account);
+       1*:   85:    ASSERT_NO_THROW(ctdmt.execute());
+        -:   86:
+        2:   87:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        1:   88:        .invoke<DirectMethod>(id, name, address);
+        -:   89:}
+------------------
+_ZN48ChangeEmployeeTest_ChangeMethodHoldToDirect_TestD0Ev:
+        1:   78:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
+        1:   78-block  0
+------------------
+_ZN48ChangeEmployeeTest_ChangeMethodHoldToDirect_TestD1Ev:
+        1:   78:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
+        1:   78-block  0
+------------------
+_ZN48ChangeEmployeeTest_ChangeMethodHoldToDirect_Test8TestBodyEv:
+        1:   78:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
+        -:   79:{
+        1:   80:    assertDatabaseContains(id);
+        1:   80-block  0
+        -:   81:
+        1:   82:    std::string bank = "Privat";
+        1:   82-block  0
+    $$$$$:   82-block  1
+        1:   83:    int account = 937272;
+        1:   84:    ChangeToDirectMethodTransaction ctdmt(id, bank, account);
+        1:   84-block  0
+    $$$$$:   84-block  1
+    $$$$$:   84-block  2
+       1*:   85:    ASSERT_NO_THROW(ctdmt.execute());
+        1:   85-block  0
+        1:   85-block  1
+        1:   85-block  2
+    %%%%%:   85-block  3
+    %%%%%:   85-block  4
+    %%%%%:   85-block  5
+    %%%%%:   85-block  6
+    %%%%%:   85-block  7
+    $$$$$:   85-block  8
+    $$$$$:   85-block  9
+    $$$$$:   85-block 10
+    $$$$$:   85-block 11
+    $$$$$:   85-block 12
+    $$$$$:   85-block 13
+    $$$$$:   85-block 14
+    $$$$$:   85-block 15
+    $$$$$:   85-block 16
+    $$$$$:   85-block 17
+    $$$$$:   85-block 18
+    $$$$$:   85-block 19
+    $$$$$:   85-block 20
+    $$$$$:   85-block 21
+    $$$$$:   85-block 22
+    $$$$$:   85-block 23
+        -:   86:
+        2:   87:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        1:   87-block  0
+        1:   87-block  1
+        1:   87-block  2
+    $$$$$:   87-block  3
+    $$$$$:   87-block  4
+    $$$$$:   87-block  5
+    $$$$$:   87-block  6
+    $$$$$:   87-block  7
+    $$$$$:   87-block  8
+        1:   88:        .invoke<DirectMethod>(id, name, address);
+        1:   88-block  0
+        1:   88-block  1
+        1:   88-block  2
+        1:   88-block  3
+    $$$$$:   88-block  4
+    $$$$$:   88-block  5
+    $$$$$:   88-block  6
+    $$$$$:   88-block  7
+        -:   89:}
+------------------
+_ZN48ChangeEmployeeTest_ChangeMethodHoldToDirect_TestC1Ev:
+        1:   78:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
+        1:   78-block  0
+------------------
+        -:   90:
+        4:   91:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
+        -:   92:{
+        1:   93:    assertDatabaseContains(id);
+        -:   94:
+        1:   95:    ChangeToMailMethodTransaction ctdmt(id, address);
+       1*:   96:    ASSERT_NO_THROW(ctdmt.execute());
+        -:   97:
+        2:   98:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        1:   99:        .invoke<MailMethod>(id, name, address);
+        -:  100:}
+------------------
+_ZN46ChangeEmployeeTest_ChangeMethodHoldToMail_TestD0Ev:
+        1:   91:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
+        1:   91-block  0
+------------------
+_ZN46ChangeEmployeeTest_ChangeMethodHoldToMail_TestD1Ev:
+        1:   91:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
+        1:   91-block  0
+------------------
+_ZN46ChangeEmployeeTest_ChangeMethodHoldToMail_Test8TestBodyEv:
+        1:   91:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
+        -:   92:{
+        1:   93:    assertDatabaseContains(id);
+        1:   93-block  0
+        -:   94:
+        1:   95:    ChangeToMailMethodTransaction ctdmt(id, address);
+        1:   95-block  0
+        1:   95-block  1
+    $$$$$:   95-block  2
+    $$$$$:   95-block  3
+       1*:   96:    ASSERT_NO_THROW(ctdmt.execute());
+        1:   96-block  0
+        1:   96-block  1
+        1:   96-block  2
+    %%%%%:   96-block  3
+    %%%%%:   96-block  4
+    %%%%%:   96-block  5
+    %%%%%:   96-block  6
+    %%%%%:   96-block  7
+    $$$$$:   96-block  8
+    $$$$$:   96-block  9
+    $$$$$:   96-block 10
+    $$$$$:   96-block 11
+    $$$$$:   96-block 12
+    $$$$$:   96-block 13
+    $$$$$:   96-block 14
+    $$$$$:   96-block 15
+    $$$$$:   96-block 16
+    $$$$$:   96-block 17
+    $$$$$:   96-block 18
+    $$$$$:   96-block 19
+    $$$$$:   96-block 20
+    $$$$$:   96-block 21
+    $$$$$:   96-block 22
+    $$$$$:   96-block 23
+        -:   97:
+        2:   98:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        1:   98-block  0
+        1:   98-block  1
+        1:   98-block  2
+    $$$$$:   98-block  3
+    $$$$$:   98-block  4
+    $$$$$:   98-block  5
+    $$$$$:   98-block  6
+    $$$$$:   98-block  7
+    $$$$$:   98-block  8
+        1:   99:        .invoke<MailMethod>(id, name, address);
+        1:   99-block  0
+        1:   99-block  1
+        1:   99-block  2
+        1:   99-block  3
+    $$$$$:   99-block  4
+    $$$$$:   99-block  5
+    $$$$$:   99-block  6
+    $$$$$:   99-block  7
+        -:  100:}
+------------------
+_ZN46ChangeEmployeeTest_ChangeMethodHoldToMail_TestC1Ev:
+        1:   91:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
+        1:   91-block  0
+------------------
+        -:  101:
+        4:  102:TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMailAndBack)
+        -:  103:{
+        1:  104:    assertDatabaseContains(id);
+        -:  105:
+        1:  106:    ChangeToMailMethodTransaction ctdmt(id, address);
+       1*:  107:    ASSERT_NO_THROW(ctdmt.execute());
+        1:  108:    ChangeToHoldMethodTransaction cthmt(id);
+       1*:  109:    ASSERT_NO_THROW(cthmt.execute());
+        -:  110:
+        2:  111:    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
+        1:  112:        .invoke(id, name, address);
+        -:  113:}

@@ -81,6 +81,13 @@
         -:   77:
         -:   78:      _GLIBCXX20_CONSTEXPR
     #####:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+------------------
+_ZN9__gnu_cxx13new_allocatorI13ServiceChargeEC2Ev:
+    #####:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+------------------
+_ZN9__gnu_cxx13new_allocatorIcEC2Ev:
+    #####:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+------------------
         -:   80:
         -:   81:      _GLIBCXX20_CONSTEXPR
     #####:   82:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
@@ -204,6 +211,29 @@ _ZN9__gnu_cxx13new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8
         -:  138:      }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIcE10deallocateEPcy:
+    #####:  120:      deallocate(_Tp* __p, size_type __t)
+    %%%%%:  120-block  0
+        -:  121:      {
+        -:  122:#if __cpp_aligned_new
+        -:  123:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
+        -:  124:	  {
+        -:  125:	    ::operator delete(__p,
+        -:  126:# if __cpp_sized_deallocation
+        -:  127:			      __t * sizeof(_Tp),
+        -:  128:# endif
+        -:  129:			      std::align_val_t(alignof(_Tp)));
+        -:  130:	    return;
+        -:  131:	  }
+        -:  132:#endif
+    #####:  133:	::operator delete(__p
+    %%%%%:  133-block  0
+        -:  134:#if __cpp_sized_deallocation
+        -:  135:			  , __t * sizeof(_Tp)
+        -:  136:#endif
+        -:  137:			 );
+        -:  138:      }
+------------------
+_ZN9__gnu_cxx13new_allocatorI13ServiceChargeE10deallocateEPS1_y:
     #####:  120:      deallocate(_Tp* __p, size_type __t)
     %%%%%:  120-block  0
         -:  121:      {

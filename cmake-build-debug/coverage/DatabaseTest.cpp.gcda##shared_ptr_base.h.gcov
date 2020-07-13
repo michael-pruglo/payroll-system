@@ -121,12 +121,12 @@
         -:  117:    : public _Mutex_base<_Lp>
         -:  118:    {
         -:  119:    public:
-       35:  120:      _Sp_counted_base() noexcept
-       35:  121:      : _M_use_count(1), _M_weak_count(1) { }
+      156:  120:      _Sp_counted_base() noexcept
+      156:  121:      : _M_use_count(1), _M_weak_count(1) { }
         -:  122:
         -:  123:      virtual
-       34:  124:      ~_Sp_counted_base() noexcept
-       34:  125:      { }
+      155:  124:      ~_Sp_counted_base() noexcept
+      155:  125:      { }
         -:  126:
         -:  127:      // Called when _M_use_count drops to zero, to release the resources
         -:  128:      // managed by *this.
@@ -144,9 +144,9 @@
         -:  138:      _M_get_deleter(const std::type_info&) noexcept = 0;
         -:  139:
         -:  140:      void
-      233:  141:      _M_add_ref_copy()
-      233:  142:      { __gnu_cxx::__atomic_add_dispatch(&_M_use_count, 1); }
-      233:  142-block  0
+      751:  141:      _M_add_ref_copy()
+      751:  142:      { __gnu_cxx::__atomic_add_dispatch(&_M_use_count, 1); }
+      751:  142-block  0
         -:  143:
         -:  144:      void
         -:  145:      _M_add_ref_lock();
@@ -155,17 +155,17 @@
         -:  148:      _M_add_ref_lock_nothrow();
         -:  149:
         -:  150:      void
-      267:  151:      _M_release() noexcept
+      906:  151:      _M_release() noexcept
         -:  152:      {
         -:  153:        // Be race-detector-friendly.  For more info see bits/c++config.
         -:  154:        _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&_M_use_count);
-      534:  155:	if (__gnu_cxx::__exchange_and_add_dispatch(&_M_use_count, -1) == 1)
-      267:  155-block  0
-      267:  155-block  1
+     1812:  155:	if (__gnu_cxx::__exchange_and_add_dispatch(&_M_use_count, -1) == 1)
+      906:  155-block  0
+      906:  155-block  1
         -:  156:	  {
         -:  157:            _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(&_M_use_count);
-       34:  158:	    _M_dispose();
-       34:  158-block  0
+      155:  158:	    _M_dispose();
+      155:  158-block  0
         -:  159:	    // There must be a memory barrier between dispose() and destroy()
         -:  160:	    // to ensure that the effects of dispose() are observed in the
         -:  161:	    // thread that runs destroy().
@@ -177,16 +177,16 @@
         -:  167:
         -:  168:            // Be race-detector-friendly.  For more info see bits/c++config.
         -:  169:            _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&_M_weak_count);
-       34:  170:	    if (__gnu_cxx::__exchange_and_add_dispatch(&_M_weak_count,
-       34:  171:						       -1) == 1)
-       34:  171-block  0
+      155:  170:	    if (__gnu_cxx::__exchange_and_add_dispatch(&_M_weak_count,
+      155:  171:						       -1) == 1)
+      155:  171-block  0
         -:  172:              {
         -:  173:                _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(&_M_weak_count);
-       34:  174:	        _M_destroy();
-       34:  174-block  0
+      155:  174:	        _M_destroy();
+      155:  174-block  0
         -:  175:              }
         -:  176:	  }
-      267:  177:      }
+      906:  177:      }
         -:  178:
         -:  179:      void
         -:  180:      _M_weak_add_ref() noexcept
@@ -384,23 +384,34 @@
         -:  372:    {
         -:  373:    public:
         -:  374:      explicit
-       18:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
-       18:  376:      : _M_ptr(__p) { }
+       74:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
+       74:  376:      : _M_ptr(__p) { }
 ------------------
 _ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC1ES1_:
-       17:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
-       17:  376:      : _M_ptr(__p) { }
-       17:  376-block  0
+       35:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
+       35:  376:      : _M_ptr(__p) { }
+       35:  376-block  0
 ------------------
 _ZNSt15_Sp_counted_ptrIP15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC1ES1_:
         1:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
         1:  376:      : _M_ptr(__p) { }
         1:  376-block  0
 ------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EEC1ES1_:
+       38:  375:      _Sp_counted_ptr(_Ptr __p) noexcept
+       38:  376:      : _M_ptr(__p) { }
+       38:  376-block  0
+------------------
         -:  377:
         -:  378:      virtual void
-      17*:  379:      _M_dispose() noexcept
-      17*:  380:      { delete _M_ptr; }
+      73*:  379:      _M_dispose() noexcept
+      73*:  380:      { delete _M_ptr; }
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
+       38:  379:      _M_dispose() noexcept
+       38:  380:      { delete _M_ptr; }
+       38:  380-block  0
+       38:  380-block  1
 ------------------
 _ZNSt15_Sp_counted_ptrIP15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
     #####:  379:      _M_dispose() noexcept
@@ -409,15 +420,21 @@ _ZNSt15_Sp_counted_ptrIP15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE10_M_disp
     %%%%%:  380-block  1
 ------------------
 _ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv:
-       17:  379:      _M_dispose() noexcept
-       17:  380:      { delete _M_ptr; }
-       17:  380-block  0
-       17:  380-block  1
+       35:  379:      _M_dispose() noexcept
+       35:  380:      { delete _M_ptr; }
+       35:  380-block  0
+       35:  380-block  1
 ------------------
         -:  381:
         -:  382:      virtual void
-      17*:  383:      _M_destroy() noexcept
-      17*:  384:      { delete this; }
+      73*:  383:      _M_destroy() noexcept
+      73*:  384:      { delete this; }
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
+       38:  383:      _M_destroy() noexcept
+       38:  384:      { delete this; }
+       38:  384-block  0
+       38:  384-block  1
 ------------------
 _ZNSt15_Sp_counted_ptrIP15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
     #####:  383:      _M_destroy() noexcept
@@ -426,15 +443,20 @@ _ZNSt15_Sp_counted_ptrIP15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE10_M_dest
     %%%%%:  384-block  1
 ------------------
 _ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv:
-       17:  383:      _M_destroy() noexcept
-       17:  384:      { delete this; }
-       17:  384-block  0
-       17:  384-block  1
+       35:  383:      _M_destroy() noexcept
+       35:  384:      { delete this; }
+       35:  384-block  0
+       35:  384-block  1
 ------------------
         -:  385:
         -:  386:      virtual void*
     #####:  387:      _M_get_deleter(const std::type_info&) noexcept
     #####:  388:      { return nullptr; }
+------------------
+_ZNSt15_Sp_counted_ptrIP13NoAffiliationLN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info:
+    #####:  387:      _M_get_deleter(const std::type_info&) noexcept
+    #####:  388:      { return nullptr; }
+    %%%%%:  388-block  0
 ------------------
 _ZNSt15_Sp_counted_ptrIP15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info:
     #####:  387:      _M_get_deleter(const std::type_info&) noexcept
@@ -676,32 +698,32 @@ _ZNSt15_Sp_counted_ptrIP8EmployeeLN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterE
         -:  616:	struct __not_alloc_shared_tag<_Sp_alloc_shared_tag<_Tp>> { };
         -:  617:
         -:  618:    public:
-      139:  619:      constexpr __shared_count() noexcept : _M_pi(0)
-      139:  620:      { }
+      309:  619:      constexpr __shared_count() noexcept : _M_pi(0)
+      309:  620:      { }
         -:  621:
         -:  622:      template<typename _Ptr>
         -:  623:        explicit
-       18:  624:	__shared_count(_Ptr __p) : _M_pi(0)
+       74:  624:	__shared_count(_Ptr __p) : _M_pi(0)
         -:  625:	{
         -:  626:	  __try
         -:  627:	    {
-       18:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+       74:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
         -:  629:	    }
     =====:  630:	  __catch(...)
         -:  631:	    {
     =====:  632:	      delete __p;
     =====:  633:	      __throw_exception_again;
         -:  634:	    }
-       18:  635:	}
+       74:  635:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP8EmployeeEET_:
-       17:  624:	__shared_count(_Ptr __p) : _M_pi(0)
+       35:  624:	__shared_count(_Ptr __p) : _M_pi(0)
         -:  625:	{
         -:  626:	  __try
         -:  627:	    {
-       17:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
-       17:  628-block  0
-       17:  628-block  1
+       35:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+       35:  628-block  0
+       35:  628-block  1
         -:  629:	    }
     =====:  630:	  __catch(...)
     $$$$$:  630-block  0
@@ -713,7 +735,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP8EmployeeEET_:
     =====:  633:	      __throw_exception_again;
     $$$$$:  633-block  0
         -:  634:	    }
-       17:  635:	}
+       35:  635:	}
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP15PayrollDatabaseEET_:
         1:  624:	__shared_count(_Ptr __p) : _M_pi(0)
@@ -736,23 +758,50 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP15PayrollDatabaseEET_:
         -:  634:	    }
         1:  635:	}
 ------------------
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP13NoAffiliationEET_:
+       38:  624:	__shared_count(_Ptr __p) : _M_pi(0)
+        -:  625:	{
+        -:  626:	  __try
+        -:  627:	    {
+       38:  628:	      _M_pi = new _Sp_counted_ptr<_Ptr, _Lp>(__p);
+       38:  628-block  0
+       38:  628-block  1
+        -:  629:	    }
+    =====:  630:	  __catch(...)
+    $$$$$:  630-block  0
+    $$$$$:  630-block  1
+    $$$$$:  630-block  2
+        -:  631:	    {
+    =====:  632:	      delete __p;
+    $$$$$:  632-block  0
+    =====:  633:	      __throw_exception_again;
+    $$$$$:  633-block  0
+        -:  634:	    }
+       38:  635:	}
+------------------
         -:  636:
         -:  637:      template<typename _Ptr>
-       18:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
-       18:  639:	: __shared_count(__p)
-       18:  640:	{ }
+       74:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
+       74:  639:	: __shared_count(__p)
+       74:  640:	{ }
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP8EmployeeEET_St17integral_constantIbLb0EE:
-       17:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
-       17:  639:	: __shared_count(__p)
-       17:  639-block  0
-       17:  640:	{ }
+       35:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
+       35:  639:	: __shared_count(__p)
+       35:  639-block  0
+       35:  640:	{ }
 ------------------
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP15PayrollDatabaseEET_St17integral_constantIbLb0EE:
         1:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
         1:  639:	: __shared_count(__p)
         1:  639-block  0
         1:  640:	{ }
+------------------
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP13NoAffiliationEET_St17integral_constantIbLb0EE:
+       38:  638:	__shared_count(_Ptr __p, /* is_array = */ false_type)
+       38:  639:	: __shared_count(__p)
+       38:  639-block  0
+       38:  640:	{ }
 ------------------
         -:  641:
         -:  642:      template<typename _Ptr>
@@ -843,52 +892,52 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP15PayrollDatabaseEET_St1
         -:  727:      // Does not throw if __r._M_get_use_count() == 0, caller must check.
         -:  728:      explicit __shared_count(const __weak_count<_Lp>& __r, std::nothrow_t);
         -:  729:
-      391:  730:      ~__shared_count() noexcept
+     1136:  730:      ~__shared_count() noexcept
         -:  731:      {
-      391:  732:	if (_M_pi != nullptr)
-      391:  732-block  0
-      266:  733:	  _M_pi->_M_release();
-      266:  733-block  0
-      391:  734:      }
+     1136:  732:	if (_M_pi != nullptr)
+     1136:  732-block  0
+      895:  733:	  _M_pi->_M_release();
+      895:  733-block  0
+     1136:  734:      }
         -:  735:
-      217:  736:      __shared_count(const __shared_count& __r) noexcept
-      217:  737:      : _M_pi(__r._M_pi)
+      671:  736:      __shared_count(const __shared_count& __r) noexcept
+      671:  737:      : _M_pi(__r._M_pi)
         -:  738:      {
-      217:  739:	if (_M_pi != 0)
-      217:  739-block  0
-      217:  740:	  _M_pi->_M_add_ref_copy();
-      217:  740-block  0
-      217:  741:      }
+      671:  739:	if (_M_pi != 0)
+      671:  739-block  0
+      671:  740:	  _M_pi->_M_add_ref_copy();
+      671:  740-block  0
+      671:  741:      }
         -:  742:
         -:  743:      __shared_count&
-       16:  744:      operator=(const __shared_count& __r) noexcept
+       98:  744:      operator=(const __shared_count& __r) noexcept
         -:  745:      {
-       16:  746:	_Sp_counted_base<_Lp>* __tmp = __r._M_pi;
-       16:  747:	if (__tmp != _M_pi)
-       16:  747-block  0
+       98:  746:	_Sp_counted_base<_Lp>* __tmp = __r._M_pi;
+       98:  747:	if (__tmp != _M_pi)
+       98:  747-block  0
         -:  748:	  {
-       16:  749:	    if (__tmp != 0)
-       16:  749-block  0
-       16:  750:	      __tmp->_M_add_ref_copy();
-       16:  750-block  0
-       16:  751:	    if (_M_pi != 0)
-       16:  751-block  0
-        1:  752:	      _M_pi->_M_release();
-        1:  752-block  0
-       16:  753:	    _M_pi = __tmp;
-       16:  753-block  0
+       80:  749:	    if (__tmp != 0)
+       80:  749-block  0
+       80:  750:	      __tmp->_M_add_ref_copy();
+       80:  750-block  0
+       80:  751:	    if (_M_pi != 0)
+       80:  751-block  0
+       11:  752:	      _M_pi->_M_release();
+       11:  752-block  0
+       80:  753:	    _M_pi = __tmp;
+       80:  753-block  0
         -:  754:	  }
-       16:  755:	return *this;
-       16:  755-block  0
+       98:  755:	return *this;
+       98:  755-block  0
         -:  756:      }
         -:  757:
         -:  758:      void
-       67:  759:      _M_swap(__shared_count& __r) noexcept
+      150:  759:      _M_swap(__shared_count& __r) noexcept
         -:  760:      {
-       67:  761:	_Sp_counted_base<_Lp>* __tmp = __r._M_pi;
-       67:  762:	__r._M_pi = _M_pi;
-       67:  763:	_M_pi = __tmp;
-       67:  764:      }
+      150:  761:	_Sp_counted_base<_Lp>* __tmp = __r._M_pi;
+      150:  762:	__r._M_pi = _M_pi;
+      150:  763:	_M_pi = __tmp;
+      150:  764:      }
         -:  765:
         -:  766:      long
         -:  767:      _M_get_use_count() const noexcept
@@ -1139,18 +1188,18 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP15PayrollDatabaseEET_St1
         -: 1012:      }
         -: 1013:
         -: 1014:      element_type*
-      183: 1015:      operator->() const noexcept
+      278: 1015:      operator->() const noexcept
         -: 1016:      {
         -: 1017:	_GLIBCXX_DEBUG_PEDASSERT(_M_get() != nullptr);
-      183: 1018:	return _M_get();
-      183: 1018-block  0
+      278: 1018:	return _M_get();
+      278: 1018-block  0
         -: 1019:      }
         -: 1020:
         -: 1021:    private:
         -: 1022:      element_type*
-      183: 1023:      _M_get() const noexcept
-      183: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
-      183: 1024-block  0
+      278: 1023:      _M_get() const noexcept
+      278: 1024:      { return static_cast<const __shared_ptr<_Tp, _Lp>*>(this)->get(); }
+      278: 1024-block  0
         -: 1025:    };
         -: 1026:
         -: 1027:  // Define operator-> for shared_ptr<cv void>.
@@ -1247,9 +1296,9 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC1IP15PayrollDatabaseEET_St1
         -: 1118:      using weak_type = __weak_ptr<_Tp, _Lp>;
         -: 1119:#endif
         -: 1120:
-       58: 1121:      constexpr __shared_ptr() noexcept
-       58: 1122:      : _M_ptr(0), _M_refcount()
-       58: 1123:      { }
+      115: 1121:      constexpr __shared_ptr() noexcept
+      115: 1122:      : _M_ptr(0), _M_refcount()
+      115: 1123:      { }
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
         1: 1121:      constexpr __shared_ptr() noexcept
@@ -1258,43 +1307,43 @@ _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
         1: 1123:      { }
 ------------------
 _ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
-       19: 1121:      constexpr __shared_ptr() noexcept
-       19: 1122:      : _M_ptr(0), _M_refcount()
-       19: 1122-block  0
-       19: 1123:      { }
+       38: 1121:      constexpr __shared_ptr() noexcept
+       38: 1122:      : _M_ptr(0), _M_refcount()
+       38: 1122-block  0
+       38: 1123:      { }
 ------------------
 _ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
-       19: 1121:      constexpr __shared_ptr() noexcept
-       19: 1122:      : _M_ptr(0), _M_refcount()
-       19: 1122-block  0
-       19: 1123:      { }
+       38: 1121:      constexpr __shared_ptr() noexcept
+       38: 1122:      : _M_ptr(0), _M_refcount()
+       38: 1122-block  0
+       38: 1123:      { }
 ------------------
 _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EEC2Ev:
-       19: 1121:      constexpr __shared_ptr() noexcept
-       19: 1122:      : _M_ptr(0), _M_refcount()
-       19: 1122-block  0
-       19: 1123:      { }
+       38: 1121:      constexpr __shared_ptr() noexcept
+       38: 1122:      : _M_ptr(0), _M_refcount()
+       38: 1122-block  0
+       38: 1123:      { }
 ------------------
         -: 1124:
         -: 1125:      template<typename _Yp, typename = _SafeConv<_Yp>>
         -: 1126:	explicit
-       18: 1127:	__shared_ptr(_Yp* __p)
-       18: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+       74: 1127:	__shared_ptr(_Yp* __p)
+       74: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
         -: 1129:	{
         -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
         -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
-       18: 1132:	  _M_enable_shared_from_this_with(__p);
-       18: 1133:	}
+       74: 1132:	  _M_enable_shared_from_this_with(__p);
+       74: 1133:	}
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEEPT_:
-       17: 1127:	__shared_ptr(_Yp* __p)
-       17: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
-       17: 1128-block  0
+       35: 1127:	__shared_ptr(_Yp* __p)
+       35: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+       35: 1128-block  0
         -: 1129:	{
         -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
         -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
-       17: 1132:	  _M_enable_shared_from_this_with(__p);
-       17: 1133:	}
+       35: 1132:	  _M_enable_shared_from_this_with(__p);
+       35: 1133:	}
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEEPT_:
         1: 1127:	__shared_ptr(_Yp* __p)
@@ -1305,6 +1354,16 @@ _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEEPT_:
         -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
         1: 1132:	  _M_enable_shared_from_this_with(__p);
         1: 1133:	}
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EEC2I13NoAffiliationvEEPT_:
+       38: 1127:	__shared_ptr(_Yp* __p)
+       38: 1128:	: _M_ptr(__p), _M_refcount(__p, typename is_array<_Tp>::type())
+       38: 1128-block  0
+        -: 1129:	{
+        -: 1130:	  static_assert( !is_void<_Yp>::value, "incomplete type" );
+        -: 1131:	  static_assert( sizeof(_Yp) > 0, "incomplete type" );
+       38: 1132:	  _M_enable_shared_from_this_with(__p);
+       38: 1133:	}
 ------------------
         -: 1134:
         -: 1135:      template<typename _Yp, typename _Deleter, typename = _SafeConv<_Yp>>
@@ -1353,43 +1412,47 @@ _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEEPT_:
         -: 1178:	  __r._M_ptr = 0;
         -: 1179:	}
         -: 1180:
-      173: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+      308: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
-       33: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
-       33: 1181-block  0
+       85: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+       85: 1181-block  0
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2ERKS3_:
-      140: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
-      140: 1181-block  0
+      223: 1181:      __shared_ptr(const __shared_ptr&) noexcept = default;
+      223: 1181-block  0
 ------------------
         1: 1182:      __shared_ptr& operator=(const __shared_ptr&) noexcept = default;
         1: 1182-block  0
-      339: 1183:      ~__shared_ptr() = default;
+      950: 1183:      ~__shared_ptr() = default;
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EED1Ev:
         1: 1183:      ~__shared_ptr() = default;
         1: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-       34: 1183:      ~__shared_ptr() = default;
-       34: 1183-block  0
+       86: 1183:      ~__shared_ptr() = default;
+       86: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-      210: 1183:      ~__shared_ptr() = default;
-      210: 1183-block  0
+      331: 1183:      ~__shared_ptr() = default;
+      331: 1183-block  0
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
+      136: 1183:      ~__shared_ptr() = default;
+      136: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI13PaymentMethodLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-       29: 1183:      ~__shared_ptr() = default;
-       29: 1183-block  0
+      127: 1183:      ~__shared_ptr() = default;
+      127: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI15PaymentScheduleLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-       29: 1183:      ~__shared_ptr() = default;
-       29: 1183-block  0
+      126: 1183:      ~__shared_ptr() = default;
+      126: 1183-block  0
 ------------------
 _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
-       36: 1183:      ~__shared_ptr() = default;
-       36: 1183-block  0
+      143: 1183:      ~__shared_ptr() = default;
+      143: 1183-block  0
 ------------------
         -: 1184:
         -: 1185:      template<typename _Yp, typename = _Compatible<_Yp>>
@@ -1397,21 +1460,21 @@ _ZNSt12__shared_ptrI21PaymentClassificationLN9__gnu_cxx12_Lock_policyE2EED2Ev:
         -: 1187:	: _M_ptr(__r._M_ptr), _M_refcount(__r._M_refcount)
         -: 1188:	{ }
         -: 1189:
-       51: 1190:      __shared_ptr(__shared_ptr&& __r) noexcept
-       51: 1191:      : _M_ptr(__r._M_ptr), _M_refcount()
+       70: 1190:      __shared_ptr(__shared_ptr&& __r) noexcept
+       70: 1191:      : _M_ptr(__r._M_ptr), _M_refcount()
         -: 1192:      {
-       51: 1193:	_M_refcount._M_swap(__r._M_refcount);
-       51: 1194:	__r._M_ptr = 0;
-       51: 1195:      }
+       70: 1193:	_M_refcount._M_swap(__r._M_refcount);
+       70: 1194:	__r._M_ptr = 0;
+       70: 1195:      }
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EEC2EOS3_:
-       50: 1190:      __shared_ptr(__shared_ptr&& __r) noexcept
-       50: 1191:      : _M_ptr(__r._M_ptr), _M_refcount()
-       50: 1191-block  0
+       69: 1190:      __shared_ptr(__shared_ptr&& __r) noexcept
+       69: 1191:      : _M_ptr(__r._M_ptr), _M_refcount()
+       69: 1191-block  0
         -: 1192:      {
-       50: 1193:	_M_refcount._M_swap(__r._M_refcount);
-       50: 1194:	__r._M_ptr = 0;
-       50: 1195:      }
+       69: 1193:	_M_refcount._M_swap(__r._M_refcount);
+       69: 1194:	__r._M_ptr = 0;
+       69: 1195:      }
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC1EOS3_:
         1: 1190:      __shared_ptr(__shared_ptr&& __r) noexcept
@@ -1551,24 +1614,24 @@ _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EEC1EOS3_:
         -: 1321:
         -: 1322:      /// Return the stored pointer.
         -: 1323:      element_type*
-      244: 1324:      get() const noexcept
-      244: 1325:      { return _M_ptr; }
+      436: 1324:      get() const noexcept
+      436: 1325:      { return _M_ptr; }
 ------------------
 _ZNKSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EE3getEv:
-       61: 1324:      get() const noexcept
-       61: 1325:      { return _M_ptr; }
-       61: 1325-block  0
+      158: 1324:      get() const noexcept
+      158: 1325:      { return _M_ptr; }
+      158: 1325-block  0
 ------------------
 _ZNKSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE3getEv:
-      183: 1324:      get() const noexcept
-      183: 1325:      { return _M_ptr; }
-      183: 1325-block  0
+      278: 1324:      get() const noexcept
+      278: 1325:      { return _M_ptr; }
+      278: 1325-block  0
 ------------------
         -: 1326:
         -: 1327:      /// Return true if the stored pointer is not null.
-       33: 1328:      explicit operator bool() const // never throws
-       33: 1329:      { return _M_ptr == 0 ? false : true; }
-       33: 1329-block  0
+       85: 1328:      explicit operator bool() const // never throws
+       85: 1329:      { return _M_ptr == 0 ? false : true; }
+       85: 1329-block  0
         -: 1330:
         -: 1331:      /// Return true if use_count() == 1.
         -: 1332:      bool
@@ -1655,16 +1718,20 @@ _ZNKSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE3getEv:
         -: 1412:
         -: 1413:      template<typename _Yp, typename _Yp2 = typename remove_cv<_Yp>::type>
         -: 1414:	typename enable_if<!__has_esft_base<_Yp2>::value>::type
-       20: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-       20: 1416:	{ }
+       77: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       77: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI8EmployeeLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
-       19: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
-       19: 1416:	{ }
+       38: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       38: 1416:	{ }
 ------------------
 _ZNSt12__shared_ptrI15PayrollDatabaseLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withIS0_S0_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
         1: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
         1: 1416:	{ }
+------------------
+_ZNSt12__shared_ptrI11AffiliationLN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withI13NoAffiliationS5_EENSt9enable_ifIXntsrNS3_15__has_esft_baseIT0_vEE5valueEvE4typeEPT_:
+       38: 1415:	_M_enable_shared_from_this_with(_Yp*) noexcept
+       38: 1416:	{ }
 ------------------
         -: 1417:
         -: 1418:      void*

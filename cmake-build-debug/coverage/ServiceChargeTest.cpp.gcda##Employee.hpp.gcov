@@ -1,0 +1,52 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ServiceChargeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef PAYROLL_SYSTEM_EMPLOYEE_HPP
+        -:    2:#define PAYROLL_SYSTEM_EMPLOYEE_HPP
+        -:    3:
+        -:    4:#include <memory>
+        -:    5:#include "PaymentClassification.hpp"
+        -:    6:#include "PaymentSchedule.hpp"
+        -:    7:#include "PaymentMethod.hpp"
+        -:    8:#include "Affiliation.hpp"
+        -:    9:
+        -:   10:
+        -:   11:class Employee
+        -:   12:{
+        -:   13:public:
+        -:   14:    Employee(int id, std::string name, std::string address) :
+        -:   15:            id(id),
+        -:   16:            name(std::move(name)),
+        -:   17:            address(std::move(address)),
+        -:   18:            affiliation(new NoAffiliation())
+        -:   19:    {}
+        -:   20:
+    #####:   21:    std::string                             getName() const { return name; }
+    %%%%%:   21-block  0
+        -:   22:    void                                    setName(std::string newName) { name = std::move(newName); }
+    #####:   23:    std::string                             getAddress() const { return address; }
+    %%%%%:   23-block  0
+        -:   24:    void                                    setAddress(std::string newAddress) { address = std::move(newAddress); }
+    #####:   25:    std::shared_ptr<PaymentClassification>  getPaymentClassification() const { return paymentClassification; }
+    %%%%%:   25-block  0
+        -:   26:    void                                    setPaymentClassification(std::shared_ptr<PaymentClassification> pc) { paymentClassification = pc; }
+        -:   27:    std::shared_ptr<PaymentSchedule>        getPaymentSchedule() const { return paymentSchedule; }
+        -:   28:    void                                    setPaymentSchedule(std::shared_ptr<PaymentSchedule> pc) { paymentSchedule = pc; }
+    #####:   29:    std::shared_ptr<PaymentMethod>          getPaymentMethod() const { return paymentMethod; }
+    %%%%%:   29-block  0
+        -:   30:    void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
+    #####:   31:    std::shared_ptr<Affiliation>            getAffiliation() const { return affiliation; }
+    %%%%%:   31-block  0
+       18:   32:    void                                    setAffiliation(std::shared_ptr<Affiliation> a) { affiliation = a; }
+       18:   32-block  0
+        -:   33:private:
+        -:   34:    int id;
+        -:   35:    std::string name, address;
+        -:   36:    std::shared_ptr<PaymentClassification> paymentClassification;
+        -:   37:    std::shared_ptr<PaymentSchedule> paymentSchedule;
+        -:   38:    std::shared_ptr<PaymentMethod> paymentMethod;
+        -:   39:    std::shared_ptr<Affiliation> affiliation;
+        -:   40:};
+        -:   41:
+        -:   42:#endif //PAYROLL_SYSTEM_EMPLOYEE_HPP

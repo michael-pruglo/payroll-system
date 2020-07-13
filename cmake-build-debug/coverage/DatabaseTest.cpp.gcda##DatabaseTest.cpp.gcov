@@ -473,9 +473,11 @@ _ZN31PayrollDatabaseTest_Update_Test8TestBodyEv:
         1:   76-block  1
         1:   76-block  2
         1:   76-block  3
-    $$$$$:   76-block  4
+        1:   76-block  4
     $$$$$:   76-block  5
     $$$$$:   76-block  6
+    $$$$$:   76-block  7
+    $$$$$:   76-block  8
        1*:   77:    ASSERT_NO_THROW(database->updateEmployee(bobId, frank));
         1:   77-block  0
         1:   77-block  1

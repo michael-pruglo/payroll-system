@@ -53,10 +53,10 @@
         -:   49:      using value_type = typename allocator_traits<_Alloc>::value_type;
         -:   50:
         -:   51:      /// Take ownership of __ptr
-        4:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-        4:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-        4:   53-block  0
-        4:   54:      { }
+        6:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+        6:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+        6:   53-block  0
+        6:   54:      { }
         -:   55:
         -:   56:      /// Convert __ptr to allocator's pointer type and take ownership of it
         -:   57:      template<typename _Ptr,
@@ -72,26 +72,26 @@
         -:   67:      { __gd._M_ptr = nullptr; }
         -:   68:
         -:   69:      /// Deallocate the owned pointer
-        4:   70:      ~__allocated_ptr()
+        6:   70:      ~__allocated_ptr()
         -:   71:      {
-        4:   72:	if (_M_ptr != nullptr)
-        4:   72-block  0
-        2:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
-        2:   73-block  0
-        4:   74:      }
+        6:   72:	if (_M_ptr != nullptr)
+        6:   72-block  0
+        3:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
+        3:   73-block  0
+        6:   74:      }
         -:   75:
         -:   76:      /// Release ownership of the owned pointer
         -:   77:      __allocated_ptr&
-        2:   78:      operator=(std::nullptr_t) noexcept
+        3:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-        2:   80:	_M_ptr = nullptr;
-        2:   81:	return *this;
-        2:   81-block  0
+        3:   80:	_M_ptr = nullptr;
+        3:   81:	return *this;
+        3:   81-block  0
         -:   82:      }
         -:   83:
         -:   84:      /// Get the address that the owned pointer refers to.
-        2:   85:      value_type* get() { return std::__to_address(_M_ptr); }
-        2:   85-block  0
+        3:   85:      value_type* get() { return std::__to_address(_M_ptr); }
+        3:   85-block  0
         -:   86:
         -:   87:    private:
         -:   88:      _Alloc* _M_alloc;
@@ -101,10 +101,10 @@
         -:   92:  /// Allocate space for a single object using __a
         -:   93:  template<typename _Alloc>
         -:   94:    __allocated_ptr<_Alloc>
-        2:   95:    __allocate_guarded(_Alloc& __a)
+        3:   95:    __allocate_guarded(_Alloc& __a)
         -:   96:    {
-        2:   97:      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
-        2:   97-block  0
+        3:   97:      return { __a, std::allocator_traits<_Alloc>::allocate(__a, 1) };
+        3:   97-block  0
         -:   98:    }
         -:   99:
         -:  100:_GLIBCXX_END_NAMESPACE_VERSION

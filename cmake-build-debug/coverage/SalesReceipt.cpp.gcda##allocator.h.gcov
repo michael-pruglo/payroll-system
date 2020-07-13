@@ -145,7 +145,8 @@
         -:  141:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  142:      // 3035. std::allocator's constructors should be constexpr
         -:  143:      _GLIBCXX20_CONSTEXPR
-        -:  144:      allocator() _GLIBCXX_NOTHROW { }
+    #####:  144:      allocator() _GLIBCXX_NOTHROW { }
+    %%%%%:  144-block  0
         -:  145:
         -:  146:      _GLIBCXX20_CONSTEXPR
         -:  147:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
@@ -163,7 +164,7 @@
         -:  159:#if __cpp_constexpr_dynamic_alloc
         -:  160:      constexpr
         -:  161:#endif
-        -:  162:      ~allocator() _GLIBCXX_NOTHROW { }
+    #####:  162:      ~allocator() _GLIBCXX_NOTHROW { }
         -:  163:
         -:  164:#if __cplusplus > 201703L
         -:  165:      [[nodiscard,__gnu__::__always_inline__]]
@@ -191,16 +192,19 @@
     #####:  181:	if (std::is_constant_evaluated())
     %%%%%:  181-block  0
     %%%%%:  181-block  1
+    %%%%%:  181-block  2
         -:  182:	  {
     #####:  183:	    ::operator delete(__p);
     %%%%%:  183-block  0
     %%%%%:  183-block  1
+    %%%%%:  183-block  2
     #####:  184:	    return;
         -:  185:	  }
         -:  186:#endif
     #####:  187:	  __allocator_base<_Tp>::deallocate(__p, __n);
     %%%%%:  187-block  0
     %%%%%:  187-block  1
+    %%%%%:  187-block  2
         -:  188:      }
         -:  189:#endif // C++20
         -:  190:

@@ -1,6 +1,6 @@
         -:    0:Source:C:/msys64/mingw64/include/c++/10.1.0/ext/type_traits.h
-        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcno
-        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcda
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\ChangeEmployeeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// -*- C++ -*-
         -:    2:
@@ -155,7 +155,17 @@
         -:  151:    inline bool
     #####:  152:    __is_null_pointer(_Type* __ptr)
     #####:  153:    { return __ptr == 0; }
+------------------
+_ZN9__gnu_cxx17__is_null_pointerIcEEbPT_:
+    #####:  152:    __is_null_pointer(_Type* __ptr)
+    #####:  153:    { return __ptr == 0; }
     %%%%%:  153-block  0
+------------------
+_ZN9__gnu_cxx17__is_null_pointerIKcEEbPT_:
+    #####:  152:    __is_null_pointer(_Type* __ptr)
+    #####:  153:    { return __ptr == 0; }
+    %%%%%:  153-block  0
+------------------
         -:  154:
         -:  155:  template<typename _Type>
         -:  156:    inline bool

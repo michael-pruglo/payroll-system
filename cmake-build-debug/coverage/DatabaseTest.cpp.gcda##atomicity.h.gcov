@@ -51,15 +51,15 @@
         -:   47:  inline _Atomic_word
         -:   48:  __attribute__((__always_inline__))
         -:   49:  __exchange_and_add(volatile _Atomic_word* __mem, int __val)
-      301:   50:  { return __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
-      267:   50-block  0
-       34:   50-block  1
+     1061:   50:  { return __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+      906:   50-block  0
+      155:   50-block  1
         -:   51:
         -:   52:  inline void
         -:   53:  __attribute__((__always_inline__))
         -:   54:  __atomic_add(volatile _Atomic_word* __mem, int __val)
-      233:   55:  { __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
-      233:   55-block  0
+      751:   55:  { __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+      751:   55-block  0
         -:   56:#else
         -:   57:  _Atomic_word
         -:   58:  __exchange_and_add(volatile _Atomic_word*, int) _GLIBCXX_NOTHROW;
@@ -90,11 +90,11 @@
         -:   80:  __exchange_and_add_dispatch(_Atomic_word* __mem, int __val)
         -:   81:  {
         -:   82:#ifdef __GTHREADS
-      301:   83:    if (__gthread_active_p())
-      267:   83-block  0
-      301:   84:      return __exchange_and_add(__mem, __val);
-      267:   84-block  0
-       34:   84-block  1
+     1061:   83:    if (__gthread_active_p())
+      906:   83-block  0
+     1061:   84:      return __exchange_and_add(__mem, __val);
+      906:   84-block  0
+      155:   84-block  1
         -:   85:#endif
     #####:   86:    return __exchange_and_add_single(__mem, __val);
     %%%%%:   86-block  0
@@ -106,12 +106,12 @@
         -:   91:  __atomic_add_dispatch(_Atomic_word* __mem, int __val)
         -:   92:  {
         -:   93:#ifdef __GTHREADS
-      233:   94:    if (__gthread_active_p())
-      233:   94-block  0
+      751:   94:    if (__gthread_active_p())
+      751:   94-block  0
         -:   95:      {
         -:   96:	__atomic_add(__mem, __val);
-      233:   97:	return;
-      233:   97-block  0
+      751:   97:	return;
+      751:   97-block  0
         -:   98:      }
         -:   99:#endif
         -:  100:    __atomic_add_single(__mem, __val);

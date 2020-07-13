@@ -154,8 +154,8 @@
         -:  150:  _Cxx_hashtable_define_trivial_hash(short)
         -:  151:
         -:  152:  /// Explicit specialization for int.
-      196:  153:  _Cxx_hashtable_define_trivial_hash(int)
-      196:  153-block  0
+      285:  153:  _Cxx_hashtable_define_trivial_hash(int)
+      285:  153-block  0
         -:  154:
         -:  155:  /// Explicit specialization for long.
         -:  156:  _Cxx_hashtable_define_trivial_hash(long)

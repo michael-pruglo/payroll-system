@@ -196,9 +196,9 @@
         -:  192:   *  that object.
         -:  193:  */
         -:  194:  inline _Setprecision
-       82:  195:  setprecision(int __n)
-       82:  196:  { return { __n }; }
-       82:  196-block  0
+       99:  195:  setprecision(int __n)
+       99:  196:  { return { __n }; }
+       99:  196-block  0
         -:  197:
         -:  198:  template<typename _CharT, typename _Traits>
         -:  199:    inline basic_istream<_CharT, _Traits>&

@@ -1,0 +1,45 @@
+        -:    0:Source:C:/Users/mickl/ClionProjects/payroll-system/src/Employee/PaymentClassification.cpp
+        -:    0:Graph:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcno
+        -:    0:Data:C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug\tests\CMakeFiles\google_test.dir\Transactions\utility\EmployeeCorrectnessTester.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdexcept>
+        -:    2:#include "PaymentClassification.hpp"
+        -:    3:
+        -:    4:#define EXECUTE_OPTION( CONTAINER, ELEM_TO_FIND, IF_CONTAINS, IF_DOESNT_CONTAIN ) \
+        -:    5:    auto it = CONTAINER.find(ELEM_TO_FIND); \
+        -:    6:    if (it == CONTAINER.end()) \
+        -:    7:        IF_DOESNT_CONTAIN; \
+        -:    8:    else \
+        -:    9:        IF_CONTAINS;
+        -:   10:
+        1:   11:TimeCard HourlyClassification::getTimeCard(Date date) const
+        -:   12:{
+       1*:   13:    EXECUTE_OPTION(timeCards, date,
+        1:   13-block  0
+        1:   13-block  1
+    %%%%%:   13-block  2
+    %%%%%:   13-block  3
+        1:   13-block  4
+        1:   13-block  5
+    $$$$$:   13-block  6
+        -:   14:        return it->second,
+        -:   15:        throw std::runtime_error("HourlyClassification::getTimeCard() - doesn't have such a timecard")
+        -:   16:    )
+        -:   17:}
+        -:   18:
+        1:   19:SalesReceipt CommissionedClassification::getSalesReceipt(Date date) const
+        -:   20:{
+       1*:   21:    EXECUTE_OPTION(salesReceipts, date,
+        1:   21-block  0
+        1:   21-block  1
+    %%%%%:   21-block  2
+    %%%%%:   21-block  3
+        1:   21-block  4
+        1:   21-block  5
+    $$$$$:   21-block  6
+        -:   22:       return it->second,
+        -:   23:       throw std::runtime_error("CommissionedClassification::getSalesReceipt() - doesn't have such a receipt")
+        -:   24:    )
+        -:   25:}
+        -:   26:
+        -:   27:#undef EXECUTE_OPTION

@@ -186,15 +186,15 @@
         -:  182:#if __cplusplus < 201103L
         -:  183:      map() : _M_t() { }
         -:  184:#else
-        4:  185:      map() = default;
+       16:  185:      map() = default;
 ------------------
 _ZNSt3mapI4Date12SalesReceiptSt4lessIS0_ESaISt4pairIKS0_S1_EEEC1Ev:
-        2:  185:      map() = default;
-        2:  185-block  0
+        3:  185:      map() = default;
+        3:  185-block  0
 ------------------
 _ZNSt3mapI4Date8TimeCardSt4lessIS0_ESaISt4pairIKS0_S1_EEEC1Ev:
-        2:  185:      map() = default;
-        2:  185-block  0
+       13:  185:      map() = default;
+       13:  185-block  0
 ------------------
         -:  186:#endif
         -:  187:
@@ -312,15 +312,15 @@ _ZNSt3mapI4Date8TimeCardSt4lessIS0_ESaISt4pairIKS0_S1_EEEC1Ev:
         -:  299:       *  themselves are pointers, the pointed-to memory is not touched in any
         -:  300:       *  way.  Managing the pointer is the user's responsibility.
         -:  301:       */
-        4:  302:      ~map() = default;
+       16:  302:      ~map() = default;
 ------------------
 _ZNSt3mapI4Date12SalesReceiptSt4lessIS0_ESaISt4pairIKS0_S1_EEED1Ev:
-        2:  302:      ~map() = default;
-        2:  302-block  0
+        3:  302:      ~map() = default;
+        3:  302-block  0
 ------------------
 _ZNSt3mapI4Date8TimeCardSt4lessIS0_ESaISt4pairIKS0_S1_EEED1Ev:
-        2:  302:      ~map() = default;
-        2:  302-block  0
+       13:  302:      ~map() = default;
+       13:  302-block  0
 ------------------
         -:  303:#endif
         -:  304:

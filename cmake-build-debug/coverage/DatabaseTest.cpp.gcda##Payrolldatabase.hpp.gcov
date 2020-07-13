@@ -30,10 +30,10 @@ _ZN15PayrollDatabaseD1Ev:
         -:   17:    std::shared_ptr<Employee>   getEmployee(int id) const;
         -:   18:    void                        updateEmployee(int id, std::shared_ptr<Employee> newEmployee);
         -:   19:    void                        deleteEmployee(int id);
-       67:   20:    auto                        size() const { return database.size(); }
-       67:   20-block  0
-       19:   21:    void                        clear() { database.clear(); }
-       19:   21-block  0
+       89:   20:    auto                        size() const { return database.size(); }
+       89:   20-block  0
+       30:   21:    void                        clear() { database.clear(); }
+       30:   21-block  0
         -:   22:
         -:   23:public: //exceptions
         -:   24:    class not_found;
@@ -58,15 +58,15 @@ _ZN15PayrollDatabaseD1Ev:
         -:   42:class PayrollDatabase::not_found : public std::runtime_error
         -:   43:{
         -:   44:public:
-        6:   45:    explicit not_found(int id) :
-        6:   46:        std::runtime_error("Payroll Database: not_found id = "+std::to_string(id))
-        6:   46-block  0
-        6:   46-block  1
-        6:   46-block  2
+        7:   45:    explicit not_found(int id) :
+        7:   46:        std::runtime_error("Payroll Database: not_found id = "+std::to_string(id))
+        7:   46-block  0
+        7:   46-block  1
+        7:   46-block  2
     $$$$$:   46-block  3
     $$$$$:   46-block  4
     $$$$$:   46-block  5
-        6:   47:    {}
+        7:   47:    {}
         -:   48:};
         -:   49:class PayrollDatabase::add_duplicate : public std::runtime_error
         -:   50:{

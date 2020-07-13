@@ -82,4 +82,36 @@ private:
     double cSalary, cRate;
 };
 
+class ChangeMethodTransaction : public ChangeEmployeeTransaction
+{
+public:
+    ChangeMethodTransaction(int id) : ChangeEmployeeTransaction(id) {}
+    virtual ~ChangeMethodTransaction() override = default;
+    void change(std::shared_ptr<Employee> employee) override;
+    virtual std::shared_ptr<PaymentMethod> getPaymentMethod() = 0;
+};
+class ChangeToDirectMethodTransaction : public ChangeMethodTransaction
+{
+public:
+    ChangeToDirectMethodTransaction(int id, std::string bank, int account);
+    std::shared_ptr<PaymentMethod> getPaymentMethod() override;
+private:
+    std::string bank;
+    int account;
+};
+class ChangeToMailMethodTransaction : public ChangeMethodTransaction
+{
+public:
+    ChangeToMailMethodTransaction(int id, std::string address);
+    std::shared_ptr<PaymentMethod> getPaymentMethod() override;
+private:
+    std::string address;
+};
+class ChangeToHoldMethodTransaction : public ChangeMethodTransaction
+{
+public:
+    ChangeToHoldMethodTransaction(int id);
+    std::shared_ptr<PaymentMethod> getPaymentMethod() override;
+};
+
 #endif //PAYROLL_SYSTEM_CHANGEEMPLOYEETRANSACTION_HPP

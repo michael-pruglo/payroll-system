@@ -173,10 +173,10 @@ _ZNSt14pointer_traitsIPcE10pointer_toERc:
         -:  153:
         -:  154:  template<typename _Tp>
         -:  155:    constexpr _Tp*
-       15:  156:    __to_address(_Tp* __ptr) noexcept
+       76:  156:    __to_address(_Tp* __ptr) noexcept
         -:  157:    {
         -:  158:      static_assert(!std::is_function<_Tp>::value, "not a function pointer");
-       15:  159:      return __ptr;
+       76:  159:      return __ptr;
         -:  160:    }
         -:  161:
         -:  162:#if __cplusplus <= 201703L

@@ -8,21 +8,25 @@
         -:    4:
         -:    5:struct Date
         -:    6:{
-        2:    7:    Date(int year, int month, int day) : year(year), month(month), day(day) {}
+       21:    7:    Date(int year, int month, int day) : year(year), month(month), day(day) {}
         -:    8:
         -:    9:    int year, month, day;
         -:   10:};
         -:   11:
-        2:   12:inline bool operator<(Date d1, Date d2)
+       59:   12:inline bool operator<(Date d1, Date d2)
         -:   13:{
-       2*:   14:    return d1.year<d2.year || d1.month<d2.month || d1.day<d2.day;
-        2:   14-block  0
-        2:   14-block  1
-        2:   14-block  2
-    %%%%%:   14-block  3
-        2:   14-block  4
-        2:   14-block  5
+       59:   14:    return d1.year<d2.year || d1.month<d2.month || d1.day<d2.day;
+       59:   14-block  0
+       33:   14-block  1
+       33:   14-block  2
+       26:   14-block  3
+       33:   14-block  4
+       59:   14-block  5
         -:   15:}
-        -:   16:
-        -:   17:
-        -:   18:#endif //PAYROLL_SYSTEM_DATE_HPP
+        -:   16:inline bool operator==(Date d1, Date d2)
+        -:   17:{
+        -:   18:    return d1.year==d2.year && d1.month==d2.month && d1.day==d2.day;
+        -:   19:}
+        -:   20:
+        -:   21:
+        -:   22:#endif //PAYROLL_SYSTEM_DATE_HPP

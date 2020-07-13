@@ -9,7 +9,7 @@
         -:    5:class Transaction
         -:    6:{
         -:    7:public:
-        9:    8:    virtual ~Transaction() = default;
+       55:    8:    virtual ~Transaction() = default;
         -:    9:    virtual void execute() = 0;
         -:   10:};
         -:   11:

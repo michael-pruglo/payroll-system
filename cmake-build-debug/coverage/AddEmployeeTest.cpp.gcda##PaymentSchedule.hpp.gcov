@@ -8,7 +8,7 @@
         -:    4:
         -:    5:class PaymentSchedule
         -:    6:{
-       5*:    7:public: virtual ~PaymentSchedule() = default;
+      26*:    7:public: virtual ~PaymentSchedule() = default;
 ------------------
 _ZN15PaymentScheduleD0Ev:
     #####:    7:public: virtual ~PaymentSchedule() = default;
@@ -18,7 +18,7 @@ _ZN15PaymentScheduleD1Ev:
     #####:    7:public: virtual ~PaymentSchedule() = default;
 ------------------
 _ZN15PaymentScheduleD2Ev:
-        5:    7:public: virtual ~PaymentSchedule() = default;
+       26:    7:public: virtual ~PaymentSchedule() = default;
 ------------------
         -:    8:};
         -:    9:

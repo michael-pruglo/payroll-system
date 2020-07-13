@@ -8,69 +8,59 @@
         -:    4:#include <map>
         -:    5:#include "TimeCard.hpp"
         -:    6:#include "SalesReceipt.hpp"
-        -:    7:
-       5*:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+        -:    7:#include "../utility/Date.hpp"
+        -:    8:
+      26*:    9:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
 ------------------
 _ZN21PaymentClassificationD0Ev:
-    #####:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
-    %%%%%:    8-block  0
+    #####:    9:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+    %%%%%:    9-block  0
 ------------------
 _ZN21PaymentClassificationD1Ev:
-    #####:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+    #####:    9:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
 ------------------
 _ZN21PaymentClassificationD2Ev:
-        5:    8:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
+       26:    9:class PaymentClassification { public: virtual ~PaymentClassification() = default; };
 ------------------
-        -:    9:class HourlyClassification : public PaymentClassification
-        -:   10:{
-        -:   11:public:
-        2:   12:    explicit HourlyClassification(double hourlyRate) : hourlyRate(hourlyRate) {}
-        2:   12-block  0
-        -:   13:    double getHourlyRate() const { return hourlyRate; }
-        -:   14:    void addTimeCard(TimeCard tc) { timeCards.insert({tc.getDate(), tc}); }
-        -:   15:    TimeCard getTimeCard(Date date) const
-        -:   16:    {
-        -:   17:        auto it = timeCards.find(date);
-        -:   18:        if (it != timeCards.end())
-        -:   19:            return it->second;
-        -:   20:        else
-        -:   21:            throw std::runtime_error("HourlyClassification::getTimeCard() - doesn't have such a timecard");
-        -:   22:    }
-        -:   23:private:
-        -:   24:    double hourlyRate;
-        -:   25:    std::map<Date, TimeCard> timeCards;
-        -:   26:};
-        -:   27:class SalariedClassification : public PaymentClassification
-        -:   28:{
-        -:   29:public:
-        1:   30:    SalariedClassification(double salary) : salary(salary) {}
-        1:   30-block  0
-        -:   31:    double getSalary() const { return salary; }
-        -:   32:private:
-        -:   33:    double salary;
-        -:   34:};
-        -:   35:class CommissionedClassification : public PaymentClassification
-        -:   36:{
-        -:   37:public:
-        2:   38:    CommissionedClassification(double salary, double commissionRate) :
-        2:   39:            salary(salary), commissionRate(commissionRate) {}
-        2:   39-block  0
-        -:   40:
-        -:   41:    double getSalary() const { return salary; }
-        -:   42:    double getCommissionRate() const { return commissionRate; }
-        -:   43:    void addSalesReceipt(SalesReceipt sr) { salesReceipts.insert({sr.getDate(), sr}); }
-        -:   44:    SalesReceipt getSalesReceipt(Date date) const
-        -:   45:    {
-        -:   46:        auto it = salesReceipts.find(date);
-        -:   47:        if (it != salesReceipts.end())
-        -:   48:            return it->second;
-        -:   49:        else
-        -:   50:            throw std::runtime_error("CommissionedClassification::getSalesReceipt() - doesn't have such a receipt");
-        -:   51:    }
-        -:   52:private:
-        -:   53:    double salary, commissionRate;
-        -:   54:    std::map<Date, SalesReceipt> salesReceipts;
-        -:   55:};
-        -:   56:
-        -:   57:
-        -:   58:#endif //PAYROLL_SYSTEM_PAYMENTCLASSIFICATION_HPP
+        -:   10:class HourlyClassification : public PaymentClassification
+        -:   11:{
+        -:   12:public:
+       13:   13:    explicit HourlyClassification(double hourlyRate) : hourlyRate(hourlyRate) {}
+       13:   13-block  0
+        -:   14:    double getHourlyRate() const { return hourlyRate; }
+        -:   15:    void addTimeCard(TimeCard tc) { timeCards.insert({tc.getDate(), tc}); }
+        -:   16:    TimeCard getTimeCard(Date date) const;
+        -:   17:
+        -:   18:private:
+        -:   19:    double hourlyRate;
+        -:   20:    std::map<Date, TimeCard> timeCards;
+        -:   21:};
+        -:   22:
+        -:   23:class SalariedClassification : public PaymentClassification
+        -:   24:{
+        -:   25:public:
+       10:   26:    SalariedClassification(double salary) : salary(salary) {}
+       10:   26-block  0
+        -:   27:    double getSalary() const { return salary; }
+        -:   28:private:
+        -:   29:    double salary;
+        -:   30:};
+        -:   31:class CommissionedClassification : public PaymentClassification
+        -:   32:{
+        -:   33:public:
+        3:   34:    CommissionedClassification(double salary, double commissionRate) :
+        3:   35:            salary(salary), commissionRate(commissionRate) {}
+        3:   35-block  0
+        -:   36:
+        -:   37:    double getSalary() const { return salary; }
+        -:   38:    double getCommissionRate() const { return commissionRate; }
+        -:   39:    void addSalesReceipt(SalesReceipt sr) { salesReceipts.insert({sr.getDate(), sr}); }
+        -:   40:    SalesReceipt getSalesReceipt(Date date) const;
+        -:   41:
+        -:   42:private:
+        -:   43:    double salary, commissionRate;
+        -:   44:    std::map<Date, SalesReceipt> salesReceipts;
+        -:   45:};
+        -:   46:
+        -:   47:
+        -:   48:#endif //PAYROLL_SYSTEM_PAYMENTCLASSIFICATION_HPP

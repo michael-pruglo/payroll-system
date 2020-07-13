@@ -347,10 +347,66 @@
     %%%%%:  337-block  0
         -:  338:
         -:  339:  // Streams a custom failure message into this object.
-        -:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
-        -:  341:    AppendMessage(Message() << value);
-        -:  342:    return *this;
+    #####:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
+    #####:  341:    AppendMessage(Message() << value);
+    #####:  342:    return *this;
         -:  343:  }
+------------------
+_ZN7testing15AssertionResultlsIA5_cEERS0_RKT_:
+    #####:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
+    #####:  341:    AppendMessage(Message() << value);
+    %%%%%:  341-block  0
+    %%%%%:  341-block  1
+    %%%%%:  341-block  2
+    $$$$$:  341-block  3
+    #####:  342:    return *this;
+    %%%%%:  342-block  0
+        -:  343:  }
+------------------
+_ZN7testing15AssertionResultlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_:
+    #####:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
+    #####:  341:    AppendMessage(Message() << value);
+    %%%%%:  341-block  0
+    %%%%%:  341-block  1
+    %%%%%:  341-block  2
+    $$$$$:  341-block  3
+    #####:  342:    return *this;
+    %%%%%:  342-block  0
+        -:  343:  }
+------------------
+_ZN7testing15AssertionResultlsIA3_cEERS0_RKT_:
+    #####:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
+    #####:  341:    AppendMessage(Message() << value);
+    %%%%%:  341-block  0
+    %%%%%:  341-block  1
+    %%%%%:  341-block  2
+    $$$$$:  341-block  3
+    #####:  342:    return *this;
+    %%%%%:  342-block  0
+        -:  343:  }
+------------------
+_ZN7testing15AssertionResultlsIPKcEERS0_RKT_:
+    #####:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
+    #####:  341:    AppendMessage(Message() << value);
+    %%%%%:  341-block  0
+    %%%%%:  341-block  1
+    %%%%%:  341-block  2
+    $$$$$:  341-block  3
+    #####:  342:    return *this;
+    %%%%%:  342-block  0
+        -:  343:  }
+------------------
+_ZN7testing15AssertionResultlsIA12_cEERS0_RKT_:
+    #####:  340:  template <typename T> AssertionResult& operator<<(const T& value) {
+    #####:  341:    AppendMessage(Message() << value);
+    %%%%%:  341-block  0
+    %%%%%:  341-block  1
+    %%%%%:  341-block  2
+    $$$$$:  341-block  3
+    #####:  342:    return *this;
+    %%%%%:  342-block  0
+        -:  343:  }
+------------------
         -:  344:
         -:  345:  // Allows streaming basic output manipulators such as endl or flush into
         -:  346:  // this object.
@@ -362,10 +418,15 @@
         -:  352:
         -:  353: private:
         -:  354:  // Appends the contents of message to message_.
-        -:  355:  void AppendMessage(const Message& a_message) {
-        -:  356:    if (message_.get() == nullptr) message_.reset(new ::std::string);
-        -:  357:    message_->append(a_message.GetString().c_str());
-        -:  358:  }
+    #####:  355:  void AppendMessage(const Message& a_message) {
+    #####:  356:    if (message_.get() == nullptr) message_.reset(new ::std::string);
+    %%%%%:  356-block  0
+    %%%%%:  356-block  1
+    #####:  357:    message_->append(a_message.GetString().c_str());
+    %%%%%:  357-block  0
+    %%%%%:  357-block  1
+    $$$$$:  357-block  2
+    #####:  358:  }
         -:  359:
         -:  360:  // Swap the contents of this AssertionResult with other.
         -:  361:  void swap(AssertionResult& other);
@@ -1621,13 +1682,33 @@
         -: 1599:// frame size of CmpHelperOP. This helps reduce the overhead of some sanitizers
         -: 1600:// when calling EXPECT_OP in a tight loop.
         -: 1601:template <typename T1, typename T2>
-        -: 1602:AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
+    #####: 1602:AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
         -: 1603:                                   const T1& val1, const T2& val2,
         -: 1604:                                   const char* op) {
-        -: 1605:  return AssertionFailure()
-        -: 1606:         << "Expected: (" << expr1 << ") " << op << " (" << expr2
-        -: 1607:         << "), actual: " << FormatForComparisonFailureMessage(val1, val2)
-        -: 1608:         << " vs " << FormatForComparisonFailureMessage(val2, val1);
+    #####: 1605:  return AssertionFailure()
+    %%%%%: 1605-block  0
+    $$$$$: 1605-block  1
+    #####: 1606:         << "Expected: (" << expr1 << ") " << op << " (" << expr2
+    %%%%%: 1606-block  0
+    %%%%%: 1606-block  1
+    %%%%%: 1606-block  2
+    %%%%%: 1606-block  3
+    %%%%%: 1606-block  4
+    #####: 1607:         << "), actual: " << FormatForComparisonFailureMessage(val1, val2)
+    %%%%%: 1607-block  0
+    %%%%%: 1607-block  1
+    %%%%%: 1607-block  2
+    $$$$$: 1607-block  3
+    $$$$$: 1607-block  4
+    #####: 1608:         << " vs " << FormatForComparisonFailureMessage(val2, val1);
+    %%%%%: 1608-block  0
+    %%%%%: 1608-block  1
+    %%%%%: 1608-block  2
+    %%%%%: 1608-block  3
+    %%%%%: 1608-block  4
+    %%%%%: 1608-block  5
+    $$$$$: 1608-block  6
+    $$$$$: 1608-block  7
         -: 1609:}
         -: 1610:
         -: 1611:// A macro for implementing the helper functions needed to implement
@@ -1657,7 +1738,10 @@
         -: 1635:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
         -: 1636:
         -: 1637:// Implements the helper function for {ASSERT|EXPECT}_NE
-        -: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+      13*: 1638:GTEST_IMPL_CMP_HELPER_(NE, !=);
+       13: 1638-block  0
+       13: 1638-block  1
+    %%%%%: 1638-block  2
         -: 1639:// Implements the helper function for {ASSERT|EXPECT}_LE
         -: 1640:GTEST_IMPL_CMP_HELPER_(LE, <=);
         -: 1641:// Implements the helper function for {ASSERT|EXPECT}_LT

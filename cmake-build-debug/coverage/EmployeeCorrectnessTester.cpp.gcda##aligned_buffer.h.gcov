@@ -69,18 +69,38 @@
         -:   65:      { return static_cast<void*>(&_M_storage); }
         -:   66:
         -:   67:      const void*
+       3*:   68:      _M_addr() const noexcept
+       3*:   69:      { return static_cast<const void*>(&_M_storage); }
+------------------
+_ZNK9__gnu_cxx16__aligned_membufISt4pairIK4Date12SalesReceiptEE7_M_addrEv:
+        3:   68:      _M_addr() const noexcept
+        3:   69:      { return static_cast<const void*>(&_M_storage); }
+        3:   69-block  0
+------------------
+_ZNK9__gnu_cxx16__aligned_membufISt4pairIK4Date8TimeCardEE7_M_addrEv:
     #####:   68:      _M_addr() const noexcept
     #####:   69:      { return static_cast<const void*>(&_M_storage); }
     %%%%%:   69-block  0
+------------------
         -:   70:
         -:   71:      _Tp*
         -:   72:      _M_ptr() noexcept
         -:   73:      { return static_cast<_Tp*>(_M_addr()); }
         -:   74:
         -:   75:      const _Tp*
+       3*:   76:      _M_ptr() const noexcept
+       3*:   77:      { return static_cast<const _Tp*>(_M_addr()); }
+------------------
+_ZNK9__gnu_cxx16__aligned_membufISt4pairIK4Date12SalesReceiptEE6_M_ptrEv:
+        3:   76:      _M_ptr() const noexcept
+        3:   77:      { return static_cast<const _Tp*>(_M_addr()); }
+        3:   77-block  0
+------------------
+_ZNK9__gnu_cxx16__aligned_membufISt4pairIK4Date8TimeCardEE6_M_ptrEv:
     #####:   76:      _M_ptr() const noexcept
     #####:   77:      { return static_cast<const _Tp*>(_M_addr()); }
     %%%%%:   77-block  0
+------------------
         -:   78:    };
         -:   79:
         -:   80:#if _GLIBCXX_INLINE_VERSION

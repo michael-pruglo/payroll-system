@@ -179,7 +179,8 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
         -:  150:		     "unique_ptr's deleter type must be a function object type"
         -:  151:		     " or an lvalue reference type" );
         -:  152:
-        -:  153:      __uniq_ptr_impl() = default;
+      211:  153:      __uniq_ptr_impl() = default;
+      211:  153-block  0
         -:  154:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
         -:  155:
         -:  156:      template<typename _Del>
@@ -207,11 +208,11 @@ _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
     #####:  171:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
     %%%%%:  171-block  0
 ------------------
-     618*:  172:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
+    #####:  172:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
 ------------------
 _ZNKSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv:
-      618:  172:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
-      618:  172-block  0
+    #####:  172:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
+    %%%%%:  172-block  0
 ------------------
 _ZNKSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv:
     #####:  172:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
@@ -323,9 +324,10 @@ _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
         -:  265:
         -:  266:      /// Default constructor, creates a unique_ptr that owns nothing.
         -:  267:      template<typename _Del = _Dp, typename = _DeleterConstraint<_Del>>
-        -:  268:	constexpr unique_ptr() noexcept
-        -:  269:	: _M_t()
-        -:  270:	{ }
+      211:  268:	constexpr unique_ptr() noexcept
+      211:  269:	: _M_t()
+      211:  269-block  0
+      211:  270:	{ }
         -:  271:
         -:  272:      /** Takes ownership of a pointer.
         -:  273:       *
@@ -486,11 +488,11 @@ _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14
         -:  401:
         -:  402:      /// Dereference the stored pointer.
         -:  403:      typename add_lvalue_reference<element_type>::type
-      536:  404:      operator*() const
+    #####:  404:      operator*() const
         -:  405:      {
         -:  406:	__glibcxx_assert(get() != pointer());
-      536:  407:	return *get();
-      536:  407-block  0
+    #####:  407:	return *get();
+    %%%%%:  407-block  0
         -:  408:      }
         -:  409:
         -:  410:      /// Return the stored pointer.
@@ -504,13 +506,13 @@ _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14
         -:  417:
         -:  418:      /// Return the stored pointer.
         -:  419:      pointer
-     618*:  420:      get() const noexcept
-     618*:  421:      { return _M_t._M_ptr(); }
+    #####:  420:      get() const noexcept
+    #####:  421:      { return _M_t._M_ptr(); }
 ------------------
 _ZNKSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv:
-      618:  420:      get() const noexcept
-      618:  421:      { return _M_t._M_ptr(); }
-      618:  421-block  0
+    #####:  420:      get() const noexcept
+    #####:  421:      { return _M_t._M_ptr(); }
+    %%%%%:  421-block  0
 ------------------
 _ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv:
     #####:  420:      get() const noexcept

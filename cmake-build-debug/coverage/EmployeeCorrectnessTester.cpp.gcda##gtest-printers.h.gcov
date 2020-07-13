@@ -332,15 +332,6 @@ _ZN7testing8internal15FallbackPrinter10PrintValueISt10shared_ptrI20HourlyClassif
         -:  282:        sizeof(value), os);
     #####:  283:  }
 ------------------
-_ZN7testing8internal15FallbackPrinter10PrintValueISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
-    #####:  278:  static void PrintValue(const T& value, ::std::ostream* os) {
-    #####:  279:    PrintBytesInObjectTo(
-        -:  280:        static_cast<const unsigned char*>(
-    #####:  281:            reinterpret_cast<const void*>(std::addressof(value))),
-    %%%%%:  281-block  0
-        -:  282:        sizeof(value), os);
-    #####:  283:  }
-------------------
 _ZN7testing8internal15FallbackPrinter10PrintValueISt10shared_ptrI14WeeklyScheduleEEEvRKT_PSo:
     #####:  278:  static void PrintValue(const T& value, ::std::ostream* os) {
     #####:  279:    PrintBytesInObjectTo(
@@ -441,16 +432,6 @@ _ZN7testing8internal17PrintWithFallbackISt10shared_ptrI20HourlyClassificationEEE
     %%%%%:  312-block  0
     #####:  313:}
 ------------------
-_ZN7testing8internal17PrintWithFallbackISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
-    #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
-        -:  308:  using Printer = typename FindFirstPrinter<
-        -:  309:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
-        -:  310:      StreamPrinter, ProtobufPrinter, ConvertibleToIntegerPrinter,
-        -:  311:      ConvertibleToStringViewPrinter, FallbackPrinter>::type;
-    #####:  312:  Printer::PrintValue(value, os);
-    %%%%%:  312-block  0
-    #####:  313:}
-------------------
 _ZN7testing8internal17PrintWithFallbackISt10shared_ptrI14WeeklyScheduleEEEvRKT_PSo:
     #####:  307:void PrintWithFallback(const T& value, ::std::ostream* os) {
         -:  308:  using Printer = typename FindFirstPrinter<
@@ -515,12 +496,6 @@ _ZN7testing8internal19FormatForComparisonIddE6FormatB5cxx11ERKd:
         -:  335:  }
 ------------------
 _ZN7testing8internal19FormatForComparisonISt10shared_ptrI20HourlyClassificationES4_E6FormatB5cxx11ERKS4_:
-    #####:  333:  static ::std::string Format(const ToPrint& value) {
-    #####:  334:    return ::testing::PrintToString(value);
-    %%%%%:  334-block  0
-        -:  335:  }
-------------------
-_ZN7testing8internal19FormatForComparisonISt10shared_ptrI10HoldMethodES4_E6FormatB5cxx11ERKS4_:
     #####:  333:  static ::std::string Format(const ToPrint& value) {
     #####:  334:    return ::testing::PrintToString(value);
     %%%%%:  334-block  0
@@ -662,13 +637,6 @@ _ZN7testing8internal33FormatForComparisonFailureMessageISt10shared_ptrI20HourlyC
     %%%%%:  415-block  0
         -:  416:}
 ------------------
-_ZN7testing8internal33FormatForComparisonFailureMessageISt10shared_ptrI10HoldMethodES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
-    #####:  413:std::string FormatForComparisonFailureMessage(
-        -:  414:    const T1& value, const T2& /* other_operand */) {
-    #####:  415:  return FormatForComparison<T1, T2>::Format(value);
-    %%%%%:  415-block  0
-        -:  416:}
-------------------
 _ZN7testing8internal33FormatForComparisonFailureMessageISt10shared_ptrI14WeeklyScheduleES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
     #####:  413:std::string FormatForComparisonFailureMessage(
         -:  414:    const T1& value, const T2& /* other_operand */) {
@@ -741,12 +709,6 @@ _ZN7testing8internal7PrintToIdEEvRKT_PSo:
     #####:  442:}
 ------------------
 _ZN7testing8internal7PrintToISt10shared_ptrI20HourlyClassificationEEEvRKT_PSo:
-    #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
-    #####:  441:  internal::PrintWithFallback(value, os);
-    %%%%%:  441-block  0
-    #####:  442:}
-------------------
-_ZN7testing8internal7PrintToISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
     #####:  440:void PrintTo(const T& value, ::std::ostream* os) {
     #####:  441:  internal::PrintWithFallback(value, os);
     %%%%%:  441-block  0
@@ -1040,20 +1002,6 @@ _ZN7testing8internal16UniversalPrinterISt10shared_ptrI20HourlyClassificationEE5P
     %%%%%:  637-block  0
     #####:  638:  }
 ------------------
-_ZN7testing8internal16UniversalPrinterISt10shared_ptrI10HoldMethodEE5PrintERKS4_PSo:
-    #####:  628:  static void Print(const T& value, ::std::ostream* os) {
-        -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
-        -:  630:    // the value.
-        -:  631:    //
-        -:  632:    // Thanks to Koenig look-up, if T is a class and has its own
-        -:  633:    // PrintTo() function defined in its namespace, that function will
-        -:  634:    // be visible here.  Since it is more specific than the generic ones
-        -:  635:    // in ::testing::internal, it will be picked by the compiler in the
-        -:  636:    // following statement - exactly what we want.
-    #####:  637:    PrintTo(value, os);
-    %%%%%:  637-block  0
-    #####:  638:  }
-------------------
 _ZN7testing8internal16UniversalPrinterISt10shared_ptrI14WeeklyScheduleEE5PrintERKS4_PSo:
     #####:  628:  static void Print(const T& value, ::std::ostream* os) {
         -:  629:    // By default, ::testing::internal::PrintTo() is used for printing
@@ -1275,12 +1223,6 @@ _ZN7testing8internal21UniversalTersePrinterISt10shared_ptrI20HourlyClassificatio
     %%%%%:  793-block  0
     #####:  794:  }
 ------------------
-_ZN7testing8internal21UniversalTersePrinterISt10shared_ptrI10HoldMethodEE5PrintERKS4_PSo:
-    #####:  792:  static void Print(const T& value, ::std::ostream* os) {
-    #####:  793:    UniversalPrint(value, os);
-    %%%%%:  793-block  0
-    #####:  794:  }
-------------------
 _ZN7testing8internal21UniversalTersePrinterISt10shared_ptrI14WeeklyScheduleEE5PrintERKS4_PSo:
     #####:  792:  static void Print(const T& value, ::std::ostream* os) {
     #####:  793:    UniversalPrint(value, os);
@@ -1412,15 +1354,6 @@ _ZN7testing8internal14UniversalPrintIdEEvRKT_PSo:
     #####:  866:}
 ------------------
 _ZN7testing8internal14UniversalPrintISt10shared_ptrI20HourlyClassificationEEEvRKT_PSo:
-    #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
-        -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
-        -:  863:  // UniversalPrinter with T directly.
-        -:  864:  typedef T T1;
-    #####:  865:  UniversalPrinter<T1>::Print(value, os);
-    %%%%%:  865-block  0
-    #####:  866:}
-------------------
-_ZN7testing8internal14UniversalPrintISt10shared_ptrI10HoldMethodEEEvRKT_PSo:
     #####:  861:void UniversalPrint(const T& value, ::std::ostream* os) {
         -:  862:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
         -:  863:  // UniversalPrinter with T directly.

@@ -32,9 +32,37 @@
     $$$$$:   15-block 11
         -:   16:    }
         -:   17:
-        -:   18:    int initSize = 0;
-        -:   19:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
-        -:   20:};
-        -:   21:
-        -:   22:
-        -:   23:#endif //PAYROLL_SYSTEM_TESTUSINGDATABASE_HPP
+      12*:   18:    void assertDatabaseContains(int id) { ASSERT_NO_THROW(database->getEmployee(id)); }
+       12:   18-block  0
+       12:   18-block  1
+       12:   18-block  2
+       12:   18-block  3
+       12:   18-block  4
+    %%%%%:   18-block  5
+    %%%%%:   18-block  6
+    %%%%%:   18-block  7
+    %%%%%:   18-block  8
+    %%%%%:   18-block  9
+    $$$$$:   18-block 10
+    $$$$$:   18-block 11
+    $$$$$:   18-block 12
+    $$$$$:   18-block 13
+    $$$$$:   18-block 14
+    $$$$$:   18-block 15
+    $$$$$:   18-block 16
+    $$$$$:   18-block 17
+    $$$$$:   18-block 18
+    $$$$$:   18-block 19
+    $$$$$:   18-block 20
+    $$$$$:   18-block 21
+    $$$$$:   18-block 22
+    $$$$$:   18-block 23
+    $$$$$:   18-block 24
+    $$$$$:   18-block 25
+        -:   19:
+        -:   20:    int initSize = 0;
+        -:   21:    std::shared_ptr<PayrollDatabase> database = PayrollDatabase::getInstance();
+        -:   22:};
+        -:   23:
+        -:   24:
+        -:   25:#endif //PAYROLL_SYSTEM_TESTUSINGDATABASE_HPP

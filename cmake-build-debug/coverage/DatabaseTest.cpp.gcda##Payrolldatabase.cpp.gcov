@@ -4,75 +4,77 @@
         -:    0:Runs:1
         -:    1:#include "PayrollDatabase.hpp"
         -:    2:
-        -:    3:#define EXECUTE_OPTION( IF_CONTAINS, IF_DOESNT_CONTAIN ) \
-        -:    4:    auto it = database.find(id); \
-        -:    5:    if (it == database.end()) \
+        -:    3:#define EXECUTE_OPTION( CONTAINER, ELEM_TO_FIND, IF_CONTAINS, IF_DOESNT_CONTAIN ) \
+        -:    4:    auto it = CONTAINER.find(ELEM_TO_FIND); \
+        -:    5:    if (it == CONTAINER.end()) \
         -:    6:        IF_DOESNT_CONTAIN; \
         -:    7:    else \
         -:    8:        IF_CONTAINS;
-        -:    9:#define IF_CONTAINS_EXECUTE_ELSE_THROW( FOO ) EXECUTE_OPTION( FOO, throw not_found(id) )
-        -:   10:
-       60:   11:void PayrollDatabase::addEmployee(int id, std::shared_ptr<Employee> employee)
-        -:   12:{
-       60:   13:    EXECUTE_OPTION(throw add_duplicate(id), database.insert({id, employee}));
-       60:   13-block  0
-       60:   13-block  1
-       50:   13-block  2
-       50:   13-block  3
-       10:   13-block  4
-       10:   13-block  5
-    $$$$$:   13-block  6
-    $$$$$:   13-block  7
-    $$$$$:   13-block  8
-       50:   14:}
-        -:   15:
-       28:   16:std::shared_ptr<Employee> PayrollDatabase::getEmployee(int id) const
-        -:   17:{
-       54:   18:    IF_CONTAINS_EXECUTE_ELSE_THROW(return it->second);
-       28:   18-block  0
-       28:   18-block  1
-        2:   18-block  2
-        2:   18-block  3
-       26:   18-block  4
-       26:   18-block  5
-    $$$$$:   18-block  6
-        -:   19:}
-        -:   20:
-        2:   21:void PayrollDatabase::updateEmployee(int id, std::shared_ptr<Employee> newEmployee)
-        -:   22:{
-        2:   23:    IF_CONTAINS_EXECUTE_ELSE_THROW(it->second = newEmployee);
-        2:   23-block  0
-        2:   23-block  1
-        1:   23-block  2
-        1:   23-block  3
-        1:   23-block  4
-    $$$$$:   23-block  5
-        1:   24:}
-        -:   25:
-        7:   26:void PayrollDatabase::deleteEmployee(int id)
-        -:   27:{
-        7:   28:    IF_CONTAINS_EXECUTE_ELSE_THROW(database.erase(it));
-        7:   28-block  0
-        7:   28-block  1
-        3:   28-block  2
-        3:   28-block  3
-        4:   28-block  4
-    $$$$$:   28-block  5
-        4:   29:}
-        4:   29-block  0
-        -:   30:
-        -:   31:#undef EXECUTE_OPTION
-        -:   32:#undef IF_CONTAINS_EXECUTE_ELSE_THROW
-        -:   33:
+        -:    9:
+        -:   10:#define IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND( FOO ) EXECUTE_OPTION( database, id, FOO, throw not_found(id) )
+        -:   11:
+       79:   12:void PayrollDatabase::addEmployee(int id, std::shared_ptr<Employee> employee)
+        -:   13:{
+       79:   14:    if(database.contains(id))
+       79:   14-block  0
+       10:   15:        throw add_duplicate(id);
+       10:   15-block  0
+       10:   15-block  1
+    $$$$$:   15-block  2
+        -:   16:    else
+       69:   17:        database.insert({id, employee});
+       69:   17-block  0
+       69:   17-block  1
+    $$$$$:   17-block  2
+       69:   18:}
+        -:   19:
+       70:   20:std::shared_ptr<Employee> PayrollDatabase::getEmployee(int id) const
+        -:   21:{
+      138:   22:    IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(return it->second);
+       70:   22-block  0
+       70:   22-block  1
+        2:   22-block  2
+        2:   22-block  3
+       68:   22-block  4
+       68:   22-block  5
+    $$$$$:   22-block  6
+        -:   23:}
+        -:   24:
+        2:   25:void PayrollDatabase::updateEmployee(int id, std::shared_ptr<Employee> newEmployee)
+        -:   26:{
+        2:   27:    IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(it->second = newEmployee);
+        2:   27-block  0
+        2:   27-block  1
+        1:   27-block  2
+        1:   27-block  3
+        1:   27-block  4
+    $$$$$:   27-block  5
+        1:   28:}
+        -:   29:
+        8:   30:void PayrollDatabase::deleteEmployee(int id)
+        -:   31:{
+        8:   32:    IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND(database.erase(it));
+        8:   32-block  0
+        8:   32-block  1
+        4:   32-block  2
+        4:   32-block  3
+        4:   32-block  4
+    $$$$$:   32-block  5
+        4:   33:}
+        4:   33-block  0
         -:   34:
-        -:   35:std::shared_ptr<PayrollDatabase> PayrollDatabase::_instance = nullptr;
-        -:   36:
-       33:   37:std::shared_ptr<PayrollDatabase> PayrollDatabase::getInstance()
-        -:   38:{
-       33:   39:    if (_instance == nullptr)
-       33:   39-block  0
-        1:   40:        _instance = std::shared_ptr<PayrollDatabase> {new PayrollDatabase()};
-        1:   40-block  0
-       33:   41:    return _instance;
-       33:   41-block  0
-        -:   42:}
+        -:   35:#undef EXECUTE_OPTION
+        -:   36:#undef IF_CONTAINS_EXECUTE_ELSE_THROW_NOT_FOUND
+        -:   37:
+        -:   38:
+        -:   39:std::shared_ptr<PayrollDatabase> PayrollDatabase::_instance = nullptr;
+        -:   40:
+       85:   41:std::shared_ptr<PayrollDatabase> PayrollDatabase::getInstance()
+        -:   42:{
+       85:   43:    if (_instance == nullptr)
+       85:   43-block  0
+        1:   44:        _instance = std::shared_ptr<PayrollDatabase> {new PayrollDatabase()};
+        1:   44-block  0
+       85:   45:    return _instance;
+       85:   45-block  0
+        -:   46:}

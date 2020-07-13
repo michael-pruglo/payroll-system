@@ -112,15 +112,15 @@
         -:  108:    {
         -:  109:      using _Stored_type = remove_const_t<_Tp>;
         -:  110:
-        4:  111:      _Optional_payload_base() = default;
+       13:  111:      _Optional_payload_base() = default;
 ------------------
 _ZNSt22_Optional_payload_baseI12SalesReceiptEC2Ev:
-        2:  111:      _Optional_payload_base() = default;
-        2:  111-block  0
+        3:  111:      _Optional_payload_base() = default;
+        3:  111-block  0
 ------------------
 _ZNSt22_Optional_payload_baseI8TimeCardEC2Ev:
-        2:  111:      _Optional_payload_base() = default;
-        2:  111-block  0
+       10:  111:      _Optional_payload_base() = default;
+       10:  111-block  0
 ------------------
         -:  112:      ~_Optional_payload_base() = default;
         -:  113:
@@ -210,13 +210,13 @@ _ZNSt22_Optional_payload_baseI8TimeCardEC2Ev:
         -:  197:      template<typename _Up, bool = is_trivially_destructible_v<_Up>>
         -:  198:	union _Storage
         -:  199:	{
-        4:  200:	  constexpr _Storage() noexcept : _M_empty() { }
+       13:  200:	  constexpr _Storage() noexcept : _M_empty() { }
 ------------------
 _ZNSt22_Optional_payload_baseI12SalesReceiptE8_StorageIS0_Lb1EEC1Ev:
-        2:  200:	  constexpr _Storage() noexcept : _M_empty() { }
+        3:  200:	  constexpr _Storage() noexcept : _M_empty() { }
 ------------------
 _ZNSt22_Optional_payload_baseI8TimeCardE8_StorageIS0_Lb1EEC1Ev:
-        2:  200:	  constexpr _Storage() noexcept : _M_empty() { }
+       10:  200:	  constexpr _Storage() noexcept : _M_empty() { }
 ------------------
         -:  201:
         -:  202:	  template<typename... _Args>
@@ -320,15 +320,15 @@ _ZNSt22_Optional_payload_baseI8TimeCardE8_StorageIS0_Lb1EEC1Ev:
         -:  300:    {
         -:  301:      using _Optional_payload_base<_Tp>::_Optional_payload_base;
         -:  302:
-        4:  303:      _Optional_payload() = default;
+       13:  303:      _Optional_payload() = default;
 ------------------
 _ZNSt17_Optional_payloadI12SalesReceiptLb1ELb1ELb1EEC1Ev:
-        2:  303:      _Optional_payload() = default;
-        2:  303-block  0
+        3:  303:      _Optional_payload() = default;
+        3:  303-block  0
 ------------------
 _ZNSt17_Optional_payloadI8TimeCardLb1ELb1ELb1EEC1Ev:
-        2:  303:      _Optional_payload() = default;
-        2:  303-block  0
+       10:  303:      _Optional_payload() = default;
+       10:  303-block  0
 ------------------
         -:  304:    };
         -:  305:
@@ -629,15 +629,15 @@ _ZNSt17_Optional_payloadI8TimeCardLb1ELb1ELb1EEC1Ev:
         -:  600:      : _Optional_base_impl<_Tp, _Optional_base<_Tp>>
         -:  601:    {
         -:  602:      // Constructors for disengaged optionals.
-        4:  603:      constexpr _Optional_base() = default;
+       13:  603:      constexpr _Optional_base() = default;
 ------------------
 _ZNSt14_Optional_baseI12SalesReceiptLb1ELb1EEC2Ev:
-        2:  603:      constexpr _Optional_base() = default;
-        2:  603-block  0
+        3:  603:      constexpr _Optional_base() = default;
+        3:  603-block  0
 ------------------
 _ZNSt14_Optional_baseI8TimeCardLb1ELb1EEC2Ev:
-        2:  603:      constexpr _Optional_base() = default;
-        2:  603-block  0
+       10:  603:      constexpr _Optional_base() = default;
+       10:  603-block  0
 ------------------
         -:  604:
         -:  605:      // Constructors for engaged optionals.
@@ -726,15 +726,15 @@ _ZNSt14_Optional_baseI8TimeCardLb1ELb1EEC2Ev:
         -:  688:    public:
         -:  689:      using value_type = _Tp;
         -:  690:
-        4:  691:      constexpr optional() = default;
+       13:  691:      constexpr optional() = default;
 ------------------
 _ZNSt8optionalI12SalesReceiptEC1Ev:
-        2:  691:      constexpr optional() = default;
-        2:  691-block  0
+        3:  691:      constexpr optional() = default;
+        3:  691-block  0
 ------------------
 _ZNSt8optionalI8TimeCardEC1Ev:
-        2:  691:      constexpr optional() = default;
-        2:  691-block  0
+       10:  691:      constexpr optional() = default;
+       10:  691-block  0
 ------------------
         -:  692:
         -:  693:      constexpr optional(nullopt_t) noexcept { }

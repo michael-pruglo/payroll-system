@@ -148,50 +148,38 @@
         -:  144:       *  @brief  Construct an empty %shared_ptr.
         -:  145:       *  @post   use_count()==0 && get()==0
         -:  146:       */
-      13*:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+      20*:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
 ------------------
 _ZNSt10shared_ptrI26CommissionedClassificationEC1Ev:
-        2:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        2:  147-block  0
+        3:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+        3:  147-block  0
 ------------------
 _ZNSt10shared_ptrI16BiweeklyScheduleEC1Ev:
+        3:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+        3:  147-block  0
+------------------
+_ZNSt10shared_ptrI22SalariedClassificationEC1Ev:
         2:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
         2:  147-block  0
 ------------------
-_ZNSt10shared_ptrI22SalariedClassificationEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
-------------------
 _ZNSt10shared_ptrI15MonthlyScheduleEC1Ev:
-        1:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        1:  147-block  0
+        2:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+        2:  147-block  0
 ------------------
 _ZNSt10shared_ptrI20HourlyClassificationEC1Ev:
     #####:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
     %%%%%:  147-block  0
 ------------------
-_ZNSt10shared_ptrI10HoldMethodEC1Ev:
-        5:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        5:  147-block  0
-------------------
 _ZNSt10shared_ptrI14WeeklyScheduleEC1Ev:
-        2:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
-        2:  147-block  0
+       10:  147:      constexpr shared_ptr() noexcept : __shared_ptr<_Tp>() { }
+       10:  147-block  0
 ------------------
         -:  148:
-      10*:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-------------------
-_ZNSt10shared_ptrI8EmployeeEC1ERKS1_:
     #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-    %%%%%:  149-block  0
-------------------
-_ZNSt10shared_ptrI13PaymentMethodEC1ERKS1_:
-        5:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-        5:  149-block  0
 ------------------
 _ZNSt10shared_ptrI15PaymentScheduleEC1ERKS1_:
-        5:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
-        5:  149-block  0
+    #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
+    %%%%%:  149-block  0
 ------------------
 _ZNSt10shared_ptrI21PaymentClassificationEC1ERKS1_:
     #####:  149:      shared_ptr(const shared_ptr&) noexcept = default; ///< Copy constructor
@@ -303,38 +291,33 @@ _ZNSt10shared_ptrI21PaymentClassificationEC1ERKS1_:
         -:  253:       * @endcode
         -:  254:       */
         -:  255:      template<typename _Yp>
-      17*:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-      17*:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+      26*:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+      26*:  257:	: __shared_ptr<_Tp>(__r, __p) { }
 ------------------
 _ZNSt10shared_ptrI16BiweeklyScheduleEC1I15PaymentScheduleEERKS_IT_EPS0_:
-        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        2:  257-block  0
+        3:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+        3:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+        3:  257-block  0
 ------------------
 _ZNSt10shared_ptrI15MonthlyScheduleEC1I15PaymentScheduleEERKS_IT_EPS0_:
-        1:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        1:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        1:  257-block  0
-------------------
-_ZNSt10shared_ptrI10HoldMethodEC1I13PaymentMethodEERKS_IT_EPS0_:
-        5:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        5:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        5:  257-block  0
+        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+        2:  257-block  0
 ------------------
 _ZNSt10shared_ptrI14WeeklyScheduleEC1I15PaymentScheduleEERKS_IT_EPS0_:
-        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        2:  257-block  0
+       10:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+       10:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+       10:  257-block  0
 ------------------
 _ZNSt10shared_ptrI26CommissionedClassificationEC1I21PaymentClassificationEERKS_IT_EPS0_:
-        5:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        5:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        5:  257-block  0
+        7:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+        7:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+        7:  257-block  0
 ------------------
 _ZNSt10shared_ptrI22SalariedClassificationEC1I21PaymentClassificationEERKS_IT_EPS0_:
-        2:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-        2:  257:	: __shared_ptr<_Tp>(__r, __p) { }
-        2:  257-block  0
+        4:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
+        4:  257:	: __shared_ptr<_Tp>(__r, __p) { }
+        4:  257-block  0
 ------------------
 _ZNSt10shared_ptrI20HourlyClassificationEC1I21PaymentClassificationEERKS_IT_EPS0_:
     #####:  256:	shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
@@ -519,43 +502,38 @@ _ZNSt10shared_ptrI20HourlyClassificationEC1I21PaymentClassificationEERKS_IT_EPS0
         -:  433:  /// Equality operator for shared_ptr objects, compares the stored pointers
         -:  434:  template<typename _Tp, typename _Up>
         -:  435:    _GLIBCXX_NODISCARD inline bool
-       15:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-       15:  437:    { return __a.get() == __b.get(); }
+       30:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+       30:  437:    { return __a.get() == __b.get(); }
 ------------------
 _ZSteqI26CommissionedClassificationS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        2:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        2:  437:    { return __a.get() == __b.get(); }
-        2:  437-block  0
+        3:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+        3:  437:    { return __a.get() == __b.get(); }
+        3:  437-block  0
 ------------------
 _ZSteqI16BiweeklyScheduleS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        2:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        2:  437:    { return __a.get() == __b.get(); }
-        2:  437-block  0
+        3:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+        3:  437:    { return __a.get() == __b.get(); }
+        3:  437-block  0
 ------------------
 _ZSteqI22SalariedClassificationS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
+        2:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+        2:  437:    { return __a.get() == __b.get(); }
+        2:  437-block  0
 ------------------
 _ZSteqI15MonthlyScheduleS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        1:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        1:  437:    { return __a.get() == __b.get(); }
-        1:  437-block  0
+        2:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+        2:  437:    { return __a.get() == __b.get(); }
+        2:  437-block  0
 ------------------
 _ZSteqI20HourlyClassificationS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        2:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        2:  437:    { return __a.get() == __b.get(); }
-        2:  437-block  0
-------------------
-_ZSteqI10HoldMethodS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        5:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        5:  437:    { return __a.get() == __b.get(); }
-        5:  437-block  0
+       10:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+       10:  437:    { return __a.get() == __b.get(); }
+       10:  437-block  0
 ------------------
 _ZSteqI14WeeklyScheduleS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
-        2:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
-        2:  437:    { return __a.get() == __b.get(); }
-        2:  437-block  0
+       10:  436:    operator==(const shared_ptr<_Tp>& __a, const shared_ptr<_Up>& __b) noexcept
+       10:  437:    { return __a.get() == __b.get(); }
+       10:  437-block  0
 ------------------
         -:  438:
         -:  439:  /// shared_ptr comparison with nullptr
@@ -718,11 +696,11 @@ _ZSteqI14WeeklyScheduleS0_EbRKSt10shared_ptrIT_ERKS1_IT0_E:
         -:  596:  /// Convert type of `shared_ptr`, via `dynamic_cast`
         -:  597:  template<typename _Tp, typename _Up>
         -:  598:    inline shared_ptr<_Tp>
-      17*:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
+      26*:  599:    dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept
         -:  600:    {
         -:  601:      using _Sp = shared_ptr<_Tp>;
-      17*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
-      17*:  603:	return _Sp(__r, __p);
+      26*:  602:      if (auto* __p = dynamic_cast<typename _Sp::element_type*>(__r.get()))
+      26*:  603:	return _Sp(__r, __p);
     #####:  604:      return _Sp();
         -:  605:    }
         -:  606:

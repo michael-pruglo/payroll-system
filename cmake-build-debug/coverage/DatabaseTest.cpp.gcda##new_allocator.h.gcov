@@ -80,10 +80,13 @@
         -:   76:#endif
         -:   77:
         -:   78:      _GLIBCXX20_CONSTEXPR
-       4*:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+      34*:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev:
         3:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+------------------
+_ZN9__gnu_cxx13new_allocatorI13ServiceChargeEC2Ev:
+       30:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
 ------------------
 _ZN9__gnu_cxx13new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEEC2Ev:
         1:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
@@ -114,9 +117,9 @@ _ZN9__gnu_cxx13new_allocatorIcEC2Ev:
         -:  100:      // NB: __n is permitted to be 0.  The C++ standard says nothing
         -:  101:      // about what the return value is when __n == 0.
         -:  102:      _GLIBCXX_NODISCARD _Tp*
-      357:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+      547:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         -:  104:      {
-      357:  105:	if (__n > this->_M_max_size())
+      547:  105:	if (__n > this->_M_max_size())
     #####:  106:	  std::__throw_bad_alloc();
         -:  107:
         -:  108:#if __cpp_aligned_new
@@ -126,7 +129,7 @@ _ZN9__gnu_cxx13new_allocatorIcEC2Ev:
         -:  112:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
         -:  113:	  }
         -:  114:#endif
-      357:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+      547:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
         -:  116:      }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEyPKv:
@@ -149,10 +152,10 @@ _ZN9__gnu_cxx13new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEyPKv:
         -:  116:      }
 ------------------
 _ZN9__gnu_cxx13new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEE8allocateEyPKv:
-       50:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+       69:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         -:  104:      {
-       50:  105:	if (__n > this->_M_max_size())
-       50:  105-block  0
+       69:  105:	if (__n > this->_M_max_size())
+       69:  105-block  0
     #####:  106:	  std::__throw_bad_alloc();
     %%%%%:  106-block  0
         -:  107:
@@ -163,15 +166,15 @@ _ZN9__gnu_cxx13new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8
         -:  112:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
         -:  113:	  }
         -:  114:#endif
-       50:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
-       50:  115-block  0
+       69:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+       69:  115-block  0
         -:  116:      }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIcE8allocateEyPKv:
-      305:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+      476:  103:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         -:  104:      {
-      305:  105:	if (__n > this->_M_max_size())
-      305:  105-block  0
+      476:  105:	if (__n > this->_M_max_size())
+      476:  105-block  0
     #####:  106:	  std::__throw_bad_alloc();
     %%%%%:  106-block  0
         -:  107:
@@ -182,14 +185,14 @@ _ZN9__gnu_cxx13new_allocatorIcE8allocateEyPKv:
         -:  112:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
         -:  113:	  }
         -:  114:#endif
-      305:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
-      305:  115-block  0
+      476:  115:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+      476:  115-block  0
         -:  116:      }
 ------------------
         -:  117:
         -:  118:      // __p is not permitted to be a null pointer.
         -:  119:      void
-      335:  120:      deallocate(_Tp* __p, size_type __t)
+      493:  120:      deallocate(_Tp* __p, size_type __t)
         -:  121:      {
         -:  122:#if __cpp_aligned_new
         -:  123:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
@@ -202,7 +205,7 @@ _ZN9__gnu_cxx13new_allocatorIcE8allocateEyPKv:
         -:  130:	    return;
         -:  131:	  }
         -:  132:#endif
-      335:  133:	::operator delete(__p
+      493:  133:	::operator delete(__p
         -:  134:#if __cpp_sized_deallocation
         -:  135:			  , __t * sizeof(_Tp)
         -:  136:#endif
@@ -210,8 +213,8 @@ _ZN9__gnu_cxx13new_allocatorIcE8allocateEyPKv:
         -:  138:      }
 ------------------
 _ZN9__gnu_cxx13new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8EmployeeEELb0EEEE10deallocateEPS9_y:
-       50:  120:      deallocate(_Tp* __p, size_type __t)
-       50:  120-block  0
+       69:  120:      deallocate(_Tp* __p, size_type __t)
+       69:  120-block  0
         -:  121:      {
         -:  122:#if __cpp_aligned_new
         -:  123:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
@@ -224,8 +227,8 @@ _ZN9__gnu_cxx13new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiSt10shared_ptrI8
         -:  130:	    return;
         -:  131:	  }
         -:  132:#endif
-       50:  133:	::operator delete(__p
-       50:  133-block  0
+       69:  133:	::operator delete(__p
+       69:  133-block  0
         -:  134:#if __cpp_sized_deallocation
         -:  135:			  , __t * sizeof(_Tp)
         -:  136:#endif
@@ -256,8 +259,8 @@ _ZN9__gnu_cxx13new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS3_y:
         -:  138:      }
 ------------------
 _ZN9__gnu_cxx13new_allocatorIcE10deallocateEPcy:
-      284:  120:      deallocate(_Tp* __p, size_type __t)
-      284:  120-block  0
+      423:  120:      deallocate(_Tp* __p, size_type __t)
+      423:  120-block  0
         -:  121:      {
         -:  122:#if __cpp_aligned_new
         -:  123:	if (alignof(_Tp) > __STDCPP_DEFAULT_NEW_ALIGNMENT__)
@@ -270,8 +273,8 @@ _ZN9__gnu_cxx13new_allocatorIcE10deallocateEPcy:
         -:  130:	    return;
         -:  131:	  }
         -:  132:#endif
-      284:  133:	::operator delete(__p
-      284:  133-block  0
+      423:  133:	::operator delete(__p
+      423:  133-block  0
         -:  134:#if __cpp_sized_deallocation
         -:  135:			  , __t * sizeof(_Tp)
         -:  136:#endif
@@ -324,10 +327,10 @@ _ZN9__gnu_cxx13new_allocatorIcE10deallocateEPcy:
         -:  182:
         -:  183:    private:
         -:  184:      _GLIBCXX_CONSTEXPR size_type
-      357:  185:      _M_max_size() const _GLIBCXX_USE_NOEXCEPT
+      547:  185:      _M_max_size() const _GLIBCXX_USE_NOEXCEPT
         -:  186:      {
         -:  187:#if __PTRDIFF_MAX__ < __SIZE_MAX__
-      357:  188:	return std::size_t(__PTRDIFF_MAX__) / sizeof(_Tp);
+      547:  188:	return std::size_t(__PTRDIFF_MAX__) / sizeof(_Tp);
         -:  189:#else
         -:  190:	return std::size_t(-1) / sizeof(_Tp);
         -:  191:#endif
