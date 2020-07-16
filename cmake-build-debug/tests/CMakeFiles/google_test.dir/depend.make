@@ -34,6 +34,29 @@ tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj: ../tests/lib/goo
 tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj: ../tests/Database/DatabaseTest.cpp
 
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../src/utility/Date.hpp
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-death-test.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-matchers.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-message.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-param-test.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-printers.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-test-part.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest-typed-test.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest_pred_impl.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/gtest_prod.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/custom/gtest-port.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/custom/gtest-printers.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-death-test-internal.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-filepath.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-internal.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-param-util.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-port-arch.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-port.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-string.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
+tests/CMakeFiles/google_test.dir/DateTest.cpp.obj: ../tests/DateTest.cpp
+
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Employee/Affiliation.hpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj: ../src/Employee/Employee.hpp
@@ -143,6 +166,8 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tes
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/DeleteEmployeeTest.cpp
 tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj: ../tests/Transactions/utility/TestUsingDatabase.hpp
+
+tests/CMakeFiles/google_test.dir/Transactions/PaydayTest.cpp.obj: ../tests/Transactions/PaydayTest.cpp
 
 tests/CMakeFiles/google_test.dir/Transactions/SalesReceipt.cpp.obj: ../src/Database/PayrollDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/SalesReceipt.cpp.obj: ../src/Employee/Affiliation.hpp

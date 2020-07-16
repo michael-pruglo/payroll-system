@@ -197,6 +197,33 @@ Database/DatabaseTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.s
 .PHONY : Database/DatabaseTest.cpp.s
 
+DateTest.obj: DateTest.cpp.obj
+
+.PHONY : DateTest.obj
+
+# target to build an object file
+DateTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DateTest.cpp.obj
+.PHONY : DateTest.cpp.obj
+
+DateTest.i: DateTest.cpp.i
+
+.PHONY : DateTest.i
+
+# target to preprocess a source file
+DateTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DateTest.cpp.i
+.PHONY : DateTest.cpp.i
+
+DateTest.s: DateTest.cpp.s
+
+.PHONY : DateTest.s
+
+# target to generate assembly for a file
+DateTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DateTest.cpp.s
+.PHONY : DateTest.cpp.s
+
 Transactions/AddEmployeeTest.obj: Transactions/AddEmployeeTest.cpp.obj
 
 .PHONY : Transactions/AddEmployeeTest.obj
@@ -277,6 +304,33 @@ Transactions/DeleteEmployeeTest.s: Transactions/DeleteEmployeeTest.cpp.s
 Transactions/DeleteEmployeeTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.s
 .PHONY : Transactions/DeleteEmployeeTest.cpp.s
+
+Transactions/PaydayTest.obj: Transactions/PaydayTest.cpp.obj
+
+.PHONY : Transactions/PaydayTest.obj
+
+# target to build an object file
+Transactions/PaydayTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/PaydayTest.cpp.obj
+.PHONY : Transactions/PaydayTest.cpp.obj
+
+Transactions/PaydayTest.i: Transactions/PaydayTest.cpp.i
+
+.PHONY : Transactions/PaydayTest.i
+
+# target to preprocess a source file
+Transactions/PaydayTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/PaydayTest.cpp.i
+.PHONY : Transactions/PaydayTest.cpp.i
+
+Transactions/PaydayTest.s: Transactions/PaydayTest.cpp.s
+
+.PHONY : Transactions/PaydayTest.s
+
+# target to generate assembly for a file
+Transactions/PaydayTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/Transactions/PaydayTest.cpp.s
+.PHONY : Transactions/PaydayTest.cpp.s
 
 Transactions/SalesReceipt.obj: Transactions/SalesReceipt.cpp.obj
 
@@ -402,6 +456,9 @@ help:
 	@echo ... Database/DatabaseTest.obj
 	@echo ... Database/DatabaseTest.i
 	@echo ... Database/DatabaseTest.s
+	@echo ... DateTest.obj
+	@echo ... DateTest.i
+	@echo ... DateTest.s
 	@echo ... Transactions/AddEmployeeTest.obj
 	@echo ... Transactions/AddEmployeeTest.i
 	@echo ... Transactions/AddEmployeeTest.s
@@ -411,6 +468,9 @@ help:
 	@echo ... Transactions/DeleteEmployeeTest.obj
 	@echo ... Transactions/DeleteEmployeeTest.i
 	@echo ... Transactions/DeleteEmployeeTest.s
+	@echo ... Transactions/PaydayTest.obj
+	@echo ... Transactions/PaydayTest.i
+	@echo ... Transactions/PaydayTest.s
 	@echo ... Transactions/SalesReceipt.obj
 	@echo ... Transactions/SalesReceipt.i
 	@echo ... Transactions/SalesReceipt.s
