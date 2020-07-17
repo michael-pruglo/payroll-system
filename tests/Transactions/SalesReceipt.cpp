@@ -1,3 +1,4 @@
+#include <tests/EmployeeFactory.hpp>
 #include "src/utility/Date.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/SalesReceiptTransaction.hpp"
@@ -11,25 +12,22 @@ protected:
 
     void SetUp() override
     {
-        AddCommissionedEmployee at(id, name, address, cSalary, cRate);
+        AddCommissionedEmployee at(_ec.id, _ec.name, _ec.address, _ec.cSalary, _ec.cRate);
         ASSERT_NO_THROW(at.execute());
         initSize = database->size();
         EXPECT_EQ(initSize, 1);
     }
 
-    int id = 11;
-    std::string name = "Nick", address = "Nicaragua";
-    Date date = Date(2020, 7, 7);
-    double amount = 17.0, cSalary = 600.0, cRate = 33.0;
+    EmployeeFactory _ec{13};
 };
 
 TEST_F(SalesReceiptTest, SalesReceiptUpdates)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_ec.id);
 
-    SalesReceiptTransaction srt(date, amount, id);
+    SalesReceiptTransaction srt(_ec.date, _ec.amount, _ec.id);
     ASSERT_NO_THROW(srt.execute());
 
-    CommissionedEmployeeCorrectnessTester(*database->getEmployee(id),
-            cSalary, cRate, SalesReceipt(date, amount)).invoke(id, name, address);
+    CommissionedEmployeeCorrectnessTester(*database->getEmployee(_ec.id),
+        _ec.cSalary, _ec.cRate, SalesReceipt(_ec.date, _ec.amount)).invoke(_ec.id, _ec.name, _ec.address);
 }

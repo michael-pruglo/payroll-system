@@ -1,3 +1,4 @@
+#include <tests/EmployeeFactory.hpp>
 #include "src/Transactions/ChangeEmployeeTransaction.hpp"
 #include "src/Transactions/ChangeEmployeeTransaction.cpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
@@ -11,123 +12,121 @@ protected:
 
     void SetUp() override
     {
-        AddHourlyEmployee at(id, name, address, hRate);
+        AddHourlyEmployee at(_eh.id, _eh.name, _eh.address, _eh.hRate);
         ASSERT_NO_THROW(at.execute());
-        AddSalariedEmployee ast(sId, sName, sAddress, sSalary);
+        AddSalariedEmployee ast(_es.id, _es.name, _es.address, _es.sSalary);
         ASSERT_NO_THROW(ast.execute());
         initSize = database->size();
         EXPECT_EQ(initSize, 2);
     }
 
-    int id = 21, sId = 22;
-    std::string name = "Lizz", address = "Lesoto", sName = "Sally", sAddress = "Salamore";
-    double hRate = 10.0, sSalary = 1028.7;
+    EmployeeFactory _eh{4}, _es{5};
 };
 
 TEST_F(ChangeEmployeeTest, ChangeName)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
     std::string newName = "Elizabeth";
-    ChangeNameTransaction cnt(id, newName);
+    ChangeNameTransaction cnt(_eh.id, newName);
     ASSERT_NO_THROW(cnt.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, newName, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate).invoke(_eh.id, newName, _eh.address);
 }
 
 TEST_F(ChangeEmployeeTest, ChangeAddress)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
     std::string newAddress = "England";
-    ChangeAddressTransaction cat(id, newAddress);
+    ChangeAddressTransaction cat(_eh.id, newAddress);
     ASSERT_NO_THROW(cat.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate).invoke(id, name, newAddress);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate).invoke(_eh.id, _eh.name, newAddress);
 }
 
 TEST_F(ChangeEmployeeTest, ChangeHourlyToCommissioned)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
     double cRate = 0.8, cSalary = 999.9;
-    ChangeToCommissionedTransaction ctct(id, cSalary, cRate);
+    ChangeToCommissionedTransaction ctct(_eh.id, cSalary, cRate);
     ASSERT_NO_THROW(ctct.execute());
 
-    CommissionedEmployeeCorrectnessTester(*database->getEmployee(id), cSalary, cRate).invoke(id, name, address);
+    CommissionedEmployeeCorrectnessTester(*database->getEmployee(_eh.id), cSalary, cRate).invoke(_eh.id, _eh.name, _eh.address);
 }
 TEST_F(ChangeEmployeeTest, ChangeHourlyToSalaried)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
-    ChangeToSalariedTransaction ctst(id, sSalary);
+    ChangeToSalariedTransaction ctst(_eh.id, _es.sSalary);
     ASSERT_NO_THROW(ctst.execute());
 
-    SalariedEmployeeCorrectnessTester(*database->getEmployee(id), sSalary).invoke(id, name, address);
+    SalariedEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _es.sSalary).invoke(_eh.id, _eh.name, _eh.address);
 }
 TEST_F(ChangeEmployeeTest, ChangeSalariedToHourly)
 {
-    assertDatabaseContains(sId);
+    assertDatabaseContains(_es.id);
 
-    ChangeToHourlyTransaction ctht(sId, hRate);
+    ChangeToHourlyTransaction ctht(_es.id, _es.hRate);
     ASSERT_NO_THROW(ctht.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(sId), hRate).invoke(sId, sName, sAddress);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_es.id), _es.hRate).invoke(_es.id, _es.name, _es.address);
 }
 
 TEST_F(ChangeEmployeeTest, ChangeMethodHoldToDirect)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
     std::string bank = "Privat";
     int account = 937272;
-    ChangeToDirectMethodTransaction ctdmt(id, bank, account);
+    ChangeToDirectMethodTransaction ctdmt(_eh.id, bank, account);
     ASSERT_NO_THROW(ctdmt.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
-        .invoke<DirectMethod>(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate)
+        .invoke<DirectMethod>(_eh.id, _eh.name, _eh.address);
 }
 TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMail)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
-    ChangeToMailMethodTransaction ctdmt(id, address);
+    ChangeToMailMethodTransaction ctdmt(_eh.id, _eh.address);
     ASSERT_NO_THROW(ctdmt.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
-        .invoke<MailMethod>(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate)
+        .invoke<MailMethod>(_eh.id, _eh.name, _eh.address);
 }
 TEST_F(ChangeEmployeeTest, ChangeMethodHoldToMailAndBack)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
-    ChangeToMailMethodTransaction ctdmt(id, address);
+    ChangeToMailMethodTransaction ctdmt(_eh.id, _eh.address);
     ASSERT_NO_THROW(ctdmt.execute());
-    ChangeToHoldMethodTransaction cthmt(id);
+    ChangeToHoldMethodTransaction cthmt(_eh.id);
     ASSERT_NO_THROW(cthmt.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
-        .invoke(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate)
+        .invoke(_eh.id, _eh.name, _eh.address);
 }
 
 TEST_F(ChangeEmployeeTest, ChangeAffiliationToMember)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
     int memberId = 88;
-    ChangeToUnionAffiliationTransaction ctuat(id, memberId);
+    ChangeToUnionAffiliationTransaction ctuat(_eh.id, memberId);
     ASSERT_NO_THROW(ctuat.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(database->getIdByUnionMemberId(memberId)), hRate)
-        .invoke<HoldMethod, UnionAffiliation>(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(database->getIdByUnionMemberId(memberId)), _eh.hRate)
+        .invoke<HoldMethod, UnionAffiliation>(_eh.id, _eh.name, _eh.address);
 }
 TEST_F(ChangeEmployeeTest, ChangeAffiliationToNo)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
-    ChangeToNoAffiliationTransaction ctnat(id);
+    ChangeToNoAffiliationTransaction ctnat(_eh.id);
     ASSERT_NO_THROW(ctnat.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate)
-        .invoke<HoldMethod, NoAffiliation>(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate)
+        .invoke<HoldMethod, NoAffiliation>(_eh.id, _eh.name, _eh.address);
 }

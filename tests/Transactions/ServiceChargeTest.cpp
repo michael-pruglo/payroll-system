@@ -1,3 +1,4 @@
+#include <tests/EmployeeFactory.hpp>
 #include "src/Employee/ServiceCharge.hpp"
 #include "src/utility/Date.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
@@ -12,31 +13,28 @@ protected:
 
     void SetUp() override
     {
-        AddHourlyEmployee at(id, name, address, hRate);
+        AddHourlyEmployee at(_eh.id, _eh.name, _eh.address, _eh.hRate);
         ASSERT_NO_THROW(at.execute());
         initSize = database->size();
         EXPECT_EQ(initSize, 1);
     }
 
-    int id = 12;
-    std::string name = "Josh", address = "Jerusalem";
-    Date date = Date(2020, 8, 9);
-    double amount = 17.0, hRate = 19.0;
+    EmployeeFactory _eh{15};
 };
 
 #define TESTJOSH( BODY ) \
-    assertDatabaseContains(id); \
-    HourlyEmployeeCorrectnessTester hect(*database->getEmployee(id), hRate);\
+    assertDatabaseContains(_eh.id); \
+    HourlyEmployeeCorrectnessTester hect(*database->getEmployee(_eh.id), _eh.hRate);\
     BODY \
-    hect.invoke(id, name, address);\
+    hect.invoke(_eh.id, _eh.name, _eh.address);\
 
 TEST_F(ServiceChargeTest, ServiceChargeUpdates)
 {
     TESTJOSH(
-        ServiceChargeTransaction sct(date, amount, id);
+        ServiceChargeTransaction sct(_eh.date, _eh.amount, _eh.id);
         ASSERT_NO_THROW(sct.execute());
 
-        hect.addServiceCharge(ServiceCharge(date, amount));
+        hect.addServiceCharge(ServiceCharge(_eh.date, _eh.amount));
     )
 }
 
@@ -48,7 +46,7 @@ TEST_F(ServiceChargeTest, NServiceCharges)
             auto date = Date(i, 5, 5);
             auto amount = 18.0+i;
 
-            ServiceChargeTransaction sct(date, amount, id);
+            ServiceChargeTransaction sct(date, amount, _eh.id);
             ASSERT_NO_THROW(sct.execute());
 
             hect.addServiceCharge(ServiceCharge(date, amount));

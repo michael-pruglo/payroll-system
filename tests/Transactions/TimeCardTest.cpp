@@ -1,3 +1,4 @@
+#include <tests/EmployeeFactory.hpp>
 #include "src/utility/Date.hpp"
 #include "src/Transactions/AddEmployeeTransaction.hpp"
 #include "src/Transactions/TimeCardTransaction.hpp"
@@ -11,25 +12,22 @@ protected:
 
     void SetUp() override
     {
-        AddHourlyEmployee at(id, name, address, hRate);
+        AddHourlyEmployee at(_eh.id, _eh.name, _eh.address, _eh.hRate);
         ASSERT_NO_THROW(at.execute());
         initSize = database->size();
         EXPECT_EQ(initSize, 1);
     }
 
-    int id = 10;
-    std::string name = "Jack", address = "Jamaica";
-    Date date = Date(2020, 06, 11);
-    double hours = 8.0, hRate = 10.0;
+    EmployeeFactory _eh{20};
 };
 
 TEST_F(TimeCardTest, TimeCardUpdates)
 {
-    assertDatabaseContains(id);
+    assertDatabaseContains(_eh.id);
 
-    TimeCardTransaction tct(date, hours, id);
+    TimeCardTransaction tct(_eh.date, _eh.hours, _eh.id);
     ASSERT_NO_THROW(tct.execute());
 
-    HourlyEmployeeCorrectnessTester(*database->getEmployee(id), hRate, TimeCard(date, hours))
-        .invoke(id, name, address);
+    HourlyEmployeeCorrectnessTester(*database->getEmployee(_eh.id), _eh.hRate, TimeCard(_eh.date, _eh.hours))
+        .invoke(_eh.id, _eh.name, _eh.address);
 }

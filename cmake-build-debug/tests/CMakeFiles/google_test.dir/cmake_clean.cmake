@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/google_test.dir/Database/DatabaseTest.cpp.obj"
   "CMakeFiles/google_test.dir/DateTest.cpp.obj"
+  "CMakeFiles/google_test.dir/EmployeeFactory.cpp.obj"
+  "CMakeFiles/google_test.dir/EmployeeFactoryTest.cpp.obj"
   "CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj"
   "CMakeFiles/google_test.dir/Transactions/ChangeEmployeeTest.cpp.obj"
   "CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj"

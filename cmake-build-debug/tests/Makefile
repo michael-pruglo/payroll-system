@@ -224,6 +224,60 @@ DateTest.cpp.s:
 	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/DateTest.cpp.s
 .PHONY : DateTest.cpp.s
 
+EmployeeFactory.obj: EmployeeFactory.cpp.obj
+
+.PHONY : EmployeeFactory.obj
+
+# target to build an object file
+EmployeeFactory.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/EmployeeFactory.cpp.obj
+.PHONY : EmployeeFactory.cpp.obj
+
+EmployeeFactory.i: EmployeeFactory.cpp.i
+
+.PHONY : EmployeeFactory.i
+
+# target to preprocess a source file
+EmployeeFactory.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/EmployeeFactory.cpp.i
+.PHONY : EmployeeFactory.cpp.i
+
+EmployeeFactory.s: EmployeeFactory.cpp.s
+
+.PHONY : EmployeeFactory.s
+
+# target to generate assembly for a file
+EmployeeFactory.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/EmployeeFactory.cpp.s
+.PHONY : EmployeeFactory.cpp.s
+
+EmployeeFactoryTest.obj: EmployeeFactoryTest.cpp.obj
+
+.PHONY : EmployeeFactoryTest.obj
+
+# target to build an object file
+EmployeeFactoryTest.cpp.obj:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/EmployeeFactoryTest.cpp.obj
+.PHONY : EmployeeFactoryTest.cpp.obj
+
+EmployeeFactoryTest.i: EmployeeFactoryTest.cpp.i
+
+.PHONY : EmployeeFactoryTest.i
+
+# target to preprocess a source file
+EmployeeFactoryTest.cpp.i:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/EmployeeFactoryTest.cpp.i
+.PHONY : EmployeeFactoryTest.cpp.i
+
+EmployeeFactoryTest.s: EmployeeFactoryTest.cpp.s
+
+.PHONY : EmployeeFactoryTest.s
+
+# target to generate assembly for a file
+EmployeeFactoryTest.cpp.s:
+	cd /d C:\Users\mickl\ClionProjects\payroll-system\cmake-build-debug && $(MAKE) -f tests\CMakeFiles\google_test.dir\build.make tests/CMakeFiles/google_test.dir/EmployeeFactoryTest.cpp.s
+.PHONY : EmployeeFactoryTest.cpp.s
+
 Transactions/AddEmployeeTest.obj: Transactions/AddEmployeeTest.cpp.obj
 
 .PHONY : Transactions/AddEmployeeTest.obj
@@ -459,6 +513,12 @@ help:
 	@echo ... DateTest.obj
 	@echo ... DateTest.i
 	@echo ... DateTest.s
+	@echo ... EmployeeFactory.obj
+	@echo ... EmployeeFactory.i
+	@echo ... EmployeeFactory.s
+	@echo ... EmployeeFactoryTest.obj
+	@echo ... EmployeeFactoryTest.i
+	@echo ... EmployeeFactoryTest.s
 	@echo ... Transactions/AddEmployeeTest.obj
 	@echo ... Transactions/AddEmployeeTest.i
 	@echo ... Transactions/AddEmployeeTest.s

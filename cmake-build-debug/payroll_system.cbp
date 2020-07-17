@@ -456,6 +456,15 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/DateTest.cpp">
 			<Option target="google_test"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactory.cpp">
+			<Option target="google_test"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactory.hpp">
+			<Option target="google_test"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactoryTest.cpp">
+			<Option target="google_test"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/AddEmployeeTest.cpp">
 			<Option target="google_test"/>
 		</Unit>

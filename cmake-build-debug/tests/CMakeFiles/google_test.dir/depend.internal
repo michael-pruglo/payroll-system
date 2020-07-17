@@ -57,6 +57,34 @@ tests/CMakeFiles/google_test.dir/DateTest.cpp.obj
  ../tests/lib/googletest/include/gtest/internal/gtest-string.h
  ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
  C:/Users/mickl/ClionProjects/payroll-system/tests/DateTest.cpp
+tests/CMakeFiles/google_test.dir/EmployeeFactory.cpp.obj
+ ../src/utility/Date.hpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactory.cpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactory.hpp
+tests/CMakeFiles/google_test.dir/EmployeeFactoryTest.cpp.obj
+ ../src/utility/Date.hpp
+ ../tests/lib/googletest/include/gtest/gtest-death-test.h
+ ../tests/lib/googletest/include/gtest/gtest-matchers.h
+ ../tests/lib/googletest/include/gtest/gtest-message.h
+ ../tests/lib/googletest/include/gtest/gtest-param-test.h
+ ../tests/lib/googletest/include/gtest/gtest-printers.h
+ ../tests/lib/googletest/include/gtest/gtest-test-part.h
+ ../tests/lib/googletest/include/gtest/gtest-typed-test.h
+ ../tests/lib/googletest/include/gtest/gtest.h
+ ../tests/lib/googletest/include/gtest/gtest_pred_impl.h
+ ../tests/lib/googletest/include/gtest/gtest_prod.h
+ ../tests/lib/googletest/include/gtest/internal/custom/gtest-port.h
+ ../tests/lib/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-filepath.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-internal.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-param-util.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-port-arch.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-port.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-string.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
+ C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactory.hpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/EmployeeFactoryTest.cpp
 tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj
  ../src/Database/PayrollDatabase.hpp
  ../src/Employee/Affiliation.hpp
@@ -71,6 +99,7 @@ tests/CMakeFiles/google_test.dir/Transactions/AddEmployeeTest.cpp.obj
  ../src/Transactions/AddEmployeeTransaction.hpp
  ../src/Transactions/Transaction.hpp
  ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -109,6 +138,7 @@ tests/CMakeFiles/google_test.dir/Transactions/ChangeEmployeeTest.cpp.obj
  ../src/Transactions/ChangeEmployeeTransaction.hpp
  ../src/Transactions/Transaction.hpp
  ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -145,6 +175,7 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj
  ../src/Transactions/DeleteEmployeeTransaction.hpp
  ../src/Transactions/Transaction.hpp
  ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -168,7 +199,41 @@ tests/CMakeFiles/google_test.dir/Transactions/DeleteEmployeeTest.cpp.obj
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/DeleteEmployeeTest.cpp
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/PaydayTest.cpp.obj
+ ../src/Database/PayrollDatabase.hpp
+ ../src/Employee/Affiliation.hpp
+ ../src/Employee/Employee.hpp
+ ../src/Employee/PaymentClassification.hpp
+ ../src/Employee/PaymentMethod.hpp
+ ../src/Employee/PaymentSchedule.hpp
+ ../src/Employee/SalesReceipt.hpp
+ ../src/Employee/ServiceCharge.hpp
+ ../src/Employee/TimeCard.hpp
+ ../src/Transactions/AddEmployeeTransaction.hpp
+ ../src/Transactions/Transaction.hpp
+ ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
+ ../tests/lib/googletest/include/gtest/gtest-death-test.h
+ ../tests/lib/googletest/include/gtest/gtest-matchers.h
+ ../tests/lib/googletest/include/gtest/gtest-message.h
+ ../tests/lib/googletest/include/gtest/gtest-param-test.h
+ ../tests/lib/googletest/include/gtest/gtest-printers.h
+ ../tests/lib/googletest/include/gtest/gtest-test-part.h
+ ../tests/lib/googletest/include/gtest/gtest-typed-test.h
+ ../tests/lib/googletest/include/gtest/gtest.h
+ ../tests/lib/googletest/include/gtest/gtest_pred_impl.h
+ ../tests/lib/googletest/include/gtest/gtest_prod.h
+ ../tests/lib/googletest/include/gtest/internal/custom/gtest-port.h
+ ../tests/lib/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-filepath.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-internal.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-param-util.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-port-arch.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-port.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-string.h
+ ../tests/lib/googletest/include/gtest/internal/gtest-type-util.h
  C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/PaydayTest.cpp
+ C:/Users/mickl/ClionProjects/payroll-system/tests/Transactions/utility/TestUsingDatabase.hpp
 tests/CMakeFiles/google_test.dir/Transactions/SalesReceipt.cpp.obj
  ../src/Database/PayrollDatabase.hpp
  ../src/Employee/Affiliation.hpp
@@ -183,6 +248,7 @@ tests/CMakeFiles/google_test.dir/Transactions/SalesReceipt.cpp.obj
  ../src/Transactions/SalesReceiptTransaction.hpp
  ../src/Transactions/Transaction.hpp
  ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -220,6 +286,7 @@ tests/CMakeFiles/google_test.dir/Transactions/ServiceChargeTest.cpp.obj
  ../src/Transactions/ServiceChargeTransaction.hpp
  ../src/Transactions/Transaction.hpp
  ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
@@ -257,6 +324,7 @@ tests/CMakeFiles/google_test.dir/Transactions/TimeCardTest.cpp.obj
  ../src/Transactions/TimeCardTransaction.hpp
  ../src/Transactions/Transaction.hpp
  ../src/utility/Date.hpp
+ ../tests/EmployeeFactory.hpp
  ../tests/lib/googletest/include/gtest/gtest-death-test.h
  ../tests/lib/googletest/include/gtest/gtest-matchers.h
  ../tests/lib/googletest/include/gtest/gtest-message.h
