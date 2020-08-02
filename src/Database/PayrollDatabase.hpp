@@ -15,6 +15,7 @@ public:
 
     void                        addEmployee(int id, std::shared_ptr<Employee> employee);
     std::shared_ptr<Employee>   getEmployee(int id) const;
+    std::vector<int>            getAllIds() const;
     void                        updateEmployee(int id, std::shared_ptr<Employee> newEmployee);
     void                        deleteEmployee(int id);
     auto                        size() const { return database.size(); }

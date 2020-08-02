@@ -2,6 +2,7 @@
 #include "src/Database/PayrollDatabase.hpp"
 #include "src/Database/PayrollDatabase.cpp"
 #include "src/Employee/Employee.hpp"
+#include "src/Employee/Employee.cpp"
 
 class PayrollDatabaseTest : public ::testing::Test
 {

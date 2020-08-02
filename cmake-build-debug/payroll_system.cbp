@@ -393,6 +393,9 @@
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Affiliation.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Employee/Employee.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
@@ -430,6 +433,12 @@
 			<Option target="payroll_system"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/DeleteEmployeeTransaction.hpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/PaydayTransaction.cpp">
+			<Option target="payroll_system"/>
+		</Unit>
+		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/PaydayTransaction.hpp">
 			<Option target="payroll_system"/>
 		</Unit>
 		<Unit filename="C:/Users/mickl/ClionProjects/payroll-system/src/Transactions/SalesReceiptTransaction.hpp">

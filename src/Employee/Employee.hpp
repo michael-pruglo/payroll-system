@@ -6,17 +6,13 @@
 #include "PaymentSchedule.hpp"
 #include "PaymentMethod.hpp"
 #include "Affiliation.hpp"
+#include "../Transactions/PaydayTransaction.hpp"
 
 
 class Employee
 {
 public:
-    Employee(int id, std::string name, std::string address) :
-            id(id),
-            name(std::move(name)),
-            address(std::move(address)),
-            affiliation(new NoAffiliation())
-    {}
+    Employee(int id, std::string name, std::string address);
 
     std::string                             getName() const { return name; }
     void                                    setName(std::string newName) { name = std::move(newName); }
@@ -30,6 +26,8 @@ public:
     void                                    setPaymentMethod(std::shared_ptr<PaymentMethod> pc) { paymentMethod = pc; }
     std::shared_ptr<Affiliation>            getAffiliation() const { return affiliation; }
     void                                    setAffiliation(std::shared_ptr<Affiliation> a) { affiliation = a; }
+    bool                                    isPayDate(Date date) const;
+    void                                    payday(std::shared_ptr<Paycheck> paycheck);
 private:
     int id;
     std::string name, address;
@@ -38,5 +36,6 @@ private:
     std::shared_ptr<PaymentMethod> paymentMethod;
     std::shared_ptr<Affiliation> affiliation;
 };
+
 
 #endif //PAYROLL_SYSTEM_EMPLOYEE_HPP

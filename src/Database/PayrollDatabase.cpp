@@ -64,3 +64,13 @@ std::shared_ptr<PayrollDatabase> PayrollDatabase::getInstance()
         _instance = std::shared_ptr<PayrollDatabase> {new PayrollDatabase()};
     return _instance;
 }
+
+std::vector<int> PayrollDatabase::getAllIds() const
+{
+    std::vector<int> res;
+    res.reserve(database.size());
+    for (const auto& [id, employee] : database)
+        res.push_back(id);
+
+    return res;
+}
